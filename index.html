@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gooaye 股癌 · Ting Wei Wang 私人追蹤站</title>
+<title>Gooaye 股癌 · 預測追蹤</title>
 <meta name="description" content="Gooaye 股癌 podcast 預測追蹤與命中率回測，整理各集個股、權重與走勢驗證。">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -368,8 +368,8 @@
 <section class="hero">
   <div>
     <div class="eyebrow"><span class="dot"></span><span id="liveStatus">即時 RSS · 自動偵測新集</span></div>
-    <h1>Gooaye 股癌 · Ting Wei Wang 私人追蹤站</h1>
-    <p>整理 Gooaye 股癌 podcast 主持人 <b style="color:#bae6fd">謝孟恭</b> 在 EP651-EP660 點名的個股與主軸論述，截至 2026/05/09 的<b style="color:#bae6fd">命中率</b>、實際走勢與來源摘要。每次開啟自動拉 RSS 偵測新集——可從任何電腦／手機開啟（部署到 Netlify / Cloudflare Pages 後）。</p>
+    <h1>Gooaye 股癌 · 預測追蹤</h1>
+    <p>整理 Gooaye 股癌 podcast 主持人 <b style="color:#bae6fd">謝孟恭</b> 在 EP651-EP660 點名的個股與主軸論述，截至 2026/05/09 的<b style="color:#bae6fd">命中率</b>、實際走勢與來源摘要。每次開啟自動拉 RSS 偵測新集——可從任何電腦／手機開啟。</p>
   </div>
   <div class="hero-meta">
     <div class="meta-label">最新集數</div>
@@ -377,6 +377,18 @@
     <div class="meta-sub" id="latestMeta">2026/05/09 · 5 月 5 月應有像樣回檔已部分兌現</div>
   </div>
 </section>
+
+<!-- ========== UPDATE TIME BAR ========== -->
+<div style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-radius:10px;padding:8px 14px;margin-bottom:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:11px;font-family:'JetBrains Mono',monospace;color:#8ea3c0">
+  <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite"></span><b style="color:#bae6fd">資料快照</b> <span id="dataSnapshot">2026/05/09</span></span>
+  <span style="color:#23304a">|</span>
+  <span><b style="color:#bae6fd">RSS 載入</b> <span id="rssLoadTime">—</span></span>
+  <span style="color:#23304a">|</span>
+  <span><b style="color:#bae6fd">最新集</b> <span id="rssLatestEp">—</span></span>
+  <span style="color:#23304a">|</span>
+  <span><b style="color:#bae6fd">下次排程</b> 週三 / 週六 19:09</span>
+  <span style="margin-left:auto"><span id="rssLastChecked" style="color:#6f84a1">頁面開啟於 <span id="pageOpenTime"></span></span></span>
+</div>
 
 <!-- ========== KPI ========== -->
 <div class="summary-grid">
@@ -389,6 +401,137 @@
   <b id="alertTitle">🎙</b>　<span id="alertBody"></span>
   <button class="ghost-btn" style="float:right;margin-top:-2px" onclick="document.getElementById('alert').classList.remove('show')">✕</button>
 </div>
+
+<!-- ========== HIGHLIGHT: 最新 5 集精華 + 驗證亮點 ========== -->
+<section style="margin:18px 0 24px">
+  <div class="section-title" style="margin-top:0">
+    <h2 style="background:linear-gradient(90deg,#fbbf24,#fb7185);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🔥 最新 5 集精華 + 驗證亮點</h2>
+    <span class="sub">EP656-EP660 · 截至 2026/05/09</span>
+    <span class="action-hint">一目了然</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
+
+    <!-- LEFT: 5 episode highlight cards -->
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <!-- EP660 -->
+      <div style="background:linear-gradient(90deg,rgba(148,163,184,0.08),rgba(9,14,29,0.84));border:1px solid #1f2d47;border-left:3px solid #94a3b8;border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:#bae6fd;font-family:'JetBrains Mono',monospace">660</div>
+          <div style="font-size:9px;color:#6f84a1">05/09</div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e6edf3">🍄 這樣下去會不會壞掉</div>
+          <div style="font-size:11px;color:#8ea3c0;margin-top:2px;line-height:1.5">台股 42K · 台積 $2,345 · <b style="color:#fbbf24">聯發科處置撮合</b> · 風險控管 &gt; 追高 · 「胖尾風險」警告</div>
+        </div>
+        <span class="badge pending">PENDING</span>
+      </div>
+
+      <!-- EP659 -->
+      <div style="background:linear-gradient(90deg,rgba(74,222,128,0.06),rgba(9,14,29,0.84));border:1px solid #1f2d47;border-left:3px solid #4ade80;border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:#bae6fd;font-family:'JetBrains Mono',monospace">659</div>
+          <div style="font-size:9px;color:#6f84a1">05/06</div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e6edf3">🦤 做壞掉了</div>
+          <div style="font-size:11px;color:#8ea3c0;margin-top:2px;line-height:1.5"><b style="color:#4ade80">國巨/信昌電隔日漲停</b> · 世芯-KY +5% · AMD CPU &gt;50% 市佔 · 聯發科預期打滿 · 派對退場警示</div>
+        </div>
+        <span class="badge hit">HIT</span>
+      </div>
+
+      <!-- EP658 -->
+      <div style="background:linear-gradient(90deg,rgba(74,222,128,0.06),rgba(9,14,29,0.84));border:1px solid #1f2d47;border-left:3px solid #4ade80;border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:#bae6fd;font-family:'JetBrains Mono',monospace">658</div>
+          <div style="font-size:9px;color:#6f84a1">05/02</div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e6edf3">🪿 最終都是氣氛</div>
+          <div style="font-size:11px;color:#8ea3c0;margin-top:2px;line-height:1.5">軟體股 AI 抗性分層 · <b style="color:#4ade80">PLTR 5/4 EPS Beat</b> · NET/CRWD/PLTR 三劍客 · 股票質押 2-2.7% · 5 月應有回檔</div>
+        </div>
+        <span class="badge hit">HIT</span>
+      </div>
+
+      <!-- EP657 -->
+      <div style="background:linear-gradient(90deg,rgba(74,222,128,0.06),rgba(9,14,29,0.84));border:1px solid #1f2d47;border-left:3px solid #4ade80;border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:#bae6fd;font-family:'JetBrains Mono',monospace">657</div>
+          <div style="font-size:9px;color:#6f84a1">04/29</div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e6edf3">🐫 他不呆兒 他長大了</div>
+          <div style="font-size:11px;color:#8ea3c0;margin-top:2px;line-height:1.5"><b style="color:#4ade80">Intel EMIB 良率 90% (重大!)</b> · 聯發科利空解除 · Meta 大買 Graviton 5 ~520K · 旺宏 NOR/MLC 漲價</div>
+        </div>
+        <span class="badge hit">HIT</span>
+      </div>
+
+      <!-- EP656 -->
+      <div style="background:linear-gradient(90deg,rgba(74,222,128,0.06),rgba(9,14,29,0.84));border:1px solid #1f2d47;border-left:3px solid #4ade80;border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center">
+        <div>
+          <div style="font-size:18px;font-weight:800;color:#bae6fd;font-family:'JetBrains Mono',monospace">656</div>
+          <div style="font-size:9px;color:#6f84a1">04/25</div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e6edf3">🍇 萬劍歸宗</div>
+          <div style="font-size:11px;color:#8ea3c0;margin-top:2px;line-height:1.5"><b style="color:#4ade80">投信 25% 解封 → 台積電 +6.6%</b> · ASIC 兩條線 · <b style="color:#4ade80">創意 +36%</b> · 聯發科三根漲停 · CPU:GPU 不是 1:1</div>
+        </div>
+        <span class="badge hit">HIT</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Top 4 validation hits -->
+    <div style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-radius:10px;padding:14px">
+      <div style="color:#fbbf24;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">⭐ Top 5 命中</div>
+
+      <div style="padding:8px 0;border-bottom:1px solid #1f2d47">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-size:13px;font-weight:700;color:#e6edf3">創意 <span style="color:#8ea3c0;font-weight:400;font-family:'JetBrains Mono',monospace;font-size:11px">3443</span></span>
+          <span class="delta pos" style="font-size:14px">+36%</span>
+        </div>
+        <div style="font-size:10px;color:#6f84a1;margin-top:2px">EP656 · ASIC 兩條線 · 4/25→5/7</div>
+      </div>
+
+      <div style="padding:8px 0;border-bottom:1px solid #1f2d47">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-size:13px;font-weight:700;color:#e6edf3">聯發科 <span style="color:#8ea3c0;font-weight:400;font-family:'JetBrains Mono',monospace;font-size:11px">2454</span></span>
+          <span class="delta pos" style="font-size:14px">+30%</span>
+        </div>
+        <div style="font-size:10px;color:#6f84a1;margin-top:2px">EP655→657→659 三集連貫敘事</div>
+      </div>
+
+      <div style="padding:8px 0;border-bottom:1px solid #1f2d47">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-size:13px;font-weight:700;color:#e6edf3">世芯-KY <span style="color:#8ea3c0;font-weight:400;font-family:'JetBrains Mono',monospace;font-size:11px">3661</span></span>
+          <span class="delta pos" style="font-size:14px">~+26%</span>
+        </div>
+        <div style="font-size:10px;color:#6f84a1;margin-top:2px">EP656/659 · Amazon Trainium</div>
+      </div>
+
+      <div style="padding:8px 0;border-bottom:1px solid #1f2d47">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-size:13px;font-weight:700;color:#e6edf3">PLTR Palantir</span>
+          <span class="delta pos" style="font-size:14px">EPS Beat</span>
+        </div>
+        <div style="font-size:10px;color:#6f84a1;margin-top:2px">EP658 抗 AI · 5/4 $0.33 vs $0.27</div>
+      </div>
+
+      <div style="padding:8px 0">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-size:13px;font-weight:700;color:#e6edf3">台積電 <span style="color:#8ea3c0;font-weight:400;font-family:'JetBrains Mono',monospace;font-size:11px">2330</span></span>
+          <span class="delta pos" style="font-size:14px">+6.6%</span>
+        </div>
+        <div style="font-size:10px;color:#6f84a1;margin-top:2px">EP656 · 投信 25% 解封吸星 · $2,345 史上新高</div>
+      </div>
+
+      <div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:6px;padding:8px 10px;margin-top:10px">
+        <div style="font-size:10px;color:#fbbf24;font-weight:700;text-transform:uppercase;letter-spacing:.5px">⚠️ 失準項</div>
+        <div style="font-size:11px;color:#fde047;margin-top:4px;line-height:1.5">5 月「像樣的回檔」遲遲未現（EP658-659 預期）；大盤 5 萬點「算不到」但 5/7 已觸 42,131</div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- ========== PANE: OVERVIEW ========== -->
 <section class="pane active" id="overview" data-active>
@@ -555,7 +698,7 @@
   <a href="https://podcasts.apple.com/tw/podcast/gooaye-%E8%82%A1%E7%99%8C/id1500839292" target="_blank">Apple Podcasts</a> ·
   <a href="https://vocus.cc/salon/ober" target="_blank">vocus 整理</a> ·
   <a href="https://chengwaye.com/active-etf" target="_blank">設計風格參考 Chengwaye</a>
-  <br>專為 <b style="color:#93c5fd">Ting Wei Wang</b> 製作 · Claude · Cowork mode 整理 · 不構成投資建議
+  <br>由 Claude · Cowork mode 整理 · 不構成投資建議
 </footer>
 
 </div>
@@ -759,6 +902,13 @@ function renderCalls(filter='all', search=''){
 // ============ EPISODES (RSS + embedded) ============
 let liveEpisodes = [];
 
+function setRssLoadTime(name) {
+  const now = new Date();
+  const t = now.toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const el = document.getElementById('rssLoadTime');
+  if (el) el.innerHTML = `<span style="color:#4ade80">${t}</span> <span style="color:#6f84a1;font-size:10px">via ${name}</span>`;
+}
+
 async function fetchRss(){
   for (const p of PROXIES) {
     try {
@@ -771,6 +921,7 @@ async function fetchRss(){
         const j = await res.json();
         if (j.status!=='ok'||!j.items) throw new Error('Bad rss2json');
         document.getElementById('liveStatus').textContent = `RSS 已載入 (via ${p.name}) · 自動偵測新集`;
+        setRssLoadTime(p.name);
         return j.items.map(it=>{
           const m = (it.title||'').match(/EP(\d+)/i);
           return { ep: m?parseInt(m[1]):0, title: it.title||'', pubDate: it.pubDate||'', link: it.link||'' };
@@ -780,6 +931,7 @@ async function fetchRss(){
         if (!t.includes('<rss')&&!t.includes('<channel')) throw new Error('Not RSS');
         const doc = new DOMParser().parseFromString(t,'text/xml');
         document.getElementById('liveStatus').textContent = `RSS 已載入 (via ${p.name}) · 自動偵測新集`;
+        setRssLoadTime(p.name);
         return [...doc.querySelectorAll('item')].map(it=>{
           const title = (it.querySelector('title')?.textContent||'').trim();
           const m = title.match(/EP(\d+)/i);
@@ -876,8 +1028,17 @@ function updateSettings(items) {
   if (items.length) {
     document.getElementById('latestEp').textContent = 'EP'+items[0].ep;
     document.getElementById('latestMeta').textContent = fmtDate(items[0].pubDate) + ' · ' + items[0].title.replace(/EP\d+\s*\|\s*\S*\s*/,'');
+    // Update top bar
+    const el = document.getElementById('rssLatestEp');
+    if (el) el.innerHTML = `<span style="color:#4ade80">EP${items[0].ep}</span> <span style="color:#6f84a1">(${fmtDate(items[0].pubDate)})</span>`;
   }
 }
+
+// Set page open time on load
+document.addEventListener('DOMContentLoaded', ()=>{
+  const el = document.getElementById('pageOpenTime');
+  if (el) el.textContent = new Date().toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit'});
+});
 
 // ============ EVENTS ============
 document.getElementById('stkSearch').addEventListener('input', e => renderStocks(currentMkt, e.target.value));
