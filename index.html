@@ -62,6 +62,13 @@
     padding: 28px 16px 60px;
   }
 
+  /* ========== PANE (tab content) — show only when active ========== */
+  .pane { display: none; }
+  .pane.active { display: block; }
+  /* Override hidden attribute */
+  .pane[hidden] { display: none !important; }
+  .pane.active[hidden] { display: block !important; }
+
   /* ========== HERO ========== */
   .hero {
     display: grid;
@@ -355,12 +362,12 @@
 <body>
 
 <nav class="top">
-  <a class="tab" href="#highlight">🔥 精華</a>
-  <a class="tab" href="#overview">📊 總覽</a>
-  <a class="tab" href="#stocks">💹 個股</a>
-  <a class="tab" href="#calls">📋 驗證</a>
-  <a class="tab" href="#episodes">🎙 集數</a>
-  <a class="tab" href="#settings">⚙️ 設定</a>
+  <button class="tab" data-pane="highlight" type="button">🔥 精華</button>
+  <button class="tab active" data-pane="overview" type="button">📊 總覽</button>
+  <button class="tab" data-pane="stocks" type="button">💹 個股</button>
+  <button class="tab" data-pane="calls" type="button">📋 驗證</button>
+  <button class="tab" data-pane="episodes" type="button">🎙 集數</button>
+  <button class="tab" data-pane="settings" type="button">⚙️ 設定</button>
 </nav>
 
 <div class="page">
@@ -836,34 +843,70 @@ function fmtDate(s){ try { return new Date(s).toLocaleDateString('zh-TW', {year:
 function badge(v){ const lbl={hit:'HIT',partial:'PARTIAL',miss:'MISS',pending:'PENDING'}[v]||v; return `<span class="badge ${v}">${lbl}</span>`; }
 function mktBadge(m){ return `<span class="badge market ${m}">${m.toUpperCase()}</span>`; }
 
-// ============ TAB SWITCHING (robust: use display style + remove hidden attr) ============
+// ============ TAB SWITCHING (robust v3) ============
 function switchTab(paneId) {
-  // Hide all panes
+  console.log('[switchTab] →', paneId);
+  if (!paneId) { console.warn('[switchTab] no paneId given'); return; }
+
+  // Special case: 'highlight' is a section above the panes, not a pane itself.
+  // Just scroll to it and update tab states. Keep current pane visible.
+  if (paneId === 'highlight') {
+    document.querySelectorAll('nav.top .tab').forEach(x => x.classList.remove('active'));
+    const activeTab = document.querySelector(`nav.top .tab[data-pane="highlight"]`);
+    if (activeTab) activeTab.classList.add('active');
+    const hl = document.getElementById('highlight');
+    if (hl) hl.scrollIntoView({behavior: 'smooth', block: 'start'});
+    return;
+  }
+
+  // Hide all panes (use class + force display + clear hidden attr)
   document.querySelectorAll('.pane').forEach(x => {
+    x.classList.remove('active');
     x.style.display = 'none';
-    x.removeAttribute('hidden');  // clear any leftover hidden attribute
+    x.removeAttribute('hidden');
   });
+
   // Show requested pane
   const target = document.getElementById(paneId);
-  if (target) {
-    target.style.display = 'block';
-  }
+  if (!target) { console.warn('[switchTab] pane not found:', paneId); return; }
+  target.classList.add('active');
+  target.style.display = 'block';
+
   // Update tab active states
   document.querySelectorAll('nav.top .tab').forEach(x => x.classList.remove('active'));
   const activeTab = document.querySelector(`nav.top .tab[data-pane="${paneId}"]`);
   if (activeTab) activeTab.classList.add('active');
-  // Scroll to top of pane area for clarity
-  window.scrollTo({top: 0, behavior: 'smooth'});
+
+  // Scroll to the start of the pane (so user sees the change clearly)
+  setTimeout(() => target.scrollIntoView({behavior: 'smooth', block: 'start'}), 50);
 }
 
-document.querySelectorAll('nav.top .tab').forEach(t => {
-  t.addEventListener('click', () => switchTab(t.dataset.pane));
-});
+// Attach click listeners to ALL tabs (including 🔥 精華)
+function bindTabs() {
+  const tabs = document.querySelectorAll('nav.top .tab');
+  console.log('[bindTabs] found', tabs.length, 'tabs');
+  tabs.forEach(t => {
+    t.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const pane = t.dataset.pane;
+      console.log('[tab click]', pane);
+      switchTab(pane);
+    });
+  });
+}
 
-// Initialize: show overview, hide others
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize
+function initApp() {
+  console.log('[initApp] starting');
+  bindTabs();
   switchTab('overview');
-});
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 // ============ STOCK TABLE ============
 function renderStocks(filter='all', search=''){
