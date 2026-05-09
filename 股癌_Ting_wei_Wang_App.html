@@ -355,11 +355,12 @@
 <body>
 
 <nav class="top">
-  <button class="tab active" data-pane="overview">總覽</button>
-  <button class="tab" data-pane="stocks">個股總表</button>
-  <button class="tab" data-pane="calls">逐項驗證</button>
-  <button class="tab" data-pane="episodes">各集概況</button>
-  <button class="tab" data-pane="settings">設定</button>
+  <a class="tab" href="#highlight">🔥 精華</a>
+  <a class="tab" href="#overview">📊 總覽</a>
+  <a class="tab" href="#stocks">💹 個股</a>
+  <a class="tab" href="#calls">📋 驗證</a>
+  <a class="tab" href="#episodes">🎙 集數</a>
+  <a class="tab" href="#settings">⚙️ 設定</a>
 </nav>
 
 <div class="page">
@@ -403,7 +404,7 @@
 </div>
 
 <!-- ========== HIGHLIGHT: 最新 5 集精華 + 驗證亮點 ========== -->
-<section style="margin:18px 0 24px">
+<section id="highlight" style="margin:18px 0 24px;scroll-margin-top:60px">
   <div class="section-title" style="margin-top:0">
     <h2 style="background:linear-gradient(90deg,#fbbf24,#fb7185);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🔥 最新 5 集精華 + 驗證亮點</h2>
     <span class="sub">EP656-EP660 · 截至 2026/05/09</span>
@@ -705,14 +706,35 @@
 
 <script>
 const RSS_URL = 'https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml';
+// Tested 2026/05/09 — rss2json + cors.eu.org are most reliable.
+// More proxies added as fallback in case primary ones rate-limit.
 const PROXIES = [
   { name:'rss2json',     url: u=>`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(u)}&count=30`, type:'rss2json' },
   { name:'cors.eu.org',  url: u=>`https://cors.eu.org/${u}`,                                                       type:'xml' },
+  { name:'allorigins-get', url: u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,                  type:'allorigins-get' },
   { name:'allorigins',   url: u=>`https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,                    type:'xml' },
   { name:'codetabs',     url: u=>`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,               type:'xml' },
+  { name:'corsproxy.io', url: u=>`https://corsproxy.io/?${encodeURIComponent(u)}`,                                 type:'xml' },
 ];
 const LS_KEY = 'gooaye_chengwaye_read';
 const LS_NOTIFY = 'gooaye_chengwaye_notify';
+const LS_CACHE = 'gooaye_rss_cache_v1';
+const LS_CACHE_TIME = 'gooaye_rss_cache_time_v1';
+
+function getCache() {
+  try {
+    const raw = localStorage.getItem(LS_CACHE);
+    const t = localStorage.getItem(LS_CACHE_TIME);
+    if (!raw || !t) return null;
+    return { items: JSON.parse(raw), time: new Date(parseInt(t)) };
+  } catch { return null; }
+}
+function setCache(items) {
+  try {
+    localStorage.setItem(LS_CACHE, JSON.stringify(items));
+    localStorage.setItem(LS_CACHE_TIME, Date.now().toString());
+  } catch {}
+}
 
 // ============ DATA ============
 const EPISODES = {
