@@ -364,6 +364,7 @@
 <nav class="top">
   <button class="tab" data-pane="highlight" type="button">🔥 精華</button>
   <button class="tab active" data-pane="overview" type="button">📊 總覽</button>
+  <button class="tab" data-pane="watchlist" type="button">🎯 推薦個股</button>
   <button class="tab" data-pane="stocks" type="button">💹 個股</button>
   <button class="tab" data-pane="calls" type="button">📋 驗證</button>
   <button class="tab" data-pane="backtest100" type="button">🕐 100 集回測</button>
@@ -683,6 +684,121 @@
     </table>
   </div>
   <div id="epDetail" class="ep-detail"></div>
+</section>
+
+<!-- ========== PANE: 推薦個股（套用 100 集回測方法論） ========== -->
+<section class="pane" id="watchlist" hidden>
+  <div class="section-title">
+    <h2>🎯 推薦個股 · 套用 100 集回測方法論</h2>
+    <span class="sub">截至 2026/05/09 · 基於命中率 74% / DTFM 3.2 天的篩選</span>
+  </div>
+
+  <div class="notice show" style="display:block;background:rgba(96,165,250,0.08);border-color:rgba(96,165,250,0.3);color:#cbd5e1;margin-bottom:14px">
+    <b style="color:#93c5fd">📐 篩選標準</b>　依 100 集回測得出的「主持人 edge 最強情境」：<br>
+    1. <b>個股級點名 + DTFM ≤3 天</b>（命中率 ~85%）<br>
+    2. <b>反向警示 / 不加碼宣告</b>（命中率 ~86%）<br>
+    3. <b>跨集連貫主題（鋪陳 3+ 集）</b>（命中率 &gt;85%）
+  </div>
+
+  <!-- 🟢 強推 -->
+  <div class="section-title" style="margin-top:16px">
+    <h2 style="color:#4ade80">🟢 強推 · High Conviction</h2>
+    <span class="sub">3 個篩選標準都符合 · 預估命中率 80%+</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>標的</th><th>主軸</th><th class="num">已實現</th><th>來源集</th><th>conviction</th><th>建議</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ticker">3443</span> 創意 GUC</td><td>Google CPU + TSLA AI5 ASIC</td><td class="num"><span class="delta pos">+36%</span></td><td>EP653/656/659</td><td><b style="color:#4ade80">⭐⭐⭐⭐⭐</b></td><td>跨集 3+ 集鋪陳 · 已大噴 · 觀察是否續強</td></tr>
+        <tr><td><span class="ticker">3661</span> 世芯-KY</td><td>Amazon Trainium ASIC</td><td class="num"><span class="delta pos">~+26%</span></td><td>EP656/659</td><td><b style="color:#4ade80">⭐⭐⭐⭐</b></td><td>主持人從「不買」打臉到「學狗叫追回」 · 強 signal</td></tr>
+        <tr><td><span class="ticker">2327</span> 國巨</td><td>被動元件第三波 + AI 誓師</td><td class="num"><span class="delta pos">漲停</span></td><td>EP652/653/659</td><td><b style="color:#4ade80">⭐⭐⭐⭐⭐</b></td><td>3 集鋪陳 · 同集兌現 · 帶動全產業</td></tr>
+        <tr><td><span class="ticker">6173</span> 信昌電</td><td>交期拉長 → 漲價 pricing</td><td class="num"><span class="delta pos">漲停</span></td><td>EP659</td><td><b style="color:#4ade80">⭐⭐⭐⭐</b></td><td>同集即兌現（DTFM 0 天）· 短線力道強</td></tr>
+        <tr><td><span class="ticker">2337</span> 旺宏</td><td>NOR Flash + MLC NAND 漲價</td><td class="num"><span class="delta pos">漲價兌現</span></td><td>EP657</td><td><b style="color:#4ade80">⭐⭐⭐⭐</b></td><td>法說會老闆轉超級利多 · 記憶體鏈條全面復甦</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 🟡 持有觀察 -->
+  <div class="section-title" style="margin-top:16px">
+    <h2 style="color:#fbbf24">🟡 持有觀察 · 跨集敘事但已大噴</h2>
+    <span class="sub">原始 call 已大兌現 · 主持人轉中性</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>標的</th><th>主軸</th><th class="num">累計</th><th>來源集</th><th>主持人最新立場</th><th>建議</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ticker">2330</span> 台積電</td><td>投信 25% 解封吸星</td><td class="num"><span class="delta pos">+6.6%</span></td><td>EP654/656</td><td>核心持股</td><td>結構性持有 · 5 萬點預期可能太樂觀</td></tr>
+        <tr><td><span class="ticker">2454</span> 聯發科</td><td>三集連貫敘事</td><td class="num"><span class="delta pos">+30%</span></td><td>EP655/657/659</td><td><b style="color:#fbbf24">⚠️ 預期已被充分打滿不加碼</b></td><td>反向警示成立 · 5/8 進處置股 · <b>新進場高風險</b></td></tr>
+        <tr><td><span class="ticker">PLTR</span></td><td>抗 AI 三劍客 + AIP</td><td class="num"><span class="delta pos">EPS Beat</span></td><td>EP658/659</td><td>核心抗 AI 軟體</td><td>5/4 EPS Beat 後股價短期回 · 中長期持有</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 🟠 中度推薦 -->
+  <div class="section-title" style="margin-top:16px">
+    <h2 style="color:#fbbf24">🟠 中度推薦 · 主軸看好但個股待確認</h2>
+    <span class="sub">類股 / 主題級 call · DTFM 較長 (1-2 週)</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>主軸 / 標的</th><th>論述</th><th>來源集</th><th>建議</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ticker">NET</span> Cloudflare</td><td>抗 AI 三劍客之一</td><td>EP658</td><td>觀察財報 + 跟著 PLTR/CRWD 動</td></tr>
+        <tr><td><span class="ticker">CRWD</span> CrowdStrike</td><td>抗 AI 三劍客之一</td><td>EP658</td><td>近期 +7.93% · 短線已動</td></tr>
+        <tr><td><span class="ticker">TEAM</span> Atlassian</td><td>被誤殺反指標 · seat expansion</td><td>EP658</td><td>主持人「不是持股」但點為案例</td></tr>
+        <tr><td>日股 被動元件</td><td>三星電機 / 太陽誘電 / 村田 / VSH</td><td>EP655/657/659</td><td>跨集鋪陳 · 海外比台股先動</td></tr>
+        <tr><td>光通訊鏈</td><td>SMT 轉單 + 100 倍 PE</td><td>EP651/653/659</td><td>持續強勢但已部分反映</td></tr>
+        <tr><td><span class="ticker">6531</span> 愛普</td><td>Intel 載板 IPD 受惠</td><td>EP657</td><td>IPD 良率仍 30-40% · 中度確定性</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 🔴 風險警示 -->
+  <div class="section-title" style="margin-top:16px">
+    <h2 style="color:#fb7185">🔴 風險警示 · 反向 call</h2>
+    <span class="sub">主持人警示 · 反向 call alpha 86%</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>項目</th><th>警示內容</th><th>來源集</th><th>觸發條件</th></tr></thead>
+      <tbody>
+        <tr><td><b>大盤過熱</b></td><td>「會不會壞掉」· 胖尾風險警示</td><td>EP660</td><td>大盤長黑 K 或吞噬 K 線出現 → 降槓桿</td></tr>
+        <tr><td><span class="ticker">2454</span> 聯發科</td><td>預期已充分打滿 · 5/8 列處置股</td><td>EP659</td><td>5/7-5/20 處置期間流動性差 · 新進場風險高</td></tr>
+        <tr><td><b>4 大過熱訊號</b></td><td>① 券商晴天收傘 ② 價值觀偏差 ③ 大資金不解套散戶 ④ 估值上緣</td><td>EP659</td><td>4 項齊發 → 派對快結束</td></tr>
+        <tr><td>SRAM 偽概念股</td><td>市場熱炒的 SRAM 概念股<b>多數為偽 SRAM</b></td><td>EP645</td><td>不要追未驗證的概念股</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ⚪ 已關閉 / Closed -->
+  <div class="section-title" style="margin-top:16px">
+    <h2 style="color:#94a3b8">⚪ Closed · 主持人宣告不再追蹤</h2>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>標的</th><th>原因</th><th>來源集</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ticker">MRVL</span> Marvell MPU Camel</td><td>「Case closed」· 量還沒推出來</td><td>EP655</td></tr>
+        <tr><td>CPTN</td><td>同 Case closed</td><td>EP655</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 操作框架 -->
+  <div class="section-title" style="margin-top:18px">
+    <h2 style="color:#bae6fd">🛡️ 套用回測學習的操作框架</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">
+    <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.2);border-radius:10px;padding:12px"><div style="font-size:11px;color:#4ade80;font-weight:700;text-transform:uppercase">✅ 進場時機</div><div style="font-size:13px;color:#cbd5e1;margin-top:6px;line-height:1.55">節目發布後 <b>1-3 個交易日內</b>進場（DTFM 中位數 2 天）。錯過此窗口後，個股已大幅反映。</div></div>
+    <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.2);border-radius:10px;padding:12px"><div style="font-size:11px;color:#4ade80;font-weight:700;text-transform:uppercase">📊 部位配置</div><div style="font-size:13px;color:#cbd5e1;margin-top:6px;line-height:1.55"><b>單檔 ≤5%</b> 總部位（命中率 80% ≠ 100%）<br>強推 5 檔合計 ≤25%<br>剩餘 75% 留給其他研究 + 現金</div></div>
+    <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.2);border-radius:10px;padding:12px"><div style="font-size:11px;color:#4ade80;font-weight:700;text-transform:uppercase">🎯 停損停利</div><div style="font-size:13px;color:#cbd5e1;margin-top:6px;line-height:1.55"><b>停損：-5%</b> 無條件出場<br><b>停利：+20% 拆 1/3 出場</b><br>剩 2/3 移動停利（10 日均線）</div></div>
+    <div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:10px;padding:12px"><div style="font-size:11px;color:#fbbf24;font-weight:700;text-transform:uppercase">⚠️ 何時撤退</div><div style="font-size:13px;color:#cbd5e1;margin-top:6px;line-height:1.55">EP659 退場條件：<b>大盤長黑 K / 吞噬 K 線</b>出現<br>+ 4 大過熱訊號齊發<br>→ 整體降槓桿至安全水位</div></div>
+  </div>
+
+  <div class="notice show" style="display:block;background:rgba(251,113,133,0.06);border-color:rgba(251,113,133,0.2);color:#ffd7df;margin-top:14px">
+    <b>⚠️ 重要提醒：</b> 本「推薦個股」基於回測歷史命中率推算，<b>不構成投資建議</b>。即使 80% 命中率仍有 20% 失準機率；資金管理 &gt; 命中率。請依個人風險承受度與專業判斷決策。<br>
+    主持人本人多次強調「不要亂跟單當韭菜」「投資有賺有賠」。
+  </div>
 </section>
 
 <!-- ========== PANE: 100 集回測 (時間維度精度) ========== -->
