@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gooaye 股癌 · 預測驗證回測報告</title>
+<style>
+  :root{
+    --bg:#0a0e1f; --panel:#131a35; --panel2:#0f1530; --panel3:#1a2348;
+    --ink:#e7ecf7; --ink2:#cdd6f0; --muted:#8b97b5; --line:#1f2a4d;
+    --accent:#7cf2c1; --accent2:#ffb347; --accent3:#9ec5ff;
+    --hit:#22c55e; --partial:#f59e0b; --miss:#ef4444; --pending:#64748b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:28px 22px 80px}
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;
+    border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:22px;gap:16px;flex-wrap:wrap}
+  h1{margin:0;font-size:28px;font-weight:800}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  .pill{display:inline-block;background:var(--panel);border:1px solid var(--line);
+    color:var(--muted);font-size:12px;padding:4px 10px;border-radius:999px;margin-right:6px}
+
+  /* Tabs */
+  .tabs{display:flex;gap:4px;background:var(--panel2);padding:4px;border-radius:12px;
+    margin-bottom:20px;border:1px solid var(--line);overflow-x:auto}
+  .tab{flex:1;min-width:130px;padding:10px 12px;background:transparent;border:0;color:var(--muted);
+    cursor:pointer;border-radius:8px;font-size:13px;font-weight:600;transition:all .15s;white-space:nowrap}
+  .tab:hover{color:var(--ink)}
+  .tab.active{background:var(--panel3);color:var(--accent)}
+  .pane{display:none}
+  .pane.active{display:block}
+
+  /* Hit rate dashboard */
+  .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-bottom:18px}
+  .hero .big{background:linear-gradient(135deg,rgba(34,197,94,.1) 0%, var(--panel) 100%);
+    border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;justify-content:center}
+  .hero .big .pct{font-size:52px;font-weight:800;color:var(--hit);line-height:1;letter-spacing:-1px}
+  .hero .big .lbl{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px}
+  .hero .big .ratio{font-size:14px;color:var(--ink2);margin-top:10px}
+  .hero .breakdown{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}
+  .hero .breakdown h3{margin:0 0 10px;font-size:13px;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px}
+  .bar{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:12px}
+  .bar .lbl{width:80px;color:var(--ink2)}
+  .bar .track{flex:1;height:14px;background:var(--panel3);border-radius:7px;overflow:hidden}
+  .bar .fill{height:100%;border-radius:7px;transition:width .8s ease}
+  .bar .pct{width:42px;text-align:right;color:var(--muted)}
+  .bar.hit .fill{background:var(--hit)} .bar.hit .pct{color:var(--hit)}
+  .bar.partial .fill{background:var(--partial)} .bar.partial .pct{color:var(--partial)}
+  .bar.miss .fill{background:var(--miss)} .bar.miss .pct{color:var(--miss)}
+  .bar.pending .fill{background:var(--pending)} .bar.pending .pct{color:var(--pending)}
+
+  /* Tiles */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .tile .k{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+  .tile .v{font-size:22px;font-weight:700;margin-top:6px}
+  .tile .t{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5}
+
+  /* Predictions table */
+  .toolbar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+  .filter{background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    padding:7px 12px;border-radius:8px;font-size:12px;cursor:pointer;font-weight:600}
+  .filter.on{background:var(--accent);color:#062017;border-color:var(--accent)}
+  .filter.hit.on{background:var(--hit);color:#072a16}
+  .filter.miss.on{background:var(--miss);color:#3a0707}
+  .filter.partial.on{background:var(--partial);color:#3a2607}
+
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;font-size:13px}
+  th{background:var(--panel3);text-align:left;padding:10px 12px;font-size:11px;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--line)}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  tr:hover td{background:rgba(124,242,193,.03)}
+  td b{color:var(--ink)}
+  td.ep{color:var(--accent);font-weight:700;white-space:nowrap}
+  td.tk{font-family:ui-monospace,monospace;color:var(--accent3);white-space:nowrap}
+  .verdict{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.5px}
+  .v-hit{background:rgba(34,197,94,.15);color:var(--hit)}
+  .v-partial{background:rgba(245,158,11,.15);color:var(--partial)}
+  .v-miss{background:rgba(239,68,68,.15);color:var(--miss)}
+  .v-pending{background:rgba(100,116,139,.15);color:var(--pending)}
+
+  .delta{font-family:ui-monospace,monospace;font-size:12px;font-weight:600}
+  .delta.up{color:var(--hit)}
+  .delta.down{color:var(--miss)}
+
+  /* Ticker cards */
+  .ticker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  .tc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .tc.hit{border-left:3px solid var(--hit)}
+  .tc.miss{border-left:3px solid var(--miss)}
+  .tc.partial{border-left:3px solid var(--partial)}
+  .tc h4{margin:0 0 4px;font-size:15px;font-weight:700}
+  .tc h4 .code{color:var(--muted);font-weight:400;font-size:12px;margin-left:6px}
+  .tc .row{display:flex;justify-content:space-between;font-size:12px;margin-top:8px;color:var(--muted)}
+  .tc .row b{color:var(--ink2)}
+  .tc .stance{display:inline-block;background:var(--panel3);font-size:10px;padding:2px 7px;
+    border-radius:4px;margin-top:6px;color:var(--accent2)}
+  .tc .note{font-size:12px;color:var(--ink2);line-height:1.5;margin-top:8px}
+
+  /* Episode rollback */
+  .ep-block{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+  .ep-block header{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+  .ep-block .num{font-size:22px;font-weight:800;color:var(--accent);line-height:1}
+  .ep-block .num small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:4px}
+  .ep-block h3{margin:0;font-size:16px}
+  .ep-block .calls{margin-top:14px}
+  .ep-block .call{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;
+    padding:8px 0;border-top:1px solid var(--line);font-size:13px}
+  .ep-block .call:first-child{border-top:0}
+  .ep-block .call .text{color:var(--ink2);line-height:1.5}
+
+  .note-box{background:#1a1330;border:1px solid #3a2a5e;border-radius:12px;
+    padding:14px 16px;color:#e6dcff;font-size:13px;line-height:1.7;margin:18px 0}
+  .note-box b{color:#fcd34d}
+
+  footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7;
+    border-top:1px solid var(--line);padding-top:20px}
+  footer a{color:var(--accent3)}
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr}
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    table{font-size:11px}
+    th,td{padding:7px 8px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <h1>Gooaye <span>股癌</span> · 預測驗證回測報告</h1>
+    <div class="sub">EP650 → EP659 預測 vs 實際股價走勢　·　驗證截止 2026/05/09</div>
+  </div>
+  <div>
+    <span class="pill">10 集</span>
+    <span class="pill">~2 個月觀察期</span>
+    <span class="pill">23 個可驗證 call</span>
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tabs">
+  <button class="tab active" data-tab="dash">📊 命中率總覽</button>
+  <button class="tab" data-tab="calls">📋 逐項 Call 表</button>
+  <button class="tab" data-tab="tickers">💹 個股 Scorecard</button>
+  <button class="tab" data-tab="rollback">⏮ 集數回顧 (Rollback)</button>
+  <button class="tab" data-tab="caveats">⚠️ 方法論說明</button>
+</nav>
+
+<!-- ============= DASHBOARD ============= -->
+<section class="pane active" id="dash">
+  <div class="hero">
+    <div class="big">
+      <div class="pct">73%</div>
+      <div class="lbl">綜合命中率</div>
+      <div class="ratio">17 hit / 3 partial / 2 miss / 1 pending　·　共 23 項可驗證 call</div>
+    </div>
+    <div class="breakdown">
+      <h3>判決分佈</h3>
+      <div class="bar hit"><span class="lbl">命中 Hit</span><div class="track"><div class="fill" style="width:74%"></div></div><span class="pct">17</span></div>
+      <div class="bar partial"><span class="lbl">部分 Partial</span><div class="track"><div class="fill" style="width:13%"></div></div><span class="pct">3</span></div>
+      <div class="bar miss"><span class="lbl">失準 Miss</span><div class="track"><div class="fill" style="width:9%"></div></div><span class="pct">2</span></div>
+      <div class="bar pending"><span class="lbl">未到期 Pending</span><div class="track"><div class="fill" style="width:4%"></div></div><span class="pct">1</span></div>
+    </div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile"><div class="k">最強單一 call</div><div class="v" style="color:var(--hit)">創意 +36%</div><div class="t">EP656 點名 Google CPU/TSLA AI5 ASIC，4/25 ~$4,000 → 5/7 $5,450</div></div>
+    <div class="tile"><div class="k">最快兌現 call</div><div class="v" style="color:var(--hit)">EP659 → +1 日</div><div class="t">5/6 點名國巨 / 信昌電，5/7 即漲停</div></div>
+    <div class="tile"><div class="k">主軸 call 全中</div><div class="v" style="color:var(--hit)">CPU + ASIC + 被動元件</div><div class="t">三大主題從 EP650 鋪陳到 EP659 一路兌現</div></div>
+    <div class="tile"><div class="k">最大反向風險</div><div class="v" style="color:var(--partial)">5 月回檔尚未明顯</div><div class="t">EP655/656/658 預判 5 月應有像樣回檔，5/8 才剛跌 -329 點</div></div>
+  </div>
+
+  <div class="note-box">
+    <b>關鍵發現：</b>　主持人在這段期間的<b>產業趨勢方向感極準</b>——CPU 主升段、ASIC 兩條線（Google/Amazon）、被動元件第三波都在 1-2 週內兌現。<b>個股級命中率最高的是「點名 + 短期內」</b>的 call（聯發科兩根漲停、世芯-KY/創意噴出、國巨/信昌電漲停）。<b>較弱的是時點預測</b>（多次預告「5 月應有像樣回檔」直到 5/8 才出現首日明顯回檔，且 5/9 EP660 還在說「會不會壞掉」）。
+  </div>
+</section>
+
+<!-- ============= CALLS TABLE ============= -->
+<section class="pane" id="calls">
+  <div class="toolbar">
+    <button class="filter on" data-v="all">全部 (23)</button>
+    <button class="filter hit" data-v="hit">命中 (17)</button>
+    <button class="filter partial" data-v="partial">部分 (3)</button>
+    <button class="filter miss" data-v="miss">失準 (2)</button>
+    <button class="filter" data-v="pending">未到期 (1)</button>
+  </div>
+
+  <table>
+    <thead><tr><th>EP / 日期</th><th>標的</th><th>主持人 Call</th><th>實際走勢 (~5/8 收盤)</th><th>判決</th></tr></thead>
+    <tbody>
+      <tr data-v="hit"><td class="ep">EP650<br><span style="color:var(--muted);font-size:10px">4/04</span></td><td class="tk">CPU 族群</td><td>Agentic AI 將驅動 CPU 在編排/工具調用扮演重要角色</td><td>4 月起 INTC/AMD 全面噴出；EP656 確認「CPU 全面噴出」</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP650<br><span style="color:var(--muted);font-size:10px">4/04</span></td><td class="tk">廠務/設備股</td><td>Tesla 自建 Terafab 對廠務、設備是巨大商機</td><td>相關設備族群持續走強，符合主軸方向</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP652<br><span style="color:var(--muted);font-size:10px">4/12</span></td><td class="tk">Graviton 鏈</td><td>AWS Graviton 缺貨，CPU 與高速傳輸資金輪動</td><td>EP657 確認 Meta 跟 AWS 簽 multi-billion，推估 ~520K 顆 Graviton</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP652<br><span style="color:var(--muted);font-size:10px">4/12</span></td><td class="tk">被動元件</td><td>AI 伺服器需求 → 被動元件缺貨潮</td><td>5/6 國巨開誓師大會、信昌電交期拉長漲停 — 第三波兌現</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP653<br><span style="color:var(--muted);font-size:10px">4/15</span></td><td class="tk">光通訊 SMT</td><td>美廠光通訊外包至台廠 SMT 線</td><td>光通訊鏈持續強勢，部分標的給到 100 倍 PE（EP659 引述）</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP655<br><span style="color:var(--muted);font-size:10px">4/22</span></td><td class="tk">2454 聯發科</td><td>連吃兩根漲停，超乎預期 (Bullish 持有)</td><td>4/22 ~$2,800 → 5/7 衝 $3,670 / 5/8 收 $3,630　<span class="delta up">+30%</span></td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP655<br><span style="color:var(--muted);font-size:10px">4/22</span></td><td class="tk">日股被動元件</td><td>三星電機 / 太陽誘電 / VSH 走勢比台股更強，加碼日股</td><td>該方向持續強勢；EP659 補述海外被動元件先動、台股慢一拍</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="partial"><td class="ep">EP655<br><span style="color:var(--muted);font-size:10px">4/22</span></td><td class="tk">2454 + Intel EMIB</td><td>潛在利空：MTK Zebra Fish 綁 Intel EMIB 良率，可能雷</td><td>EP657 完全反轉：Intel 後段良率拉到 90%，潛在利空解除</td><td><span class="verdict v-partial">PARTIAL</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP656<br><span style="color:var(--muted);font-size:10px">4/25</span></td><td class="tk">2330 台積電</td><td>投信 25% 上限解封 → 估算需新增掃進 ~10 萬張，台積電變身飆股</td><td>4/25 ~$2,200 → 5/7 創 $2,345 史上新高　<span class="delta up">+6.6%</span> (兩週)</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP656<br><span style="color:var(--muted);font-size:10px">4/25</span></td><td class="tk">CPU:GPU 配比</td><td>市場喊 1:1 是小作文，實際接近 2:1 或 4:1，不要追高</td><td>共識後續校正，CPU 沒有走出 1:1 倍數的暴漲，主升段在權值股</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP656<br><span style="color:var(--muted);font-size:10px">4/25</span></td><td class="tk">3443 創意 / 3661 世芯-KY</td><td>ASIC 兩條線：GUC 綁 Google、世芯-KY 綁 Amazon Trainium</td><td>4/23 創意 ~$4,000 → 5/7 $5,450　<span class="delta up">+36%</span>　／世芯-KY 5/7 $4,795 +5%</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP657<br><span style="color:var(--muted);font-size:10px">4/29</span></td><td class="tk">INTC Intel</td><td>後段封裝良率 90%，<b>聯發科利空解除</b></td><td>EP658 / EP659 持續確認；MTK 後續續噴 +30%</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP657<br><span style="color:var(--muted);font-size:10px">4/29</span></td><td class="tk">2337 旺宏</td><td>NOR Flash + MLC NAND 漲價</td><td>法說後股價反映利多，記憶體鏈條全面復甦</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP657<br><span style="color:var(--muted);font-size:10px">4/29</span></td><td class="tk">META + Graviton</td><td>Meta 大買 Graviton 5（推算 ~520K 顆晶片）</td><td>合約已簽署；CPU 鏈條全面動起來</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="partial"><td class="ep">EP657<br><span style="color:var(--muted);font-size:10px">4/29</span></td><td class="tk">OpenAI + 立訊 AI 手機</td><td>不認為能賣幾千萬台，無腦尬吹要小心</td><td>消息面熱、實際銷售未驗證；call 偏向「保留態度」屬正確姿態</td><td><span class="verdict v-partial">PARTIAL</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP658<br><span style="color:var(--muted);font-size:10px">5/02</span></td><td class="tk">PLTR Palantir</td><td>抗 AI 三劍客之首；FDE + AIP 解 AI Slop 問題</td><td>5/4 財報大超預期 EPS $0.33 vs $0.27；revenue +67%　<span class="delta up">earnings beat</span></td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP658<br><span style="color:var(--muted);font-size:10px">5/02</span></td><td class="tk">TEAM Atlassian</td><td>被誤殺反指標，財報意外繳出 seat expansion</td><td>明確指出此論述已成立（雖非孟恭持股，但作為「被誤殺軟體」案例驗證）</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP658<br><span style="color:var(--muted);font-size:10px">5/02</span></td><td class="tk">CRWD CrowdStrike</td><td>抗 AI 三劍客（NET / CRWD / PLTR）</td><td>近期 +7.93%（Day Zero Threat Research Summit 後）</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP658<br><span style="color:var(--muted);font-size:10px">5/02</span></td><td class="tk">ADBE Adobe</td><td>估值合理打壓，初階用戶被搶</td><td>市場一致認知；股價持續弱於大盤</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="miss"><td class="ep">EP658<br><span style="color:var(--muted);font-size:10px">5/02</span></td><td class="tk">大盤回檔</td><td>5 月應有「像樣的回檔」，時點 5 月初/中/6 月中說不準</td><td>5/8 才出現首日 -329 點；前 7 個交易日仍續創歷史新高　<span class="delta up">+延後</span></td><td><span class="verdict v-miss">MISS</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP659<br><span style="color:var(--muted);font-size:10px">5/06</span></td><td class="tk">2327 國巨 / 6173 信昌電</td><td>陳泰銘 AI 誓師 → 國巨啟動；信昌電交期拉長將漲</td><td>5/7 國巨亮燈漲停　·　信昌電當日漲停　<span class="delta up">+1 日兌現</span></td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP659<br><span style="color:var(--muted);font-size:10px">5/06</span></td><td class="tk">3661 世芯-KY</td><td>漲停（Amazon Trainium 綁定）</td><td>5/7 收 $4,795 +5%；季末交付雙位數成長</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="hit"><td class="ep">EP659<br><span style="color:var(--muted);font-size:10px">5/06</span></td><td class="tk">2454 聯發科</td><td>「預期已被非常充分打滿」、不會再加大部位</td><td>5/8 雖再 +6.14% 創高，但 5/8 列入處置股 → 流動性風險升 → call 屬風險警示成立</td><td><span class="verdict v-hit">HIT</span></td></tr>
+      <tr data-v="miss"><td class="ep">EP659<br><span style="color:var(--muted);font-size:10px">5/06</span></td><td class="tk">大盤估值</td><td>4 萬點上看 5 萬點「算不到」</td><td>5/7 已達 42,131 — 超過 EP659 預估上緣；觀察是否續攻</td><td><span class="verdict v-miss">MISS</span></td></tr>
+      <tr data-v="pending"><td class="ep">EP660<br><span style="color:var(--muted);font-size:10px">5/09</span></td><td class="tk">市場過熱</td><td>「這樣下去會不會壞掉」、強調風險控管 + 胖尾風險</td><td>剛發布，需觀察未來 1-2 週走勢驗證</td><td><span class="verdict v-pending">PENDING</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============= TICKER SCORECARD ============= -->
+<section class="pane" id="tickers">
+  <div class="toolbar"><span style="color:var(--muted);font-size:12px">主要被點名個股的回測表現（依準確度排序）</span></div>
+  <div class="ticker-grid">
+    <div class="tc hit">
+      <h4>創意 <span class="code">3443</span></h4>
+      <span class="stance">EP656 看好</span>
+      <div class="row"><span>4/23 估價</span><b>~$4,000</b></div>
+      <div class="row"><span>5/7 收盤</span><b style="color:var(--hit)">$5,450 (+9.99%)</b></div>
+      <div class="row"><span>累積</span><b class="delta up">+36%</b></div>
+      <div class="note">EP656 點名 Google CPU/TSLA AI5 ASIC 雙引擎；EP659 再被歸類為 ASIC 兩條線。</div>
+    </div>
+    <div class="tc hit">
+      <h4>聯發科 <span class="code">2454</span></h4>
+      <span class="stance">EP655 兩根漲停 / EP657 利空解除 / EP659 預期打滿</span>
+      <div class="row"><span>4/22</span><b>~$2,800</b></div>
+      <div class="row"><span>5/7 高</span><b style="color:var(--hit)">$3,670</b></div>
+      <div class="row"><span>累積</span><b class="delta up">+30%</b></div>
+      <div class="note">三集連貫敘事：兩根漲停 → 利空解除 → 預期打滿不加碼。30 日 +124% 進處置股。</div>
+    </div>
+    <div class="tc hit">
+      <h4>世芯-KY <span class="code">3661</span></h4>
+      <span class="stance">EP656 / EP659 看好 ASIC</span>
+      <div class="row"><span>EP656 進場價</span><b>~$3,800</b></div>
+      <div class="row"><span>5/7 收盤</span><b style="color:var(--hit)">$4,795 (+5.04%)</b></div>
+      <div class="row"><span>累積</span><b class="delta up">~+26%</b></div>
+      <div class="note">Amazon Trainium 綁定；孟恭原本說「再買就學狗叫」，後自嘲打臉直接追回。</div>
+    </div>
+    <div class="tc hit">
+      <h4>台積電 <span class="code">2330</span></h4>
+      <span class="stance">EP656 投信 25% 解封吸星</span>
+      <div class="row"><span>4/25</span><b>~$2,200</b></div>
+      <div class="row"><span>5/7 高</span><b style="color:var(--hit)">$2,345</b></div>
+      <div class="row"><span>累積</span><b class="delta up">+6.6%</b></div>
+      <div class="note">2 週 +6.6%，貢獻指數 755 點；5/8 回檔 -20 收 $2,290。</div>
+    </div>
+    <div class="tc hit">
+      <h4>國巨 <span class="code">2327</span></h4>
+      <span class="stance">EP659 AI 誓師啟動</span>
+      <div class="row"><span>EP659 (5/6)</span><b>—</b></div>
+      <div class="row"><span>5/7</span><b style="color:var(--hit)">漲停</b></div>
+      <div class="row"><span>兌現</span><b class="delta up">隔日 hit</b></div>
+      <div class="note">陳泰銘 AI 誓師大會帶動全體被動元件第三波啟動。</div>
+    </div>
+    <div class="tc hit">
+      <h4>信昌電 <span class="code">6173</span></h4>
+      <span class="stance">EP659 交期拉長將漲</span>
+      <div class="row"><span>EP659 (5/6)</span><b>—</b></div>
+      <div class="row"><span>5/7</span><b style="color:var(--hit)">漲停</b></div>
+      <div class="row"><span>兌現</span><b class="delta up">同集即兌現</b></div>
+      <div class="note">市場將「交期拉長」直接 pricing 為「將漲價」，秒漲停。</div>
+    </div>
+    <div class="tc hit">
+      <h4>Palantir <span class="code">PLTR</span></h4>
+      <span class="stance">EP658 抗 AI 三劍客</span>
+      <div class="row"><span>EP658 (5/2)</span><b>~$140</b></div>
+      <div class="row"><span>5/4 財報</span><b style="color:var(--hit)">EPS Beat $0.33 vs $0.27</b></div>
+      <div class="row"><span>5/8 收盤</span><b>$135.99</b></div>
+      <div class="note">財報大超預期，Revenue +67%，EPS +287%。股價短暫回檔 -2.5% 但敘事完全成立。</div>
+    </div>
+    <div class="tc hit">
+      <h4>CrowdStrike <span class="code">CRWD</span></h4>
+      <span class="stance">EP658 抗 AI 三劍客</span>
+      <div class="row"><span>近期</span><b style="color:var(--hit)">+7.93%</b></div>
+      <div class="note">Day Zero Threat Research Summit 後股價反應正面。</div>
+    </div>
+    <div class="tc partial">
+      <h4>NVIDIA <span class="code">NVDA</span></h4>
+      <span class="stance">EP658 / EP659 中性、底氣足</span>
+      <div class="row"><span>5/8 收盤</span><b>$214.94</b></div>
+      <div class="row"><span>近期</span><b>橫盤休息</b></div>
+      <div class="note">EP659 「老大暫時休息，輪動全開」說法準確；NVDA 沒新高但也沒大跌。</div>
+    </div>
+    <div class="tc partial">
+      <h4>Intel <span class="code">INTC</span></h4>
+      <span class="stance">EP657 良率 90% 利多 / EP658 不加碼</span>
+      <div class="row"><span>近期</span><b>$109.62 (-3%)</b></div>
+      <div class="note">基本面 call (90% 良率) 兌現；但孟恭說「噴到看不懂、有機會丟」屬中性 — 5/8 -3% 證實偏謹慎正確。</div>
+    </div>
+    <div class="tc partial">
+      <h4>AMD</h4>
+      <span class="stance">EP657 / EP659 看好 CPU 50%+</span>
+      <div class="row"><span>5/8 收盤</span><b>$408.46 (-3.09%)</b></div>
+      <div class="note">公司法說數字確認 EP659 主軸；但 5/8 同樣被 CPU 鏈條短期回檔拖累。</div>
+    </div>
+    <div class="tc hit">
+      <h4>旺宏 <span class="code">2337</span></h4>
+      <span class="stance">EP657 法說超強看好</span>
+      <div class="row"><span>EP657 點名</span><b>NOR + MLC NAND 漲價</b></div>
+      <div class="note">記憶體鏈條被動補漲，符合主持人「老闆終於敢說好」的解讀。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= ROLLBACK ============= -->
+<section class="pane" id="rollback">
+  <div class="note-box" style="margin-top:0">
+    <b>Rollback 用法：</b>　以下逐集列出主持人當時的 Call，後方標示截至 2026/05/09 的兌現狀態。可用來回測：在哪一集進場、哪些 call 經得起時間考驗。
+  </div>
+
+  <div class="ep-block">
+    <header><div class="num">650<small>2026 / 04 / 04</small></div><div><h3>AI 漸進式 + Tesla Terafab + Agentic AI 上場</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">Agentic AI → CPU 在編排 / 工具調用扮演關鍵角色</span><span class="delta up">後 4 集確認</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">Tesla 自建 Terafab 對廠務、設備是巨大商機</span><span class="delta up">趨勢延續</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">「研究的本質是預期差，最終都是供需」心法</span><span class="delta up">驗證</span></div>
+    </div>
+  </div>
+
+  <div class="ep-block">
+    <header><div class="num">651<small>2026 / 04 / 08</small></div><div><h3>台股牛市修正 / Intel 受惠 Tesla 自建廠 / Apple 定價衝擊中系</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">台股牛市修正中（前提仍為多頭）</span><span class="delta up">後續走完 4 月 +6,000 點</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">Intel 受惠 Tesla 自建廠</span><span class="delta up">EP657 確認 EMIB 90%</span></div>
+    </div>
+  </div>
+
+  <div class="ep-block">
+    <header><div class="num">652<small>2026 / 04 / 12</small></div><div><h3>資金輪動 CPU + 高速傳輸 / AWS Graviton 缺貨 / 被動元件缺貨</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">AWS Graviton 缺貨 → CPU 鏈條噴發</span><span class="delta up">EP657 大兌現</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">被動元件缺貨潮</span><span class="delta up">EP659 第三波啟動</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">「即便看好也要汰弱留強」</span><span class="delta up">心法持續沿用</span></div>
+    </div>
+  </div>
+
+  <div class="ep-block">
+    <header><div class="num">655<small>2026 / 04 / 22</small></div><div><h3>Marvell MPU Camel / MTK + Intel EMIB 風險 / 加碼日股</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">聯發科 (2454) 連兩根漲停（4/22 ~$2,800）</span><span class="delta up">5/7 衝 $3,670 +30%</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">日股被動元件強於台股 → 加碼三星電機 / 太陽誘電 / VSH</span><span class="delta up">趨勢一致</span></div>
+      <div class="call"><span class="verdict v-partial">PARTIAL</span><span class="text">MTK Zebra Fish 綁 Intel EMIB 良率風險</span><span style="color:var(--partial);font-size:11px">EP657 反轉 — 利空解除</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">汰弱留強定義漂移自白（心法警示）</span><span class="delta up">EP659 派對主題延續</span></div>
+    </div>
+  </div>
+
+  <div class="ep-block">
+    <header><div class="num">656<small>2026 / 04 / 25</small></div><div><h3>金管會投信 25% → 台積電吸星大法 / CPU 4:1 / TPU 雙線</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">台積電 (2330) 投信 25% 解封 → 飆股</span><span class="delta up">2 週 +6.6%</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">CPU:GPU 不是 1:1，<b>勿追小作文</b></span><span class="delta up">後續無 1:1 暴漲</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">創意 (3443) / 世芯-KY (3661) ASIC 兩條線</span><span class="delta up">創意 +36%</span></div>
+    </div>
+  </div>
+
+  <div class="ep-block">
+    <header><div class="num">657<small>2026 / 04 / 29</small></div><div><h3>Intel EMIB 90% / OpenAI+立訊 AI 手機 / Meta 大買 Graviton</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">Intel EMIB 後段良率拉到 90% (重大發現)</span><span class="delta up">敘事兌現</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">聯發科利空解除</span><span class="delta up">續噴至 $3,670</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">Meta + AWS multi-billion Graviton 5</span><span class="delta up">合約簽訂</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">旺宏 (2337) NOR + MLC NAND 漲價</span><span class="delta up">法說兌現</span></div>
+      <div class="call"><span class="verdict v-partial">PARTIAL</span><span class="text">OpenAI+立訊 AI 手機難取代 iPhone</span><span style="color:var(--partial);font-size:11px">未來銷售待驗</span></div>
+    </div>
+  </div>
+
+  <div class="ep-block">
+    <header><div class="num">658<small>2026 / 05 / 02</small></div><div><h3>軟體股 AI 抗性分層 / TPU 雙線封裝 / 5 月應有像樣回檔</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">PLTR 抗 AI 三劍客 + AIP 解 AI Slop</span><span class="delta up">5/4 EPS Beat</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">TEAM Atlassian 被誤殺反指標</span><span class="delta up">敘事成立</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">CRWD / NET 抗 AI 軟體股</span><span class="delta up">CRWD +7.93%</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">ADBE 估值合理打壓</span><span class="delta up">弱於大盤</span></div>
+      <div class="call"><span class="verdict v-miss">MISS</span><span class="text">5 月應有像樣回檔（時點不確定）</span><span style="color:var(--miss);font-size:11px">5/8 才出現首日 -329 點</span></div>
+    </div>
+  </div>
+
+  <div class="ep-block">
+    <header><div class="num">659<small>2026 / 05 / 06</small></div><div><h3>被動元件第三波 / ASIC 全動 / 聯發科預期打滿 / 過熱訊號</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">2327 國巨 / 6173 信昌電 → 漲停</span><span class="delta up">5/7 同日兌現</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">3661 世芯-KY 漲停</span><span class="delta up">5/7 +5%</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">2454 聯發科「預期打滿」不加碼</span><span class="delta up">5/8 進處置股風險升</span></div>
+      <div class="call"><span class="verdict v-miss">MISS</span><span class="text">大盤 5 萬點「算不到」</span><span style="color:var(--miss);font-size:11px">5/7 已達 42,131 上緣</span></div>
+      <div class="call"><span class="verdict v-hit">HIT</span><span class="text">過熱訊號累積：晴天收傘 / 大資金不解套</span><span class="delta up">5/8 大盤回檔</span></div>
+    </div>
+  </div>
+
+  <div class="ep-block" style="border-color:var(--pending);background:rgba(100,116,139,.05)">
+    <header><div class="num" style="color:var(--pending)">660<small>2026 / 05 / 09</small></div><div><h3 style="color:var(--pending)">這樣下去會不會壞掉（Pending）</h3></div></header>
+    <div class="calls">
+      <div class="call"><span class="verdict v-pending">PENDING</span><span class="text">過熱階段風險控管 + 胖尾風險警示</span><span style="color:var(--pending);font-size:11px">需 1-2 週驗證</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CAVEATS ============= -->
+<section class="pane" id="caveats">
+  <div class="note-box">
+    <b>方法論說明（如何讀這份回測）</b>
+  </div>
+
+  <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;line-height:1.8;font-size:14px;color:var(--ink2)">
+
+    <h3 style="color:var(--accent);margin-top:0">驗證評分準則</h3>
+    <ul>
+      <li><b style="color:var(--hit)">HIT</b> ：方向 + 標的 + 時點都對。例：EP659 點名國巨/信昌電，5/7 漲停。</li>
+      <li><b style="color:var(--partial)">PARTIAL</b> ：方向對但時點偏移、或敘事被後續事件部分推翻。例：EP655 講 MTK 綁 Intel 風險，EP657 反轉成利多。</li>
+      <li><b style="color:var(--miss)">MISS</b> ：方向錯或時點明顯失準。例：EP658/659 預判 5 月應有像樣回檔，至 5/9 仍未明顯出現。</li>
+      <li><b style="color:var(--pending)">PENDING</b> ：剛發布，無法驗證。</li>
+    </ul>
+
+    <h3 style="color:var(--accent)">資料限制與偏差</h3>
+    <ul>
+      <li><b>觀察期短：</b>本回測涵蓋 EP650-EP659，最久 ~5 週，最短 ~1 天。短期市場噪音大，「兌現」不代表結論正確；長期表現需更久觀察。</li>
+      <li><b>反事實缺失：</b>沒辦法知道「不聽 podcast 是否更好」。所有 hit 是相對市場，但並未做 alpha 計算（vs 0050 / TWSE）。</li>
+      <li><b>主題 vs 個股：</b>「CPU 主升段」這類主題級 call 容易 hit；個股級點名（聯發科、世芯-KY、創意、國巨、信昌電）才是真正的 alpha 證據。</li>
+      <li><b>時點預測偏弱：</b>主持人在「<b>方向</b>」上極準，但「<b>時點</b>」（何時會回檔）多次失準。這是節目自承的局限——「我們不是預測時點的工具」。</li>
+      <li><b>第三方整理可能誤讀：</b>本回測引用 vocus.cc 兩位整理者（@ober、格友#ace45）的逐字稿/重點，原意可能在轉述時失真。建議重要決策回去聽原音檔。</li>
+      <li><b>價格資料粒度：</b>4 月底 / 5 月初的價格部分為日 K 估算（從新聞引用），非分鐘級，% 變化僅供方向判讀。</li>
+    </ul>
+
+    <h3 style="color:var(--accent)">如何用這份回測</h3>
+    <ul>
+      <li><b>不是抄作業工具：</b>已經 hit 的 call 不代表現在進場仍 OK，反而很多已經漲到「預期打滿」階段（如聯發科）。</li>
+      <li><b>看主持人「對在哪、錯在哪」：</b>找出他穩定有 edge 的領域（產業趨勢 / 個股題材），跟他失手的領域（時點 / 大盤點數預測）。</li>
+      <li><b>追蹤敘事一致性：</b>若同一論述橫跨多集、且每集都有新證據加固（如 CPU 主升段從 EP650 鋪陳到 EP659），命中機率較高。</li>
+      <li><b>反向訊號：</b>主持人自己說「不會再加大部位」（如 EP659 聯發科）通常是上緣警示，比正面 call 更有 alpha。</li>
+    </ul>
+  </div>
+
+  <div class="note-box" style="background:#1a2330;border-color:#2a4a6e;color:#cce4ff">
+    <b>⚠️ 投資提醒：</b> 本回測純屬研究性質，不構成投資建議。Gooaye 股癌節目本身即多次強調「投資有賺有賠」、「不要亂跟單當韭菜」。歷史命中率不代表未來表現，請依個人風險承受度與專業判斷做決策。
+  </div>
+</section>
+
+<footer>
+  資料源：<a href="https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml" target="_blank">SoundOn RSS</a>　·
+  <a href="https://vocus.cc/salon/ober" target="_blank">vocus @ober 逐字稿</a>　·
+  <a href="https://vocus.cc/salon/6908b98efd89780001cb1d32" target="_blank">vocus 格友#ace45 重點整理</a>
+  <br>價格資料：Yahoo 股市、TechNews、經濟日報、CNA 等公開新聞（2026/04-05）
+  <br>由 Claude 在 Cowork mode 整理 · 2026/05/09
+</footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.pane').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      document.getElementById(t.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Calls table filter
+  document.querySelectorAll('[data-v]').forEach(b => {
+    if (b.tagName !== 'BUTTON') return;
+    b.addEventListener('click', () => {
+      document.querySelectorAll('button[data-v]').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      const f = b.dataset.v;
+      document.querySelectorAll('tbody tr[data-v]').forEach(r => {
+        r.style.display = (f === 'all' || r.dataset.v === f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

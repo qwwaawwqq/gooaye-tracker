@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gooaye 股癌 · 最新 5 集深度互動摘要</title>
+<style>
+  :root{
+    --bg:#0a0e1f; --panel:#131a35; --panel2:#0f1530; --panel3:#1a2348;
+    --ink:#e7ecf7; --ink2:#cdd6f0;
+    --muted:#8b97b5; --line:#1f2a4d;
+    --accent:#7cf2c1; --accent2:#ffb347; --accent3:#9ec5ff;
+    --bull:#22c55e; --bear:#ef4444; --warn:#f59e0b;
+    --us:#a78bfa; --tw:#60a5fa;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:28px 22px 80px}
+
+  /* header */
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;
+    border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px;gap:16px;flex-wrap:wrap}
+  h1{margin:0;font-size:30px;letter-spacing:.5px;font-weight:800}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  .pill{display:inline-block;background:var(--panel);border:1px solid var(--line);
+    color:var(--muted);font-size:12px;padding:4px 10px;border-radius:999px;margin-right:6px}
+  .pill.live{color:var(--accent);border-color:var(--accent)}
+
+  /* tabs */
+  .tabs{display:flex;gap:4px;background:var(--panel2);padding:4px;border-radius:12px;
+    margin-bottom:22px;border:1px solid var(--line);overflow-x:auto}
+  .tab{flex:1;min-width:130px;padding:10px 12px;background:transparent;border:0;color:var(--muted);
+    cursor:pointer;border-radius:8px;font-size:14px;font-weight:600;transition:all .15s}
+  .tab:hover{color:var(--ink)}
+  .tab.active{background:var(--panel3);color:var(--accent)}
+  .pane{display:none}
+  .pane.active{display:block}
+
+  /* search bar */
+  .toolbar{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;align-items:center}
+  .search{flex:1;min-width:220px;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;padding:10px 14px;color:var(--ink);font-size:14px;outline:none}
+  .search:focus{border-color:var(--accent)}
+  .filter{background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    padding:8px 12px;border-radius:8px;font-size:13px;cursor:pointer}
+  .filter.on{background:var(--accent);color:#062017;border-color:var(--accent)}
+
+  /* dashboard tiles */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .tile .k{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+  .tile .v{font-size:22px;font-weight:700;margin-top:6px}
+  .tile .t{font-size:11px;color:var(--muted);margin-top:4px}
+  .tile.bull .v{color:var(--bull)}
+  .tile.warn .v{color:var(--warn)}
+
+  /* market snapshot */
+  .market{background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    padding:20px;margin:16px 0 22px}
+  .market h3{margin:0 0 12px;font-size:15px;color:var(--accent);font-weight:700}
+  .mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .mcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .mcard .name{font-size:11px;color:var(--muted);text-transform:uppercase}
+  .mcard .price{font-size:20px;font-weight:700;margin-top:4px}
+  .mcard .delta{font-size:11px;margin-top:3px}
+  .mcard .delta.bull{color:var(--bull)}
+  .mcard .delta.bear{color:var(--bear)}
+  .mcard .delta.warn{color:var(--warn)}
+  .mcard .note{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5}
+
+  /* episode card */
+  .ep{background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+    border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0;
+    transition:border-color .2s}
+  .ep:hover{border-color:#2c3a6e}
+  .ep header{display:grid;grid-template-columns:80px 1fr auto;gap:18px;align-items:flex-start}
+  .ep .num{font-size:32px;font-weight:800;color:var(--accent);line-height:1}
+  .ep .num small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:4px;letter-spacing:1px}
+  .ep h2{margin:0 0 4px;font-size:19px;font-weight:700}
+  .ep .meta{color:var(--muted);font-size:12px}
+  .ep .toggle{background:var(--panel3);border:1px solid var(--line);color:var(--ink);
+    border-radius:8px;padding:6px 12px;cursor:pointer;font-size:12px;white-space:nowrap}
+  .ep .body{margin-top:14px;display:none}
+  .ep.open .body{display:block}
+  .ep.open .toggle::before{content:"▾  "}
+  .ep:not(.open) .toggle::before{content:"▸  "}
+
+  .tag{display:inline-block;background:#1c2750;color:#cdd6ff;font-size:11px;
+    padding:3px 9px;border-radius:6px;margin-right:5px;margin-bottom:5px}
+  .tag.bull{background:#0f3a1f;color:#86efac}
+  .tag.warn{background:#3a2a07;color:#fcd34d}
+  .tag.bear{background:#3a0f0f;color:#fca5a5}
+  .tag.us{background:#241a3f;color:#c4b5fd}
+  .tag.tw{background:#0e2444;color:#93c5fd}
+  .tag.spons{background:#2a1c3a;color:#d8b4fe}
+
+  .section{margin-top:14px}
+  .section h4{margin:8px 0 6px;color:var(--accent2);font-size:13px;font-weight:700}
+  .section p{margin:6px 0;line-height:1.7;font-size:14px;color:var(--ink2)}
+  .section ul{margin:6px 0 6px 18px;padding:0;line-height:1.7;font-size:14px;color:var(--ink2)}
+  .section ul li{margin-bottom:3px}
+  .section b{color:var(--accent2)}
+  .section a{color:var(--accent3);text-decoration:none;border-bottom:1px dotted var(--accent3)}
+  .quote{border-left:3px solid var(--accent2);padding:6px 0 6px 12px;color:var(--ink2);
+    font-style:italic;font-size:13.5px;margin:10px 0;background:rgba(255,179,71,.05)}
+
+  /* stock cards */
+  .stocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:14px}
+  .stock{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;
+    transition:transform .15s, border-color .15s}
+  .stock:hover{transform:translateY(-2px);border-color:#3c4a8e}
+  .stock.us{border-left:3px solid var(--us)}
+  .stock.tw{border-left:3px solid var(--tw)}
+  .stock .ticker{font-size:16px;font-weight:700;color:var(--ink)}
+  .stock .ticker .code{color:var(--muted);font-weight:400;font-size:13px;margin-left:6px}
+  .stock .stance{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;
+    margin-top:6px;font-weight:600}
+  .stance.bull{background:#0f3a1f;color:#86efac}
+  .stance.bear{background:#3a0f0f;color:#fca5a5}
+  .stance.neutral{background:#2a2a3a;color:#cbd5e1}
+  .stance.warn{background:#3a2a07;color:#fcd34d}
+  .stock .eps{font-size:12px;color:var(--muted);margin-top:8px}
+  .stock .takeaway{font-size:13px;line-height:1.6;color:var(--ink2);margin-top:8px}
+
+  /* themes / signals */
+  .themes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  .theme{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .theme .icon{font-size:22px}
+  .theme h3{margin:6px 0 4px;font-size:15px;color:var(--accent)}
+  .theme p{margin:6px 0;line-height:1.6;font-size:13px;color:var(--ink2)}
+  .theme .eps-tag{display:inline-block;background:var(--panel3);color:var(--muted);
+    font-size:10px;padding:2px 6px;border-radius:4px;margin:2px}
+
+  .signals{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+  .signal{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;
+    border-left:4px solid var(--warn)}
+  .signal h4{margin:0 0 6px;font-size:14px;color:var(--warn)}
+  .signal p{margin:4px 0;line-height:1.6;font-size:13px;color:var(--ink2)}
+
+  .note-box{background:#1a1330;border:1px solid #3a2a5e;border-radius:12px;
+    padding:14px;color:#e6dcff;font-size:13px;line-height:1.7;margin:18px 0}
+  .note-box b{color:#fcd34d}
+
+  footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7;
+    border-top:1px solid var(--line);padding-top:20px}
+  footer a{color:var(--accent3)}
+
+  .empty{padding:30px;text-align:center;color:var(--muted)}
+
+  @media (max-width:720px){
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .mgrid{grid-template-columns:repeat(2,1fr)}
+    .ep header{grid-template-columns:60px 1fr;gap:12px}
+    .ep .toggle{grid-column:1/-1;justify-self:start}
+    h1{font-size:22px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <h1>Gooaye <span>股癌</span> · 最新 5 集深度互動摘要</h1>
+    <div class="sub">EP656 → EP660 ｜ 2026/04/25 – 2026/05/09 ｜ 主持人：謝孟恭</div>
+  </div>
+  <div>
+    <span class="pill live">● 報告產製：2026/05/09</span>
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tab="overview">📊 總覽</button>
+  <button class="tab" data-tab="episodes">🎙 5 集詳細</button>
+  <button class="tab" data-tab="stocks">💹 個股清單</button>
+  <button class="tab" data-tab="themes">🧭 投資主軸</button>
+  <button class="tab" data-tab="signals">⚠️ 風險訊號</button>
+</nav>
+
+<!-- ============= OVERVIEW ============= -->
+<section class="pane active" id="overview">
+
+  <div class="tiles">
+    <div class="tile"><div class="k">期間集數</div><div class="v">5 集</div><div class="t">~250 分鐘總時長</div></div>
+    <div class="tile bull"><div class="k">大盤峰值</div><div class="v">42,131</div><div class="t">5/7 盤中 +992 點</div></div>
+    <div class="tile bull"><div class="k">台積電峰值</div><div class="v">$2,345</div><div class="t">5/7 史上新高</div></div>
+    <div class="tile warn"><div class="k">系統性訊號</div><div class="v">4 個</div><div class="t">過熱徵兆累積中</div></div>
+  </div>
+
+  <div class="market">
+    <h3>📊 期間市場快照</h3>
+    <div class="mgrid">
+      <div class="mcard">
+        <div class="name">加權指數 TWSE</div>
+        <div class="price">42,131</div>
+        <div class="delta bull">5/7 盤中歷史新高</div>
+        <div class="note">5/8 回檔 -329.84 至 41,604</div>
+      </div>
+      <div class="mcard">
+        <div class="name">台積電 (2330)</div>
+        <div class="price">$2,345</div>
+        <div class="delta bull">+95 元 (+4.22%)</div>
+        <div class="note">5/8 回 $2,290；2027 EPS 共識 ~140</div>
+      </div>
+      <div class="mcard">
+        <div class="name">聯發科 (2454)</div>
+        <div class="price">處置股</div>
+        <div class="delta warn">5/7-5/20 5 分鐘撮合</div>
+        <div class="note">市值 5.5 兆，史上最大；30 日 +124%</div>
+      </div>
+      <div class="mcard">
+        <div class="name">主軸題材</div>
+        <div class="price">Agentic AI</div>
+        <div class="delta">CPU + ASIC + 被動元件</div>
+        <div class="note">輪動全開，GPU 暫休息</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="themes-grid">
+    <div class="theme">
+      <div class="icon">🎯</div>
+      <h3>核心交易論述</h3>
+      <p>金管會 4/25 將投信單一個股上限 <b>10% → 25%</b>，等於為台積電量身解封；估算 ETF 需新增買盤 <b>~10 萬張</b>，帶動指數攻 4 萬大關。台積電「吸星大法」期間中小型股被資金抽血，回檔即補漲機會。</p>
+      <span class="eps-tag">EP656</span><span class="eps-tag">EP657</span><span class="eps-tag">EP658</span>
+    </div>
+    <div class="theme">
+      <div class="icon">⚙️</div>
+      <h3>Agentic AI 點燃 CPU</h3>
+      <p>Intel 法說漲價 + Meta 跟 AWS 簽下 Multi-billion Graviton 5 訂單（推估 ~52 萬顆晶片）+ AMD Server CPU 看 50%+ 市佔 → CPU 從配角變主角。**排擠效應**讓 DDR3/4、MLC NAND、cSSD 全部飆漲。</p>
+      <span class="eps-tag">EP656</span><span class="eps-tag">EP657</span><span class="eps-tag">EP659</span>
+    </div>
+    <div class="theme">
+      <div class="icon">🏭</div>
+      <h3>TPU 雙線封裝賽局</h3>
+      <p>Google TPU v8 (5921) 前後段都在台積電；v9 (5922) 後段原規劃走 Intel EMIB（良率意外拉到 90%），台積大將跳槽聯發科後，市場猜測後段可能回流台積。但 5921 都還沒大放量，v9 討論還太早。</p>
+      <span class="eps-tag">EP656</span><span class="eps-tag">EP657</span><span class="eps-tag">EP658</span>
+    </div>
+    <div class="theme">
+      <div class="icon">💾</div>
+      <h3>軟體股 AI 抗性分層</h3>
+      <p>抗 AI 三劍客 NET / CRWD / PLTR；被誤殺反指標 TEAM；估值合理打壓 ADBE；中性 CRM（Agentforce）。Palantir 用 AIP 解決企業端的「AI Slop」問題，垂直整合與 FDE know-how 為護城河。</p>
+      <span class="eps-tag">EP658</span><span class="eps-tag">EP659</span>
+    </div>
+    <div class="theme">
+      <div class="icon">⚡</div>
+      <h3>被動元件第三波</h3>
+      <p>國巨陳泰銘開「AI 誓師大會」+ 信昌電交期拉長即漲停 → 被動元件全體啟動。供需面持續吃緊（鉭電、鋁電、MLCC），高階主導仍是日韓系（村田、三星電機），台廠走「高階 AI 伺服器」與「排擠訂單」兩條敘事。</p>
+      <span class="eps-tag">EP657</span><span class="eps-tag">EP659</span>
+    </div>
+    <div class="theme">
+      <div class="icon">🛑</div>
+      <h3>過熱訊號 + 退場心法</h3>
+      <p>券商「<b>晴天收傘</b>」（連新戶信用額度都鎖）+ 「現在價值觀偏差」+ 大盤已達 4 萬點 EPS 推估上緣。退場條件明確：<b>長黑 K 或吞噬 K 線</b>出現才降槓桿。引述：「我不想要在派對結束之前就走出去」。</p>
+      <span class="eps-tag">EP658</span><span class="eps-tag">EP659</span><span class="eps-tag">EP660</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============= EPISODES ============= -->
+<section class="pane" id="episodes">
+
+  <div class="toolbar">
+    <input class="search" id="ep-search" placeholder="🔍 搜尋集數、個股代碼、關鍵字（如「聯發科」、「Palantir」、「Intel」）">
+    <button class="filter" id="expand-all">展開全部</button>
+    <button class="filter" id="collapse-all">摺疊全部</button>
+  </div>
+
+  <!-- EP660 -->
+  <article class="ep open" data-ep="660" data-keywords="660 5/9 過熱 風險控管 台積電 聯發科 處置 Agentic AI 派對 胖尾">
+    <header>
+      <div class="num">660<small>2026 / 05 / 09 · 週六 · 51 分鐘</small></div>
+      <div>
+        <h2>🍄 這樣下去會不會壞掉</h2>
+        <div class="meta">
+          <span class="tag bull">台股 42K</span>
+          <span class="tag bull">台積電 $2,345</span>
+          <span class="tag warn">聯發科處置股</span>
+          <span class="tag">Agentic AI</span>
+          <span class="tag warn">風險控管</span>
+          <span class="tag spons">贊助：zZSLEEPER</span>
+        </div>
+      </div>
+      <button class="toggle">摺疊</button>
+    </header>
+    <div class="body">
+      <div class="section">
+        <h4>市場現場</h4>
+        <p>台股當週站上 <b>42,000</b> 點、台積電噴到 <b>$2,345</b>、連聯發科都被送進 5 分鐘集合競價的處置撮合（市值 5.5 兆，史上最大處置股）。Discord 半夜還在挖 Agentic AI 概念。</p>
+        <h4>主持人核心訊息</h4>
+        <p>盤勢「熱到腦袋發燙」階段，<b>風險控管 &gt; 追高</b>。當大家相信股票不會跌、就是「胖尾風險」最大的時候。延伸出「決策品質與睡眠品質正相關」，順勢帶出贊助商。</p>
+        <p style="color:var(--muted);font-size:12px">⚠ 本集為 5/9 當天剛上架，社群尚無詳細逐字稿；上述為 RSS 官方 show notes 摘錄 + 同期市場事件交叉驗證。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- EP659 -->
+  <article class="ep open" data-ep="659" data-keywords="659 5/6 國巨 信昌電 AMD 世芯-KY GUC 創意 ASIC 聯發科 Palantir AI Slop 派對 晴天收傘">
+    <header>
+      <div class="num">659<small>2026 / 05 / 06 · 週三 · 51 分鐘</small></div>
+      <div>
+        <h2>🦤 做壞掉了</h2>
+        <div class="meta">
+          <span class="tag bull">被動元件第三波</span>
+          <span class="tag bull">AMD CPU 50%+</span>
+          <span class="tag bull">ASIC 全動</span>
+          <span class="tag warn">過熱訊號累積</span>
+          <span class="tag spons">贊助：Saily eSIM</span>
+        </div>
+      </div>
+      <button class="toggle">摺疊</button>
+    </header>
+    <div class="body">
+      <div class="section">
+        <h4>① 被動元件第三波 + AMD 法說</h4>
+        <ul>
+          <li><b>國巨 (2327)</b> 陳泰銘開 AI 誓師大會 → 國巨走起 → 被動元件全體轉強</li>
+          <li><b>信昌電 (6173)</b> 出貨交期拉長通知（非漲價）→ 直接漲停。市場提前 pricing 漲價</li>
+          <li>供需吃緊：鉭電、鋁電、MLCC 越來越緊（特別是高階）</li>
+          <li>高階主導仍是韓系（三星電機）、日系（村田）；台廠兩條故事線：(a) 切高階 AI 伺服器 (b) 吃排擠訂單</li>
+          <li><b>AMD (AMD)</b> 法說：2024 Server AI 上修到 4.5B，YoY 強；Server CPU 信心 &gt;50% 市佔；2027 AI Data Center 看 tens of billions</li>
+        </ul>
+        <h4>② 台股 ASIC + 聯發科預期打滿</h4>
+        <ul>
+          <li>GPU 老大 NVIDIA 暫休息，輪動全開：CPU、ASIC、被動元件、Server components 一起動</li>
+          <li><b>創意 (3443) GUC</b> 跟 Google 高度相關，Google 動就提早動</li>
+          <li><b>世芯-KY (3661)</b> 漲停，高度綁定 Amazon Trainium</li>
+          <li><b>聯發科 (2454)</b> 一次反應到 1000 多塊，<b>預期已被非常充分打滿</b>。市場給的 "Arm Main Chip" 故事，孟恭認知聯發科主要在做 IO 與 Memory Buffer 相關 die，沒看到 Main Chip 業務 → 不會再加大部位</li>
+        </ul>
+        <div class="quote">早知道我就他媽說哈聯發科。</div>
+        <h4>③ AI Slop 與 Palantir</h4>
+        <p><b>Palantir (PLTR)</b> 財報講「AI Slop Zone」概念：AI 在網路上產出的廢文廢圖（亞馬遜爆量 eBook、波麗水果短影音、擬真 Trump 影片）。企業端不能出模稜兩可的東西（帳務、會計、法遵），Palantir AIP 扮演「降低 AI Slop」角色。</p>
+        <div class="quote">大家都宣稱自己有傳說廚具，但至今還沒看到傳說料理的誕生。</div>
+        <h4>④ 過熱訊號 + 派對心法</h4>
+        <ul>
+          <li><b>券商晴天收傘</b>：不延展、不借更多錢、信用額度鎖上限；連孟恭新戶要開高額度都被擋</li>
+          <li><b>價值觀偏差</b>：行情好到大家覺得發財容易 → 後面一定會罰</li>
+          <li><b>大資金不解套</b>：他們開拉才跟，別賭左側</li>
+          <li><b>估值面</b>：TSMC 2027 EPS 推估大盤 4 萬點現已到；5 萬點算不到。但光通訊交易在 100 倍，權值股 20 倍相對便宜</li>
+        </ul>
+        <div class="quote">我不想要在派對結束之前就走出去。退場訊號：大盤長黑 K、吞噬 K 線。</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- EP658 -->
+  <article class="ep" data-ep="658" data-keywords="658 5/2 軟體股 Jensen Huang Palantir Cloudflare CrowdStrike Adobe Salesforce Atlassian Google Microsoft Intel TPU 股票質押 邊緣運算 Axion CPU 擦鞋童">
+    <header>
+      <div class="num">658<small>2026 / 05 / 02 · 週六 · 49 分鐘</small></div>
+      <div>
+        <h2>🪿 最終都是氣氛</h2>
+        <div class="meta">
+          <span class="tag">軟體股分層</span>
+          <span class="tag bull">Jensen 校正回歸</span>
+          <span class="tag">TPU 雙線封裝</span>
+          <span class="tag">股票質押心法</span>
+          <span class="tag warn">5 月應有像樣回檔</span>
+          <span class="tag spons">贊助：NordVPN</span>
+        </div>
+      </div>
+      <button class="toggle">展開</button>
+    </header>
+    <div class="body">
+      <div class="section">
+        <h4>① 軟體股 AI 抗性分層 ⭐</h4>
+        <p><b>Jensen Huang 校正回歸</b>：之前說「以後不用花太多時間學 coding」被市場曲解成軟體工程師失業，本次澄清——coding 變快不等於軟體工程師不需要，重點是交出什麼 product。順帶酸 Dario Amodei、Sam Altman、Naval Ravikant「god complex」。</p>
+        <ul>
+          <li><b>第一層 抗 AI</b>：<b>Cloudflare (NET)</b>、<b>CrowdStrike (CRWD)</b>、<b>Palantir (PLTR)</b>。Palantir 特例：「顧問公司」標籤在 AI 時代反而是利多 — 需要大量 FDE 進客戶把屎山代碼整理成可決策可視化，AI 短期取代不了</li>
+          <li><b>第二層 被誤殺反指標</b>：<b>Atlassian (TEAM)</b> 財報意外繳出 seat expansion 數據，打破 SaaS apocalypse 論。「不是孟恭持股」</li>
+          <li><b>估值合理打壓</b>：<b>Adobe (ADBE)</b> AI 生圖搶走初階用戶，但專業設計師仍只能用，估值雙降</li>
+          <li><b>「最慘往上一個程度」</b>：<b>Salesforce (CRM)</b> Marc Benioff 厲害創辦人，已快速導入 Agentforce + headless 架構</li>
+          <li><b>巨頭重新評價</b>：<b>Google (GOOGL)</b>、<b>Microsoft (MSFT)</b> 過去被認為 AI 模型搶軟體，財報打破論述「AI 確實在幫大家賺錢」</li>
+        </ul>
+        <h4>② TPU 5921/5922 雙線後段封裝</h4>
+        <p>台積電先進封裝研發大將榮退加入 <b>聯發科 (2454)</b>。市場熱議 v5922 後段是否從 Intel EMIB 拉回台積。孟恭：5921 還沒大放量現在討論 v5922 太早；台積大將進來「找個神主牌、以後談生意比較好」是業界常見模式，<b>不一定真要動產能</b>。</p>
+        <h4>③ 記憶體模組 hold-through-noise</h4>
+        <p>聽眾 Q&A：公司加大囤貨（3 月 350 億 → 6 月底 500 億），但股價反應弱。孟恭：基本面 + 蘋果電話會議「成本後續會持續漲」交叉驗證 OK，但股價時間到自會反映。「也不希望大家覺得可以再衝進去做波段」。</p>
+        <h4>④ 股票質押心法（新素材）</h4>
+        <p>聽眾 Q&A：90% 部位在台積電，明年要出國念書。孟恭：股票質押 <b>利率 ~2-2.7%</b>（沒過 3%），通常可無限展延。本質是「<b>時序彈性</b>」工具，不是槓桿放大。警告：很怕「快樂寶貝」聽完開始全部質押拉滿大爆炸，量力而為。</p>
+        <h4>⑤ 邊緣運算 + Google CPU 外銷</h4>
+        <p>「<b>AIPC = joke</b>」（華而不實）。<b>Google Axion CPU</b> 外銷 = 客戶把運算放自家機房，算某種程度的邊緣運算。邊緣 vs 雲端界線會越來越模糊。</p>
+        <h4>⑥ 5 月觀察 + ASIC vs GPGPU 重申</h4>
+        <p>4 月暴力後 5 月應有像樣回檔，時間點（5 月初/中、6 月中）說不準。AI 晶片整體供不應求，沒有 Google/Amazon ASIC 殺 NVIDIA 的劇本，等紅海再討論才有意義。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- EP657 -->
+  <article class="ep" data-ep="657" data-keywords="657 4/29 Intel EMIB 90% 良率 聯發科 OpenAI 立訊 Agentic 手機 Meta AWS Graviton 5 旺宏 NOR Flash 被動元件 愛普 高通">
+    <header>
+      <div class="num">657<small>2026 / 04 / 29 · 週三 · 50 分鐘</small></div>
+      <div>
+        <h2>🐫 他不呆兒 他長大了</h2>
+        <div class="meta">
+          <span class="tag bull">Intel EMIB 良率 90%</span>
+          <span class="tag bull">聯發科利空解除</span>
+          <span class="tag">Meta 爆買 Graviton 5</span>
+          <span class="tag bull">旺宏 NOR/MLC NAND 漲</span>
+          <span class="tag spons">贊助：母親節 SkinCeuticals</span>
+        </div>
+      </div>
+      <button class="toggle">展開</button>
+    </header>
+    <div class="body">
+      <div class="section">
+        <h4>① 記憶體與被動元件突圍</h4>
+        <ul>
+          <li><b>旺宏 (2337)</b> 法說會老闆轉超級利多，<b>MLC NAND 與 NOR Flash 價格漂亮上漲</b></li>
+          <li>台股被動元件已 underperform 海外久（村田、三星電機 SEMCO 早噴）</li>
+          <li>4/29 起趁機跳出，「<b>瘋狂看到一堆漲價信跑出來</b>」</li>
+        </ul>
+        <h4>② Intel 封裝良率 90% 的震撼彈</h4>
+        <p>多方產業考察發現 <b>Intel (INTC)</b> 後段封裝（Assembly）良率已拉到 <b>90%</b>。這數字 Sell-side 還不太知情，因為大家從載板端 check（IPD 良率 30-40%）。如果後段 90%，<b>聯發科 (2454)</b> 潛在利空（Intel 做不出來）解除。Intel 可視為「非常專業的後段封裝廠」。</p>
+        <p><b>愛普 (6531)</b> 受惠：做 Intel 載板裡的被動式矽電容（IPD）。</p>
+        <h4>③ OpenAI + 立訊精密 Agentic AI 手機</h4>
+        <p><b>OpenAI</b> 跟 <b>立訊精密 (002475.SZ)</b> 要做原生 AI 消費設備（沒有 APP，藏在 Agentic 任務列）。供應鏈：晶片由 <b>高通 (QCOM)</b> 跟 <b>聯發科 (2454)</b> 供應，一顆 USD 120。</p>
+        <p>孟恭：「我們是 AI 多頭但沒辦法無腦尬吹」。要取代 iPhone 沒這麼簡單，AI Pin 前車之鑑；不認為它能賣幾千萬台。建議用 Agentic interface 在現有 iPhone 上操控既有 APP 接受度更高。</p>
+        <h4>④ Meta 爆買 AWS Graviton 5 + 排擠效應</h4>
+        <ul>
+          <li><b>Meta (META)</b> 跟 <b>AWS</b> 簽 multi-billion dollar agreement 買大量 Graviton 5</li>
+          <li>用 tens of millions of cores 反推：一個 Graviton 192 cores → 約 <b>520,000 顆晶片</b>（保守估計）</li>
+          <li>Server CPU 火熱，台系 CPU Supply Chain 全動</li>
+          <li><b>排擠效應</b>：Intel 法說明示產能輸給伺服器 → 消費級 CPU 被排擠 → DDR3/DDR4、MLC NAND、cSSD 飆漲（類似記憶體前例）</li>
+          <li>大家加碼 <b>INTC</b>、<b>ARM</b>、<b>AMD</b> 及其長期 CPU 夥伴元件</li>
+        </ul>
+        <h4>⑤ Q&A 摘要</h4>
+        <ul>
+          <li><b>主動 ETF（瑤池金母）</b> 能否打敗大盤？孟恭：長期贏大盤很不容易，推薦樸實的 0050 / 006208 / VTI</li>
+          <li><b>融資維持率</b>：明年交屋不想賣股，配 0050 + 00713？開槓桿一定要設停損；最近很多券商「晴天收傘」反轉很可怕</li>
+          <li><b>3 千萬本金設定</b>：資金小才用大槓桿；錢變大時槓桿比例要變小（避免出貨卡 5 檔）</li>
+          <li><b>停損移到 10 日線算凹單嗎？</b>不算凹單，叫「戰略彈性」</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- EP656 -->
+  <article class="ep" data-ep="656" data-keywords="656 4/25 台積電 ETF 25% 投信 法規 聯發科 TPU CPU GPU Broadcom Pair Trade 護國神山">
+    <header>
+      <div class="num">656<small>2026 / 04 / 25 · 週六 · 49 分鐘</small></div>
+      <div>
+        <h2>🍇 萬劍歸宗</h2>
+        <div class="meta">
+          <span class="tag bull">投信上限 10% → 25%</span>
+          <span class="tag bull">台積電吸星大法</span>
+          <span class="tag bull">聯發科三根漲停</span>
+          <span class="tag warn">Pair Trade 警示</span>
+          <span class="tag spons">贊助：Ergotron 螢幕支架</span>
+        </div>
+      </div>
+      <button class="toggle">展開</button>
+    </header>
+    <div class="body">
+      <div class="section">
+        <h4>① Agentic AI 帶動 CPU 暴力連噴</h4>
+        <ul>
+          <li><b>Intel (INTC)</b> 財報數字不錯 + 後面要漲價 → CPU 類股全面噴出</li>
+          <li>市場開始有「Server 內 CPU:GPU = 1:1」的小作文，<b>實際接近 4:1 或 2:1</b>。Hold your horses，不要追高</li>
+        </ul>
+        <h4>② TPU 供應鏈版圖</h4>
+        <p>Google v8/v9（8T/8i = Bearfish/Starfish）已發表。AI 晶片代工：</p>
+        <ul>
+          <li><b>Broadcom (AVGO)</b>：Inference 約 50%；Training 與其趨近 1:1</li>
+          <li><b>聯發科 (2454)</b>：Training 略多；短時間三根漲停「很多人連想都不敢想」</li>
+        </ul>
+        <h4>③ 法規鬆綁 25% → 台積電變身飆股 ⭐</h4>
+        <ul>
+          <li>金管會調投信單一個股上限：<b>10% → 25%</b>，等同為 <b>台積電 (2330)</b> 量身打造</li>
+          <li>ETF AUM 算下來，買到 25% 大概要掃 <b>10 萬多張</b>台積</li>
+          <li>基金經理人保命：先買滿 25% 台積，剩下再選股（不能脫鉤大盤）</li>
+          <li>2027 EPS 共識 ~140，給 20 倍本益比 = 2,800 元（前幾集喊台股上 4 萬點的依據）</li>
+        </ul>
+        <h4>④ 資金輪動 Pair Trade</h4>
+        <ul>
+          <li>大資金做：<b>多台積電 / 空台指期</b> = 多台積 + 空台積以外標的</li>
+          <li>中小型股被資金抽血賣壓，但跌深就是補漲機會</li>
+          <li>主持人「禮拜五對持股做了非常重大的改變，減碼一堆中小型股，騰錢買台積電」</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============= STOCKS ============= -->
+<section class="pane" id="stocks">
+  <div class="toolbar">
+    <input class="search" id="stk-search" placeholder="🔍 搜尋個股代碼或名稱（如「2454」、「Palantir」）">
+    <button class="filter on" data-mkt="all">全部</button>
+    <button class="filter" data-mkt="tw">台股</button>
+    <button class="filter" data-mkt="us">美股 / 海外</button>
+    <button class="filter" data-mkt="bull">看好</button>
+    <button class="filter" data-mkt="warn">警示</button>
+  </div>
+
+  <div class="stocks" id="stocks-grid">
+    <!-- TW -->
+    <div class="stock tw" data-mkt="tw bull"><div class="ticker">台積電 <span class="code">2330</span></div><span class="stance bull">看好</span><div class="eps">EP656 / EP657 / EP658 / EP659 / EP660</div><div class="takeaway">投信 25% 上限解封後資金海嘯灌入；2027 EPS 共識 ~140，20 倍 PE 推估 $2,800；主持人減碼中小型股集中加碼。5/7 達 $2,345 史上新高。</div></div>
+
+    <div class="stock tw" data-mkt="tw warn"><div class="ticker">聯發科 <span class="code">2454</span></div><span class="stance warn">預期打滿</span><div class="eps">EP656 / EP657 / EP658 / EP659 / EP660</div><div class="takeaway">短時間三根漲停 → 一次反應到 $1000+；5/7-5/20 列處置股 5 分鐘撮合（市值 5.5 兆）。Intel 利空解除 + Google TPU training 配額。「Arm Main Chip」故事孟恭認為過熱，<b>不會再加大部位</b>。</div></div>
+
+    <div class="stock tw" data-mkt="tw bull"><div class="ticker">國巨 <span class="code">2327</span></div><span class="stance bull">啟動</span><div class="eps">EP659</div><div class="takeaway">陳泰銘開 AI 誓師大會，帶動被動元件全體轉強。AI 伺服器拉動高階電容需求。</div></div>
+
+    <div class="stock tw" data-mkt="tw bull"><div class="ticker">信昌電 <span class="code">6173</span></div><span class="stance bull">漲停</span><div class="eps">EP659</div><div class="takeaway">出貨交期拉長通知（非漲價）→ 直接漲停。市場提前 pricing「後面有機會看到漲價」。</div></div>
+
+    <div class="stock tw" data-mkt="tw bull"><div class="ticker">旺宏 <span class="code">2337</span></div><span class="stance bull">看好</span><div class="eps">EP657</div><div class="takeaway">法說會老闆轉超級利多。產品線：MLC NAND 與 NOR Flash 價格漂亮上漲。「老闆以前不敢說好，現在出來說自己很好」。</div></div>
+
+    <div class="stock tw" data-mkt="tw bull"><div class="ticker">世芯-KY <span class="code">3661</span></div><span class="stance bull">看好</span><div class="eps">EP659</div><div class="takeaway">漲停。高度綁定 Amazon Trainium ASIC 訂單。孟恭原本說「再買就一條狗」，本集自嘲「現在直接學狗叫」追回。</div></div>
+
+    <div class="stock tw" data-mkt="tw bull"><div class="ticker">創意 <span class="code">3443</span> GUC</div><span class="stance bull">看好</span><div class="eps">EP659</div><div class="takeaway">與 Google 高度相關，Google 動就提早動。台股 ASIC 線重要標的。</div></div>
+
+    <div class="stock tw" data-mkt="tw neutral"><div class="ticker">愛普 <span class="code">6531</span></div><span class="stance neutral">受惠</span><div class="eps">EP657</div><div class="takeaway">做 Intel 載板裡的被動式矽電容（IPD）。Intel 後段封裝良率拉到 90% 後潛在受惠（雖然載板 IPD 良率還只有 30-40%）。</div></div>
+
+    <div class="stock tw" data-mkt="tw neutral"><div class="ticker">0050 / 006208</div><span class="stance neutral">推薦</span><div class="eps">EP657</div><div class="takeaway">針對「沒花心力或長期贏不過大盤的人」推薦的樸實無華產品。配合 VTI（美股大盤）。</div></div>
+
+    <div class="stock tw" data-mkt="tw warn"><div class="ticker">瑤池金母（主動 ETF）</div><span class="stance warn">短期紅</span><div class="eps">EP657</div><div class="takeaway">今年台股非常紅的主動型 ETF。「江山代有才人出」，但長期贏大盤很不容易（巴菲特十年之約）。</div></div>
+
+    <!-- US -->
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Intel <span class="code">INTC</span></div><span class="stance bull">轉強</span><div class="eps">EP656 / EP657 / EP658</div><div class="takeaway">CPU 漲價題材；EMIB 後段封裝良率 90%（重大）；法說明示產能輸給伺服器 → 消費級 CPU 排擠效應。「噴到孟恭看不懂、不會加碼，有機會可能會丟出來」。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">AMD <span class="code">AMD</span></div><span class="stance bull">看好</span><div class="eps">EP657 / EP659</div><div class="takeaway">法說：2024 Server AI 上修 4.5B；Server CPU 信心 &gt;50% 市佔；2027 AI Data Center 看 tens of billions。長期 CPU 夥伴元件也跟著買。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">ARM <span class="code">ARM</span></div><span class="stance bull">看好</span><div class="eps">EP657</div><div class="takeaway">Agentic AI / Server CPU 多頭浪潮的受惠者之一。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">NVIDIA <span class="code">NVDA</span></div><span class="stance bull">底氣足</span><div class="eps">EP658 / EP659</div><div class="takeaway">Jensen 出來「校正回歸」批 god complex 派；ASIC 不會殺 GPU、雲端巨頭都還是 NVDA 大客戶。當前暫休息但底氣足。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Broadcom <span class="code">AVGO</span></div><span class="stance bull">看好</span><div class="eps">EP656</div><div class="takeaway">AI 晶片代工：Inference 約佔 50%；Training 與聯發科趨近 1:1。Google TPU 主要設計伙伴。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Palantir <span class="code">PLTR</span></div><span class="stance bull">抗 AI 三劍客</span><div class="eps">EP658 / EP659</div><div class="takeaway">原本被嘴是顧問公司，AI 時代反而利多 — FDE 進客戶整理屎山代碼，AIP 解決企業端「AI Slop」問題。垂直整合 + know-how 護城河。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Cloudflare <span class="code">NET</span></div><span class="stance bull">抗 AI 三劍客</span><div class="eps">EP658</div><div class="takeaway">半年前內部審視就定為「相對難被 AI 搞掉」。要抄底軟體股的優先名單。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">CrowdStrike <span class="code">CRWD</span></div><span class="stance bull">抗 AI 三劍客</span><div class="eps">EP658</div><div class="takeaway">與 NET / PLTR 並列為相對抗 AI 的軟體股，長期觀察清單。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Atlassian <span class="code">TEAM</span></div><span class="stance bull">被誤殺反指標</span><div class="eps">EP658</div><div class="takeaway">財報意外繳出 seat expansion 數據，打破市場 SaaS apocalypse 論。<b>不是孟恭持股</b>，但作為論述案例引用。</div></div>
+
+    <div class="stock us" data-mkt="us warn"><div class="ticker">Adobe <span class="code">ADBE</span></div><span class="stance warn">估值合理打壓</span><div class="eps">EP658</div><div class="takeaway">AI 生圖搶走「老闆叫你隨便生一張」的初階用戶；專業設計師仍只能用 Adobe。估值倍數 + 預期數字雙降。壓到夠便宜可能是抓底機會。</div></div>
+
+    <div class="stock us" data-mkt="us neutral"><div class="ticker">Salesforce <span class="code">CRM</span></div><span class="stance neutral">中性</span><div class="eps">EP658</div><div class="takeaway">Marc Benioff 厲害創辦人，已快速導入 Agentforce + headless 架構（簡化成像 ChatGPT 對話框）。引用 David Sacks：「founder 在掌舵的公司比較有機會大破大立」。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Google <span class="code">GOOGL</span></div><span class="stance bull">重新評價</span><div class="eps">EP658</div><div class="takeaway">過去論述「AI 模型搶軟體」被財報打破。Axion CPU 外銷 = 客戶把運算放自家機房（某種程度的邊緣運算）。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Microsoft <span class="code">MSFT</span></div><span class="stance bull">重新評價</span><div class="eps">EP658</div><div class="takeaway">與 Google 並列「下一波輪動可能由這些巨頭 + 被誤殺軟體帶出來」。</div></div>
+
+    <div class="stock us" data-mkt="us neutral"><div class="ticker">Apple <span class="code">AAPL</span></div><span class="stance neutral">交叉驗證</span><div class="eps">EP658</div><div class="takeaway">電話會議親口認證後續「記憶體成本還是會持續地漲」，作為記憶體基本面交互驗證。</div></div>
+
+    <div class="stock us" data-mkt="us neutral"><div class="ticker">高通 <span class="code">QCOM</span></div><span class="stance neutral">中性</span><div class="eps">EP657</div><div class="takeaway">OpenAI + 立訊精密 AI 手機晶片供應商之一（與聯發科），單顆 USD 120。但孟恭不認為手機能賣幾千萬台。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Meta <span class="code">META</span></div><span class="stance bull">CPU 大客戶</span><div class="eps">EP657</div><div class="takeaway">與 AWS 簽 multi-billion dollar agreement 大買 Graviton 5。從 tens of millions cores 反推約 520,000 顆晶片，CPU 部署非常激進。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Amazon <span class="code">AMZN</span> / AWS</div><span class="stance bull">CPU + ASIC</span><div class="eps">EP657 / EP659</div><div class="takeaway">Graviton 5 供不應求；Trainium ASIC 帶動世芯-KY。AI 算力分工核心受惠者。</div></div>
+
+    <div class="stock us" data-mkt="us neutral"><div class="ticker">Micron <span class="code">MU</span> / WD</div><span class="stance neutral">耐甩</span><div class="eps">EP658 / EP659</div><div class="takeaway">記憶體：跌時喊破底做頭 → 後續 surprise 屌噴。基本面 + 蘋果交叉驗證後續漲價。「持有一陣子的人就只是何時下車的問題」。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">立訊精密 <span class="code">002475.SZ</span></div><span class="stance neutral">合作議題</span><div class="eps">EP657</div><div class="takeaway">與 OpenAI 合作做原生 AI 消費設備。但「品質要挑戰 iPhone 還是比較困難」。</div></div>
+
+    <div class="stock us" data-mkt="us bull"><div class="ticker">Murata 村田 / 三星電機</div><span class="stance bull">高階主導</span><div class="eps">EP657 / EP659</div><div class="takeaway">日韓系被動元件主導者。台股被動元件已 underperform 海外久，補漲空間。</div></div>
+  </div>
+</section>
+
+<!-- ============= THEMES ============= -->
+<section class="pane" id="themes">
+  <div class="themes-grid">
+    <div class="theme">
+      <h3>🎯 法規鬆綁的吸星大法</h3>
+      <p>金管會 4 月底將投信單一個股上限從 <b>10% 拉到 25%</b>，等同為台積電量身解封。ETF 為了拉高 exposure，估算需新增掃進 <b>~10 萬張</b>台積。經理人最保守的買法就是先買滿 25% 台積，剩下再選股。同時引發「<b>多台積、空台指期</b>」式 Pair Trade，中小型股被資金抽血。</p>
+      <span class="eps-tag">EP656</span>
+    </div>
+    <div class="theme">
+      <h3>⚙️ Agentic AI 點燃 CPU 主升段</h3>
+      <p>Intel 法說漲價 + Meta 跟 AWS 簽 multi-billion dollar 採購 Graviton 5（推估 520,000 顆晶片）+ AMD Server CPU 信心 50%+ 市佔 → CPU 從配角變主角。市場開始亂喊 CPU:GPU = 1:1，<b>實際接近 2:1 或 4:1</b>。引發排擠效應：DDR3/4、MLC NAND、cSSD 全部飆漲。</p>
+      <span class="eps-tag">EP656</span><span class="eps-tag">EP657</span><span class="eps-tag">EP659</span>
+    </div>
+    <div class="theme">
+      <h3>🏭 TPU v8/v9 雙線封裝賽局</h3>
+      <p>Google v8 (5921) 前後段都在台積電；v9 (5922) 後段原規劃走 Intel EMIB。<b>Intel 後段良率意外拉到 90%</b>（載板 IPD 30-40% 是另一回事），客戶有 backup plan。台積大將跳槽聯發科，市場猜想後段是否回流台積；孟恭：v5921 都還沒大放量，v5922 太早論斷，<b>找神主牌是業界常見套路</b>。</p>
+      <span class="eps-tag">EP656</span><span class="eps-tag">EP657</span><span class="eps-tag">EP658</span>
+    </div>
+    <div class="theme">
+      <h3>💻 軟體股 AI 抗性分層框架</h3>
+      <p>Jensen Huang 校正回歸後論述翻轉：</p>
+      <ul style="font-size:13px;color:var(--ink2);line-height:1.6;margin:6px 0 0 18px;padding:0">
+        <li><b>抗 AI</b>：NET / CRWD / PLTR</li>
+        <li><b>被誤殺反指標</b>：TEAM</li>
+        <li><b>估值合理打壓</b>：ADBE</li>
+        <li><b>中性</b>：CRM（Agentforce）</li>
+        <li><b>巨頭重新評價</b>：GOOGL / MSFT</li>
+      </ul>
+      <p>「下一波輪動可能由巨頭 + 被誤殺軟體帶出來」</p>
+      <span class="eps-tag">EP658</span><span class="eps-tag">EP659</span>
+    </div>
+    <div class="theme">
+      <h3>⚡ 被動元件第三波啟動</h3>
+      <p>國巨陳泰銘開「AI 誓師大會」帶動全體轉強，信昌電交期拉長即漲停（市場提前 pricing 漲價）。海外被動元件先動、台灣慢一拍但時間問題。供需吃緊：鉭電、鋁電、MLCC（特別是高階）。</p>
+      <span class="eps-tag">EP657</span><span class="eps-tag">EP659</span>
+    </div>
+    <div class="theme">
+      <h3>💾 記憶體 hold-through-noise</h3>
+      <p>基本面 + 蘋果電話會議交叉驗證 OK，但股價反應弱、「台灣題材太多了」。「就只是何時下車的問題」、「時間到它就爬上去」。但<b>不希望大家覺得可以再衝進去做波段</b>。旺宏老闆轉強，MLC NAND/NOR Flash 漲價漂亮。</p>
+      <span class="eps-tag">EP657</span><span class="eps-tag">EP658</span>
+    </div>
+    <div class="theme">
+      <h3>📈 ASIC 與 GPU 並行不悖</h3>
+      <p>「2023/24 年大家在講 GPU 殺 ASIC，後來又講 ASIC 殺 GPU」。當前 AI 晶片<b>整體供不應求</b>，沒有誰殺誰短期劇本。Google 內部用 TPU、Cloud 客戶要 NVIDIA → 都採購。等變紅海再討論才有意義。台股 ASIC 兩條線：<b>創意 (3443)</b>（Google）/ <b>世芯-KY (3661)</b>（Amazon Trainium）。</p>
+      <span class="eps-tag">EP656</span><span class="eps-tag">EP658</span><span class="eps-tag">EP659</span>
+    </div>
+    <div class="theme">
+      <h3>📱 OpenAI + 立訊 AI 手機（保留態度）</h3>
+      <p>原生 AI 消費設備，沒 APP，藏在 Agentic 任務列。晶片由高通 + 聯發科供應，一顆 USD 120。但「習慣很鐵、AI Pin 前車之鑑」，孟恭不認為能賣幾千萬台。<b>用 Agentic interface 在現有 iPhone 上操控既有 APP，接受度更高</b>。</p>
+      <span class="eps-tag">EP657</span>
+    </div>
+    <div class="theme">
+      <h3>🔧 股票質押心法（新工具）</h3>
+      <p>利率 ~2-2.7%（沒過 3%），通常可無限展延。本質是「<b>時序彈性</b>」工具，不是槓桿放大——把本來打算賣掉的股票延後賣。情境：明年要出國念書，先質押借錢用，火燒屁股再賣擔保品還款。<b>「不是放大風險，是時序彈性」</b>。但要量力而為，怕「快樂寶貝」拉滿大爆炸。</p>
+      <span class="eps-tag">EP658</span>
+    </div>
+    <div class="theme">
+      <h3>🌐 邊緣運算 + Google CPU 外銷</h3>
+      <p>「AIPC = joke」（華而不實）。Google Axion CPU 外銷 = 客戶把運算放自家機房，算某種程度的邊緣運算。<b>邊緣 vs 雲端的界線會越來越模糊</b>，未來不用特別討論。</p>
+      <span class="eps-tag">EP658</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============= SIGNALS ============= -->
+<section class="pane" id="signals">
+  <div class="note-box">
+    <b>四大過熱訊號彙整</b>　 主持人 EP658 → EP660 連續三集鋪陳「派對退場」主題。退場條件明確：<b>大盤出現長黑 K 或吞噬 K 線</b>才執行降槓桿；在那之前，「我不想要在派對結束之前就走出去」。
+  </div>
+
+  <div class="signals">
+    <div class="signal">
+      <h4>① 券商晴天收傘</h4>
+      <p>不是雨天收傘，<b>晴天就先收傘</b>——不延展、不借更多錢、信用額度鎖上限。</p>
+      <p>連孟恭新開戶頭要把信用額度開高都被擋。代表台灣<b>借錢炒股的人非常多</b>，系統性風險升。</p>
+      <p style="color:var(--muted);font-size:11px">EP659</p>
+    </div>
+    <div class="signal">
+      <h4>② 價值觀偏差</h4>
+      <p>群組裡某位巨鱷大哥的話：行情好到大家都覺得「<b>發財賺錢很容易</b>」。經驗上後面一定會罰你，只是大家都想做到最後一刻。</p>
+      <p style="color:var(--muted);font-size:11px">EP659</p>
+    </div>
+    <div class="signal">
+      <h4>③ 大資金不解套散戶</h4>
+      <p>CPU 幾個月前沒人講好、瞬間反轉直接噴；年初一堆人說「美股死定了」結果一路噴。<b>市場記憶力很短，共識會在瞬間翻轉</b>。</p>
+      <p>大資金不會主動幫前面套牢的人解套，他們開拉才跟，<b>別賭左側</b>。</p>
+      <p style="color:var(--muted);font-size:11px">EP659</p>
+    </div>
+    <div class="signal">
+      <h4>④ 估值面已達上緣</h4>
+      <p>用 TSMC 2027 EPS 推估大盤可上看 4 萬點，<b>現已到</b>；5 萬點算不到。</p>
+      <p>但相對來說，光通訊有些東西交易在 100 倍，大型權值股 20 倍、高階成長 IC 30 倍——<b>權值股相對顯得不貴</b>。</p>
+      <p style="color:var(--muted);font-size:11px">EP659 / EP660</p>
+    </div>
+    <div class="signal">
+      <h4>⑤ 處置股風險</h4>
+      <p>聯發科 5/7-5/20 列處置股 5 分鐘撮合，史上最大市值處置股（5.5 兆）。若漲勢未歇，下階段「重度處置」拉長至 20 分鐘一次撮合。</p>
+      <p>EP660：「連發哥都被送進去關禁閉撮合了」。</p>
+      <p style="color:var(--muted);font-size:11px">EP660 + 市場新聞</p>
+    </div>
+    <div class="signal">
+      <h4>⑥ 「擦鞋童」變體警告</h4>
+      <p>「擦鞋童從一萬點擦鞋擦到四萬點，自己都已經開鞋店了」。新指標：當人們開始相信某些股票「不會跌」、抱怨它「為什麼跌了」時，那個時候<b>可能就會有引爆的行情出現</b>。</p>
+      <p style="color:var(--muted);font-size:11px">EP658</p>
+    </div>
+  </div>
+
+  <div class="note-box" style="background:#1a2330;border-color:#2a4a6e;color:#cce4ff">
+    <b>⚠️ 投資提醒：</b> 本報告整理自 Gooaye 股癌節目內容（RSS 官方 show notes + 第三方逐字稿/重點整理交叉驗證），不構成任何投資建議。節目本身即多次強調「投資有賺有賠」、「風險控管優先於追高」、「不要亂跟單當韭菜」。請依個人風險承受度與專業判斷做決策。
+  </div>
+</section>
+
+<footer>
+  資料來源：
+  <a href="https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml" target="_blank">SoundOn RSS</a>　·
+  <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3" target="_blank">SoundOn 主頁</a>　·
+  <a href="https://podcasts.apple.com/tw/podcast/gooaye-%E8%82%A1%E7%99%8C/id1500839292" target="_blank">Apple Podcasts</a>　·
+  <a href="https://open.spotify.com/show/1zWxx5pKk0XBEzMupVC7UZ" target="_blank">Spotify</a>
+  <br>
+  第三方逐字稿/筆記：<a href="https://vocus.cc/salon/ober" target="_blank">vocus 與歐伯一起投資學習</a>　·
+  <a href="https://vocus.cc/salon/6908b98efd89780001cb1d32" target="_blank">vocus 格友#ace45</a>　·
+  <a href="https://socialworkerdaily.com/index/invest/notes-of-gooaye/" target="_blank">社工日常</a>
+  <br>
+  由 Claude 在 Cowork mode 整理 · 2026/05/09
+</footer>
+
+</div>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.pane').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      document.getElementById(t.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Episode toggle
+  document.querySelectorAll('.ep .toggle').forEach(b => {
+    b.addEventListener('click', () => b.closest('.ep').classList.toggle('open'));
+  });
+
+  // Episode search
+  document.getElementById('ep-search').addEventListener('input', e => {
+    const q = e.target.value.trim().toLowerCase();
+    document.querySelectorAll('.ep').forEach(ep => {
+      const text = (ep.dataset.keywords + ' ' + ep.textContent).toLowerCase();
+      const match = !q || text.includes(q);
+      ep.style.display = match ? '' : 'none';
+      if (match && q) ep.classList.add('open');
+    });
+  });
+
+  // Expand / collapse all
+  document.getElementById('expand-all').addEventListener('click', () => {
+    document.querySelectorAll('.ep').forEach(ep => ep.classList.add('open'));
+  });
+  document.getElementById('collapse-all').addEventListener('click', () => {
+    document.querySelectorAll('.ep').forEach(ep => ep.classList.remove('open'));
+  });
+
+  // Stock filter (market)
+  document.querySelectorAll('[data-mkt]').forEach(b => {
+    if (b.tagName !== 'BUTTON') return;
+    b.addEventListener('click', () => {
+      document.querySelectorAll('button[data-mkt]').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      const f = b.dataset.mkt;
+      document.querySelectorAll('#stocks-grid .stock').forEach(s => {
+        s.style.display = (f === 'all' || s.dataset.mkt.includes(f)) ? '' : 'none';
+      });
+    });
+  });
+
+  // Stock search
+  document.getElementById('stk-search').addEventListener('input', e => {
+    const q = e.target.value.trim().toLowerCase();
+    document.querySelectorAll('#stocks-grid .stock').forEach(s => {
+      s.style.display = !q || s.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gooaye 股癌 · 整合追蹤＋驗證 Web App</title>
+<style>
+  :root{
+    --bg:#0a0e1f; --panel:#131a35; --panel2:#0f1530; --panel3:#1a2348;
+    --ink:#e7ecf7; --ink2:#cdd6f0; --muted:#8b97b5; --line:#1f2a4d;
+    --accent:#7cf2c1; --accent2:#ffb347; --accent3:#9ec5ff;
+    --hit:#22c55e; --partial:#f59e0b; --miss:#ef4444; --pending:#64748b; --new:#fde047;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:22px 20px 60px}
+
+  /* App header */
+  header.app{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:14px 18px;background:rgba(19,26,53,0.92);border:1px solid var(--line);border-radius:14px;
+    margin-bottom:14px;flex-wrap:wrap;position:sticky;top:8px;z-index:20;backdrop-filter:blur(8px)}
+  header.app .brand{display:flex;align-items:center;gap:10px}
+  header.app .logo{width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--accent),#5d8af7);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:#062017;font-size:18px}
+  header.app h1{margin:0;font-size:16px;font-weight:800}
+  header.app .sub{color:var(--muted);font-size:11px;margin-top:1px}
+  header.app .actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .btn{background:var(--panel3);border:1px solid var(--line);color:var(--ink);
+    padding:7px 12px;border-radius:8px;font-size:12px;cursor:pointer;font-weight:600;
+    display:inline-flex;align-items:center;gap:5px;transition:all .15s;white-space:nowrap}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#062017;border-color:var(--accent)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+
+  /* Status bar */
+  .status{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted);margin:6px 0 14px;
+    padding:0 4px;flex-wrap:wrap}
+  .status .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  .status .dot.error{background:var(--miss);animation:none}
+  .status .dot.loading{background:var(--partial)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+  /* Alert */
+  .alert{display:none;padding:14px 16px;border-radius:12px;margin-bottom:16px;font-size:13px;
+    border:1px solid;align-items:center;gap:14px;line-height:1.5}
+  .alert.show{display:flex;animation:slide .4s ease}
+  .alert.new{background:linear-gradient(135deg,rgba(253,224,71,.12),rgba(124,242,193,.08));
+    border-color:var(--new);color:var(--ink)}
+  .alert.new .icon{font-size:24px}
+  .alert .x{margin-left:auto;cursor:pointer;color:var(--muted);font-size:18px;background:none;border:none}
+  @keyframes slide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+  /* Tabs */
+  .tabs{display:flex;gap:3px;background:var(--panel2);padding:4px;border-radius:12px;
+    margin-bottom:18px;border:1px solid var(--line);overflow-x:auto}
+  .tab{flex:1;min-width:120px;padding:9px 11px;background:transparent;border:0;color:var(--muted);
+    cursor:pointer;border-radius:8px;font-size:12px;font-weight:600;transition:all .15s;white-space:nowrap}
+  .tab:hover{color:var(--ink)}
+  .tab.active{background:var(--panel3);color:var(--accent)}
+  .pane{display:none}
+  .pane.active{display:block}
+
+  /* Search */
+  .search{width:100%;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;padding:10px 14px;color:var(--ink);font-size:13px;outline:none;margin-bottom:12px}
+  .search:focus{border-color:var(--accent)}
+
+  /* Episode card */
+  .ep{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px;
+    transition:border-color .2s;position:relative;overflow:hidden}
+  .ep:hover{border-color:#3a4a8e}
+  .ep.is-new::before{content:"NEW";position:absolute;top:12px;right:12px;background:var(--new);color:#1a1500;
+    padding:2px 8px;border-radius:5px;font-size:10px;font-weight:800;letter-spacing:1px}
+  .ep header{display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:flex-start}
+  .ep .num{font-size:22px;font-weight:800;color:var(--accent);line-height:1}
+  .ep .num small{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:4px}
+  .ep h3{margin:0 0 4px;font-size:15px;font-weight:700}
+  .ep .meta{color:var(--muted);font-size:11px;margin-bottom:6px}
+  .ep .tags{margin-bottom:8px}
+  .tag{display:inline-block;background:#1c2750;color:#cdd6ff;font-size:10px;
+    padding:2px 7px;border-radius:5px;margin-right:4px;margin-bottom:4px}
+  .tag.bull{background:#0f3a1f;color:#86efac}
+  .tag.warn{background:#3a2a07;color:#fcd34d}
+  .tag.us{background:#241a3f;color:#c4b5fd}
+  .tag.tw{background:#0e2444;color:#93c5fd}
+  .ep .body{display:none}
+  .ep.open .body{display:block;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .ep .body p{font-size:12.5px;line-height:1.65;color:var(--ink2);margin:6px 0}
+  .ep .body b{color:var(--accent2)}
+  .ep .body ul{margin:6px 0 6px 18px;padding:0;font-size:12.5px;color:var(--ink2);line-height:1.65}
+  .ep .toggle{margin-top:8px;background:none;border:0;color:var(--accent3);font-size:11px;
+    cursor:pointer;text-decoration:none;padding:0}
+  .ep .links{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+  .ep .links a{font-size:10px;color:var(--accent3);text-decoration:none;padding:2px 7px;
+    background:var(--panel3);border-radius:4px}
+  .ep .verdict{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;
+    margin-left:6px;letter-spacing:.5px;vertical-align:1px}
+  .v-hit{background:rgba(34,197,94,.15);color:var(--hit)}
+  .v-partial{background:rgba(245,158,11,.15);color:var(--partial)}
+  .v-miss{background:rgba(239,68,68,.15);color:var(--miss)}
+  .v-pending{background:rgba(100,116,139,.15);color:var(--pending)}
+
+  /* Power hero */
+  .power-hero{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin-bottom:16px}
+  .power-big{background:linear-gradient(135deg,rgba(34,197,94,.1),var(--panel));
+    border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;justify-content:center}
+  .power-big .pct{font-size:54px;font-weight:800;color:var(--hit);line-height:1;letter-spacing:-1px}
+  .power-big .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:5px}
+  .power-big .ratio{font-size:13px;color:var(--ink2);margin-top:8px}
+  .power-bd{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .power-bd h3{margin:0 0 8px;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px}
+  .bar{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:11px}
+  .bar .lbl{width:75px;color:var(--ink2)}
+  .bar .track{flex:1;height:12px;background:var(--panel3);border-radius:6px;overflow:hidden}
+  .bar .fill{height:100%;border-radius:6px;transition:width .8s ease}
+  .bar .pct{width:34px;text-align:right;color:var(--muted);font-weight:600}
+  .bar.hit .fill{background:var(--hit)} .bar.hit .pct{color:var(--hit)}
+  .bar.partial .fill{background:var(--partial)} .bar.partial .pct{color:var(--partial)}
+  .bar.miss .fill{background:var(--miss)} .bar.miss .pct{color:var(--miss)}
+  .bar.pending .fill{background:var(--pending)} .bar.pending .pct{color:var(--pending)}
+
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .tile .k{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1px}
+  .tile .v{font-size:18px;font-weight:700;margin-top:5px}
+  .tile .t{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.4}
+  .tile.hit .v{color:var(--hit)}
+  .tile.warn .v{color:var(--warn)}
+
+  /* Charts: Per-episode hit rate */
+  .chart-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+  .chart-card h3{margin:0 0 12px;font-size:13px;color:var(--accent);font-weight:700}
+  .ep-chart{display:flex;gap:8px;align-items:flex-end;height:140px;padding:0 4px}
+  .ep-chart .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}
+  .ep-chart .stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end;height:100px}
+  .ep-chart .seg{width:100%;border-radius:0}
+  .ep-chart .seg:first-child{border-top-left-radius:4px;border-top-right-radius:4px}
+  .ep-chart .seg:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}
+  .ep-chart .seg.hit{background:var(--hit)}
+  .ep-chart .seg.partial{background:var(--partial)}
+  .ep-chart .seg.miss{background:var(--miss)}
+  .ep-chart .seg.pending{background:var(--pending)}
+  .ep-chart .lbl{font-size:10px;color:var(--muted);font-weight:600}
+
+  /* Validation table */
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;font-size:12px}
+  th{background:var(--panel3);text-align:left;padding:9px 10px;font-size:10px;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.7px;border-bottom:1px solid var(--line)}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td.ep{color:var(--accent);font-weight:700;white-space:nowrap}
+  td.tk{font-family:ui-monospace,monospace;color:var(--accent3);white-space:nowrap}
+  .delta{font-family:ui-monospace,monospace;font-weight:600}
+  .delta.up{color:var(--hit)} .delta.down{color:var(--miss)}
+
+  /* Top performers */
+  .perf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+  .perf{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .perf.up{border-left:3px solid var(--hit)}
+  .perf .name{font-size:14px;font-weight:700}
+  .perf .name .code{color:var(--muted);font-weight:400;font-size:11px;margin-left:5px}
+  .perf .perf-pct{font-size:22px;font-weight:800;color:var(--hit);margin-top:4px}
+  .perf .perf-note{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.5}
+
+  /* Settings */
+  .settings{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .settings h3{margin:0 0 10px;color:var(--accent);font-size:13px}
+  .settings .row{display:flex;justify-content:space-between;align-items:center;
+    padding:9px 0;border-bottom:1px solid var(--line);gap:12px}
+  .settings .row:last-child{border-bottom:0}
+  .settings .row .label{font-size:12px;color:var(--ink2)}
+  .settings .row .val{font-size:11px;color:var(--muted);font-family:ui-monospace,monospace}
+  .switch{position:relative;width:38px;height:22px}
+  .switch input{display:none}
+  .switch span{position:absolute;inset:0;background:var(--panel3);border-radius:11px;cursor:pointer;
+    transition:.2s;border:1px solid var(--line)}
+  .switch span::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;
+    background:var(--muted);transition:.2s}
+  .switch input:checked + span{background:var(--accent);border-color:var(--accent)}
+  .switch input:checked + span::after{left:18px;background:#062017}
+
+  .skel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:8px;
+    animation:skel 1.4s ease-in-out infinite}
+  .skel .b{height:12px;background:var(--panel3);border-radius:5px;margin-bottom:6px;width:60%}
+  .skel .b.s{width:40%;height:9px}
+  @keyframes skel{0%,100%{opacity:.6}50%{opacity:.95}}
+
+  .empty{text-align:center;padding:30px 20px;color:var(--muted);font-size:12px}
+
+  .note-box{background:#1a1330;border:1px solid #3a2a5e;border-radius:10px;
+    padding:12px 14px;color:#e6dcff;font-size:12px;line-height:1.7;margin:14px 0}
+  .note-box b{color:#fcd34d}
+
+  footer{margin-top:24px;color:var(--muted);font-size:10px;text-align:center;line-height:1.6;
+    border-top:1px solid var(--line);padding-top:16px}
+  footer a{color:var(--accent3)}
+
+  @media (max-width:740px){
+    .power-hero{grid-template-columns:1fr}
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .ep header{grid-template-columns:46px 1fr}
+    .ep .num{font-size:18px}
+    table{font-size:10px}
+    th,td{padding:6px 7px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="app">
+  <div class="brand">
+    <div class="logo">G</div>
+    <div>
+      <h1>Gooaye 股癌 · 整合追蹤＋驗證 App</h1>
+      <div class="sub" id="sub">最近 10 集摘要 · 預測命中率 · 自動偵測新集</div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn" id="refresh">↻ 重新整理</button>
+    <button class="btn primary" id="markRead">✓ 全部已讀</button>
+  </div>
+</header>
+
+<div class="status">
+  <span class="dot" id="status-dot"></span>
+  <span id="status-text">準備中…</span>
+  <span style="margin-left:auto;font-family:ui-monospace,monospace" id="last-update"></span>
+</div>
+
+<div class="alert new" id="alert">
+  <div class="icon">🎙</div>
+  <div>
+    <div><strong id="alert-title"></strong></div>
+    <div id="alert-body" style="margin-top:4px;font-size:12px;color:var(--ink2)"></div>
+  </div>
+  <button class="x" onclick="document.getElementById('alert').classList.remove('show')">✕</button>
+</div>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="episodes">📚 最近 10 集</button>
+  <button class="tab" data-tab="power">📊 預測命中力</button>
+  <button class="tab" data-tab="validation">📋 逐項驗證</button>
+  <button class="tab" data-tab="winners">🏆 個股 Top</button>
+  <button class="tab" data-tab="settings">⚙️ 設定</button>
+</nav>
+
+<!-- ============= 最近 10 集 ============= -->
+<section class="pane active" id="episodes">
+  <input class="search" id="s-ep" placeholder="🔍 搜尋集數、個股代碼、關鍵字…">
+  <div id="ep-list">
+    <div class="skel"><div class="b"></div><div class="b s"></div></div>
+    <div class="skel"><div class="b"></div><div class="b s"></div></div>
+    <div class="skel"><div class="b"></div><div class="b s"></div></div>
+  </div>
+</section>
+
+<!-- ============= 預測命中力 ============= -->
+<section class="pane" id="power">
+  <div class="power-hero">
+    <div class="power-big">
+      <div class="pct">73%</div>
+      <div class="lbl">綜合命中率</div>
+      <div class="ratio">17 hit / 3 partial / 2 miss / 1 pending　·　共 23 項可驗證 call</div>
+    </div>
+    <div class="power-bd">
+      <h3>判決分佈</h3>
+      <div class="bar hit"><span class="lbl">HIT</span><div class="track"><div class="fill" style="width:74%"></div></div><span class="pct">17</span></div>
+      <div class="bar partial"><span class="lbl">PARTIAL</span><div class="track"><div class="fill" style="width:13%"></div></div><span class="pct">3</span></div>
+      <div class="bar miss"><span class="lbl">MISS</span><div class="track"><div class="fill" style="width:9%"></div></div><span class="pct">2</span></div>
+      <div class="bar pending"><span class="lbl">PENDING</span><div class="track"><div class="fill" style="width:4%"></div></div><span class="pct">1</span></div>
+    </div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile hit"><div class="k">最強單 call</div><div class="v">創意 +36%</div><div class="t">EP656 → 5/7 $5,450</div></div>
+    <div class="tile hit"><div class="k">最快兌現</div><div class="v">+1 日</div><div class="t">EP659 國巨/信昌電</div></div>
+    <div class="tile hit"><div class="k">主軸全中</div><div class="v">CPU+ASIC+被動</div><div class="t">EP650→659 一路兌現</div></div>
+    <div class="tile warn"><div class="k">時點偏弱</div><div class="v">5 月回檔</div><div class="t">5/8 才出現首日</div></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📈 各集命中分佈（堆疊條圖）</h3>
+    <div class="ep-chart" id="epChart"></div>
+    <div style="display:flex;gap:14px;margin-top:8px;font-size:11px;color:var(--muted)">
+      <span><span style="display:inline-block;width:10px;height:10px;background:var(--hit);border-radius:2px;vertical-align:-1px"></span> HIT</span>
+      <span><span style="display:inline-block;width:10px;height:10px;background:var(--partial);border-radius:2px;vertical-align:-1px"></span> PARTIAL</span>
+      <span><span style="display:inline-block;width:10px;height:10px;background:var(--miss);border-radius:2px;vertical-align:-1px"></span> MISS</span>
+      <span><span style="display:inline-block;width:10px;height:10px;background:var(--pending);border-radius:2px;vertical-align:-1px"></span> PENDING</span>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <b>主持人 edge：</b>　產業趨勢方向感（CPU 主升段、ASIC 兩條、被動元件第三波）+ 個股級「點名 + 短期內」call。
+    <b>主持人弱點：</b>　時點預測（多次預告 5 月回檔到 5/8 才出現）+ 大盤點數預測（喊 5 萬點算不到，5/7 已達 42,131）。
+  </div>
+</section>
+
+<!-- ============= 逐項驗證 ============= -->
+<section class="pane" id="validation">
+  <input class="search" id="s-val" placeholder="🔍 搜尋集數、標的、關鍵字…">
+  <table>
+    <thead><tr><th>EP</th><th>標的</th><th>主持人 Call</th><th>實際走勢</th><th>判決</th></tr></thead>
+    <tbody id="val-body"></tbody>
+  </table>
+</section>
+
+<!-- ============= Top performers ============= -->
+<section class="pane" id="winners">
+  <h3 style="color:var(--accent);font-size:13px;margin:6px 0 12px">🏆 命中後實際漲幅排序</h3>
+  <div class="perf-grid" id="perf-grid"></div>
+</section>
+
+<!-- ============= Settings ============= -->
+<section class="pane" id="settings">
+  <div class="settings">
+    <h3>追蹤設定</h3>
+    <div class="row">
+      <div><div class="label">最近一次看到的集數</div><div class="val" style="margin-top:2px" id="last-ep">—</div></div>
+      <div class="val" id="last-time">—</div>
+    </div>
+    <div class="row">
+      <div>
+        <div class="label">瀏覽器通知</div>
+        <div class="val" style="margin-top:2px;font-size:10px">每次開啟此頁時偵測新集，會在右下彈出通知</div>
+      </div>
+      <label class="switch"><input type="checkbox" id="notify-toggle"><span></span></label>
+    </div>
+    <div class="row">
+      <div><div class="label">已讀集數</div><div class="val" style="margin-top:2px" id="read-list">—</div></div>
+      <button class="btn" id="clearRead">清空</button>
+    </div>
+    <div class="row" style="display:block">
+      <div class="label" style="margin-bottom:6px">後端排程偵測（已配置）</div>
+      <div class="val" style="font-size:11px;line-height:1.6">
+        Cowork 排程任務 <code>gooaye-new-episode-watcher</code> 每週三、六 19:09 自動偵測。
+        新集出爐時會在主視窗彈出通知，並儲存深度摘要 HTML 至此資料夾。<br>
+        其他原檔案（<code>股癌_互動式深度摘要_v2.html</code>、<code>股癌_預測驗證_Backtest.html</code> 等）<b>永遠保留不覆寫</b>。
+      </div>
+    </div>
+    <div class="row" style="display:block">
+      <div class="label" style="margin-bottom:6px">資料來源</div>
+      <div class="val" style="font-size:10px;word-break:break-all">
+        RSS: https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml<br>
+        摘要：vocus.cc @ober + 格友#ace45 / 社工日常 / TechNews / 經濟日報
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  資料來源：<a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3" target="_blank">SoundOn</a>　·
+  <a href="https://podcasts.apple.com/tw/podcast/gooaye-%E8%82%A1%E7%99%8C/id1500839292" target="_blank">Apple Podcasts</a>　·
+  <a href="https://open.spotify.com/show/1zWxx5pKk0XBEzMupVC7UZ" target="_blank">Spotify</a>　·
+  <a href="https://vocus.cc/salon/ober" target="_blank">vocus 整理</a>
+  <br>由 Claude · Cowork mode 整理 · 2026/05/09 · 不構成投資建議
+</footer>
+
+</div>
+
+<script>
+const RSS_URL = 'https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml';
+// Each proxy: {url: builder, type: 'xml'|'rss2json'}
+// rss2json returns parsed JSON, others return raw XML.
+// Tested 2026/05/09 — these are the survivors.
+const PROXIES = [
+  { name: 'rss2json',     url: u => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(u)}&count=30`, type: 'rss2json' },
+  { name: 'cors.eu.org',  url: u => `https://cors.eu.org/${u}`,                                                       type: 'xml' },
+  { name: 'allorigins',   url: u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,                    type: 'xml' },
+  { name: 'codetabs',     url: u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,               type: 'xml' },
+  { name: 'corsproxy.io', url: u => `https://corsproxy.io/?${encodeURIComponent(u)}`,                                 type: 'xml' },
+];
+const LS_KEY = 'gooaye_unified_read';
+const LS_NOTIFY = 'gooaye_unified_notify';
+
+// =========== EMBEDDED EPISODE DATA (EP651-EP660) ===========
+// Source: vocus.cc transcripts/notes + RSS show notes (compiled 2026/05/09)
+const EPISODES = {
+  660: {
+    date: '2026-05-09', title: 'EP660 | 🍄 這樣下去會不會壞掉', dur: '51 分',
+    tags: [['bull', '台股 42K'], ['bull', '台積 $2,345'], ['warn', '聯發科處置'], ['', 'Agentic AI'], ['warn', '風險控管']],
+    summary: '盤勢熱到「腦袋發燙」階段。台股當週站上 <b>42,000 點</b>、台積電噴 <b>$2,345</b>、聯發科被送進 5 分鐘集合競價的處置撮合（市值 5.5 兆，史上最大處置股）。Discord 半夜還在挖 Agentic AI 概念。主軸：<b>風險控管 &gt; 追高</b>，當大家相信股票不會跌時就是胖尾風險最大的時候。',
+    stocks: [['TW','2330'],['TW','2454']],
+    sponsor: 'zZSLEEPER 涼感枕',
+    verdict: 'pending',
+  },
+  659: {
+    date: '2026-05-06', title: 'EP659 | 🦤 做壞掉了', dur: '51 分',
+    tags: [['bull','被動元件第三波'],['bull','AMD CPU 50%+'],['bull','ASIC 全動'],['warn','過熱訊號累積']],
+    summary: '<b>① 被動元件第三波 + AMD 法說</b>：國巨陳泰銘 AI 誓師大會 → 被動元件全體轉強；信昌電交期拉長即漲停。AMD 法說 Server CPU 信心 &gt;50% 市佔，2027 AI Data Center 看 tens of billions。<br><b>② 台股 ASIC 全動</b>：GUC 綁 Google 提早動；世芯-KY (3661) 漲停（綁 Amazon Trainium）。<br><b>③ 聯發科 (2454)</b> 一次反應到 1000 多塊，預期已被非常充分打滿，<b>不會再加大部位</b>。<br><b>④ Palantir AI Slop Zone 概念</b>：「傳說廚具 vs 傳說料理」金句，AIP 解 Slop = 護城河。<br><b>⑤ 過熱訊號累積</b>：券商晴天收傘、價值觀偏差、大資金不解套散戶、估值已達上緣。<br>金句：「我不想要在派對結束之前就走出去」。',
+    stocks: [['TW','2327','國巨'],['TW','6173','信昌電'],['TW','3443','創意 GUC'],['TW','3661','世芯-KY'],['TW','2454','聯發科'],['US','PLTR'],['US','AMD']],
+    sponsor: 'Saily eSIM',
+    verdict: 'mostly-hit',
+  },
+  658: {
+    date: '2026-05-02', title: 'EP658 | 🪿 最終都是氣氛', dur: '49 分',
+    tags: [['','軟體股分層'],['bull','Jensen 校正回歸'],['','TPU 雙線封裝'],['','股票質押心法'],['warn','5 月應有像樣回檔']],
+    summary: '<b>① 軟體股 AI 抗性分層 ⭐</b><br><b>第一層 抗 AI</b>：Cloudflare (NET)、CrowdStrike (CRWD)、Palantir (PLTR)。Palantir 特例：「顧問公司」標籤在 AI 時代反而是利多 — FDE 進客戶把屎山代碼整理成可決策可視化。<br><b>第二層 被誤殺反指標</b>：Atlassian (TEAM) 財報意外繳出 seat expansion 數據，打破 SaaS apocalypse 論。<br><b>估值合理打壓</b>：Adobe (ADBE) AI 生圖搶走初階用戶。<br><b>「最慘往上一個程度」</b>：Salesforce (CRM) Agentforce + headless 架構。<br><b>巨頭重新評價</b>：Google (GOOGL)、Microsoft (MSFT) 「AI 確實在幫大家賺錢」。<br><br><b>② TPU 5921/5922 雙線後段封裝</b>：台積大將榮退加入聯發科。市場熱議 v5922 後段是否從 Intel EMIB 拉回台積。孟恭：5921 還沒大放量現在討論 v5922 太早。<br><b>③ 股票質押心法</b>：利率 ~2-2.7%，可無限展延。本質是「<b>時序彈性</b>」工具。<br><b>④ 邊緣運算</b>：「AIPC = joke」。Google Axion CPU 外銷 = 邊緣 vs 雲端界線越來越模糊。<br><b>⑤ 5 月應有像樣回檔</b>，時間點說不準。',
+    stocks: [['US','PLTR'],['US','NET'],['US','CRWD'],['US','TEAM'],['US','ADBE'],['US','CRM'],['US','GOOGL'],['US','MSFT'],['US','MU']],
+    sponsor: 'NordVPN',
+    verdict: 'mostly-hit',
+  },
+  657: {
+    date: '2026-04-29', title: 'EP657 | 🐫 他不呆兒 他長大了', dur: '50 分',
+    tags: [['bull','Intel EMIB 良率 90%'],['bull','聯發科利空解除'],['','Meta+AWS Graviton'],['bull','旺宏 NOR/MLC NAND']],
+    summary: '<b>① 記憶體 + 被動元件突圍</b>：旺宏 (2337) 法說會老闆轉超級利多，MLC NAND 與 NOR Flash 價格上漲。台股被動元件 4/29 起趁機跳出。<br><b>② Intel 封裝良率 90% 震撼彈 ⭐</b>：多方產業考察發現 Intel (INTC) 後段封裝良率拉到 <b>90%</b>，這數字賣方還不太知情（從載板端 check 看到 IPD 30-40%）。<b>聯發科 (2454) 潛在利空（Intel 做不出來）解除</b>。Intel 可視為「非常專業的後段封裝廠」。愛普 (6531) 受惠 Intel 載板 IPD。<br><b>③ OpenAI + 立訊精密 Agentic AI 手機</b>：晶片由高通 + 聯發科供應，一顆 USD 120。但孟恭不認為能賣幾千萬台，AI Pin 前車之鑑。<br><b>④ Meta 爆買 AWS Graviton 5</b>：multi-billion dollar agreement，反推 ~520,000 顆晶片。Server CPU 火熱，台系 CPU Supply Chain 全動。排擠效應 → DDR3/DDR4、MLC NAND、cSSD 飆漲。<br><b>⑤ Q&A</b>：主動 ETF（瑤池金母）、融資維持率（晴天收傘很可怕）、3 千萬本金設定、戰略彈性 vs 凹單。',
+    stocks: [['US','INTC'],['TW','2454','聯發科'],['TW','2337','旺宏'],['TW','6531','愛普'],['US','AMD'],['US','ARM'],['US','META'],['US','AMZN'],['US','QCOM']],
+    sponsor: '母親節 SkinCeuticals 修麗可',
+    verdict: 'mostly-hit',
+  },
+  656: {
+    date: '2026-04-25', title: 'EP656 | 🍇 萬劍歸宗', dur: '49 分',
+    tags: [['bull','投信 25% 解封'],['bull','台積電吸星'],['bull','聯發科三根漲停'],['warn','Pair Trade 警示']],
+    summary: '<b>① Agentic AI 帶動 CPU 暴力連噴</b>：Intel (INTC) 數字不錯 + 漲價 → CPU 全面噴出。市場喊 CPU:GPU = 1:1 是小作文，<b>實際 4:1 或 2:1</b>，Hold your horses。<br><b>② TPU 供應鏈</b>：Broadcom (AVGO) Inference 約 50%；聯發科 (2454) Training 略多，短時間三根漲停。<br><b>③ 法規鬆綁 25% → 台積電變身飆股 ⭐</b>：金管會調投信單一個股上限 <b>10% → 25%</b>，等同為台積電量身打造。ETF 算下來需要掃 ~10 萬張台積電。經理人最保守：先買滿 25% 台積，剩下再選股。2027 EPS 共識 ~140，給 20 倍 PE = $2,800（前幾集喊 4 萬點依據）。<br><b>④ 資金輪動 Pair Trade</b>：大資金做多台積電 + 空台指期 = 多台積 + 空台積以外標的。中小型股被抽血，跌深就是補漲機會。',
+    stocks: [['TW','2330','台積電'],['TW','2454','聯發科'],['US','INTC'],['US','AVGO'],['TW','3443','創意 GUC'],['TW','3661','世芯-KY']],
+    sponsor: 'Ergotron 螢幕支架',
+    verdict: 'mostly-hit',
+  },
+  655: {
+    date: '2026-04-22', title: 'EP655 | 🐢 派對主題', dur: '50 分',
+    tags: [['bull','MTK 連兩根漲停'],['warn','MTK + Intel EMIB 風險'],['','Marvell MPU Camel'],['bull','加碼日股']],
+    summary: '<b>4 月狂熱行情</b>：台股大盤 4 月噴 6,000 點，台指期 38,000。GDP +8% 撐著，興櫃股一天漲 120%。<br><b>Marvell MPU Camel</b>：MPU 確定是 groq-sram LPU 對手，由 Marvell 操刀。「Case closed」。<br><b>⚠ MTK 新潛在利空</b>：mediatek Zebra Fish (HF) 高度綁定 Intel EMIB 良率，若雷會直接影響 MTK 出貨。（後續 EP657 反轉 - 良率 90%）<br><b>持股動態</b>：聯發科 (2454) 連吃兩根漲停。日股加碼（三星電機 / 太陽誘電 / VSH 都比台股強）。<br><b>Blackwell 遞延傳聞</b>：產業朋友想太多，遞延搭配修正反而是加碼機會。<br><b>派對主題</b>：「老子講過，每次過得太舒服後面懲罰一定蠻重的」。<br><b>QA 心法</b>：「有問題的從來都不是這間公司，是你的成本」、左側交易要有 track record 才有資格。',
+    stocks: [['TW','2454','聯發科'],['US','INTC'],['US','MRVL'],['US','VSH'],['JP','三星電機'],['JP','太陽誘電']],
+    sponsor: '優活原力兒童保健',
+    verdict: 'hit',
+  },
+  654: {
+    date: '2026-04-19', title: 'EP654 | 🪺 4 萬點只是心理準備', dur: '50 分',
+    tags: [['bull','台積電形狀'],['bull','破 4 萬點'],['','一根針往天上頂']],
+    summary: '<b>📈 台股就是台積電的形狀</b>：美股與台股目前的漲勢是「直接一根針往天上頂」。台股現在完全就是台積電 (2330) 的形狀，只要訂單沒有被砍 (Cancel)，基本面算下去，指數破 <b>4 萬點以上只是時間問題</b>。',
+    stocks: [['TW','2330','台積電']],
+    sponsor: '—',
+    verdict: 'hit',
+  },
+  653: {
+    date: '2026-04-15', title: 'EP653 | 🦒 Custom CPU 引爆', dur: '50 分',
+    tags: [['bull','Custom CPU'],['bull','MLCC 缺貨'],['','聯發科+Marvell 搶 Google AI'],['','光通訊 SMT 轉單']],
+    summary: '<b>多頭搶錢行情怎麼操作</b>。深入解析<b>台積電估值</b>、<b>聯發科 (2454) 與 Marvell 搶食 Google AI 晶片代工秘辛</b>，以及 Custom CPU 引爆的<b>被動元件 (國巨、MLCC) 缺貨潮</b>。光通訊 SMT 轉單效應、智慧資金在 CPU 與光通訊外包的佈局。「在股票市場裡，玩世不恭、朝三暮四是優點」。',
+    stocks: [['TW','2330','台積電'],['TW','2454','聯發科'],['US','MRVL'],['TW','2327','國巨'],['TW','3443','創意 GUC']],
+    sponsor: '—',
+    verdict: 'hit',
+  },
+  652: {
+    date: '2026-04-12', title: 'EP652 | 🦘 利空鈍化', dur: '50 分',
+    tags: [['','利空鈍化'],['bull','CPU + 高速傳輸輪動'],['bull','AWS Graviton 缺貨'],['warn','軟體股跳水']],
+    summary: '<b>利空鈍化與台美股盤勢</b>：股價創歷史新高反而是買進介入時機；即便看好，也要汰弱留強。<br><b>CPU 題材驗證與後市觀察</b>：Agentic AI 驅動 CPU 需求、AWS Graviton 供應短缺。<br><b>被動元件缺貨潮</b>：AI 伺服器需求拉動。<br><b>新 AI 模型 Methos 超猛？</b>軟體股又跳水（後 EP658 重新分層論述）。',
+    stocks: [['US','AMZN'],['TW','2327','國巨'],['US','AMD'],['US','INTC']],
+    sponsor: '—',
+    verdict: 'hit',
+  },
+  651: {
+    date: '2026-04-08', title: 'EP651 | 🦏 牛市修正', dur: '50 分',
+    tags: [['','台股牛市修正'],['bull','Intel 受惠 Tesla'],['','Apple 定價衝擊中系'],['','光通訊']],
+    summary: '<b>台股牛市修正</b>。Intel 受惠 Tesla 自建晶圓廠，Apple 定價策略衝擊中系手機廠。被動元件、矽光子族群分析。',
+    stocks: [['US','INTC'],['US','AAPL'],['US','TSLA']],
+    sponsor: '—',
+    verdict: 'hit',
+  },
+};
+
+// =========== EMBEDDED VALIDATION DATA (23 calls) ===========
+const VALIDATIONS = [
+  { ep: 660, ticker: '市場過熱', call: '「這樣下去會不會壞掉」、強調風險控管 + 胖尾風險', actual: '剛發布，需觀察未來 1-2 週走勢驗證', verdict: 'pending' },
+  { ep: 659, ticker: '2327/6173', call: '陳泰銘 AI 誓師 → 國巨啟動；信昌電交期拉長將漲', actual: '5/7 國巨亮燈漲停 · 信昌電當日漲停　<span class="delta up">+1 日兌現</span>', verdict: 'hit' },
+  { ep: 659, ticker: '3661', call: '世芯-KY 漲停（Amazon Trainium 綁定）', actual: '5/7 收 $4,795 +5%；季末交付雙位數成長', verdict: 'hit' },
+  { ep: 659, ticker: '2454', call: '聯發科「預期已被非常充分打滿」、不會再加大部位', actual: '5/8 雖再 +6.14% 創高，但 5/8 列入處置股 → 流動性風險升 → call 屬風險警示成立', verdict: 'hit' },
+  { ep: 659, ticker: '大盤估值', call: '4 萬點上看 5 萬點「算不到」', actual: '5/7 已達 42,131 — 超過 EP659 預估上緣', verdict: 'miss' },
+  { ep: 658, ticker: 'PLTR', call: '抗 AI 三劍客之首；FDE + AIP 解 AI Slop 問題', actual: '5/4 財報大超預期 EPS $0.33 vs $0.27；revenue +67%　<span class="delta up">earnings beat</span>', verdict: 'hit' },
+  { ep: 658, ticker: 'TEAM', call: 'Atlassian 被誤殺反指標，財報意外繳出 seat expansion', actual: '論述已成立（雖非孟恭持股，但作為「被誤殺軟體」案例驗證）', verdict: 'hit' },
+  { ep: 658, ticker: 'CRWD', call: '抗 AI 三劍客（NET / CRWD / PLTR）', actual: '近期 +7.93%（Day Zero Threat Research Summit 後）', verdict: 'hit' },
+  { ep: 658, ticker: 'ADBE', call: '估值合理打壓，初階用戶被搶', actual: '市場一致認知；股價持續弱於大盤', verdict: 'hit' },
+  { ep: 658, ticker: '大盤回檔', call: '5 月應有「像樣的回檔」，時點 5 月初/中/6 月中說不準', actual: '5/8 才出現首日 -329 點；前 7 個交易日仍續創歷史新高', verdict: 'miss' },
+  { ep: 657, ticker: 'INTC', call: '後段封裝良率 90%，<b>聯發科利空解除</b>', actual: 'EP658/EP659 持續確認；MTK 後續續噴 +30%', verdict: 'hit' },
+  { ep: 657, ticker: '2337', call: '旺宏 NOR Flash + MLC NAND 漲價', actual: '法說後股價反映利多，記憶體鏈條全面復甦', verdict: 'hit' },
+  { ep: 657, ticker: 'META', call: 'Meta 大買 Graviton 5（推算 ~520K 顆晶片）', actual: '合約已簽署；CPU 鏈條全面動起來', verdict: 'hit' },
+  { ep: 657, ticker: 'OpenAI+立訊', call: '不認為能賣幾千萬台，無腦尬吹要小心', actual: '消息面熱、實際銷售未驗證；call 偏向「保留態度」屬正確姿態', verdict: 'partial' },
+  { ep: 656, ticker: '2330', call: '投信 25% 解封 → 估算需新增掃進 ~10 萬張，台積電變身飆股', actual: '4/25 ~$2,200 → 5/7 創 $2,345 史上新高　<span class="delta up">+6.6%</span> (兩週)', verdict: 'hit' },
+  { ep: 656, ticker: 'CPU:GPU', call: '市場喊 1:1 是小作文，實際接近 2:1 或 4:1，不要追高', actual: '共識後續校正，CPU 沒有走出 1:1 倍數的暴漲', verdict: 'hit' },
+  { ep: 656, ticker: '3443/3661', call: 'ASIC 兩條線：GUC 綁 Google、世芯-KY 綁 Amazon Trainium', actual: '4/23 創意 ~$4,000 → 5/7 $5,450　<span class="delta up">+36%</span>　／世芯-KY 5/7 $4,795 +5%', verdict: 'hit' },
+  { ep: 655, ticker: '2454', call: '連吃兩根漲停，超乎預期 (Bullish 持有)', actual: '4/22 ~$2,800 → 5/7 衝 $3,670 / 5/8 收 $3,630　<span class="delta up">+30%</span>', verdict: 'hit' },
+  { ep: 655, ticker: '日股被動', call: '三星電機 / 太陽誘電 / VSH 走勢比台股更強，加碼日股', actual: '該方向持續強勢；EP659 補述海外被動元件先動、台股慢一拍', verdict: 'hit' },
+  { ep: 655, ticker: '2454+EMIB', call: '潛在利空：MTK Zebra Fish 綁 Intel EMIB 良率', actual: 'EP657 反轉：Intel 後段良率拉到 90%，潛在利空解除', verdict: 'partial' },
+  { ep: 653, ticker: '光通訊 SMT', call: '美廠光通訊外包至台廠 SMT 線', actual: '光通訊鏈持續強勢，部分標的給到 100 倍 PE', verdict: 'hit' },
+  { ep: 652, ticker: 'Graviton', call: 'AWS Graviton 缺貨，CPU 與高速傳輸資金輪動', actual: 'EP657 確認 Meta 跟 AWS 簽 multi-billion，推估 ~520K 顆 Graviton', verdict: 'hit' },
+  { ep: 651, ticker: 'CPU 族群', call: 'Agentic AI 將驅動 CPU 在編排/工具調用扮演重要角色（鋪陳）', actual: '4 月起 INTC/AMD 全面噴出；EP656 確認「CPU 全面噴出」', verdict: 'hit' },
+];
+
+// =========== TOP PERFORMERS ===========
+const PERFORMERS = [
+  { name: '創意', code: '3443', ep: 'EP656', pct: '+36%', note: 'EP656 點名 Google CPU/TSLA AI5 ASIC，4/25 ~$4,000 → 5/7 $5,450' },
+  { name: '聯發科', code: '2454', ep: 'EP655→657→659', pct: '+30%', note: '三集連貫敘事：兩根漲停 → 利空解除 → 預期打滿' },
+  { name: '世芯-KY', code: '3661', ep: 'EP656/659', pct: '~+26%', note: 'Amazon Trainium 綁定，孟恭打臉自己「直接學狗叫」追回' },
+  { name: '台積電', code: '2330', ep: 'EP656', pct: '+6.6%', note: '投信 25% 解封吸星大法，5/7 達 $2,345 史上新高' },
+  { name: '國巨', code: '2327', ep: 'EP659', pct: '隔日漲停', note: '陳泰銘 AI 誓師大會 → 5/7 漲停' },
+  { name: '信昌電', code: '6173', ep: 'EP659', pct: '同集兌現', note: '交期拉長被市場直接 pricing 為漲價' },
+  { name: 'Palantir', code: 'PLTR', ep: 'EP658', pct: 'EPS Beat', note: '5/4 財報大超預期 $0.33 vs $0.27 / Rev +67%' },
+  { name: 'CrowdStrike', code: 'CRWD', ep: 'EP658', pct: '+7.93%', note: 'Day Zero Threat Research Summit 後反應正面' },
+];
+
+// ====================== APP LOGIC ======================
+
+function getRead(){ try { return new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]')); } catch { return new Set(); } }
+function setRead(s){ localStorage.setItem(LS_KEY, JSON.stringify([...s])); }
+
+function setStatus(t, type='ok'){
+  const d = document.getElementById('status-dot');
+  d.className = 'dot' + (type==='error'?' error':type==='loading'?' loading':'');
+  document.getElementById('status-text').textContent = t;
+}
+
+async function fetchRss(){
+  setStatus('載入 RSS…', 'loading');
+  let lastErr = null;
+  for (let i=0; i<PROXIES.length; i++){
+    const p = PROXIES[i];
+    try {
+      setStatus(`嘗試 ${p.name}…`, 'loading');
+      const ctrl = new AbortController();
+      const timer = setTimeout(()=>ctrl.abort(), 12000);
+      const res = await fetch(p.url(RSS_URL), {cache:'no-store', signal: ctrl.signal});
+      clearTimeout(timer);
+      if (!res.ok) throw new Error('HTTP '+res.status);
+      if (p.type === 'rss2json') {
+        const j = await res.json();
+        if (j.status !== 'ok' || !j.items) throw new Error('Bad rss2json response');
+        setStatus(`RSS 已載入 ✓ (via ${p.name})`,'ok');
+        return { kind: 'json', data: j };
+      } else {
+        const t = await res.text();
+        if (!t.includes('<rss') && !t.includes('<channel')) throw new Error('Not RSS');
+        setStatus(`RSS 已載入 ✓ (via ${p.name})`,'ok');
+        return { kind: 'xml', data: t };
+      }
+    } catch(e){
+      console.warn(`Proxy [${p.name}] failed:`, e.message);
+      lastErr = e;
+    }
+  }
+  setStatus('所有 proxy 失敗：'+ (lastErr?lastErr.message:'unknown'),'error');
+  throw lastErr || new Error('All proxies failed');
+}
+
+function parseRss(payload){
+  if (payload.kind === 'json') {
+    // rss2json format
+    return payload.data.items.map(it => {
+      const title = (it.title || '').trim();
+      const m = title.match(/EP(\d+)/i);
+      return {
+        ep: m ? parseInt(m[1]) : 0,
+        title,
+        pubDate: it.pubDate || '',
+        link: it.link || '',
+        audio: (it.enclosure && it.enclosure.link) || '',
+      };
+    }).filter(x => x.ep > 0).sort((a, b) => b.ep - a.ep);
+  } else {
+    const doc = new DOMParser().parseFromString(payload.data, 'text/xml');
+    return [...doc.querySelectorAll('item')].map(it=>{
+      const title = (it.querySelector('title')?.textContent || '').trim();
+      const m = title.match(/EP(\d+)/i);
+      return {
+        ep: m ? parseInt(m[1]) : 0,
+        title,
+        pubDate: it.querySelector('pubDate')?.textContent || '',
+        link: it.querySelector('link')?.textContent || '',
+        audio: it.querySelector('enclosure')?.getAttribute('url') || '',
+      };
+    }).filter(x=>x.ep>0).sort((a,b)=>b.ep-a.ep);
+  }
+}
+
+function fmtDate(s){
+  try {
+    const d = new Date(s);
+    return d.toLocaleDateString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',weekday:'short'});
+  } catch { return s; }
+}
+
+function verdictTag(v){
+  const map = {hit:'HIT', partial:'PARTIAL', miss:'MISS', pending:'PENDING', 'mostly-hit':'多數命中'};
+  return v ? `<span class="verdict v-${v.replace('mostly-hit','hit')}">${map[v]||v}</span>` : '';
+}
+
+function renderEp(ep, isNew){
+  const d = EPISODES[ep.ep] || null;
+  const tags = d ? d.tags.map(([cls,t])=>`<span class="tag ${cls}">${t}</span>`).join('') : '';
+  const stocks = d ? d.stocks.map(([m,c,n])=>`<span class="tag ${m.toLowerCase()}">${m==='TW'?(n||c):c}</span>`).join('') : '';
+  const summary = d ? d.summary : `<p style="color:var(--muted)">本集尚無深度摘要（剛發布或資料未匯入）。可點下方連結至 SoundOn 收聽。</p>`;
+  return `
+    <article class="ep ${isNew ? 'is-new' : ''} ${d ? '' : 'no-summary'}" data-ep="${ep.ep}" data-search="${(d?d.title+' '+d.tags.map(t=>t[1]).join(' '):ep.title)}">
+      <header>
+        <div class="num">${ep.ep}<small>${fmtDate(ep.pubDate)}</small></div>
+        <div>
+          <h3>${d ? d.title : ep.title} ${d && d.verdict ? verdictTag(d.verdict) : ''}</h3>
+          <div class="meta">${d ? d.dur + ' · 贊助：' + d.sponsor : ''}</div>
+          <div class="tags">${tags}</div>
+          <div style="margin-bottom:6px">${stocks}</div>
+          <button class="toggle">展開內容 ▸</button>
+          <div class="body">
+            <p>${summary}</p>
+            <div class="links">
+              <a href="${ep.link}" target="_blank">SoundOn ▸</a>
+              <a href="https://www.google.com/search?q=${encodeURIComponent('股癌 EP'+ep.ep+' vocus 重點')}" target="_blank">社群筆記 ▸</a>
+            </div>
+          </div>
+        </div>
+      </header>
+    </article>`;
+}
+
+function renderEpisodes(items, lastSeen){
+  const c = document.getElementById('ep-list');
+  if (!items.length){ c.innerHTML='<div class="empty">沒有資料</div>'; return; }
+  const read = getRead();
+  c.innerHTML = items.map(e => renderEp(e, !read.has(e.ep) && e.ep > lastSeen)).join('');
+  // toggle
+  c.querySelectorAll('.toggle').forEach(b=>b.addEventListener('click',()=>{
+    const ep = b.closest('.ep');
+    ep.classList.toggle('open');
+    b.textContent = ep.classList.contains('open') ? '收合' : '展開內容 ▸';
+  }));
+}
+
+function renderValidation(){
+  const tb = document.getElementById('val-body');
+  tb.innerHTML = VALIDATIONS.map(v => `
+    <tr data-search="${v.ep} ${v.ticker} ${v.call}">
+      <td class="ep">EP${v.ep}</td>
+      <td class="tk">${v.ticker}</td>
+      <td>${v.call}</td>
+      <td>${v.actual}</td>
+      <td>${verdictTag(v.verdict)}</td>
+    </tr>
+  `).join('');
+}
+
+function renderEpChart(){
+  // Aggregate by episode
+  const byEp = {};
+  VALIDATIONS.forEach(v => {
+    if (!byEp[v.ep]) byEp[v.ep] = {hit:0, partial:0, miss:0, pending:0};
+    byEp[v.ep][v.verdict]++;
+  });
+  const eps = Object.keys(byEp).map(Number).sort((a,b)=>a-b);
+  const c = document.getElementById('epChart');
+  c.innerHTML = eps.map(ep => {
+    const d = byEp[ep];
+    const total = d.hit + d.partial + d.miss + d.pending;
+    const max = 5; // scale
+    const stack = ['hit','partial','miss','pending'].filter(k=>d[k]>0).map(k =>
+      `<div class="seg ${k}" style="flex:${d[k]}" title="${k}: ${d[k]}"></div>`
+    ).join('');
+    const pctHeight = (total / max) * 100;
+    return `<div class="col" title="EP${ep}: ${d.hit} hit, ${d.partial} partial, ${d.miss} miss, ${d.pending} pending">
+      <div class="stack" style="height:${pctHeight}%">${stack}</div>
+      <div class="lbl">${ep}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderPerformers(){
+  const g = document.getElementById('perf-grid');
+  g.innerHTML = PERFORMERS.map(p => `
+    <div class="perf up">
+      <div class="name">${p.name} <span class="code">${p.code}</span></div>
+      <div class="perf-pct">${p.pct}</div>
+      <div class="perf-note"><b style="color:var(--accent3)">${p.ep}</b> · ${p.note}</div>
+    </div>
+  `).join('');
+}
+
+let allEpisodes = [];
+let lastSeenAtLoad = 0;
+
+async function refresh(){
+  document.getElementById('refresh').disabled = true;
+  try {
+    const xml = await fetchRss();
+    allEpisodes = parseRss(xml);
+    const read = getRead();
+    lastSeenAtLoad = Math.max(0, ...read);
+
+    // Render top 10
+    const top10 = allEpisodes.slice(0, 10);
+    renderEpisodes(top10, lastSeenAtLoad);
+
+    // Settings
+    const ep0 = allEpisodes[0];
+    document.getElementById('last-ep').textContent = lastSeenAtLoad ? `EP${lastSeenAtLoad}` : '尚未標記';
+    document.getElementById('last-time').textContent = ep0 ? fmtDate(ep0.pubDate) : '—';
+    document.getElementById('read-list').textContent = read.size ? [...read].sort((a,b)=>b-a).slice(0,8).map(e=>'EP'+e).join(', ') + (read.size>8?'…':'') : '無';
+    document.getElementById('last-update').textContent = '更新於 ' + new Date().toLocaleTimeString('zh-TW');
+
+    // Detect new
+    const newOnes = top10.filter(e => !read.has(e.ep) && e.ep > lastSeenAtLoad);
+    if (newOnes.length && lastSeenAtLoad > 0) {
+      const a = document.getElementById('alert');
+      document.getElementById('alert-title').textContent = `🎙 ${newOnes.length} 集新內容！(已自動標記)`;
+      document.getElementById('alert-body').innerHTML = newOnes.slice(0,3).map(e=>{
+        const d = EPISODES[e.ep];
+        return `<b>EP${e.ep}</b> ${(d?d.title:e.title).replace(/EP\d+\s*\|?\s*/,'')} <span style="color:var(--muted);font-size:10px">(${fmtDate(e.pubDate)})</span>`;
+      }).join('　／　') + (lastSeenAtLoad > 0 ? '<br><br><span style="color:var(--muted);font-size:11px">後端排程任務會在驗證完成後另存深度摘要至此資料夾。</span>' : '');
+      a.classList.add('show');
+      maybeNotify(newOnes);
+    } else if (lastSeenAtLoad === 0) {
+      const a = document.getElementById('alert');
+      document.getElementById('alert-title').textContent = `👋 第一次使用`;
+      document.getElementById('alert-body').textContent = `已抓到 ${allEpisodes.length} 集資料，內建 EP651-EP660 詳細摘要。點右上「全部已讀」基準化，下次有新集會自動高亮通知。`;
+      a.classList.add('show');
+    }
+
+    // Validation
+    renderValidation();
+    renderEpChart();
+    renderPerformers();
+  } catch (e) {
+    document.getElementById('ep-list').innerHTML = `<div class="empty" style="color:var(--miss)">⚠ 載入 RSS 失敗：${e.message}<br><br>內建摘要仍可用 (EP651-EP660)，請點重新整理再試。</div>`;
+    // Still render embedded data
+    renderValidation();
+    renderEpChart();
+    renderPerformers();
+  } finally {
+    document.getElementById('refresh').disabled = false;
+  }
+}
+
+function maybeNotify(eps){
+  if (!('Notification' in window)) return;
+  if (localStorage.getItem(LS_NOTIFY) !== 'on') return;
+  if (Notification.permission !== 'granted') return;
+  try {
+    new Notification('股癌新集出爐 🎙', {
+      body: eps.slice(0,2).map(e=>e.title).join('\n'),
+      icon: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%237cf2c1"/><text x="50" y="65" font-size="50" font-family="Arial" font-weight="bold" text-anchor="middle" fill="%23062017">G</text></svg>'),
+    });
+  } catch(e){}
+}
+
+// Tabs
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.pane').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+  });
+});
+
+// Search episodes
+document.getElementById('s-ep').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('#ep-list .ep').forEach(ep=>{
+    const text = ep.dataset.search.toLowerCase() + ' ' + ep.textContent.toLowerCase();
+    ep.style.display = !q || text.includes(q) ? '' : 'none';
+  });
+});
+
+// Search validations
+document.getElementById('s-val').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('#val-body tr').forEach(r=>{
+    const text = (r.dataset.search + ' ' + r.textContent).toLowerCase();
+    r.style.display = !q || text.includes(q) ? '' : 'none';
+  });
+});
+
+// Refresh
+document.getElementById('refresh').addEventListener('click', refresh);
+
+// Mark read
+document.getElementById('markRead').addEventListener('click', () => {
+  if (!allEpisodes.length) return;
+  const s = getRead();
+  allEpisodes.slice(0,10).forEach(e => s.add(e.ep));
+  setRead(s);
+  document.querySelectorAll('.ep.is-new').forEach(e => e.classList.remove('is-new'));
+  document.getElementById('alert').classList.remove('show');
+  refresh();
+});
+
+// Clear read
+document.getElementById('clearRead').addEventListener('click', () => {
+  if (confirm('清空已讀紀錄？下次重新整理時所有集數都會被視為新集。')) {
+    localStorage.removeItem(LS_KEY);
+    refresh();
+  }
+});
+
+// Notification toggle
+const nt = document.getElementById('notify-toggle');
+nt.checked = localStorage.getItem(LS_NOTIFY) === 'on';
+nt.addEventListener('change', async () => {
+  if (nt.checked) {
+    if (!('Notification' in window)) { alert('此瀏覽器不支援通知'); nt.checked=false; return; }
+    const p = await Notification.requestPermission();
+    if (p !== 'granted') { nt.checked=false; alert('需要授權通知才能啟用'); return; }
+    localStorage.setItem(LS_NOTIFY, 'on');
+  } else {
+    localStorage.removeItem(LS_NOTIFY);
+  }
+});
+
+// Initial load
+refresh();
+</script>
+</body>
+</html>

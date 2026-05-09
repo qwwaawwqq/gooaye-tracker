@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gooaye 股癌 · 最新 5 集視覺化摘要</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#121a33; --panel2:#0f1530; --ink:#e7ecf7;
+    --muted:#9aa6c2; --line:#1f2a4d; --accent:#7cf2c1; --accent2:#ffb347;
+    --bull:#22c55e; --bear:#ef4444; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif}
+  .wrap{max-width:1100px;margin:0 auto;padding:32px 24px 80px}
+  header{display:flex;align-items:flex-end;justify-content:space-between;
+    border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:28px;gap:16px;flex-wrap:wrap}
+  h1{margin:0;font-size:30px;letter-spacing:.5px}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--muted);font-size:14px;margin-top:6px}
+  .pill{display:inline-block;background:var(--panel);border:1px solid var(--line);
+    color:var(--muted);font-size:12px;padding:4px 10px;border-radius:999px;margin-right:6px}
+
+  /* dashboard top tiles */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .tile .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+  .tile .v{font-size:24px;font-weight:700;margin-top:6px}
+  .tile .t{font-size:11px;color:var(--muted);margin-top:4px}
+
+  /* episode cards */
+  .ep{background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+    border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0;
+    display:grid;grid-template-columns:90px 1fr;gap:18px}
+  .ep .num{font-size:34px;font-weight:800;color:var(--accent);line-height:1}
+  .ep .num small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:6px;letter-spacing:1px}
+  .ep .body h2{margin:0 0 4px;font-size:20px}
+  .ep .meta{color:var(--muted);font-size:13px;margin-bottom:10px}
+  .ep .tag{display:inline-block;background:#1c2750;color:#cdd6ff;font-size:11px;
+    padding:3px 9px;border-radius:6px;margin-right:6px;margin-bottom:6px}
+  .ep .tag.bull{background:#0f3a1f;color:#86efac}
+  .ep .tag.warn{background:#3a2a07;color:#fcd34d}
+  .ep .tag.spons{background:#2a1c3a;color:#d8b4fe}
+  .ep .point{margin-top:10px;line-height:1.7;font-size:14px}
+  .ep .point b{color:var(--accent2)}
+  .ep a{color:#9ec5ff;text-decoration:none;border-bottom:1px dotted #9ec5ff}
+  .ep .audio{margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+  /* market snapshot */
+  .market{background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    padding:22px;margin:30px 0}
+  .market h3{margin:0 0 14px;font-size:16px;color:var(--accent)}
+  .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .mcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .mcard .name{font-size:12px;color:var(--muted)}
+  .mcard .price{font-size:22px;font-weight:700;margin-top:6px}
+  .mcard .note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+
+  /* themes */
+  .themes{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;margin:24px 0}
+  .themes h3{margin:0 0 12px;font-size:16px;color:var(--accent)}
+  .timeline{position:relative;padding-left:18px;border-left:2px dashed var(--line)}
+  .timeline .row{position:relative;padding:8px 0 8px 14px}
+  .timeline .row::before{content:"";position:absolute;left:-24px;top:14px;width:10px;height:10px;
+    border-radius:50%;background:var(--accent)}
+  .timeline .when{color:var(--muted);font-size:12px}
+  .timeline .what{font-size:14px;line-height:1.55}
+
+  .note-box{background:#1a1330;border:1px solid #3a2a5e;border-radius:12px;
+    padding:14px;color:#e6dcff;font-size:13px;line-height:1.6;margin:18px 0}
+  .note-box b{color:#fcd34d}
+
+  footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7}
+  footer a{color:#9ec5ff}
+
+  @media (max-width:720px){
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .mgrid{grid-template-columns:1fr}
+    .ep{grid-template-columns:1fr}
+    .ep .num{font-size:26px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1>Gooaye <span>股癌</span> · 最新 5 集視覺化摘要</h1>
+    <div class="sub">資料抓取自官方 SoundOn RSS · 主持人：謝孟恭 · 報告日期：2026/05/09</div>
+  </div>
+  <div>
+    <span class="pill">EP656 → EP660</span>
+    <span class="pill">04/25 – 05/09</span>
+  </div>
+</header>
+
+<!-- 數據總覽 -->
+<div class="tiles">
+  <div class="tile"><div class="k">期間總集數</div><div class="v">5 集</div><div class="t">最新 ~2 週</div></div>
+  <div class="tile"><div class="k">總時長</div><div class="v">~250 分鐘</div><div class="t">平均約 50 分/集</div></div>
+  <div class="tile"><div class="k">節目總集數</div><div class="v">660</div><div class="t">RSS feed 全紀錄</div></div>
+  <div class="tile"><div class="k">更新節奏</div><div class="v">週三 / 週六</div><div class="t">穩定雙更</div></div>
+</div>
+
+<!-- 期間市場快照（來自 EP660 提及） -->
+<div class="market">
+  <h3>📊 期間市場快照（節目中提及）</h3>
+  <div class="mgrid">
+    <div class="mcard">
+      <div class="name">加權指數 TWSE</div>
+      <div class="price">42,000</div>
+      <div class="note">EP660 提及「台股站上 42,000 點」，盤勢熾熱。</div>
+    </div>
+    <div class="mcard">
+      <div class="name">台積電 2330</div>
+      <div class="price">$2,345</div>
+      <div class="note">EP660 提及「台積電噴到 $2,345」，AI 浪潮帶動。</div>
+    </div>
+    <div class="mcard">
+      <div class="name">聯發科 2454（發哥）</div>
+      <div class="price">處置撮合</div>
+      <div class="note">EP660 提及「連發哥都被送進去關禁閉」（5 分鐘集合競價）。</div>
+    </div>
+  </div>
+</div>
+
+<!-- EP660 -->
+<div class="ep">
+  <div class="num">660<small>2026 / 05 / 09 · 週六</small></div>
+  <div class="body">
+    <h2>🍄 這樣下去會不會壞掉</h2>
+    <div class="meta">時長 51 分鐘 · 主題色：警戒 / 過熱</div>
+    <span class="tag bull">台股創高</span>
+    <span class="tag">台積電 $2,345</span>
+    <span class="tag warn">聯發科處置股</span>
+    <span class="tag">Agentic AI 題材</span>
+    <span class="tag warn">風險控管</span>
+    <span class="tag spons">贊助：zZSLEEPER 涼感枕</span>
+    <div class="point">
+      行情噴到「腦袋發燙」的階段，主持人核心訊息是 <b>風險控管 &gt; 追高</b>：當大家半夜還在 Discord 挖 Agentic AI 題材、且高權值股輪流被丟進處置撮合，散戶的「胖尾風險」反而最高。延伸出睡眠品質與決策品質正相關的論述，順勢帶出贊助商。
+    </div>
+    <div class="audio">
+      <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/d55ccb00-f3dd-4dd0-9e7f-e108f6645494" target="_blank">▶ 在 SoundOn 收聽</a>
+    </div>
+  </div>
+</div>
+
+<!-- EP659 -->
+<div class="ep">
+  <div class="num">659<small>2026 / 05 / 06 · 週三</small></div>
+  <div class="body">
+    <h2>🦤 做壞掉了</h2>
+    <div class="meta">時長 51 分鐘 · 主題色：延續上集「壞掉」系列</div>
+    <span class="tag warn">承接過熱訊號</span>
+    <span class="tag">市場情緒</span>
+    <span class="tag spons">贊助：Saily eSIM</span>
+    <div class="point">
+      標題與下一集 EP660「<b>會不會壞掉</b>」、上一集 EP658「<b>最終都是氣氛</b>」形成連續三部曲，主軸圍繞「市場過熱 → 已經壞掉 → 還在硬撐」的情緒週期。RSS show notes 主要為贊助說明，完整論述在音檔。
+    </div>
+    <div class="audio">
+      <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/0606f6c5-c531-454e-9714-19fa5f90e640" target="_blank">▶ 在 SoundOn 收聽</a>
+    </div>
+  </div>
+</div>
+
+<!-- EP658 -->
+<div class="ep">
+  <div class="num">658<small>2026 / 05 / 02 · 週六</small></div>
+  <div class="body">
+    <h2>🪿 最終都是氣氛</h2>
+    <div class="meta">時長 49 分鐘 · 主題色：市場心理</div>
+    <span class="tag">情緒交易</span>
+    <span class="tag">行情判讀</span>
+    <span class="tag spons">贊助：NordVPN</span>
+    <div class="point">
+      「最終都是氣氛」是股癌典型用語：強調 <b>價格動能在末段往往由情緒主導</b>，而非基本面。為後兩集（EP659 / EP660）對「過熱風險」的警示鋪路。
+    </div>
+    <div class="audio">
+      <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/05d6fea4-c6a1-47f2-a57e-b2f4e8d82bc0" target="_blank">▶ 在 SoundOn 收聽</a>
+    </div>
+  </div>
+</div>
+
+<!-- EP657 -->
+<div class="ep">
+  <div class="num">657<small>2026 / 04 / 29 · 週三</small></div>
+  <div class="body">
+    <h2>🐫 他不呆兒 他長大了</h2>
+    <div class="meta">時長 50 分鐘 · 主題色：成長股觀察</div>
+    <span class="tag bull">轉骨 / 蛻變</span>
+    <span class="tag">產業觀察</span>
+    <span class="tag spons">贊助：母親節 SkinCeuticals 修麗可</span>
+    <div class="point">
+      標題暗示某檔過去被視為「呆兒」（停滯、無動能）的標的，本集被點名為「長大了」——典型股癌式的成長股翻紅敘事。RSS 描述以母親節檔期廣告為主，個股名稱需從音檔確認。
+    </div>
+    <div class="audio">
+      <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/ebd38d86-113a-4ce7-9c64-72f3fb63e5b4" target="_blank">▶ 在 SoundOn 收聽</a>
+    </div>
+  </div>
+</div>
+
+<!-- EP656 -->
+<div class="ep">
+  <div class="num">656<small>2026 / 04 / 25 · 週六</small></div>
+  <div class="body">
+    <h2>🍇 萬劍歸宗</h2>
+    <div class="meta">時長 49 分鐘 · 主題色：題材收斂</div>
+    <span class="tag">主流題材匯流</span>
+    <span class="tag">交易環境 / 紀律</span>
+    <span class="tag spons">贊助：Ergotron 螢幕支架</span>
+    <div class="point">
+      「萬劍歸宗」武俠用語，影射 <b>多條題材線最終收斂到同一主軸</b>（依此波行情，極可能指 AI / Agentic AI 帶動的 IC 設計、晶圓代工、CSP / 光通訊鏈）。配合贊助商談「優化交易環境」也呼應紀律主題。
+    </div>
+    <div class="audio">
+      <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/642a945a-aa16-48c9-b3ba-18449dd1cf9c" target="_blank">▶ 在 SoundOn 收聽</a>
+    </div>
+  </div>
+</div>
+
+<!-- 主題時間軸 -->
+<div class="themes">
+  <h3>🧭 五集主軸時間軸</h3>
+  <div class="timeline">
+    <div class="row">
+      <div class="when">04 / 25 · EP656</div>
+      <div class="what"><b>萬劍歸宗</b>　多條題材線收斂到同一主軸（推測為 AI 鏈），同時提示交易紀律。</div>
+    </div>
+    <div class="row">
+      <div class="when">04 / 29 · EP657</div>
+      <div class="what"><b>他不呆兒 他長大了</b>　點名某沉寂個股／產業終於放量轉強。</div>
+    </div>
+    <div class="row">
+      <div class="when">05 / 02 · EP658</div>
+      <div class="what"><b>最終都是氣氛</b>　末段行情由情緒主導，提醒留意基本面與股價的脫鉤。</div>
+    </div>
+    <div class="row">
+      <div class="when">05 / 06 · EP659</div>
+      <div class="what"><b>做壞掉了</b>　市場已經出現過熱徵兆，承接 EP658 的情緒主題。</div>
+    </div>
+    <div class="row">
+      <div class="when">05 / 09 · EP660</div>
+      <div class="what"><b>這樣下去會不會壞掉</b>　台股 42,000、台積電 $2,345、聯發科處置；強調風險控管與胖尾風險。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 重要說明 -->
+<div class="note-box">
+  <b>關於本報告涵蓋範圍：</b>
+  本摘要建構在官方 SoundOn RSS 的 show notes 之上，這份描述由節目方撰寫並包含明確的市場數據（如 EP660 的台股點數、台積電股價、聯發科處置）與當集主題提示。每集音檔約 50 分鐘的完整討論——包含具名個股、操作建議、來賓對話——並未隨 RSS 釋出文字稿；如需更深度逐字內容，需另行對音檔進行語音辨識。本報告所呈現之主題色與題材推測（如 EP656「萬劍歸宗」推估指向 AI 鏈）係依據前後集脈絡與股癌過去用語慣例之合理判讀，並非節目原文確認。
+</div>
+
+<!-- 投資人提醒 -->
+<div class="note-box" style="background:#1a2330;border-color:#2a4a6e;color:#cce4ff">
+  <b>⚠️ 投資提醒：</b>
+  本報告純屬節目內容整理，不構成任何投資建議。Gooaye 股癌節目本身即多次強調「投資有賺有賠」、「風險控管優先於追高」，請依個人風險承受度與專業判斷做決策。
+</div>
+
+<footer>
+  資料來源：<a href="https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml" target="_blank">SoundOn RSS feed</a>
+   · <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3" target="_blank">SoundOn 節目主頁</a>
+   · <a href="https://podcasts.apple.com/tw/podcast/gooaye-%E8%82%A1%E7%99%8C/id1500839292" target="_blank">Apple Podcasts</a>
+   · <a href="https://open.spotify.com/show/1zWxx5pKk0XBEzMupVC7UZ" target="_blank">Spotify</a>
+  <br>由 Claude 於 Cowork mode 整理 · 2026/05/09
+</footer>
+
+</div>
+</body>
+</html>
