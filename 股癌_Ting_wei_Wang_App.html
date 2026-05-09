@@ -836,14 +836,33 @@ function fmtDate(s){ try { return new Date(s).toLocaleDateString('zh-TW', {year:
 function badge(v){ const lbl={hit:'HIT',partial:'PARTIAL',miss:'MISS',pending:'PENDING'}[v]||v; return `<span class="badge ${v}">${lbl}</span>`; }
 function mktBadge(m){ return `<span class="badge market ${m}">${m.toUpperCase()}</span>`; }
 
-// ============ TAB SWITCHING ============
-document.querySelectorAll('nav.top .tab').forEach(t => {
-  t.addEventListener('click', () => {
-    document.querySelectorAll('nav.top .tab').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('.pane').forEach(x=>x.hidden=true);
-    t.classList.add('active');
-    document.getElementById(t.dataset.pane).hidden = false;
+// ============ TAB SWITCHING (robust: use display style + remove hidden attr) ============
+function switchTab(paneId) {
+  // Hide all panes
+  document.querySelectorAll('.pane').forEach(x => {
+    x.style.display = 'none';
+    x.removeAttribute('hidden');  // clear any leftover hidden attribute
   });
+  // Show requested pane
+  const target = document.getElementById(paneId);
+  if (target) {
+    target.style.display = 'block';
+  }
+  // Update tab active states
+  document.querySelectorAll('nav.top .tab').forEach(x => x.classList.remove('active'));
+  const activeTab = document.querySelector(`nav.top .tab[data-pane="${paneId}"]`);
+  if (activeTab) activeTab.classList.add('active');
+  // Scroll to top of pane area for clarity
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+document.querySelectorAll('nav.top .tab').forEach(t => {
+  t.addEventListener('click', () => switchTab(t.dataset.pane));
+});
+
+// Initialize: show overview, hide others
+document.addEventListener('DOMContentLoaded', () => {
+  switchTab('overview');
 });
 
 // ============ STOCK TABLE ============
@@ -882,7 +901,7 @@ function renderStocks(filter='all', search=''){
       det.classList.add('show');
       det.querySelectorAll('.ep-link').forEach(a => a.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelector('nav.top .tab[data-pane="episodes"]').click();
+        switchTab('episodes');
         const ep = parseInt(a.dataset.ep);
         showEpDetail(ep);
       }));
