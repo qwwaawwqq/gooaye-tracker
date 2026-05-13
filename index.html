@@ -422,8 +422,9 @@
 
   <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
 
-    <!-- LEFT: 5 episode highlight cards -->
-    <div style="display:flex;flex-direction:column;gap:8px">
+    <!-- LEFT: 5 episode highlight cards (#highlight-cards is auto-populated by JS;
+         the static cards below are fallback if EPISODES is missing) -->
+    <div id="highlight-cards" style="display:flex;flex-direction:column;gap:8px">
       <!-- EP660 -->
       <div style="background:linear-gradient(90deg,rgba(148,163,184,0.08),rgba(9,14,29,0.84));border:1px solid #1f2d47;border-left:3px solid #94a3b8;border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center">
         <div>
@@ -1334,21 +1335,82 @@ const EPISODES = {
       merged++;
     }
     if (merged > 0){
-      // Re-render if RSS has already finished loading and put items into liveEpisodes.
-      if (typeof renderEpisodes === 'function' && typeof liveEpisodes !== 'undefined' && Array.isArray(liveEpisodes)){
-        try { renderEpisodes(liveEpisodes); } catch(_) {}
-      }
-      // Stamp the status line, but don't fight RSS's own status updates.
       const ls = document.getElementById('liveStatus');
       if (ls && /內建快照|RSS 載入/.test(ls.textContent)) {
         ls.textContent += ` · +${merged} 自動摘要`;
       }
     }
     window.__autoEpsLoaded = true;
+    rebuildHighlightCards();
+    refreshEpisodeListFromDict();
   } catch(e){
     console.warn('[auto-merge] skip:', e.message);
+    // Even if auto JSON 404'd, EPISODES inline may have newer episodes than RSS gave us.
+    try { rebuildHighlightCards(); refreshEpisodeListFromDict(); } catch(_) {}
   }
 })();
+
+// Rebuild the "🔥 最新 5 集精華" cards from EPISODES dict so any new episode
+// added (inline or via _episodes_auto.json) shows up automatically.
+function rebuildHighlightCards(){
+  const host = document.getElementById('highlight-cards');
+  if (!host) return;
+  const eps = Object.entries(EPISODES)
+    .map(([k, v]) => ({ ep: parseInt(k), ...v }))
+    .filter(e => Number.isFinite(e.ep))
+    .sort((a, b) => b.ep - a.ep)
+    .slice(0, 5);
+  if (!eps.length) return;
+  const COLOR = { hit:'#4ade80', partial:'#fbbf24', miss:'#fb7185', pending:'#94a3b8' };
+  const TAG = { hit:'HIT', partial:'PARTIAL', miss:'MISS', pending:'PENDING' };
+  host.innerHTML = eps.map(e => {
+    const v = e.v || 'pending';
+    const col = COLOR[v] || COLOR.pending;
+    const lbl = TAG[v] || v.toUpperCase();
+    const md = (e.date || '').slice(5).replace('-', '/');
+    const cleanTitle = (e.title || '').replace(/^EP\d+\s*\|\s*/, '');
+    const oneLine = (e.summary || '').replace(/<[^>]+>/g, '').slice(0, 140);
+    return `<div style="background:linear-gradient(90deg,rgba(${v==='hit'?'74,222,128':'148,163,184'},0.06),rgba(9,14,29,0.84));border:1px solid #1f2d47;border-left:3px solid ${col};border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center">
+      <div>
+        <div style="font-size:18px;font-weight:800;color:#bae6fd;font-family:'JetBrains Mono',monospace">${e.ep}</div>
+        <div style="font-size:9px;color:#6f84a1">${md}</div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#e6edf3">${cleanTitle}</div>
+        <div style="font-size:11px;color:#8ea3c0;margin-top:2px;line-height:1.5">${oneLine}</div>
+      </div>
+      <span class="badge ${v}">${lbl}</span>
+    </div>`;
+  }).join('');
+}
+
+// Make sure the episode-list table shows everything in EPISODES, even when
+// the RSS proxy hands back a cached list missing the newest episodes.
+function refreshEpisodeListFromDict(){
+  if (typeof liveEpisodes === 'undefined' || !Array.isArray(liveEpisodes)) return;
+  const present = new Set(liveEpisodes.map(it => it.ep));
+  let added = 0;
+  for (const [k, v] of Object.entries(EPISODES)){
+    const ep = parseInt(k);
+    if (!Number.isFinite(ep) || present.has(ep)) continue;
+    liveEpisodes.push({ ep, title: v.title || `EP${ep}`, pubDate: v.date || '', link: '' });
+    added++;
+  }
+  if (added > 0){
+    liveEpisodes.sort((a, b) => b.ep - a.ep);
+    if (typeof renderEpisodes === 'function'){
+      try { renderEpisodes(liveEpisodes); } catch(_) {}
+    }
+  }
+}
+
+// Also rebuild cards once DOM is ready (covers the case where the IIFE
+// finishes before the DOM has the placeholder, and a future re-render).
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => { try { rebuildHighlightCards(); } catch(_) {} });
+} else {
+  try { rebuildHighlightCards(); } catch(_) {}
+}
 
 const STOCKS = {
   '2330':{name:'台積電',mkt:'tw',mentions:5,stance:'看好',perf:'+6.6%',perfDelta:'pos',v:'hit',note:'EP656 投信 25% 解封吸星，5/7 達 $2,345 史上新高',eps:[660,659,658,657,656,654,653]},
@@ -1751,6 +1813,7 @@ document.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', (
 document.getElementById('epSearch').addEventListener('input', e => renderEpisodes(liveEpisodes, e.target.value));
 document.getElementById('refreshBtn').addEventListener('click', async () => {
   liveEpisodes = await fetchRss();
+  try { refreshEpisodeListFromDict(); } catch(_) {}
   renderEpisodes(liveEpisodes);
   updateSettings(liveEpisodes);
   checkNew(liveEpisodes);
@@ -1782,9 +1845,10 @@ renderStocks();
 renderCalls();
 fetchRss().then(items => {
   liveEpisodes = items;
-  renderEpisodes(items);
-  updateSettings(items);
-  checkNew(items);
+  try { refreshEpisodeListFromDict(); } catch(_) {}
+  renderEpisodes(liveEpisodes);
+  updateSettings(liveEpisodes);
+  checkNew(liveEpisodes);
 });
 </script>
 </body>
