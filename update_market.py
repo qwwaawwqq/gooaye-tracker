@@ -115,13 +115,17 @@ def fetch_perf(symbol: str, start_date: str) -> dict | None:
     on_or_after = closes[closes.index.date >= start_dt.date()]
     start_close = float(on_or_after.iloc[0]) if not on_or_after.empty else float(closes.iloc[0])
     end_close = float(closes.iloc[-1])
+    start_str = str(on_or_after.index[0].date()) if not on_or_after.empty else str(closes.index[0].date())
+    end_str = str(closes.index[-1].date())
+    days_elapsed = (datetime.strptime(end_str, "%Y-%m-%d") - datetime.strptime(start_str, "%Y-%m-%d")).days
     return {
         "symbol": symbol,
-        "start_date": str(on_or_after.index[0].date()) if not on_or_after.empty else str(closes.index[0].date()),
+        "start_date": start_str,
         "start_close": round(start_close, 2),
-        "end_date": str(closes.index[-1].date()),
+        "end_date": end_str,
         "end_close": round(end_close, 2),
         "change_pct": round((end_close / start_close - 1) * 100, 2),
+        "days_elapsed": days_elapsed,
     }
 
 
@@ -167,6 +171,48 @@ def rank_top_and_misses(perf_map: dict, stocks: dict) -> dict:
     )[:5]
     flat_warnings = [r for r in rows if abs(r["change_pct"] or 0) < 2][:8]
     return {"top_hits": top_hits, "misses": misses, "flat": flat_warnings}
+
+
+def build_validation_summary(perf_map: dict, stocks: dict) -> dict:
+    """Per-stock prediction-vs-actual rows + aggregate stats."""
+    rows: list[dict] = []
+    for code, perf in perf_map.items():
+        if not perf: continue
+        s = stocks.get(code, {})
+        eps = s.get("eps") or []
+        rows.append({
+            "code": code,
+            "name": s.get("name", code),
+            "mkt": s.get("mkt", ""),
+            "stance": s.get("stance", ""),
+            "first_ep": min(eps) if eps else None,
+            "ep_count": len(eps),
+            "start_date": perf.get("start_date"),
+            "end_date": perf.get("end_date"),
+            "days_elapsed": perf.get("days_elapsed"),
+            "start_close": perf.get("start_close"),
+            "end_close": perf.get("end_close"),
+            "change_pct": perf.get("change_pct"),
+            "verdict": perf.get("verdict", "pending"),
+        })
+    rows.sort(key=lambda r: (r["first_ep"] or 0, r["change_pct"] or 0), reverse=True)
+
+    counts = {"hit": 0, "partial": 0, "miss": 0, "pending": 0}
+    resolved_returns: list[float] = []
+    for r in rows:
+        v = r["verdict"]; counts[v] = counts.get(v, 0) + 1
+        if v != "pending" and r["change_pct"] is not None:
+            resolved_returns.append(r["change_pct"])
+    resolved = counts["hit"] + counts["partial"] + counts["miss"]
+    hit_rate = round(counts["hit"] / resolved * 100, 1) if resolved else None
+    avg_return = round(sum(resolved_returns) / len(resolved_returns), 2) if resolved_returns else None
+    return {
+        "total": len(rows),
+        "counts": counts,
+        "hit_rate_pct": hit_rate,
+        "avg_return_pct": avg_return,
+        "rows": rows,
+    }
 
 
 def synthesize_actions(rankings: dict, eps_data: dict, api_key: str) -> list | None:
@@ -276,6 +322,7 @@ def main() -> int:
               f"{perf['start_close']} → {perf['end_close']} = {perf['change_pct']:+.2f}% [{perf['verdict']}]")
 
     rankings = rank_top_and_misses(perf_map, stocks)
+    validation = build_validation_summary(perf_map, stocks)
     eps_data = json.loads(EPS_AUTO.read_text()) if EPS_AUTO.exists() else {"episodes": {}}
 
     actions = None
@@ -287,6 +334,7 @@ def main() -> int:
         "updated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "perf": perf_map,
         "rankings": rankings,
+        "validation": validation,
         "actions": actions,
     }
     OUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n")
