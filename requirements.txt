@@ -1,0 +1,3 @@
+anthropic>=0.40
+openai-whisper>=20231117
+yfinance>=0.2.40

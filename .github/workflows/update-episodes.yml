@@ -42,7 +42,7 @@ jobs:
       - name: Install Python deps
         run: |
           python -m pip install --quiet --upgrade pip
-          python -m pip install --quiet openai-whisper anthropic
+          python -m pip install --quiet -r requirements.txt
 
       - name: Cache whisper model
         uses: actions/cache@v4
