@@ -218,11 +218,21 @@ EP: {ep}    Title: {title}    Date: {date}
   "stock_meta": {{
     "TW/2327": {{"name": "國巨", "stance": "啟動|看好|觀察|減碼 等(8字內)", "note": "本集脈絡(40字內，可用<b>)"}},
     "US/NVDA": {{"name": "NVIDIA", "stance": "...", "note": "..."}}
-  }}
+  }},
+  "stocks_groups": [
+    {{
+      "tier": "primary|adjacent|defensive|overseas",
+      "title": "分組標題(12字內，可帶 emoji)",
+      "stocks": [
+        {{"code": "2327", "mkt": "TW", "name": "國巨", "reason": "為什麼提到，對應哪個主軸，1 句 30-60 字，可用 <b>"}}
+      ]
+    }}
+  ]
 }}
 
 calls 至少 3 條、至多 7 條；每條對應一個主軸的具體 call。
-stock_meta 對應 stocks 陣列中每檔出現的標的（不需全部寫，挑有實質討論的）；name 用繁中正式名稱、若是新興股票就放空字串。
+stock_meta 對應 stocks 陣列中每檔出現的標的；name 用繁中正式名稱、若 whisper 拼錯就修正。
+stocks_groups: 把提及個股按主題分 3-5 組（如「被動元件主軸」「散熱事件」「防守換手」「海外觀察」），每組內每檔股票配一行 reason。
 剛發布的新集 v 通常都 "pending"。"""
     resp = client.messages.create(
         model="claude-opus-4-7",
@@ -301,6 +311,60 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
                 "ep": ep,
             }
 
+        raw_groups = structured.get("stocks_groups", []) or []
+        clean_groups: list[dict] = []
+        TIER_STYLE = {
+            "primary":   ("rgba(74,222,128,0.04)", "#4ade80"),
+            "adjacent":  ("rgba(251,191,36,0.04)", "#fbbf24"),
+            "defensive": ("rgba(96,165,250,0.04)", "#60a5fa"),
+            "overseas":  ("rgba(167,139,250,0.04)", "#a78bfa"),
+        }
+        groups_html_parts: list[str] = []
+        for g in raw_groups:
+            if not isinstance(g, dict): continue
+            tier = g.get("tier", "primary")
+            bg, accent = TIER_STYLE.get(tier, TIER_STYLE["primary"])
+            stocks_list = g.get("stocks", []) or []
+            valid_lines = []
+            for s in stocks_list:
+                if not isinstance(s, dict): continue
+                code = str(s.get("code", "")).strip()
+                mkt = str(s.get("mkt", "")).strip().upper()
+                if mkt == "TW" and not re.fullmatch(r"\d{4,5}", code): continue
+                if mkt == "US" and not re.fullmatch(r"[A-Z][A-Z\.\-]{0,7}", code): continue
+                if not mkt: continue
+                name = str(s.get("name", "")).strip()[:24] or code
+                reason = str(s.get("reason", "")).strip()[:200]
+                valid_lines.append({"code": code, "mkt": mkt, "name": name, "reason": reason})
+            if not valid_lines: continue
+            clean_groups.append({
+                "tier": tier, "title": str(g.get("title", ""))[:24],
+                "stocks": valid_lines,
+            })
+            lines_html = "".join(
+                f"<b>{s['code']} {s['name']}</b>　{s['reason']}<br>" for s in valid_lines
+            ).rstrip("<br>")
+            groups_html_parts.append(
+                f'<div style="background:{bg};border-left:2px solid {accent};'
+                f'padding:6px 10px;border-radius:4px"><b>{g.get("title","")}</b><br>{lines_html}</div>'
+            )
+
+        deep_html = structured.get("deep_html", "")
+        if groups_html_parts:
+            total = sum(len(g["stocks"]) for g in clean_groups)
+            groups_block = (
+                f'<h4>📊 提及個股（{total} 檔）</h4>'
+                '<p style="color:#8ea3c0;font-size:11px;margin-bottom:8px">由 Claude API 自逐字稿分類；whisper 對公司名 homophone 錯誤多，個股代號以模型還原為準，必要時人工二校。</p>'
+                '<div style="display:grid;grid-template-columns:1fr;gap:6px;font-size:12px;line-height:1.55">'
+                + "".join(groups_html_parts) + '</div>'
+            )
+            # insert before 資料狀態 footer if present, else append
+            footer_marker = '<h4>資料狀態</h4>'
+            if footer_marker in deep_html:
+                deep_html = deep_html.replace(footer_marker, groups_block + footer_marker)
+            else:
+                deep_html = deep_html + groups_block
+
         return {
             "ep": ep,
             "date": date,
@@ -310,9 +374,10 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
             "tags": structured.get("tags", ["新集上線"]),
             "summary": structured.get("summary", ""),
             "stocks": clean_stocks,
-            "deep": structured.get("deep_html", ""),
+            "deep": deep_html,
             "calls": clean_calls,
             "stock_meta": clean_meta,
+            "stocks_groups": clean_groups,
             "auto_status": "audio+llm",
             "auto_generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "transcript_chars": len(transcript),
