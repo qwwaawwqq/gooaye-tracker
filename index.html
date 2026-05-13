@@ -377,7 +377,7 @@
 <!-- ========== HERO ========== -->
 <section class="hero">
   <div>
-    <div class="eyebrow"><span class="dot"></span><span id="liveStatus">即時 RSS · 自動偵測新集</span></div>
+    <div class="eyebrow"><span class="dot"></span><span id="liveStatus">即時 RSS · 自動偵測新集</span> <span id="autoHealth" style="margin-left:8px;font-size:10px;color:#6f84a1"></span></div>
     <h1>Gooaye 股癌 · 預測追蹤</h1>
     <p>整理 Gooaye 股癌 podcast 主持人 <b style="color:#bae6fd">謝孟恭</b> 在 EP651-EP660 點名的個股與主軸論述，截至 2026/05/09 的<b style="color:#bae6fd">命中率</b>、實際走勢與來源摘要。每次開啟自動拉 RSS 偵測新集——可從任何電腦／手機開啟。</p>
   </div>
@@ -1405,6 +1405,7 @@ const EPISODES = {
       }
     }
     window.__autoEpsLoaded = true;
+    if (data && data.updated_at) updateAutoHealth({ episodes: data.updated_at });
     rebuildHighlightCards();
     refreshEpisodeListFromDict();
     updateHeaderDates();
@@ -1514,6 +1515,7 @@ async function loadMarketAuto(){
     const data = await res.json();
     rebuildTop5Panel(data);
     rebuildAutoActionCards(data);
+    updateAutoHealth({ market: data.updated_at });
     // Also overlay perf into STOCKS for renderStocks
     if (data.perf && typeof data.perf === 'object'){
       for (const [code, p] of Object.entries(data.perf)){
@@ -1529,6 +1531,29 @@ async function loadMarketAuto(){
   } catch(e){
     console.warn('[market] skip:', e.message);
   }
+}
+
+// Shows ago-times for the two auto-update sources so it's obvious when the
+// pipeline has stopped running (e.g. API key revoked, workflow disabled).
+const __healthState = {};
+function updateAutoHealth(part){
+  Object.assign(__healthState, part || {});
+  const el = document.getElementById('autoHealth');
+  if (!el) return;
+  const ago = (iso) => {
+    if (!iso) return '?';
+    const ms = Date.now() - new Date(iso).getTime();
+    if (!Number.isFinite(ms) || ms < 0) return '?';
+    const min = Math.round(ms / 60000);
+    if (min < 60) return `${min} 分前`;
+    const hr = Math.round(min / 60);
+    if (hr < 48) return `${hr} 小時前`;
+    return `${Math.round(hr / 24)} 天前`;
+  };
+  const parts = [];
+  if (__healthState.episodes) parts.push(`集摘要 ${ago(__healthState.episodes)}`);
+  if (__healthState.market)   parts.push(`股價 ${ago(__healthState.market)}`);
+  el.textContent = parts.length ? `· 自動更新：${parts.join(' / ')}` : '';
 }
 
 function rebuildTop5Panel(data){

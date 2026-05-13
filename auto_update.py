@@ -523,6 +523,19 @@ def load_state() -> dict:
     return {"last_seen_ep": 0, "initialized_by": "auto_update"}
 
 
+def prune_audio_cache(keep: int = 8) -> None:
+    """Keep only the most recent N EP*.mp3 and EP*.txt files to avoid disk fill."""
+    if not CACHE_DIR.exists(): return
+    for pattern in ("EP*.mp3", "EP*.txt"):
+        files = sorted(CACHE_DIR.glob(pattern), key=lambda p: p.stat().st_mtime, reverse=True)
+        for old in files[keep:]:
+            try:
+                old.unlink()
+                print(f"  [prune] removed {old.name}")
+            except OSError:
+                pass
+
+
 def save_state(state: dict) -> None:
     state["last_check"] = datetime.now().astimezone().isoformat(timespec="seconds")
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
@@ -612,6 +625,7 @@ def main() -> int:
         state["last_seen_ep"] = max_seen
     save_state(state)
     print(f"[done] wrote {OUT_FILE.name}, state.last_seen_ep={state['last_seen_ep']}")
+    prune_audio_cache(keep=8)
 
     if args.push:
         eps_done = sorted(int(e.get("ep") or 0) for e in new_entries if e.get("ep"))
