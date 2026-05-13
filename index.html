@@ -1335,10 +1335,70 @@ const EPISODES = {
       };
       merged++;
     }
-    if (merged > 0){
+    // Merge per-episode CALLS contributions (gap-fill at ep level: if inline CALLS
+    // already has any entry for this ep, skip — assumes inline is hand-curated).
+    let callsAdded = 0;
+    const epsAlreadyInCalls = new Set(CALLS.map(c => c.ep));
+    for (const v of Object.values(eps)){
+      if (!v || !Array.isArray(v.calls) || !v.calls.length) continue;
+      if (epsAlreadyInCalls.has(v.ep)) continue;
+      for (const call of v.calls){
+        if (!call || !call.t || !call.c) continue;
+        CALLS.push({ ep: call.ep || v.ep, t: call.t, c: call.c, a: call.a || '剛發布', v: call.v || 'pending' });
+        callsAdded++;
+      }
+    }
+    if (callsAdded > 0){
+      CALLS.sort((a, b) => b.ep - a.ep);
+      if (typeof renderCalls === 'function'){
+        try { renderCalls(); } catch(_) {}
+      }
+    }
+
+    // Merge per-stock metadata into STOCKS dict (gap-fill + append ep to eps[])
+    let stocksTouched = 0;
+    for (const v of Object.values(eps)){
+      if (!v || !v.stock_meta || typeof v.stock_meta !== 'object') continue;
+      for (const [key, meta] of Object.entries(v.stock_meta)){
+        const parts = key.split('/');
+        if (parts.length !== 2) continue;
+        const [mkt, code] = parts;
+        const mktLc = mkt.toLowerCase();
+        if (STOCKS[code]){
+          if (!STOCKS[code].eps.includes(v.ep)){
+            STOCKS[code].eps.unshift(v.ep);
+            STOCKS[code].mentions = (STOCKS[code].mentions || 0) + 1;
+            if (meta.note) STOCKS[code].note = `${STOCKS[code].note}；EP${v.ep}：${meta.note}`.slice(0, 400);
+            stocksTouched++;
+          }
+        } else {
+          STOCKS[code] = {
+            name: meta.name || code,
+            mkt: mktLc,
+            mentions: 1,
+            stance: meta.stance || '新進',
+            perf: '—',
+            perfDelta: 'neutral',
+            v: 'pending',
+            note: `EP${v.ep}：${meta.note || ''}`.slice(0, 400),
+            eps: [v.ep],
+          };
+          stocksTouched++;
+        }
+      }
+    }
+    if (stocksTouched > 0 && typeof renderStocks === 'function'){
+      try { renderStocks(); } catch(_) {}
+    }
+
+    if (merged > 0 || callsAdded > 0 || stocksTouched > 0){
       const ls = document.getElementById('liveStatus');
-      if (ls && /內建快照|RSS 載入/.test(ls.textContent)) {
-        ls.textContent += ` · +${merged} 自動摘要`;
+      const parts = [];
+      if (merged > 0) parts.push(`${merged} 集`);
+      if (callsAdded > 0) parts.push(`${callsAdded} call`);
+      if (stocksTouched > 0) parts.push(`${stocksTouched} 股`);
+      if (ls && /內建快照|RSS 載入/.test(ls.textContent) && parts.length){
+        ls.textContent += ` · +${parts.join(' ')}自動摘要`;
       }
     }
     window.__autoEpsLoaded = true;

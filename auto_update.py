@@ -211,10 +211,19 @@ EP: {ep}    Title: {title}    Date: {date}
   "summary": "100-180 字繁中摘要 HTML（可用 <b>）",
   "stocks": [["TW"|"US", "代號或 ticker"]],
   "duration_minutes": 數字（如逐字稿能推估，否則 null）,
-  "deep_html": "深度摘要 HTML 區塊：用 <h4>主軸 N：...</h4><ul><li>...</li></ul> 分段，"
-                "金句用 <p style=\\"color:#fde047\\"><b>「...」</b></p>，"
-                "結尾加 <h4>資料狀態</h4><p style=\\"color:#fbbf24\\">本摘要由 Claude API 自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。</p>"
-}}"""
+  "deep_html": "深度摘要 HTML 區塊：用 <h4>主軸 N：...</h4><ul><li>...</li></ul> 分段，金句用 <p style=\\"color:#fde047\\"><b>「...」</b></p>，結尾加 <h4>資料狀態</h4><p style=\\"color:#fbbf24\\">本摘要由 Claude API 自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。</p>",
+  "calls": [
+    {{"t": "主軸短標(8字內)", "c": "call 內容(60字內，可用<b>)", "a": "後續動作或剛發布字樣", "v": "pending|hit|partial|miss"}}
+  ],
+  "stock_meta": {{
+    "TW/2327": {{"name": "國巨", "stance": "啟動|看好|觀察|減碼 等(8字內)", "note": "本集脈絡(40字內，可用<b>)"}},
+    "US/NVDA": {{"name": "NVIDIA", "stance": "...", "note": "..."}}
+  }}
+}}
+
+calls 至少 3 條、至多 7 條；每條對應一個主軸的具體 call。
+stock_meta 對應 stocks 陣列中每檔出現的標的（不需全部寫，挑有實質討論的）；name 用繁中正式名稱、若是新興股票就放空字串。
+剛發布的新集 v 通常都 "pending"。"""
     resp = client.messages.create(
         model="claude-opus-4-7",
         max_tokens=4000,
@@ -262,6 +271,36 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
                 clean_stocks.append(["TW", c])
             elif m == "US" and re.fullmatch(r"[A-Z][A-Z\.\-]{0,7}", c):
                 clean_stocks.append(["US", c])
+
+        raw_calls = structured.get("calls", []) or []
+        clean_calls: list[dict] = []
+        for call in raw_calls:
+            if not isinstance(call, dict): continue
+            t = str(call.get("t", "")).strip()
+            c = str(call.get("c", "")).strip()
+            if not t or not c: continue
+            v = call.get("v", "pending")
+            if v not in ("hit", "partial", "miss", "pending"): v = "pending"
+            clean_calls.append({
+                "ep": ep, "t": t[:24], "c": c[:240],
+                "a": str(call.get("a", "")).strip()[:160] or "剛發布",
+                "v": v,
+            })
+
+        raw_meta = structured.get("stock_meta", {}) or {}
+        clean_meta: dict = {}
+        for key, val in raw_meta.items():
+            if not isinstance(val, dict): continue
+            m_match = re.fullmatch(r"(TW|US)/([A-Za-z0-9\.\-]{1,8})", str(key))
+            if not m_match: continue
+            mk = f"{m_match.group(1)}/{m_match.group(2).upper() if m_match.group(1)=='US' else m_match.group(2)}"
+            clean_meta[mk] = {
+                "name": str(val.get("name", "")).strip()[:24],
+                "stance": str(val.get("stance", "")).strip()[:24],
+                "note": str(val.get("note", "")).strip()[:200],
+                "ep": ep,
+            }
+
         return {
             "ep": ep,
             "date": date,
@@ -272,6 +311,8 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
             "summary": structured.get("summary", ""),
             "stocks": clean_stocks,
             "deep": structured.get("deep_html", ""),
+            "calls": clean_calls,
+            "stock_meta": clean_meta,
             "auto_status": "audio+llm",
             "auto_generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "transcript_chars": len(transcript),
