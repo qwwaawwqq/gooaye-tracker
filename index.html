@@ -555,6 +555,53 @@
   <div id="validation-table" style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-radius:10px;padding:6px"></div>
 </section>
 
+<!-- ========== AUTOMATION SCHEDULE PANEL ========== -->
+<section id="automation" style="margin:18px 0 24px;scroll-margin-top:60px">
+  <div class="section-title" style="margin-top:0">
+    <h2 style="background:linear-gradient(90deg,#7cf2c1,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🤖 自動化排程</h2>
+    <span class="sub">零接觸 pipeline · 所有 section 自動同步</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+
+    <div style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-left:3px solid #7cf2c1;border-radius:10px;padding:14px">
+      <div style="font-size:12px;font-weight:700;color:#e6edf3;margin-bottom:6px">⚙️ GitHub Actions <span style="color:#7cf2c1;font-size:10px">永遠在線</span></div>
+      <div style="font-size:11px;color:#cbd5e1;line-height:1.7">
+        <b style="color:#bae6fd">update-episodes.yml</b><br>
+        週三六 20:00 / 22:00 TPE → 偵測新集 → whisper → Claude API → push<br>
+        週四日 09:00 TPE → 補抓重試<br><br>
+        <b style="color:#bae6fd">update-market.yml</b><br>
+        每天 17:30 TPE → yfinance 股價 → 排名 + 策略卡 → push
+      </div>
+      <div style="margin-top:8px"><a href="https://github.com/qwwaawwqq/gooaye-tracker/actions" target="_blank" style="color:#7dd3fc;font-size:11px">→ Actions 執行紀錄</a></div>
+    </div>
+
+    <div style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-left:3px solid #a78bfa;border-radius:10px;padding:14px">
+      <div style="font-size:12px;font-weight:700;color:#e6edf3;margin-bottom:6px">🤖 Claude Daily Routine <span style="color:#a78bfa;font-size:10px">遠端 cloud</span></div>
+      <div style="font-size:11px;color:#cbd5e1;line-height:1.7">
+        <b style="color:#bae6fd">Gooaye daily validation report</b><br>
+        每天 18:00 TPE 自動執行：<br>
+        ① checkout repo<br>
+        ② 讀今天的 <code style="color:#fde047">_market_auto.json</code><br>
+        ③ <code style="color:#fde047">git show HEAD~1</code> 比對昨天<br>
+        ④ 產 Markdown 報告（總統計 + verdict 翻轉 + Top/Bottom 3）
+      </div>
+      <div style="margin-top:8px"><a href="https://claude.ai/code/routines/trig_01Es7bTq4z5Exa6SNeuCiCGc" target="_blank" style="color:#7dd3fc;font-size:11px">→ routine 設定與歷史報告</a></div>
+    </div>
+
+    <div style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-left:3px solid #fbbf24;border-radius:10px;padding:14px">
+      <div style="font-size:12px;font-weight:700;color:#e6edf3;margin-bottom:6px">📂 資料源</div>
+      <div style="font-size:11px;color:#cbd5e1;line-height:1.7">
+        <code style="color:#fde047">_episodes_auto.json</code>　whisper + Claude 從音檔結構化<br>
+        <code style="color:#fde047">_market_auto.json</code>　每日 perf / rankings / actions / validation<br>
+        <code style="color:#fde047">_state.json</code>　last_seen_ep 追蹤<br>
+        <code style="color:#fde047">EPISODES dict (inline)</code>　手工校對的權威版本，自動 merge 不覆寫
+      </div>
+      <div style="margin-top:8px"><a href="https://github.com/qwwaawwqq/gooaye-tracker" target="_blank" style="color:#7dd3fc;font-size:11px">→ repo 原始碼</a></div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ========== PANE: OVERVIEW ========== -->
 <section class="pane active" id="overview" data-active>
   <div class="section-title">
