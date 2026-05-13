@@ -1,0 +1,502 @@
+{
+  "updated_at": "2026-05-14T01:54:01+08:00",
+  "perf": {
+    "2330": {
+      "symbol": "2330.TW",
+      "start_date": "2026-04-15",
+      "start_close": 2080.0,
+      "end_date": "2026-05-12",
+      "end_close": 2255.0,
+      "change_pct": 8.41,
+      "verdict": "partial"
+    },
+    "2454": {
+      "symbol": "2454.TW",
+      "start_date": "2026-04-15",
+      "start_close": 1790.0,
+      "end_date": "2026-05-12",
+      "end_close": 3700.0,
+      "change_pct": 106.7,
+      "verdict": "hit"
+    },
+    "3443": {
+      "symbol": "3443.TW",
+      "start_date": "2026-04-15",
+      "start_close": 3070.0,
+      "end_date": "2026-05-12",
+      "end_close": 5570.0,
+      "change_pct": 81.43,
+      "verdict": "hit"
+    },
+    "3661": {
+      "symbol": "3661.TW",
+      "start_date": "2026-04-27",
+      "start_close": 4160.0,
+      "end_date": "2026-05-12",
+      "end_close": 5310.0,
+      "change_pct": 27.64,
+      "verdict": "hit"
+    },
+    "2327": {
+      "symbol": "2327.TW",
+      "start_date": "2026-04-13",
+      "start_close": 303.5,
+      "end_date": "2026-05-12",
+      "end_close": 419.5,
+      "change_pct": 38.22,
+      "verdict": "hit"
+    },
+    "2337": {
+      "symbol": "2337.TW",
+      "start_date": "2026-04-29",
+      "start_close": 167.0,
+      "end_date": "2026-05-12",
+      "end_close": 153.0,
+      "change_pct": -8.38,
+      "verdict": "partial"
+    },
+    "6531": {
+      "symbol": "6531.TW",
+      "start_date": "2026-04-29",
+      "start_close": 820.0,
+      "end_date": "2026-05-12",
+      "end_close": 1055.0,
+      "change_pct": 28.66,
+      "verdict": "hit"
+    },
+    "2492": {
+      "symbol": "2492.TW",
+      "start_date": "2026-05-11",
+      "start_close": 171.5,
+      "end_date": "2026-05-12",
+      "end_close": 188.5,
+      "change_pct": 9.91,
+      "verdict": "partial"
+    },
+    "6285": {
+      "symbol": "6285.TW",
+      "start_date": "2026-05-11",
+      "start_close": 259.0,
+      "end_date": "2026-05-12",
+      "end_close": 282.0,
+      "change_pct": 8.88,
+      "verdict": "pending"
+    },
+    "2375": {
+      "symbol": "2375.TW",
+      "start_date": "2026-05-11",
+      "start_close": 91.5,
+      "end_date": "2026-05-12",
+      "end_close": 94.8,
+      "change_pct": 3.61,
+      "verdict": "pending"
+    },
+    "2308": {
+      "symbol": "2308.TW",
+      "start_date": "2026-05-11",
+      "start_close": 2245.0,
+      "end_date": "2026-05-12",
+      "end_close": 2195.0,
+      "change_pct": -2.23,
+      "verdict": "pending"
+    },
+    "8261": {
+      "symbol": "8261.TW",
+      "start_date": "2026-05-11",
+      "start_close": 135.0,
+      "end_date": "2026-05-12",
+      "end_close": 131.0,
+      "change_pct": -2.96,
+      "verdict": "pending"
+    },
+    "5469": {
+      "symbol": "5469.TW",
+      "start_date": "2026-05-11",
+      "start_close": 85.1,
+      "end_date": "2026-05-12",
+      "end_close": 82.8,
+      "change_pct": -2.7,
+      "verdict": "pending"
+    },
+    "2449": {
+      "symbol": "2449.TW",
+      "start_date": "2026-05-11",
+      "start_close": 299.5,
+      "end_date": "2026-05-12",
+      "end_close": 301.0,
+      "change_pct": 0.5,
+      "verdict": "pending"
+    },
+    "3037": {
+      "symbol": "3037.TW",
+      "start_date": "2026-05-11",
+      "start_close": 861.0,
+      "end_date": "2026-05-12",
+      "end_close": 875.0,
+      "change_pct": 1.63,
+      "verdict": "pending"
+    },
+    "3036": {
+      "symbol": "3036.TW",
+      "start_date": "2026-05-11",
+      "start_close": 264.5,
+      "end_date": "2026-05-12",
+      "end_close": 275.5,
+      "change_pct": 4.16,
+      "verdict": "pending"
+    },
+    "INTC": {
+      "symbol": "INTC",
+      "start_date": "2026-04-08",
+      "start_close": 58.95,
+      "end_date": "2026-05-13",
+      "end_close": 122.39,
+      "change_pct": 107.61,
+      "verdict": "hit"
+    },
+    "AMD": {
+      "symbol": "AMD",
+      "start_date": "2026-04-13",
+      "start_close": 246.83,
+      "end_date": "2026-05-13",
+      "end_close": 449.99,
+      "change_pct": 82.31,
+      "verdict": "hit"
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "start_date": "2026-05-04",
+      "start_close": 198.48,
+      "end_date": "2026-05-13",
+      "end_close": 226.03,
+      "change_pct": 13.88,
+      "verdict": "partial"
+    },
+    "QCOM": {
+      "symbol": "QCOM",
+      "start_date": "2026-05-13",
+      "start_close": 216.61,
+      "end_date": "2026-05-13",
+      "end_close": 216.61,
+      "change_pct": 0.0,
+      "verdict": "pending"
+    },
+    "VPG": {
+      "symbol": "VPG",
+      "start_date": "2026-05-13",
+      "start_close": 100.92,
+      "end_date": "2026-05-13",
+      "end_close": 100.92,
+      "change_pct": 0.0,
+      "verdict": "pending"
+    },
+    "FORM": {
+      "symbol": "FORM",
+      "start_date": "2026-05-13",
+      "start_close": 129.8,
+      "end_date": "2026-05-13",
+      "end_close": 129.8,
+      "change_pct": 0.0,
+      "verdict": "pending"
+    },
+    "AVGO": {
+      "symbol": "AVGO",
+      "start_date": "2026-04-27",
+      "start_close": 418.2,
+      "end_date": "2026-05-13",
+      "end_close": 417.4,
+      "change_pct": -0.19,
+      "verdict": "pending"
+    },
+    "PLTR": {
+      "symbol": "PLTR",
+      "start_date": "2026-05-04",
+      "start_close": 146.03,
+      "end_date": "2026-05-13",
+      "end_close": 129.96,
+      "change_pct": -11.0,
+      "verdict": "miss"
+    },
+    "CRWD": {
+      "symbol": "CRWD",
+      "start_date": "2026-05-04",
+      "start_close": 469.24,
+      "end_date": "2026-05-13",
+      "end_close": 554.17,
+      "change_pct": 18.1,
+      "verdict": "hit"
+    },
+    "NET": {
+      "symbol": "NET",
+      "start_date": "2026-05-04",
+      "start_close": 224.17,
+      "end_date": "2026-05-13",
+      "end_close": 191.59,
+      "change_pct": -14.53,
+      "verdict": "miss"
+    },
+    "TEAM": {
+      "symbol": "TEAM",
+      "start_date": "2026-05-04",
+      "start_close": 93.16,
+      "end_date": "2026-05-13",
+      "end_close": 80.66,
+      "change_pct": -13.42,
+      "verdict": "partial"
+    },
+    "ADBE": {
+      "symbol": "ADBE",
+      "start_date": "2026-05-04",
+      "start_close": 253.96,
+      "end_date": "2026-05-13",
+      "end_close": 233.69,
+      "change_pct": -7.98,
+      "verdict": "partial"
+    },
+    "CRM": {
+      "symbol": "CRM",
+      "start_date": "2026-05-04",
+      "start_close": 185.48,
+      "end_date": "2026-05-13",
+      "end_close": 165.1,
+      "change_pct": -10.99,
+      "verdict": "miss"
+    },
+    "META": {
+      "symbol": "META",
+      "start_date": "2026-04-29",
+      "start_close": 669.12,
+      "end_date": "2026-05-13",
+      "end_close": 616.28,
+      "change_pct": -7.9,
+      "verdict": "partial"
+    },
+    "AMZN": {
+      "symbol": "AMZN",
+      "start_date": "2026-04-13",
+      "start_close": 239.89,
+      "end_date": "2026-05-13",
+      "end_close": 269.7,
+      "change_pct": 12.43,
+      "verdict": "partial"
+    }
+  },
+  "rankings": {
+    "top_hits": [
+      {
+        "code": "INTC",
+        "name": "Intel",
+        "mkt": "us",
+        "stance": "轉強",
+        "first_ep": 651,
+        "change_pct": 107.61,
+        "verdict": "hit",
+        "start_date": "2026-04-08",
+        "end_date": "2026-05-13",
+        "end_close": 122.39
+      },
+      {
+        "code": "2454",
+        "name": "聯發科",
+        "mkt": "tw",
+        "stance": "看好→預期打滿",
+        "first_ep": 653,
+        "change_pct": 106.7,
+        "verdict": "hit",
+        "start_date": "2026-04-15",
+        "end_date": "2026-05-12",
+        "end_close": 3700.0
+      },
+      {
+        "code": "AMD",
+        "name": "AMD",
+        "mkt": "us",
+        "stance": "看好",
+        "first_ep": 652,
+        "change_pct": 82.31,
+        "verdict": "hit",
+        "start_date": "2026-04-13",
+        "end_date": "2026-05-13",
+        "end_close": 449.99
+      },
+      {
+        "code": "3443",
+        "name": "創意 GUC",
+        "mkt": "tw",
+        "stance": "看好",
+        "first_ep": 653,
+        "change_pct": 81.43,
+        "verdict": "hit",
+        "start_date": "2026-04-15",
+        "end_date": "2026-05-12",
+        "end_close": 5570.0
+      },
+      {
+        "code": "2327",
+        "name": "國巨",
+        "mkt": "tw",
+        "stance": "啟動 → 主軸延伸",
+        "first_ep": 652,
+        "change_pct": 38.22,
+        "verdict": "hit",
+        "start_date": "2026-04-13",
+        "end_date": "2026-05-12",
+        "end_close": 419.5
+      }
+    ],
+    "misses": [
+      {
+        "code": "NET",
+        "name": "Cloudflare",
+        "mkt": "us",
+        "stance": "抗 AI",
+        "first_ep": 658,
+        "change_pct": -14.53,
+        "verdict": "miss",
+        "start_date": "2026-05-04",
+        "end_date": "2026-05-13",
+        "end_close": 191.59
+      },
+      {
+        "code": "PLTR",
+        "name": "Palantir",
+        "mkt": "us",
+        "stance": "抗 AI 三劍客",
+        "first_ep": 658,
+        "change_pct": -11.0,
+        "verdict": "miss",
+        "start_date": "2026-05-04",
+        "end_date": "2026-05-13",
+        "end_close": 129.96
+      },
+      {
+        "code": "2337",
+        "name": "旺宏",
+        "mkt": "tw",
+        "stance": "看好",
+        "first_ep": 657,
+        "change_pct": -8.38,
+        "verdict": "partial",
+        "start_date": "2026-04-29",
+        "end_date": "2026-05-12",
+        "end_close": 153.0
+      }
+    ],
+    "flat": [
+      {
+        "code": "2449",
+        "name": "京元電",
+        "mkt": "tw",
+        "stance": "半導體測試",
+        "first_ep": 661,
+        "change_pct": 0.5,
+        "verdict": "pending",
+        "start_date": "2026-05-11",
+        "end_date": "2026-05-12",
+        "end_close": 301.0
+      },
+      {
+        "code": "3037",
+        "name": "欣興",
+        "mkt": "tw",
+        "stance": "PCB/載板",
+        "first_ep": 661,
+        "change_pct": 1.63,
+        "verdict": "pending",
+        "start_date": "2026-05-11",
+        "end_date": "2026-05-12",
+        "end_close": 875.0
+      },
+      {
+        "code": "QCOM",
+        "name": "Qualcomm",
+        "mkt": "us",
+        "stance": "AI infra",
+        "first_ep": 661,
+        "change_pct": 0.0,
+        "verdict": "pending",
+        "start_date": "2026-05-13",
+        "end_date": "2026-05-13",
+        "end_close": 216.61
+      },
+      {
+        "code": "VPG",
+        "name": "Vishay Precision",
+        "mkt": "us",
+        "stance": "被動元件鏈",
+        "first_ep": 661,
+        "change_pct": 0.0,
+        "verdict": "pending",
+        "start_date": "2026-05-13",
+        "end_date": "2026-05-13",
+        "end_close": 100.92
+      },
+      {
+        "code": "FORM",
+        "name": "FormFactor",
+        "mkt": "us",
+        "stance": "半導體測試",
+        "first_ep": 661,
+        "change_pct": 0.0,
+        "verdict": "pending",
+        "start_date": "2026-05-13",
+        "end_date": "2026-05-13",
+        "end_close": 129.8
+      },
+      {
+        "code": "AVGO",
+        "name": "Broadcom",
+        "mkt": "us",
+        "stance": "看好",
+        "first_ep": 656,
+        "change_pct": -0.19,
+        "verdict": "pending",
+        "start_date": "2026-04-27",
+        "end_date": "2026-05-13",
+        "end_close": 417.4
+      }
+    ]
+  },
+  "actions": [
+    {
+      "title": "被動元件噴發續追？",
+      "stance": "觀察不追高",
+      "depends": "依據：EP661 點名MLCC日韓卡料、國巨華新科麗智立隆金山走強",
+      "checklist": "□ 等待回檔3-5日均線再評估<br>□ 觀察Nichikon、ChemiCon外資動向<br>□ 確認漲價是成本還是需求驅動",
+      "risk": "失準風險：legacy漲價靠成本推升，需求未跟上恐曇花一現",
+      "tier": "caution"
+    },
+    {
+      "title": "國巨2327已大漲38%",
+      "stance": "分批減碼",
+      "depends": "依據：EP661 命中+38.2%，主持人喊台股噴太遠、手綁起來",
+      "checklist": "□ 設定停利點分批出脫1/3部位<br>□ 觀察族群是否濃縮收斂<br>□ 避免單押被動元件單一標的",
+      "risk": "失準風險：若日韓缺料延長，台廠補漲行情可能再延續",
+      "tier": "opportunity"
+    },
+    {
+      "title": "PLTR、NET 由強轉弱",
+      "stance": "立即減碼",
+      "depends": "依據：EP661前後推薦標的，PLTR-11%、NET-14.5%已失準",
+      "checklist": "□ 跌破前波低點立即出場<br>□ 不要逢低攤平軟體股<br>□ 資金轉往命中強勢族群",
+      "risk": "失準風險：AI軟體股若財報轉強可能V轉，須留意法說",
+      "tier": "redline"
+    },
+    {
+      "title": "AI半導體三雄延燒",
+      "stance": "拉回承接",
+      "depends": "依據：EP661 命中INTC+107%、2454+106%、AMD+82%、3443+81%",
+      "checklist": "□ 等待5-10%回檔分批進場<br>□ 優先布局聯發科、創意台股<br>□ 設定10%停損紀律",
+      "risk": "失準風險：台股整體已噴遠，追高套牢風險高",
+      "tier": "opportunity"
+    },
+    {
+      "title": "旺宏2337利多不漲",
+      "stance": "避開",
+      "depends": "依據：EP661期間旺宏-8.4%，記憶體未跟上漲價題材",
+      "checklist": "□ 持股者跌破均線停損<br>□ 不要因便宜逢低買進<br>□ 改追強勢被動元件或IC設計",
+      "risk": "失準風險：若NOR Flash報價轉強可能落後補漲",
+      "tier": "redline"
+    }
+  ]
+}

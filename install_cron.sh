@@ -23,6 +23,7 @@ read -r -d '' NEW_LINES <<EOF || true
 0 20 * * 3,6 cd "$PROJECT_DIR" && "$PY" auto_update.py --model small --push >> "$LOG" 2>&1  $TAG
 0 22 * * 3,6 cd "$PROJECT_DIR" && "$PY" auto_update.py --model small --push >> "$LOG" 2>&1  $TAG
 0  9 * * 4,0 cd "$PROJECT_DIR" && "$PY" auto_update.py --model small --push >> "$LOG" 2>&1  $TAG
+30 17 * * 1-5 cd "$PROJECT_DIR" && "$PY" update_market.py --push >> "$LOG" 2>&1  $TAG
 EOF
 
 CURRENT=$(crontab -l 2>/dev/null || true)

@@ -491,8 +491,9 @@
       </div>
     </div>
 
-    <!-- RIGHT: Top 4 validation hits -->
-    <div style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-radius:10px;padding:14px">
+    <!-- RIGHT: Top 5 命中 + ⚠️ 失準項 — populated from _market_auto.json by JS;
+         the static content below is the pre-automation fallback for FOUC. -->
+    <div id="top5-panel" style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-radius:10px;padding:14px">
       <div style="color:#fbbf24;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">⭐ Top 5 命中</div>
 
       <div style="padding:8px 0;border-bottom:1px solid #1f2d47">
@@ -706,6 +707,10 @@
     <h2 style="color:#fde047">⚡ 立即可執行行動 · 證據等級 + 確信度</h2>
     <span class="sub">8 項加權評等 · 每項標 證據(A/B/C) + 確信度</span>
   </div>
+
+  <!-- #auto-action-cards is prepended by JS from _market_auto.json; below
+       hand-curated cards remain as the "已驗證" baseline. -->
+  <div id="auto-action-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;margin-bottom:14px"></div>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;margin-bottom:14px">
 
@@ -1501,11 +1506,87 @@ function refreshEpisodeListFromDict(){
   }
 }
 
+// Pulls _market_auto.json (written by update_market.py daily) and rebuilds
+// ⭐ Top 5 命中, ⚠️ 失準項, plus the auto-generated 🤖 策略卡 in 推薦個股 tab.
+async function loadMarketAuto(){
+  try {
+    const res = await fetch('_market_auto.json?ts=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    rebuildTop5Panel(data);
+    rebuildAutoActionCards(data);
+    // Also overlay perf into STOCKS for renderStocks
+    if (data.perf && typeof data.perf === 'object'){
+      for (const [code, p] of Object.entries(data.perf)){
+        if (STOCKS[code] && p && typeof p.change_pct === 'number'){
+          const sign = p.change_pct >= 0 ? '+' : '';
+          STOCKS[code].perf = `${sign}${p.change_pct.toFixed(1)}%`;
+          STOCKS[code].perfDelta = p.change_pct >= 3 ? 'pos' : (p.change_pct <= -3 ? 'neg' : 'neutral');
+          if (p.verdict) STOCKS[code].v = p.verdict;
+        }
+      }
+      if (typeof renderStocks === 'function'){ try { renderStocks(); } catch(_) {} }
+    }
+  } catch(e){
+    console.warn('[market] skip:', e.message);
+  }
+}
+
+function rebuildTop5Panel(data){
+  const host = document.getElementById('top5-panel');
+  if (!host || !data || !data.rankings) return;
+  const { top_hits = [], misses = [] } = data.rankings;
+  if (!top_hits.length) return;
+  const updated = (data.updated_at || '').slice(0, 16).replace('T', ' ');
+  const fmtPct = (p) => `${p >= 0 ? '+' : ''}${p.toFixed(1)}%`;
+  const hitRow = (r, last) => `<div style="padding:8px 0${last ? '' : ';border-bottom:1px solid #1f2d47'}">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <span style="font-size:13px;font-weight:700;color:#e6edf3">${r.name} <span style="color:#8ea3c0;font-weight:400;font-family:'JetBrains Mono',monospace;font-size:11px">${r.code}</span></span>
+      <span class="delta ${r.change_pct >= 0 ? 'pos' : 'neg'}" style="font-size:14px">${fmtPct(r.change_pct)}</span>
+    </div>
+    <div style="font-size:10px;color:#6f84a1;margin-top:2px">${r.stance || '—'} · 自 EP${r.first_ep} (${r.start_date || '?'})</div>
+  </div>`;
+  const missLine = (r) => `<div style="font-size:11px;color:#fde047;margin-top:4px;line-height:1.5">${r.name} <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#fb7185">${r.code}</span> <b style="color:#fb7185">${fmtPct(r.change_pct)}</b>（自 EP${r.first_ep}，${r.stance || ''}）</div>`;
+  host.innerHTML = `
+    <div style="color:#fbbf24;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px">⭐ Top 5 命中</div>
+    <div style="font-size:9px;color:#6f84a1;margin-bottom:8px">每日盤後自動更新 · ${updated}</div>
+    ${top_hits.slice(0, 5).map((r, i) => hitRow(r, i === Math.min(4, top_hits.length - 1))).join('')}
+    ${misses.length ? `<div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:6px;padding:8px 10px;margin-top:10px">
+      <div style="font-size:10px;color:#fbbf24;font-weight:700;text-transform:uppercase;letter-spacing:.5px">⚠️ 失準項（自動偵測）</div>
+      ${misses.slice(0, 3).map(missLine).join('')}
+    </div>` : ''}
+  `;
+}
+
+function rebuildAutoActionCards(data){
+  const host = document.getElementById('auto-action-cards');
+  if (!host || !data || !Array.isArray(data.actions) || !data.actions.length) return;
+  const TIER = {
+    redline:    { bg:'rgba(251,113,133,0.06)', bd:'rgba(251,113,133,0.3)', accent:'#fb7185', tag:'🔴 REDLINE' },
+    caution:    { bg:'rgba(251,191,36,0.06)',  bd:'rgba(251,191,36,0.3)',  accent:'#fbbf24', tag:'🟡 CAUTION' },
+    opportunity:{ bg:'rgba(74,222,128,0.06)',  bd:'rgba(74,222,128,0.3)',  accent:'#4ade80', tag:'🟢 OPP' },
+  };
+  host.innerHTML = data.actions.map(a => {
+    const t = TIER[a.tier] || TIER.caution;
+    return `<div style="background:${t.bg};border:1px solid ${t.bd};border-left:4px solid ${t.accent};border-radius:10px;padding:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+        <span style="font-size:13px;font-weight:700;color:#e6edf3">🤖 ${a.title || ''}</span>
+        <span><span class="badge" style="background:rgba(167,139,250,0.2);color:#a78bfa;font-size:9px">AUTO</span> <span class="badge" style="background:${t.bd};color:${t.accent};font-size:9px">${t.tag}</span></span>
+      </div>
+      <div style="font-size:11px;color:#bae6fd;margin-top:6px"><b>建議：</b>${a.stance || ''}</div>
+      <div style="font-size:11px;color:#bae6fd;margin-top:4px">${a.depends || ''}</div>
+      <div style="font-size:12px;color:#cbd5e1;margin-top:6px;line-height:1.6">${a.checklist || ''}</div>
+      <div style="font-size:10px;color:#fb7185;margin-top:6px">${a.risk || ''}</div>
+    </div>`;
+  }).join('');
+}
+
 // Also rebuild cards once DOM is ready (covers the case where the IIFE
 // finishes before the DOM has the placeholder, and a future re-render).
 function _initDynamic(){
   try { rebuildHighlightCards(); } catch(_) {}
   try { updateHeaderDates(); } catch(_) {}
+  try { loadMarketAuto(); } catch(_) {}
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', _initDynamic);
