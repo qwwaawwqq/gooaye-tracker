@@ -1343,12 +1343,49 @@ const EPISODES = {
     window.__autoEpsLoaded = true;
     rebuildHighlightCards();
     refreshEpisodeListFromDict();
+    updateHeaderDates();
   } catch(e){
     console.warn('[auto-merge] skip:', e.message);
     // Even if auto JSON 404'd, EPISODES inline may have newer episodes than RSS gave us.
-    try { rebuildHighlightCards(); refreshEpisodeListFromDict(); } catch(_) {}
+    try { rebuildHighlightCards(); refreshEpisodeListFromDict(); updateHeaderDates(); } catch(_) {}
   }
 })();
+
+// Auto-update every visible date/EP-range string so the page stays in sync
+// with whatever's currently in EPISODES. Selectors target spans by their
+// neighbouring text — robust to layout changes that keep the original wording.
+function updateHeaderDates(){
+  const all = Object.entries(EPISODES)
+    .map(([k, v]) => ({ ep: parseInt(k), date: v.date || '' }))
+    .filter(e => Number.isFinite(e.ep))
+    .sort((a, b) => b.ep - a.ep);
+  if (!all.length) return;
+  const maxEp = all[0].ep;
+  const minEp = all[all.length - 1].ep;
+  const top5Min = all.slice(0, 5).at(-1)?.ep ?? minEp;
+  const latestDateYmd = all[0].date;
+  const latestSlash = latestDateYmd.replaceAll('-', '/');
+  const subs = document.querySelectorAll('span.sub');
+  subs.forEach(el => {
+    const t = el.textContent;
+    if (/EP\d+-EP\d+/.test(t)) {
+      el.textContent = t
+        .replace(/EP\d+-EP\d+/, `EP${top5Min}-EP${maxEp}`)
+        .replace(/截至\s*\d{4}\/\d{2}\/\d{2}/, `截至 ${latestSlash}`);
+    } else if (/截至\s*\d{4}\/\d{2}\/\d{2}/.test(t)) {
+      el.textContent = t.replace(/截至\s*\d{4}\/\d{2}\/\d{2}/, `截至 ${latestSlash}`);
+    }
+  });
+  // Top intro paragraph reads "EP651-EP660 點名的個股與主軸論述，截至 2026/05/09"
+  document.querySelectorAll('section .lede, p').forEach(el => {
+    const t = el.textContent || '';
+    if (t.includes('股癌') && /EP\d+-EP\d+/.test(t) && /截至\s*\d{4}\/\d{2}\/\d{2}/.test(t)) {
+      el.innerHTML = el.innerHTML
+        .replace(/EP\d+-EP\d+/, `EP${minEp}-EP${maxEp}`)
+        .replace(/截至\s*\d{4}\/\d{2}\/\d{2}/, `截至 ${latestSlash}`);
+    }
+  });
+}
 
 // Rebuild the "🔥 最新 5 集精華" cards from EPISODES dict so any new episode
 // added (inline or via _episodes_auto.json) shows up automatically.
@@ -1406,10 +1443,14 @@ function refreshEpisodeListFromDict(){
 
 // Also rebuild cards once DOM is ready (covers the case where the IIFE
 // finishes before the DOM has the placeholder, and a future re-render).
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => { try { rebuildHighlightCards(); } catch(_) {} });
-} else {
+function _initDynamic(){
   try { rebuildHighlightCards(); } catch(_) {}
+  try { updateHeaderDates(); } catch(_) {}
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', _initDynamic);
+} else {
+  _initDynamic();
 }
 
 const STOCKS = {
