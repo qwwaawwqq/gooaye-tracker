@@ -1326,11 +1326,10 @@ const EPISODES = {
     let merged = 0;
     for (const [k, v] of Object.entries(eps)){
       if (!v || !v.ep) continue;
-      // audio+llm wins (it's based on real podcast content, not show notes).
-      // Other auto statuses (audio-only, placeholder) only fill gaps.
+      // Inline EPISODES is authoritative once it has deep content (whisper has
+      // homophone errors; inline is hand-corrected). Auto only fills gaps.
       const existing = EPISODES[v.ep];
-      const autoIsRich = v.auto_status === 'audio+llm';
-      if (existing && existing.deep && !autoIsRich) continue;
+      if (existing && existing.deep) continue;
       EPISODES[v.ep] = {
         date: v.date, title: v.title, dur: v.dur || '—', v: v.v || 'pending',
         tags: v.tags || [], summary: v.summary || '',
