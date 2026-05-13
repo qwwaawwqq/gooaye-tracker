@@ -2,7 +2,7 @@ name: Refresh market data (prices → rankings → Claude actions)
 
 on:
   schedule:
-    - cron: "30 9 * * 1-5"   # Mon-Fri 17:30 TPE (post-TWSE close)
+    - cron: "30 9 * * *"   # Every day 17:30 TPE (post-TWSE close on weekdays; weekend gives the Sat ep latest perf reading)
   workflow_dispatch:
 
 permissions:
