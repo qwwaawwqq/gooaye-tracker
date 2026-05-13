@@ -253,6 +253,15 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
     structured = call_claude_for_transcript(ep, title, date, transcript, api_key) if api_key else None
 
     if structured:
+        raw_stocks = structured.get("stocks", []) or []
+        clean_stocks: list[list[str]] = []
+        for pair in raw_stocks:
+            if not isinstance(pair, (list, tuple)) or len(pair) != 2: continue
+            m, c = pair[0], str(pair[1]).strip()
+            if m == "TW" and re.fullmatch(r"\d{4,5}", c):
+                clean_stocks.append(["TW", c])
+            elif m == "US" and re.fullmatch(r"[A-Z][A-Z\.\-]{0,7}", c):
+                clean_stocks.append(["US", c])
         return {
             "ep": ep,
             "date": date,
@@ -261,7 +270,7 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
             "v": "pending",
             "tags": structured.get("tags", ["新集上線"]),
             "summary": structured.get("summary", ""),
-            "stocks": structured.get("stocks", []),
+            "stocks": clean_stocks,
             "deep": structured.get("deep_html", ""),
             "auto_status": "audio+llm",
             "auto_generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),

@@ -1320,10 +1320,11 @@ const EPISODES = {
     let merged = 0;
     for (const [k, v] of Object.entries(eps)){
       if (!v || !v.ep) continue;
-      // Only fill gaps — never overwrite hand-curated entries (whisper has
-      // homophone errors, hand-curated cards typically cite real market data).
+      // audio+llm wins (it's based on real podcast content, not show notes).
+      // Other auto statuses (audio-only, placeholder) only fill gaps.
       const existing = EPISODES[v.ep];
-      if (existing && existing.deep) continue;
+      const autoIsRich = v.auto_status === 'audio+llm';
+      if (existing && existing.deep && !autoIsRich) continue;
       EPISODES[v.ep] = {
         date: v.date, title: v.title, dur: v.dur || '—', v: v.v || 'pending',
         tags: v.tags || [], summary: v.summary || '',
