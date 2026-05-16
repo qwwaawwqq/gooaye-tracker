@@ -223,8 +223,214 @@
       "auto_status": "audio+llm",
       "auto_generated_at": "2026-05-13T17:44:30+00:00",
       "transcript_chars": 22748
+    },
+    "662": {
+      "ep": 662,
+      "date": "2026-05-16",
+      "title": "EP662 | ⛑️",
+      "dur": "50分",
+      "v": "pending",
+      "tags": [
+        "遊戲創投",
+        "醫療感恩",
+        "被動元件",
+        "台積電籌碼",
+        "軟體股輪動",
+        "Power半導體"
+      ],
+      "summary": "本集梟男分享笑男資本投資台灣獨立遊戲團隊的近況，推薦《紅顏錄筆》與明年上市的《暗花夜戰》。接著回憶兒子安哥出生前的醫療驚魂，感謝台大兒醫施景中醫師。市場面解析週五大跌：因今年漲幅夠大，<b>反而沒做避險，跌反而加碼</b>。指出老AI毛利不如預期＋台積電籌碼吸金（金管會放寬上限後投信改章程約需2-3個月），中小型恐被提款。看好<b>被動元件漲價潮</b>（Panasonic六月初恐宣布漲三成）、Power、光通訊；美股則注意軟體股與資安股創新高（CrowdStrike、Figma）。",
+      "stocks": [
+        [
+          "TW",
+          "2327"
+        ],
+        [
+          "TW",
+          "2330"
+        ],
+        [
+          "US",
+          "CRWD"
+        ],
+        [
+          "US",
+          "FIG"
+        ],
+        [
+          "US",
+          "TEAM"
+        ],
+        [
+          "TW",
+          "8069"
+        ],
+        [
+          "TW",
+          "3653"
+        ]
+      ],
+      "deep": "<h4>主軸一：笑男資本與台灣遊戲投資</h4><ul><li>定位為長期創投，<b>不干預創作、不問短期 ROI</b>，輸了算的心態</li><li>推薦《紅顏錄筆》已上市、《暗花夜戰 Noah Bloom》2D 槍武動作遊戲明年推出</li><li>反對 3A 大廠過度政治正確，看好 Indie Games 創新玩法</li></ul><p style=\"color:#fde047\"><b>「我們就是一群敢玩敢投資的人，輸了算的、死了算的。」</b></p><h4>主軸二：醫療經驗分享與感恩</h4><ul><li>回憶安哥產前被檢出單腎、腦腫、髖關節等多重問題的煎熬</li><li>感謝台大兒醫施景中醫師「chill guy」般的安定力量，至今定期捐款台大兒醫</li><li>建議有類似狀況的家長可考慮求診</li></ul><h4>主軸三：週五大跌的應對心態</h4><ul><li><b>今年漲幅太大，成本遠離，反而趁跌加碼</b>，不做避險</li><li>觀察身邊同量級玩家無恐慌，恐慌的是新手小菜雞</li><li>修正不會拖太久，斜率太陡需洗盤</li></ul><p style=\"color:#fde047\"><b>「省電競市場就是在最樂觀的時候追追追，回檔時看看看，紀律半天一個懶叫都沒賺到。」</b></p><h4>主軸四：台積電籌碼吸金效應</h4><ul><li>金管會放寬投信持股上限，<b>投信改章程約需 2-3 個月</b>，未來一個月會看到更多增持</li><li>市場資金有限，老 AI 與中小型恐被提款換進台積電</li><li>老 AI 毛利不如預期屬短期研發投入，但籌碼面不利</li></ul><h4>主軸五：被動元件漲價潮升級</h4><ul><li>電阻已實際漲三成，<b>Panasonic 預計六月初開始漲價</b>，幅度直接三成</li><li>關注是否出現「停止接單」訊號 → 確立 2018 式被動元件之亂</li><li>擴產緩不濟急，需 1-2 年才能補上</li></ul><h4>主軸六：美股軟體與資安創新高</h4><ul><li>市場已自動汰弱留強，CrowdStrike、Figma 創新高 vs 跌爛軟體股</li><li>偏好突破新高的動能股，而非撿便宜的價值陷阱</li></ul><h4>📊 提及個股（7 檔）</h4><p style=\"color:#8ea3c0;font-size:11px;margin-bottom:8px\">由 Claude API 自逐字稿分類；whisper 對公司名 homophone 錯誤多，個股代號以模型還原為準，必要時人工二校。</p><div style=\"display:grid;grid-template-columns:1fr;gap:6px;font-size:12px;line-height:1.55\"><div style=\"background:rgba(74,222,128,0.04);border-left:2px solid #4ade80;padding:6px 10px;border-radius:4px\"><b>🔥 被動元件主軸</b><br><b>2327 國巨</b>　<b>Panasonic 六月恐漲三成</b>，國巨為 MLCC 龍頭，需求暴增與擴產緩不濟急雙重利多</div><div style=\"background:rgba(74,222,128,0.04);border-left:2px solid #4ade80;padding:6px 10px;border-radius:4px\"><b>💪 籌碼吸金主軸</b><br><b>2330 台積電</b>　金管會放寬投信持股上限後，<b>投信改章程約 2-3 個月</b>後將陸續增持，資金從中小型回流</div><div style=\"background:rgba(251,191,36,0.04);border-left:2px solid #fbbf24;padding:6px 10px;border-radius:4px\"><b>🌐 美股軟體輪動</b><br><b>CRWD CrowdStrike</b>　市場原憂 Methals 衝擊資安，<b>結果一堆資安股創新高</b>，動能型代表<br><b>FIG Figma</b>　被質疑 AI 是逆風，<b>財報意外開出歷史大量</b>，集體表態軟體股重啟<br><b>TEAM Atlassian</b>　非梟男特別偏好但屬於軟體族群集體表態的一員，可觀察輪動</div><div style=\"background:rgba(96,165,250,0.04);border-left:2px solid #60a5fa;padding:6px 10px;border-radius:4px\"><b>📚 聽眾案例提醒</b><br><b>8069 元太</b>　聽眾案例：賣出換群聯後反屌盤，<b>提醒勿被沉沒成本綁架</b>，要看哪裡最快翻倍<br><b>3653 健策</b>　提及為新 AI 硬體（光通訊、健件代工）代表族群，與舊硬體做區隔</div></div><h4>資料狀態</h4><p style=\"color:#fbbf24\">本摘要由 Claude API 自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。</p>",
+      "calls": [
+        {
+          "ep": 662,
+          "t": "被動元件漲價",
+          "c": "Panasonic 六月初恐宣布漲價三成，MLCC/鋁電容後續吃緊，<b>留意大廠停止接單訊號</b>",
+          "a": "關注六月初廠商公告",
+          "v": "pending"
+        },
+        {
+          "ep": 662,
+          "t": "台積電籌碼吸金",
+          "c": "金管會放寬上限，投信改章程 2-3 個月後增持台積，<b>中小型恐被提款</b>",
+          "a": "關注投信買賣超變化",
+          "v": "pending"
+        },
+        {
+          "ep": 662,
+          "t": "老 AI 觀望",
+          "c": "毛利不如預期＋籌碼面不利，<b>短期不主動介入</b>，等其先軟一段時間",
+          "a": "觀察跌深後誰先反彈",
+          "v": "pending"
+        },
+        {
+          "ep": 662,
+          "t": "美股軟體輪動",
+          "c": "CrowdStrike、Figma 創新高，<b>偏好突破型而非反彈型</b>軟體股",
+          "a": "鎖定新高個股",
+          "v": "pending"
+        },
+        {
+          "ep": 662,
+          "t": "Power 半導體",
+          "c": "電源櫃需求帶動離散元件，<b>羅姆若跟進漲價</b>則確立趨勢",
+          "a": "等日系大廠表態",
+          "v": "pending"
+        },
+        {
+          "ep": 662,
+          "t": "修正不拖久",
+          "c": "今年斜率太陡，洗盤後<b>觀察誰先站回來</b>即是下一波主流",
+          "a": "下週觀察強勢族群",
+          "v": "pending"
+        }
+      ],
+      "stock_meta": {
+        "TW/2327": {
+          "name": "國巨",
+          "stance": "看好",
+          "note": "被動元件龍頭，<b>MLCC 漲價潮主要受惠者</b>",
+          "ep": 662
+        },
+        "TW/2330": {
+          "name": "台積電",
+          "stance": "籌碼看好",
+          "note": "金管會放寬投信上限，<b>未來一個月持續吸金</b>",
+          "ep": 662
+        },
+        "US/CRWD": {
+          "name": "CrowdStrike",
+          "stance": "看好",
+          "note": "資安股創新高，<b>動能型軟體首選</b>",
+          "ep": 662
+        },
+        "US/FIG": {
+          "name": "Figma",
+          "stance": "觀察",
+          "note": "財報優於預期，AI 為 Tailwind 開出歷史大量",
+          "ep": 662
+        },
+        "US/TEAM": {
+          "name": "Atlassian",
+          "stance": "觀察",
+          "note": "軟體族群集體表態的代表之一",
+          "ep": 662
+        },
+        "TW/8069": {
+          "name": "元太",
+          "stance": "觀察",
+          "note": "聽眾案例：曾賣出換群聯反屌盤，提醒勿執著回本心態",
+          "ep": 662
+        },
+        "TW/3653": {
+          "name": "健策",
+          "stance": "提及",
+          "note": "健件代工類比為新 AI 硬體受惠族群",
+          "ep": 662
+        }
+      },
+      "stocks_groups": [
+        {
+          "tier": "primary",
+          "title": "🔥 被動元件主軸",
+          "stocks": [
+            {
+              "code": "2327",
+              "mkt": "TW",
+              "name": "國巨",
+              "reason": "<b>Panasonic 六月恐漲三成</b>，國巨為 MLCC 龍頭，需求暴增與擴產緩不濟急雙重利多"
+            }
+          ]
+        },
+        {
+          "tier": "primary",
+          "title": "💪 籌碼吸金主軸",
+          "stocks": [
+            {
+              "code": "2330",
+              "mkt": "TW",
+              "name": "台積電",
+              "reason": "金管會放寬投信持股上限後，<b>投信改章程約 2-3 個月</b>後將陸續增持，資金從中小型回流"
+            }
+          ]
+        },
+        {
+          "tier": "adjacent",
+          "title": "🌐 美股軟體輪動",
+          "stocks": [
+            {
+              "code": "CRWD",
+              "mkt": "US",
+              "name": "CrowdStrike",
+              "reason": "市場原憂 Methals 衝擊資安，<b>結果一堆資安股創新高</b>，動能型代表"
+            },
+            {
+              "code": "FIG",
+              "mkt": "US",
+              "name": "Figma",
+              "reason": "被質疑 AI 是逆風，<b>財報意外開出歷史大量</b>，集體表態軟體股重啟"
+            },
+            {
+              "code": "TEAM",
+              "mkt": "US",
+              "name": "Atlassian",
+              "reason": "非梟男特別偏好但屬於軟體族群集體表態的一員，可觀察輪動"
+            }
+          ]
+        },
+        {
+          "tier": "defensive",
+          "title": "📚 聽眾案例提醒",
+          "stocks": [
+            {
+              "code": "8069",
+              "mkt": "TW",
+              "name": "元太",
+              "reason": "聽眾案例：賣出換群聯後反屌盤，<b>提醒勿被沉沒成本綁架</b>，要看哪裡最快翻倍"
+            },
+            {
+              "code": "3653",
+              "mkt": "TW",
+              "name": "健策",
+              "reason": "提及為新 AI 硬體（光通訊、健件代工）代表族群，與舊硬體做區隔"
+            }
+          ]
+        }
+      ],
+      "auto_status": "audio+llm",
+      "auto_generated_at": "2026-05-16T13:22:04+00:00",
+      "transcript_chars": 22063
     }
   },
   "schema": 1,
-  "updated_at": "2026-05-14T01:44:30+08:00"
+  "updated_at": "2026-05-16T21:22:04+08:00"
 }
