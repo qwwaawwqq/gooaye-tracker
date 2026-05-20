@@ -429,8 +429,208 @@
       "auto_status": "audio+llm",
       "auto_generated_at": "2026-05-16T13:22:04+00:00",
       "transcript_chars": 22063
+    },
+    "663": {
+      "ep": 663,
+      "date": "2026-05-20",
+      "title": "EP663 | 🦘",
+      "dur": "55分",
+      "v": "pending",
+      "tags": [
+        "減重瘦瘦針",
+        "健身與物理治療",
+        "被動元件漲價",
+        "MLCC缺貨",
+        "Broadcom ASIC",
+        "資金輪動",
+        "儀式感"
+      ],
+      "summary": "本集股癌主委先分享減重從85公斤降至78公斤的心路歷程，強調瘦瘦針搭配重訓、網球與物理治療調整身體姿勢的重要性，認為健康投資不輸戒菸。市場面則聚焦<b>被動元件漲價循環</b>：Panasonic對部分客戶發漲價信、大廠現貨掃料、高階MLCC缺貨拉長交期，研判漲價勢在必行。並分享<b>Broadcom少一代ASIC</b>但會推雙拼大顆Sunfish的觀察，看好老AI族群後續復活。盤勢認為仍屬健康多頭輪動，非全面崩盤。",
+      "stocks": [
+        [
+          "US",
+          "AVGO"
+        ],
+        [
+          "US",
+          "GOOGL"
+        ],
+        [
+          "US",
+          "NVDA"
+        ],
+        [
+          "US",
+          "AAPL"
+        ],
+        [
+          "TW",
+          "2330"
+        ],
+        [
+          "TW",
+          "3034"
+        ],
+        [
+          "TW",
+          "6488"
+        ]
+      ],
+      "deep": "<h4>主軸 1：減重與健康體系化投資</h4><ul><li>瘦瘦針配合重訓、網球、走路，體重從84-85kg降到77-78kg，目標再壓到72-73kg。</li><li>找肌能教練+物理治療師處理下背痛，發現過去「練到隔天痠才算有練」是錯誤觀念。</li><li>身體會記住舒服姿勢，但那往往是傷害你的姿勢，要重新喚醒核心發力。</li></ul><p style=\"color:#fde047\"><b>「所有你覺得很舒服的姿勢，可能都正在害你。」</b></p><h4>主軸 2：被動元件漲價循環確認</h4><ul><li>Panasonic對部分客戶發漲價通知，台廠開始到現貨市場掃料、貼牌轉售。</li><li>高階MLCC出現斷貨、不報價或交期拉長，採購端壓力升高。</li><li>大廠寧可把產能轉去做高階AI、不接低毛利雜料，價格架高者得。</li><li>下檔防守看「是否大規模擴廠」——目前僅高壓MLCC少數擴廠，紀律仍在。</li></ul><p style=\"color:#fde047\"><b>「做股票的心情很好，但採購的心情很差。」</b></p><h4>主軸 3：Broadcom ASIC 少一代但有大顆雙拼</h4><ul><li>Semi Analysis報告指出Broadcom V8-V9之間少一代晶片，V10 Icefish提前。</li><li>主委自家供應鏈考察：Sunfish之後會有「大顆Sunfish」——兩晶片走載板雙拼，類似Apple Ultra做法。</li><li>看好<b>載板</b>故事延續，老AI族群現在被嫌棄但未來可能被重新拉回舞台中央。</li></ul><h4>主軸 4：盤勢觀察與資金輪動</h4><ul><li>4月隨便鎖漲停都會上，現在族群有強弱，資金開始輪流休息，是健康多頭特徵。</li><li>近期看到「雜魚鎖漲停」隔日開低亂砸，要小心強勢股短線壓力測試。</li><li>玻璃基板、衛星等過去聊過的題材沒在追蹤不代表不看好，只是換交易標的。</li></ul><p style=\"color:#fde047\"><b>「只要還有強勢族群在，回檔就不是崩盤。」</b></p><h4>主軸 5：心態與生活</h4><ul><li>520建議男生在特定日子表達心意、勝率極高；儀式感不分族群。</li><li>比較是快樂之賊，資產變多但物欲也跟著上修，重點是買「體驗」。</li><li>使用Claude Opus/Perplexity做美日新聞與資料整理，模型比Prompt更關鍵。</li></ul><h4>📊 提及個股（7 檔）</h4><p style=\"color:#8ea3c0;font-size:11px;margin-bottom:8px\">由 Claude API 自逐字稿分類；whisper 對公司名 homophone 錯誤多，個股代號以模型還原為準，必要時人工二校。</p><div style=\"display:grid;grid-template-columns:1fr;gap:6px;font-size:12px;line-height:1.55\"><div style=\"background:rgba(74,222,128,0.04);border-left:2px solid #4ade80;padding:6px 10px;border-radius:4px\"><b>🔋 被動元件漲價主軸</b><br><b>AVGO Broadcom</b>　雖然是ASIC廠，但其<b>大顆Sunfish雙拼走載板</b>策略連帶推升被動元件需求，是老AI復活的核心觸媒。</div><div style=\"background:rgba(251,191,36,0.04);border-left:2px solid #fbbf24;padding:6px 10px;border-radius:4px\"><b>🧠 ASIC與AI供應鏈</b><br><b>GOOGL Google</b>　TPU帶起<b>埋入式電容(AP Memory)</b>等冷門料復活，是「老AI被市場重新關注」的最佳範例。<br><b>NVDA NVIDIA</b>　主委強調NVIDIA<b>按Romap推進不變</b>，毛利率短期低估會回升，不認同末日言論。<br><b>AAPL Apple</b>　Ultra晶片<b>雙拼做法</b>被Broadcom新ASIC參考，作為技術路線對照。</div><div style=\"background:rgba(96,165,250,0.04);border-left:2px solid #60a5fa;padding:6px 10px;border-radius:4px\"><b>🛡️ 紀律擴廠的防守</b><br><b>2330 台積電</b>　<b>有紀律擴廠</b>不亂衝產能，限制泡沫化風險，是判斷整體AI週期是否健康的指標。</div><div style=\"background:rgba(167,139,250,0.04);border-left:2px solid #a78bfa;padding:6px 10px;border-radius:4px\"><b>🌐 體驗對照組</b><br><b>3034 聯詠</b>　代指MediaTek陣營，與Broadcom在ASIC市場<b>一人一邊</b>，用於說明少一代晶片觀察。<br><b>6488 環球晶</b>　主委用其<b>從100元低檔噴回</b>的歷史，提醒聽眾感受股價週期與市場情緒輪迴。</div></div><h4>資料狀態</h4><p style=\"color:#fbbf24\">本摘要由 Claude API 自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。</p>",
+      "calls": [
+        {
+          "ep": 663,
+          "t": "被動元件漲價延續",
+          "c": "Panasonic對部分客戶漲價、現貨被掃光、高階MLCC斷貨，<b>漲價勢在必行</b>，連同Tier 2替代料有跟漲空間。",
+          "a": "觀察是否出現大規模擴廠訊號作為下檔防守",
+          "v": "pending"
+        },
+        {
+          "ep": 663,
+          "t": "老AI載板復活",
+          "c": "Broadcom雖少一代晶片但會推<b>雙拼大顆Sunfish走載板</b>，類似Apple Ultra，載板故事未死。",
+          "a": "等資金回頭時老AI族群可能被重新關注",
+          "v": "pending"
+        },
+        {
+          "ep": 663,
+          "t": "多頭健康輪動",
+          "c": "市場非全面崩盤，<b>強勢族群仍在</b>，弱勢被砸是資金輪流休息，不必恐慌。",
+          "a": "鎖定正確題材+營收獲利兌現的標的",
+          "v": "pending"
+        },
+        {
+          "ep": 663,
+          "t": "高位股小心處置",
+          "c": "自己手上多檔已進處置，雜魚鎖漲停隔日開低亂砸，<b>短線壓力測試將至</b>。",
+          "a": "被套被殺別哀叫，知道自己在做什麼",
+          "v": "pending"
+        },
+        {
+          "ep": 663,
+          "t": "AP Memory類劇本",
+          "c": "曾被市場嫌棄的軟標的可能因新應用（如Google TPU栽板電容）<b>再被拉到舞台中央</b>。",
+          "a": "留意自信誘惑題材輪動",
+          "v": "pending"
+        }
+      ],
+      "stock_meta": {
+        "US/AVGO": {
+          "name": "Broadcom",
+          "stance": "觀察",
+          "note": "少一代ASIC但會推<b>雙拼大顆Sunfish走載板</b>，老AI故事未死",
+          "ep": 663
+        },
+        "US/GOOGL": {
+          "name": "Google",
+          "stance": "看好",
+          "note": "TPU帶動<b>載板內嵌電容</b>等自信誘惑題材，曾讓AP Memory翻身",
+          "ep": 663
+        },
+        "US/NVDA": {
+          "name": "NVIDIA",
+          "stance": "看好",
+          "note": "按Roadmap推進，毛利率低估僅短暫一兩季，主委不認同末日論",
+          "ep": 663
+        },
+        "US/AAPL": {
+          "name": "Apple",
+          "stance": "類比",
+          "note": "Ultra晶片雙拼做法被ASIC廠商參考",
+          "ep": 663
+        },
+        "TW/2330": {
+          "name": "台積電",
+          "stance": "看好",
+          "note": "<b>有紀律擴廠</b>，不因客戶喊缺片就大爆產能，避免泡泡化",
+          "ep": 663
+        },
+        "TW/3034": {
+          "name": "聯詠",
+          "stance": "提及",
+          "note": "代指MediaTek體系ASIC路線，與Broadcom一人一邊做客製化晶片",
+          "ep": 663
+        },
+        "TW/6488": {
+          "name": "環球晶",
+          "stance": "提及",
+          "note": "類比舉例曾從低檔噴回，提醒體驗股價週期",
+          "ep": 663
+        }
+      },
+      "stocks_groups": [
+        {
+          "tier": "primary",
+          "title": "🔋 被動元件漲價主軸",
+          "stocks": [
+            {
+              "code": "AVGO",
+              "mkt": "US",
+              "name": "Broadcom",
+              "reason": "雖然是ASIC廠，但其<b>大顆Sunfish雙拼走載板</b>策略連帶推升被動元件需求，是老AI復活的核心觸媒。"
+            }
+          ]
+        },
+        {
+          "tier": "adjacent",
+          "title": "🧠 ASIC與AI供應鏈",
+          "stocks": [
+            {
+              "code": "GOOGL",
+              "mkt": "US",
+              "name": "Google",
+              "reason": "TPU帶起<b>埋入式電容(AP Memory)</b>等冷門料復活，是「老AI被市場重新關注」的最佳範例。"
+            },
+            {
+              "code": "NVDA",
+              "mkt": "US",
+              "name": "NVIDIA",
+              "reason": "主委強調NVIDIA<b>按Romap推進不變</b>，毛利率短期低估會回升，不認同末日言論。"
+            },
+            {
+              "code": "AAPL",
+              "mkt": "US",
+              "name": "Apple",
+              "reason": "Ultra晶片<b>雙拼做法</b>被Broadcom新ASIC參考，作為技術路線對照。"
+            }
+          ]
+        },
+        {
+          "tier": "defensive",
+          "title": "🛡️ 紀律擴廠的防守",
+          "stocks": [
+            {
+              "code": "2330",
+              "mkt": "TW",
+              "name": "台積電",
+              "reason": "<b>有紀律擴廠</b>不亂衝產能，限制泡沫化風險，是判斷整體AI週期是否健康的指標。"
+            }
+          ]
+        },
+        {
+          "tier": "overseas",
+          "title": "🌐 體驗對照組",
+          "stocks": [
+            {
+              "code": "3034",
+              "mkt": "TW",
+              "name": "聯詠",
+              "reason": "代指MediaTek陣營，與Broadcom在ASIC市場<b>一人一邊</b>，用於說明少一代晶片觀察。"
+            },
+            {
+              "code": "6488",
+              "mkt": "TW",
+              "name": "環球晶",
+              "reason": "主委用其<b>從100元低檔噴回</b>的歷史，提醒聽眾感受股價週期與市場情緒輪迴。"
+            }
+          ]
+        }
+      ],
+      "auto_status": "audio+llm",
+      "auto_generated_at": "2026-05-20T17:45:56+00:00",
+      "transcript_chars": 22554
     }
   },
   "schema": 1,
-  "updated_at": "2026-05-16T21:22:04+08:00"
+  "updated_at": "2026-05-21T01:45:56+08:00"
 }
