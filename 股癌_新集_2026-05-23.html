@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gooaye 股癌 · EP664 新集快訊 · 2026-05-23</title>
+<style>
+  :root{
+    --bg:#0a0e1f; --panel:#131a35; --panel2:#0f1530; --panel3:#1a2348;
+    --ink:#e7ecf7; --ink2:#cdd6f0; --muted:#8b97b5; --line:#1f2a4d;
+    --accent:#7cf2c1; --accent2:#ffb347; --accent3:#9ec5ff;
+    --bull:#22c55e; --bear:#ef4444; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 22px 80px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}
+  h1{margin:0;font-size:28px;letter-spacing:.5px;font-weight:800}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  .pill{display:inline-block;background:var(--panel);border:1px solid var(--line);
+    color:var(--muted);font-size:12px;padding:4px 10px;border-radius:999px;margin-right:6px}
+  .pill.live{color:var(--accent);border-color:var(--accent)}
+  .pill.warn{color:var(--warn);border-color:var(--warn)}
+  .pill.bear{color:var(--bear);border-color:var(--bear)}
+  .pill.bull{color:var(--bull);border-color:var(--bull)}
+  .market{background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    padding:20px;margin:16px 0 22px}
+  .market h3{margin:0 0 12px;font-size:15px;color:var(--accent);font-weight:700}
+  .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+  .mcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .mcard .name{font-size:11px;color:var(--muted);text-transform:uppercase}
+  .mcard .price{font-size:20px;font-weight:700;margin-top:4px}
+  .mcard .delta{font-size:12px;margin-top:3px}
+  .mcard .delta.bull{color:var(--bull)}
+  .mcard .delta.bear{color:var(--bear)}
+  .mcard .delta.warn{color:var(--warn)}
+  .mcard .note{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5}
+  .ep{background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+    border:1px solid var(--line);border-radius:18px;padding:24px;margin:18px 0}
+  .ep .num{font-size:34px;font-weight:800;color:var(--accent);line-height:1;display:inline-block;margin-right:14px}
+  .ep .ttl{font-size:20px;font-weight:700;display:inline-block;vertical-align:top}
+  .ep .meta{color:var(--muted);font-size:13px;margin-top:6px}
+  .tags{margin:14px 0}
+  .tag{display:inline-block;background:var(--panel3);border:1px solid var(--line);
+    color:var(--accent3);font-size:12px;padding:4px 10px;border-radius:8px;margin:0 6px 6px 0}
+  .tag.warn{color:var(--warn);border-color:#3a2a10}
+  .tag.bull{color:var(--bull);border-color:#0e3a1f}
+  .tag.bear{color:var(--bear);border-color:#3a1010}
+  h3.section{font-size:14px;color:var(--accent);margin:20px 0 8px;letter-spacing:.5px;text-transform:uppercase}
+  ul{margin:6px 0 14px 22px;padding:0}
+  ul li{margin:4px 0}
+  blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--warn);
+    background:rgba(245,158,11,.06);border-radius:0 8px 8px 0;color:var(--ink2);font-size:14px}
+  .stocks-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+  .stocks-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase}
+  .stocks-table td{padding:8px 10px;border-bottom:1px solid var(--line)}
+  .stocks-table tr:hover td{background:rgba(124,242,193,.04)}
+  .code{font-family:"SF Mono",Menlo,monospace;font-size:12px;color:var(--accent2)}
+  a{color:var(--accent3);text-decoration:none;border-bottom:1px dotted var(--accent3)}
+  a:hover{color:var(--accent)}
+  .footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;text-align:center}
+  .narrative{background:var(--panel3);border-left:4px solid var(--bull);border-radius:0 12px 12px 0;
+    padding:14px 18px;margin:14px 0;color:var(--ink2);font-size:14px;line-height:1.7}
+  .narrative b{color:var(--accent)}
+  .verdict-pending{display:inline-block;background:rgba(245,158,11,.12);color:var(--warn);
+    border:1px solid var(--warn);padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;margin-left:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>🎙 Gooaye <span>股癌</span> · EP664 新集快訊</h1>
+  <div class="sub">
+    <span class="pill live">● LIVE</span>
+    <span class="pill bull">🐟 險中守住</span>
+    <span class="pill">自動偵測排程</span>
+    產出時間：2026-05-23 19:09 (台灣) ·
+    本次偵測新集：<b style="color:var(--accent)">EP664</b>（1 集）·
+    最後一集 ID：EP664 (週六)
+  </div>
+</header>
+
+<section class="market">
+  <h3>📊 市場情境快照（截至本集上架前最後交易日 2026/05/22）</h3>
+  <div class="mgrid">
+    <div class="mcard">
+      <div class="name">加權指數</div>
+      <div class="price">42,267.97</div>
+      <div class="delta bull">+899.76 (+2.18%)</div>
+      <div class="note">5/22 週五單日狂噴近 900 點，週線連兩週收紅；自 5/15 周線低點 39.4k 反彈 +7.3%</div>
+    </div>
+    <div class="mcard">
+      <div class="name">台積電 2330</div>
+      <div class="price">~2,255</div>
+      <div class="delta bull">高檔再衝</div>
+      <div class="note">距 5/7 ATH 2,310 約 -2.4%，5/22 與大盤同步強勢回補</div>
+    </div>
+    <div class="mcard">
+      <div class="name">EP662 -8% 停損線</div>
+      <div class="price" style="font-size:14px;color:var(--bull)">✅ 未觸發</div>
+      <div class="delta bull">完全反向解除</div>
+      <div class="note">38,460 防線僅守住一根 K 線；5/19 反彈 → 5/22 強漲 → 信仰測試完美通過</div>
+    </div>
+    <div class="mcard">
+      <div class="name">本集 narrative</div>
+      <div class="price" style="font-size:14px;color:var(--bull)">🐟 險中守住</div>
+      <div class="delta">標題隱喻</div>
+      <div class="note">「差一點捏破」+ 🐟 魚 emoji → 抓住關鍵支撐後的鬆一口氣，<b style="color:var(--accent)">六集連續防禦敘事 L6 收斂</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EP664 ============ -->
+<section class="ep">
+  <div>
+    <span class="num">EP664</span>
+    <span class="ttl">🐟 差一點捏破</span>
+    <span class="verdict-pending">⏳ SHOW NOTES ONLY</span>
+  </div>
+  <div class="meta">
+    📅 2026-05-23 (Sat) · ⏱ 約 50 分鐘 · 🎁 贊助：<b>《企業財稅必修課》</b>（hi.sat.cool） ·
+    🎧 <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/7d6d137a-d8b8-40b4-ad00-a7426407c729" target="_blank">SoundOn 收聽</a>
+  </div>
+
+  <div class="tags">
+    <span class="tag bull">🐟 險中守住</span>
+    <span class="tag bull">L6 敘事收斂</span>
+    <span class="tag">5/22 +900 點延伸</span>
+    <span class="tag">差一點捏破 = 信仰測試通過</span>
+    <span class="tag">企業財稅必修課 贊助</span>
+    <span class="tag warn">show notes 待補</span>
+  </div>
+
+  <h3 class="section">🔎 標題隱喻拆解</h3>
+  <div class="narrative">
+    「<b>差一點捏破</b>」+ <b>🐟 魚</b> emoji，是<b>非典型多空訊號</b>──
+    既不是 EP662 ⛑️ 安全帽的硬防禦，也不是 EP663 🦘 袋鼠的試探，而是<b>「捏住沒掉，剛好過關」</b>的鬆一口氣定調。
+    放在六集敘事鏈裡看：EP659 預期打滿（個股紀律）→ EP660 會不會壞掉（大盤過熱）→ EP661 正常能量釋放 → EP662 -8% 喊救命（量化停損）→ EP663 信仰測試（心法測試）→ <b>EP664 差一點捏破（測試通過）</b>。
+    搭配 5/22 大盤 <b>+899 點 / +2.18%</b> 暴力反彈，EP662 寫死的 -8% 停損線 38,460 完全沒觸發，<b>反而從低點反彈 +7.3% 創波段新高</b>。
+    本集大概率是六集防禦序列的<b>「鬆綁信號」</b>──風險意識仍在，但量化停損承諾解除，正式回到「強弱分化、輪動為王」的多頭中段格局。
+  </div>
+
+  <h3 class="section">📌 推論議題（待 vocus.cc 社群整理覆蓋）</h3>
+  <ul>
+    <li><b>「差一點捏破」具體所指</b>：（1）大盤週線測試 → 5/15 週低點 39.4k 接近 EP662 設定 38,460 但守住；（2）個股組合 → 旗下持股最大回撤未破預設防線；（3）AI 主軸 → 老 AI 載板/IPD 一度被「捏破」估值底，但 EP663 已預告「博通雙拼版」復活機會。</li>
+    <li><b>被動元件第四階段定調</b>：EP659/660/661/663 已連續四集深化（Panasonic 漲價函 → MLCC 47uF 排擠邏輯 → 持續性供需失衡），本集可能評估是否進入「每週/每月競標、價高者得」階段（2018 模式重現）。</li>
+    <li><b>博通 Sfish「雙拼版」進度</b>：EP663 透露 SemiAnalysis 缺失的一代會以「雙晶片拼載板」方式回歸（類似 Apple Ultra 設計），本集可能進一步釐清量產時間表與台廠載板/IPD 受惠順序。</li>
+    <li><b>光通訊回檔結束訊號</b>：EP663 點名「不會因台積電自己做就變紅海，市場夠大」，5/22 大漲段是否帶動光通族群（聯亞、聯鈞、光聖）跟漲，將是本集重要驗證。</li>
+    <li><b>NVDA TIM 議題後續</b>：EP660 提及散熱介質更換（去金材料）、CoWoS 一度停線；本集可能更新供應鏈最新進度與重點受惠廠商。</li>
+    <li><b>輪動 vs 全面噴發再評估</b>：EP663 定調「健康輪動」、強弱分化階段；5/22 漲 +2.18% 是全面噴發還是仍維持輪動格局？本集應給出更新判斷。</li>
+    <li><b>贊助置換訊號</b>：本集從 EP662 NordVPN、EP663 東璧堂（保健）切換至《企業財稅必修課》（節稅課程）── 主軸轉向「中小企業避險＋稅務規劃」可能呼應「市場已從危險區間回到正常區」的潛在解讀。</li>
+  </ul>
+
+  <h3 class="section">📋 六集連續防禦敘事追蹤（從緊到鬆）</h3>
+  <table class="stocks-table">
+    <thead>
+      <tr><th>EP</th><th>日期</th><th>標題隱喻</th><th>防禦級別</th><th>對應市場/驗證</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>EP659</b></td><td>5/06</td><td>🦤 做壞掉了</td><td><span class="tag">L1 個股紀律</span></td><td>聯發科「預期打滿」5/11 觸頂 ATH 3,985</td></tr>
+      <tr><td><b>EP660</b></td><td>5/09</td><td>🍄 這樣下去會不會壞掉</td><td><span class="tag warn">L2 大盤過熱</span></td><td>4 大過熱訊號齊發 + NVDA TIM 議題</td></tr>
+      <tr><td><b>EP661</b></td><td>5/13</td><td>🚲 正常能量釋放</td><td><span class="tag warn">L3 修正定調</span></td><td>MLCC 47uF 排擠邏輯 / 健康量縮</td></tr>
+      <tr><td><b>EP662</b></td><td>5/16</td><td>⛑️ 再往下 8% 我就喊救命</td><td><span class="tag bear">L4 量化停損</span></td><td>承諾 38,460 大盤停損線</td></tr>
+      <tr><td><b>EP663</b></td><td>5/20</td><td>🦘 信仰測試</td><td><span class="tag warn">L5 心法測試</span></td><td>跌不恐慌 / 不盯後照鏡 / 反應強度</td></tr>
+      <tr style="background:rgba(34,197,94,.10)"><td><b style="color:var(--bull)">EP664</b></td><td><b>5/23</b></td><td><b>🐟 差一點捏破</b></td><td><span class="tag bull">L6 測試通過、鬆綁</span></td><td><b>5/22 +900 點，停損線完全失效</b></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section">💬 show notes 摘要</h3>
+  <blockquote>
+    「差一點捏破」<br>
+    <span style="color:var(--muted);font-size:12px">—— EP664 show notes（《企業財稅必修課》贊助置入段以外的唯一一句節目主軸）</span>
+  </blockquote>
+
+  <h3 class="section">⚠️ 整理狀態與更新計畫</h3>
+  <ul>
+    <li>本集為<b>剛上架</b>（GMT 2026-05-23 07:59 / 台灣時間下午 3:59），社群（vocus.cc @ober / 格友#ace45）尚未產出深度整理。</li>
+    <li>下方內容以 <b>RSS show notes + 標題隱喻 + 六集敘事連貫性 + 5/22 大盤資料</b>推論為主，<b>非逐字稿摘要</b>。</li>
+    <li>預計 24-48 小時內 vocus.cc 整理出後，下次自動排程（週三 EP665）會以 v2 補上完整逐字稿級內容。</li>
+  </ul>
+</section>
+
+<section class="market" style="border-color:var(--bull)">
+  <h3 style="color:var(--bull)">🎯 操作框架更新（EP664 防禦序列收斂 / 鬆綁訊號）</h3>
+  <div class="mgrid">
+    <div class="mcard" style="border-color:var(--bull)">
+      <div class="name" style="color:var(--bull)">🐟 防禦級別</div>
+      <div class="price" style="color:var(--bull);font-size:18px">L6 鬆綁</div>
+      <div class="note">EP662 寫死的 -8% 停損線從未觸發即失效；從 L5 心法測試正式進入 L6「測試通過」收斂階段</div>
+    </div>
+    <div class="mcard">
+      <div class="name">停損紀律</div>
+      <div class="price" style="font-size:14px">回到個股 -5%</div>
+      <div class="note">整體 -8% 大盤停損承諾因從未觸發而退場；回到平時的個股風控基準</div>
+    </div>
+    <div class="mcard">
+      <div class="name">主軸延續</div>
+      <div class="price" style="font-size:14px">被動元件 + 老 AI 復活</div>
+      <div class="note">EP663 強弱分化主軸續推；被動元件（國巨、立隆、智寶、金山、鈺邦）+ 老 AI 載板（IPD/CoWoS 鏈）</div>
+    </div>
+    <div class="mcard">
+      <div class="name">下次重大驗證</div>
+      <div class="price" style="font-size:14px">vocus.cc 逐字稿</div>
+      <div class="note">2026-05-24 後將釋出深度整理；下次排程週三 EP665（預估 5/27）會做 v2 校正</div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  資料來源：<a href="https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml">SoundOn RSS</a> ·
+  <a href="https://vocus.cc/salon/6908b98efd89780001cb1d32">格友#ace45 重點整理</a> ·
+  <a href="https://vocus.cc/salon/ober">與歐伯一起投資學習 逐字稿</a> ·
+  自動偵測排程：<b>gooaye-new-episode-watcher</b>（每週三、六 19:09 台灣時間）·
+  本檔為自動產出，下次更新：<b>2026-05-27 (EP665)</b>
+</div>
+
+</div>
+</body>
+</html>
