@@ -629,8 +629,245 @@
       "auto_status": "audio+llm",
       "auto_generated_at": "2026-05-20T17:45:56+00:00",
       "transcript_chars": 22554
+    },
+    "664": {
+      "ep": 664,
+      "date": "2026-05-23",
+      "title": "EP664 | 🐟",
+      "dur": "45分",
+      "v": "pending",
+      "tags": [
+        "AI算力",
+        "被動元件",
+        "TPU",
+        "紅酒",
+        "房地產"
+      ],
+      "summary": "<b>EP664</b> 孟想分享在處置股關禁閉期間轉去研究紅酒的心得，揭露透過 Star Wine List 找到歐洲餐廳半價傳奇酒款的 life hack。市場面聚焦三大主軸：<b>Anthropic 轉盈</b>打臉 AI 泡沫論、馬斯克 Colossus-1 算力出租 1-2 年回本；<b>Google 攜手 Blackstone 推 TPU Cloud</b>，自用外銷比 3:1 加速擴張；<b>被動元件全面噴射</b>，高壓 MLCC、鋁電容、扭角電容成最缺料號，建議聚焦 AI Power Rack 隔壁櫃商機。",
+      "stocks": [
+        [
+          "TW",
+          "2327"
+        ],
+        [
+          "TW",
+          "2382"
+        ],
+        [
+          "TW",
+          "2317"
+        ],
+        [
+          "US",
+          "GOOGL"
+        ],
+        [
+          "US",
+          "NVDA"
+        ],
+        [
+          "US",
+          "TSLA"
+        ],
+        [
+          "US",
+          "TSM"
+        ],
+        [
+          "US",
+          "INTC"
+        ],
+        [
+          "US",
+          "AMD"
+        ]
+      ],
+      "deep": "<h4>主軸 1：Anthropic 轉盈打臉 AI 泡沫論</h4><ul><li>Anthropic 已轉盈，即使有為上市美化的可能，但全球盯著的公司紙包不住火</li><li>連最燒錢的模型商都能賺錢，代表 AI 毀滅論、泡沫論者臉被打最大</li><li>硬體投資不會到此為止，反而會加大</li></ul><p style=\"color:#fde047\"><b>「過往認為硬體投資會適可而止的人可能要失望了，硬體投資只會更大。」</b></p><h4>主軸 2：Colossus-1 演示算力印鈔機</h4><ul><li>馬斯克 xAI 因 Grok 發展不順，選擇將算力出租</li><li>Colossus-1 巨額投資 1-2 年回本，跟印鈔一樣</li><li>給市場硬體股打強心針：買了能自賺，租人也賺爆</li></ul><h4>主軸 3：Google + Blackstone 推 TPU Cloud</h4><ul><li>Google 直面 NVIDIA、AMD、ASIC 業者宣戰</li><li>透過第三方 Neo Cloud 形式降低客戶疑慮（不怕資料被 Google 看）</li><li><b>TPU 自用 vs 外銷比已規劃到 3:1</b>，成長速度驚人</li><li>去年中曾喊「TPU 外銷給 Anthropic」被市場罵亂講，現已成共識</li></ul><p style=\"color:#fde047\"><b>「3 自用、1 外銷，這是非常恐怖的數字。」</b></p><h4>主軸 4：晶圓代工成戰略瓶頸</h4><ul><li>Gavin Baker：若 TSM 產能全開大擴廠，NVIDIA 銷售會好更多</li><li>市場競爭者變多，晶圓代工壓力會越來越大</li><li>可能敦促 Intel 加速、或客戶包產線</li><li>蔓延到光通、OSAT、被動元件都會出現包廠搶料</li></ul><h4>主軸 5：被動元件全面噴射</h4><ul><li>高壓 MLCC、鋁電容、扭角電容、SP-CAP 成最缺料號</li><li>料號鎖定：<b>春田/Sanko 47MI、22MI</b> 已缺到爆炸</li><li>關鍵概念：AI 主題不只在 VR Rubin 板子上，<b>「隔壁的 Power Rack 櫃子」</b>有很多賺錢機會</li><li>日商 CAMICON 噴 10%、中國江海股份也在噴，全球同步</li><li>已進噴射段，基本面研究重要性下降，改看技術面 5 日線</li></ul><p style=\"color:#fde047\"><b>「隔壁那個 Power Rack 櫃子裡面有很多東西，是目前市場上未必有很多精力去看的。」</b></p><h4>主軸 6：操作心法與後續觀察</h4><ul><li>處置股關 20 分鐘的就放著隨風飄逸，反而加碼</li><li>下一波回檔後優先布局：高壓 MLCC、鋁電容、扭角電容、功率半導體</li><li>消費級被動元件留意恐慌備貨告段落後可能回落</li></ul><h4>📊 提及個股（9 檔）</h4><p style=\"color:#8ea3c0;font-size:11px;margin-bottom:8px\">由 Claude API 自逐字稿分類；whisper 對公司名 homophone 錯誤多，個股代號以模型還原為準，必要時人工二校。</p><div style=\"display:grid;grid-template-columns:1fr;gap:6px;font-size:12px;line-height:1.55\"><div style=\"background:rgba(74,222,128,0.04);border-left:2px solid #4ade80;padding:6px 10px;border-radius:4px\"><b>⚡ 被動元件主升軸</b><br><b>2327 國巨</b>　<b>高壓 MLCC</b> 主受惠者，AI Power Rack 規格升級帶動價格與用量同步上升</div><div style=\"background:rgba(74,222,128,0.04);border-left:2px solid #4ade80;padding:6px 10px;border-radius:4px\"><b>🧠 AI 算力雙雄</b><br><b>GOOGL Alphabet</b>　<b>TPU 外銷自用 3:1</b>，攜 Blackstone 推 TPU Cloud，本集最大主軸受惠者<br><b>NVDA NVIDIA</b>　VR Rubin 換代帶動 Power Rack 元件需求，但 TPU 競爭壓制估值<br><b>TSLA Tesla/xAI</b>　<b>Colossus-1 演示</b>算力出租 1-2 年回本，給硬體投資打強心針</div><div style=\"background:rgba(251,191,36,0.04);border-left:2px solid #fbbf24;padding:6px 10px;border-radius:4px\"><b>🔧 晶圓代工瓶頸</b><br><b>TSM 台積電</b>　AI 晶片<b>戰略瓶頸</b>，市場可能要求大擴廠以滿足 NVIDIA、Google 雙線需求<br><b>INTC Intel</b>　後段封裝可能受惠，市場敦促加速量產分擔 TSM 壓力<br><b>AMD AMD</b>　面臨 TPU 競爭與產能瓶頸雙重壓力，估值可能受壓</div><div style=\"background:rgba(251,191,36,0.04);border-left:2px solid #fbbf24;padding:6px 10px;border-radius:4px\"><b>🏭 AI 伺服器代工</b><br><b>2382 廣達</b>　AI 伺服器代工，受惠 GPU/TPU 雙軌出貨與 Power Rack 整合商機<br><b>2317 鴻海</b>　AI 整機與 Power Rack 隔壁櫃整合受惠，高密度機櫃帶動價值量</div></div><h4>資料狀態</h4><p style=\"color:#fbbf24\">本摘要由 Claude API 自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。</p>",
+      "calls": [
+        {
+          "ep": 664,
+          "t": "AI 硬體加碼",
+          "c": "<b>Anthropic 轉盈 + Colossus-1 回本 1-2 年</b>，AI 泡沫論被打臉，硬體投資只會更大",
+          "a": "持續關注 AI 硬體供應鏈",
+          "v": "pending"
+        },
+        {
+          "ep": 664,
+          "t": "TPU 供應鏈",
+          "c": "Google 攜 Blackstone 推 TPU Cloud，<b>自用外銷比 3:1</b>，TPU 供應鏈受惠擴大",
+          "a": "關注 Google 鏈相關標的",
+          "v": "pending"
+        },
+        {
+          "ep": 664,
+          "t": "被動元件主升",
+          "c": "<b>高壓 MLCC、鋁電容、扭角電容</b>最缺，AI Power Rack 隔壁櫃商機",
+          "a": "回檔後優先布局缺料股",
+          "v": "pending"
+        },
+        {
+          "ep": 664,
+          "t": "晶圓代工瓶頸",
+          "c": "競爭者搶產能，<b>TSM 成最大瓶頸</b>，Intel 後段、包產線需求升溫",
+          "a": "觀察晶圓代工擴產動向",
+          "v": "pending"
+        },
+        {
+          "ep": 664,
+          "t": "功率半導體",
+          "c": "AI 機櫃高密度化，<b>Power Rack 拉到隔壁櫃</b>，功率元件規格與價格雙升",
+          "a": "留意功率半導體族群",
+          "v": "pending"
+        },
+        {
+          "ep": 664,
+          "t": "雜魚警戒",
+          "c": "全面噴射期會帶上很多跟風雜魚，回檔後要分辨真缺與假缺",
+          "a": "等回檔後採收看營收",
+          "v": "pending"
+        }
+      ],
+      "stock_meta": {
+        "TW/2327": {
+          "name": "國巨",
+          "stance": "看好",
+          "note": "被動元件龍頭，<b>高壓 MLCC</b> 主受惠者，AI Power Rack 用量大增",
+          "ep": 664
+        },
+        "TW/2382": {
+          "name": "廣達",
+          "stance": "觀察",
+          "note": "AI 伺服器代工，受惠 TPU/GPU 雙軌出貨",
+          "ep": 664
+        },
+        "TW/2317": {
+          "name": "鴻海",
+          "stance": "觀察",
+          "note": "AI 伺服器整機與 Power Rack 整合受惠",
+          "ep": 664
+        },
+        "US/GOOGL": {
+          "name": "Alphabet",
+          "stance": "看好",
+          "note": "<b>TPU 自用外銷 3:1</b>，攜 Blackstone 開 TPU Cloud 直面競爭",
+          "ep": 664
+        },
+        "US/NVDA": {
+          "name": "NVIDIA",
+          "stance": "觀察",
+          "note": "VR Rubin 換代帶動被動元件、功率元件用量，但面臨 TPU 競爭壓力",
+          "ep": 664
+        },
+        "US/TSLA": {
+          "name": "Tesla/xAI",
+          "stance": "看好",
+          "note": "Colossus-1 算力出租，<b>1-2 年回本</b>，演示給市場看算力印鈔機",
+          "ep": 664
+        },
+        "US/TSM": {
+          "name": "台積電",
+          "stance": "瓶頸",
+          "note": "AI 晶片<b>戰略瓶頸</b>，產能成各家搶奪焦點",
+          "ep": 664
+        },
+        "US/INTC": {
+          "name": "Intel",
+          "stance": "觀察",
+          "note": "後段封裝有機會，市場可能敦促加速量產",
+          "ep": 664
+        },
+        "US/AMD": {
+          "name": "AMD",
+          "stance": "觀察",
+          "note": "面對 TPU 與 NVIDIA 雙重競爭",
+          "ep": 664
+        }
+      },
+      "stocks_groups": [
+        {
+          "tier": "primary",
+          "title": "⚡ 被動元件主升軸",
+          "stocks": [
+            {
+              "code": "2327",
+              "mkt": "TW",
+              "name": "國巨",
+              "reason": "<b>高壓 MLCC</b> 主受惠者，AI Power Rack 規格升級帶動價格與用量同步上升"
+            }
+          ]
+        },
+        {
+          "tier": "primary",
+          "title": "🧠 AI 算力雙雄",
+          "stocks": [
+            {
+              "code": "GOOGL",
+              "mkt": "US",
+              "name": "Alphabet",
+              "reason": "<b>TPU 外銷自用 3:1</b>，攜 Blackstone 推 TPU Cloud，本集最大主軸受惠者"
+            },
+            {
+              "code": "NVDA",
+              "mkt": "US",
+              "name": "NVIDIA",
+              "reason": "VR Rubin 換代帶動 Power Rack 元件需求，但 TPU 競爭壓制估值"
+            },
+            {
+              "code": "TSLA",
+              "mkt": "US",
+              "name": "Tesla/xAI",
+              "reason": "<b>Colossus-1 演示</b>算力出租 1-2 年回本，給硬體投資打強心針"
+            }
+          ]
+        },
+        {
+          "tier": "adjacent",
+          "title": "🔧 晶圓代工瓶頸",
+          "stocks": [
+            {
+              "code": "TSM",
+              "mkt": "US",
+              "name": "台積電",
+              "reason": "AI 晶片<b>戰略瓶頸</b>，市場可能要求大擴廠以滿足 NVIDIA、Google 雙線需求"
+            },
+            {
+              "code": "INTC",
+              "mkt": "US",
+              "name": "Intel",
+              "reason": "後段封裝可能受惠，市場敦促加速量產分擔 TSM 壓力"
+            },
+            {
+              "code": "AMD",
+              "mkt": "US",
+              "name": "AMD",
+              "reason": "面臨 TPU 競爭與產能瓶頸雙重壓力，估值可能受壓"
+            }
+          ]
+        },
+        {
+          "tier": "adjacent",
+          "title": "🏭 AI 伺服器代工",
+          "stocks": [
+            {
+              "code": "2382",
+              "mkt": "TW",
+              "name": "廣達",
+              "reason": "AI 伺服器代工，受惠 GPU/TPU 雙軌出貨與 Power Rack 整合商機"
+            },
+            {
+              "code": "2317",
+              "mkt": "TW",
+              "name": "鴻海",
+              "reason": "AI 整機與 Power Rack 隔壁櫃整合受惠，高密度機櫃帶動價值量"
+            }
+          ]
+        }
+      ],
+      "auto_status": "audio+llm",
+      "auto_generated_at": "2026-05-24T05:16:41+00:00",
+      "transcript_chars": 22174
     }
   },
   "schema": 1,
-  "updated_at": "2026-05-21T01:45:56+08:00"
+  "updated_at": "2026-05-24T13:16:41+08:00"
 }

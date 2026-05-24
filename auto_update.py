@@ -21,7 +21,7 @@ Run:
 """
 
 from __future__ import annotations
-import argparse, html, json, os, re, shutil, subprocess, sys, urllib.request
+import argparse, html, json, os, re, shutil, subprocess, sys, time, urllib.error, urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
@@ -81,9 +81,31 @@ SPONSOR_MARKERS = (
 )
 
 
+_TRANSIENT_NET_ERRORS = (urllib.error.URLError, ConnectionResetError, TimeoutError, OSError)
+
+
+def urlopen_retry(req, *, timeout: int, attempts: int = 5, backoff: float = 4.0):
+    """urlopen with exponential backoff on transient network errors (DNS, reset, timeout).
+
+    Returns the response object (caller closes it). Raises the last error on final failure.
+    """
+    last_exc = None
+    for i in range(attempts):
+        try:
+            return urllib.request.urlopen(req, timeout=timeout)
+        except _TRANSIENT_NET_ERRORS as e:
+            last_exc = e
+            if i == attempts - 1:
+                raise
+            wait = backoff * (2 ** i)
+            print(f"  [net] attempt {i+1}/{attempts} failed ({type(e).__name__}: {e}); retrying in {wait:.0f}s", flush=True)
+            time.sleep(wait)
+    raise last_exc  # unreachable
+
+
 def fetch_rss(url: str = RSS_URL) -> ET.Element:
     req = urllib.request.Request(url, headers={"User-Agent": "gooaye-auto-update/1.0"})
-    with urllib.request.urlopen(req, timeout=20) as resp:
+    with urlopen_retry(req, timeout=20) as resp:
         return ET.parse(resp).getroot()
 
 
@@ -146,7 +168,7 @@ def download_audio(ep: int, url: str) -> Path:
         return dest
     print(f"  [audio] downloading {url[:80]}…")
     req = urllib.request.Request(url, headers={"User-Agent": "gooaye-auto-update/1.0"})
-    with urllib.request.urlopen(req, timeout=120) as resp, open(dest, "wb") as f:
+    with urlopen_retry(req, timeout=120) as resp, open(dest, "wb") as f:
         shutil.copyfileobj(resp, f)
     print(f"  [audio] saved {dest.name} ({dest.stat().st_size//1024} KB)")
     return dest
