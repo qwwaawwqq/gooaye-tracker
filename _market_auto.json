@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-23T10:10:57+00:00",
+  "updated_at": "2026-05-24T10:13:36+00:00",
   "perf": {
     "2330": {
       "symbol": "2330.TW",
@@ -932,44 +932,44 @@
   },
   "actions": [
     {
-      "title": "被動元件漲價循環卡位",
-      "stance": "順勢加碼",
-      "depends": "依據：EP661+EP662+EP663 連三集主推，Panasonic 六月恐宣布漲三成，MLCC 缺貨交期拉長",
-      "checklist": "□ 鎖定國巨、華新科、麗智、立隆、金山等台廠<br>□ 觀察 Panasonic 六月初是否正式發漲價信<br>□ 分批進場，留意是否從成本驅動轉為需求驅動",
-      "risk": "失準風險：漲價題材已發酵兩週，若 Panasonic 正式公告後利多出盡，恐見高點回落",
+      "title": "被動元件三集連發追擊",
+      "stance": "趨勢加碼",
+      "depends": "依據：EP664+EP663+EP662，連三集點名 Panasonic 漲價信、高壓 MLCC 缺料、六月恐漲三成",
+      "checklist": "□ 國巨(2327) 已 +107% 不追高，回測月線分批<br>□ 留意華新科、奇力新等二線補漲<br>□ 追蹤 Panasonic 六月漲價函正式發布",
+      "risk": "失準風險：漲價已反映於股價，若 Q3 終端拉貨不如預期恐見利多出盡。",
       "tier": "opportunity"
     },
     {
-      "title": "老 AI 族群復活契機",
-      "stance": "選擇性加碼",
-      "depends": "依據：EP663 提到 Broadcom 推雙拼大顆 Sunfish，EP662 提及老 AI 毛利不如預期已修正",
-      "checklist": "□ 留意 Broadcom 雙拼 ASIC 進度與供應鏈受惠股<br>□ 關注 AMD、聯發科等已創高個股回測支撐<br>□ 避免追高，等待籌碼換手後再進場",
-      "risk": "失準風險：台積電吸金效應持續 2-3 個月，中小型 AI 仍可能被提款",
+      "title": "AI 算力鏈轉盈打臉泡沫",
+      "stance": "核心持有",
+      "depends": "依據：EP664 點名 Anthropic 轉盈、Colossus-1 回本、Google+Blackstone TPU Cloud 擴張",
+      "checklist": "□ 聯發科(2454)+115% 部分獲利了結 1/3<br>□ 創意(3443) 留意 ASIC 雙拼 Sunfish 進度<br>□ 追蹤 TPU 供應鏈受惠族群",
+      "risk": "失準風險：漲多回檔壓力大，雲端 capex 若於 2026H2 出現雜音將快速修正。",
       "tier": "opportunity"
     },
     {
-      "title": "台股追高警戒",
-      "stance": "手綁起來",
-      "depends": "依據：EP661 明示「噴太遠不要追高」，EP662 指出無避險但跌反加碼，波動將放大",
-      "checklist": "□ 檢視持股是否過度集中強勢族群<br>□ 強勢股若開始濃縮收斂即減碼<br>□ 保留現金等待輪動到位再布局",
-      "risk": "失準風險：EP663 認為仍屬健康輪動非崩盤，過早減碼恐錯失後段行情",
-      "tier": "caution"
+      "title": "AI Power Rack 隔壁櫃",
+      "stance": "新進場觀察",
+      "depends": "依據：EP664+EP662，明確點名 Power、光通訊、高壓 MLCC、鋁電容、扭角電容缺料商機",
+      "checklist": "□ 篩選 AI 電源供應族群進場名單<br>□ 鋁電容、扭角電容供應商列觀察<br>□ 設定第一筆 20% 試單部位",
+      "risk": "失準風險：題材輪動快，若資金回流大型 AI 主流，小型 Power 股流動性風險高。",
+      "tier": "opportunity"
     },
     {
-      "title": "旺宏失準需檢討",
-      "stance": "立即停損",
-      "depends": "依據：自動命中表顯示旺宏(2337) -10.5%，為近期最大失準項，記憶體題材未發酵",
-      "checklist": "□ 設定停損點執行出場<br>□ 資金轉進被動元件或軟體資安強勢股<br>□ 後續觀察記憶體合約價是否回穩再考慮",
-      "risk": "失準風險：若記憶體後續補漲，出場後恐錯過反彈，需追蹤產業數據",
+      "title": "旺宏失準須止損",
+      "stance": "立即減碼",
+      "depends": "依據：近三集未提旺宏，記憶體題材未獲背書，績效 -10.5% 為命中清單最差",
+      "checklist": "□ 旺宏(2337) 跌破成本價立即停損<br>□ 資金轉進被動元件或 AI Power<br>□ 檢視其他冷門記憶體部位",
+      "risk": "失準風險：若 NOR Flash 突發供需轉折反彈，提前停損會錯失補漲。",
       "tier": "redline"
     },
     {
-      "title": "美股軟體資安補漲",
-      "stance": "分批布局",
-      "depends": "依據：EP662 點名軟體股與資安股創新高，CrowdStrike、Figma 為代表",
-      "checklist": "□ 觀察 CrowdStrike、Figma 回測均線買點<br>□ 留意 Palantir 等失準資安股是否落底<br>□ 控制單一個股部位避免追高套牢",
-      "risk": "失準風險：Palantir(PLTR) -6.3% 已顯示資安族群分歧，非全面齊漲",
-      "tier": "opportunity"
+      "title": "PLTR、NET 軟體股觀望",
+      "stance": "持有觀察",
+      "depends": "依據：EP662 看好軟體股與資安股創新高（CrowdStrike、Figma），但 PLTR -6.3%、NET -3.6% 表現落後",
+      "checklist": "□ PLTR 跌破前低減半<br>□ NET 觀察雲端流量數據<br>□ 換馬至 CRWD 等強勢資安股",
+      "risk": "失準風險：軟體股財報季波動大，換股可能買在短期高點。",
+      "tier": "caution"
     }
   ]
 }
