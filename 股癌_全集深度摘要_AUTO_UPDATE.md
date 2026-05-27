@@ -1,11 +1,11 @@
 # Gooaye 股癌 · 全集深度摘要（自動更新）
 
 <!-- AUTO_UPDATE_META
-last_seen_ep: 664
-last_check: 2026-05-23T19:09:00+08:00
-total_episodes_covered: 14
+last_seen_ep: 665
+last_check: 2026-05-27T19:10:00+08:00
+total_episodes_covered: 15
 oldest_ep_in_file: 651
-newest_ep_in_file: 664
+newest_ep_in_file: 665
 -->
 
 > **主持人：** 謝孟恭　·　**自動更新：** 每週三、六 19:09（Cowork 排程）
@@ -18,6 +18,37 @@ newest_ep_in_file: 664
 <!-- 📌 排程會在 ===== AUTO_INSERT_POINT_BELOW ===== 這行下面插入新集摘要，請勿刪除標記 -->
 
 ===== AUTO_INSERT_POINT_BELOW =====
+
+## EP665 | 🌸 整組做壞掉了 (2026-05-27)
+
+> **狀態：** ⏳ Placeholder only — 等待 whisper 轉錄 + vocus 社群整理
+> **贊助：** 善存葉黃素（Momo 5/27-6/2 限時優惠：液態軟膠囊 2 入 85 折 + 維他命 C；精華凍 2 入折 $400）
+> **時長：** 約 50 分鐘（2,991 秒）· GMT 2026-05-27 07:25 上架（台灣下午 3:25）
+
+### 為什麼這集只有 placeholder
+
+依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論。
+
+**標題 tagline 為 「整組做壞掉了」**（與 EP659「做壞掉了 🦤」相似措辭）— 但解讀必須等到逐字稿出來再下定論。
+
+### 自動補完流程
+
+1. 本筆記由 Cowork 排程任務 `gooaye-new-episode-watcher` 於 2026-05-27 19:10 偵測 SoundOn RSS 後寫入。
+2. LaunchAgent `com.gooaye.update-episodes`（cron: Wed/Sat 20:00 + 22:00 TPE / Thu/Sun 09:00 TPE）會跑 `auto_update.py`，下載 EP665 音檔 → whisper small → Claude 生成 → 寫入 `_episodes_auto.json`。
+3. 前端 `index.html:1394` 的 merge logic 會在 placeholder 沒有 `deep` 欄位時把 auto 版本疊上來。
+4. 如需立即觸發：
+   ```
+   /Users/wangtingwei/opt/anaconda3/bin/python auto_update.py --force-ep 665 --model small
+   ```
+   (~25-30 min on Rosetta)
+
+### 同日市況同步（純參考，不引申）
+
+- 加權指數 **43,585.80**（+58.60，+0.13%）— 收在波段新高附近
+- 距 EP662 寫死的 -8% 停損線 38,460 完全脫鉤（+13.3% above）
+- 上一集 EP664 已宣告「信仰測試通過、L6 鬆綁」
+
+---
 
 ## EP664 | 🐟 差一點捏破 (2026-05-23)
 
