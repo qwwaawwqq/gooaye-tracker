@@ -4,3 +4,6 @@ node_modules/
 *.log
 _state.json
 .cache_audio/
+__pycache__/
+*.pyc
+sim_launchd.py

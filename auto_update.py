@@ -31,7 +31,18 @@ STATE_FILE = ROOT / "_state.json"
 OUT_FILE = ROOT / "_episodes_auto.json"
 CACHE_DIR = ROOT / ".cache_audio"
 ENV_FILE = ROOT / ".env"
+# auto_status value that marks a fully-successful entry: audio transcribed AND
+# LLM-structured into deep summary + CALLS. Only episodes that reach this state
+# advance last_seen_ep; anything less is retried on the next run.
+REAL_SUMMARY_STATUS = "audio+llm"
 RSS_URL = "https://feeds.soundon.fm/podcasts/954689a5-3096-43a4-a80b-7810b219cef3.xml"
+# Native arm64 interpreter that has faster-whisper installed. The repo-local
+# whisper_cli.py shim runs here. Override with WHISPER_PYTHON env if the venv
+# ever moves.
+WHISPER_PYTHON = os.environ.get(
+    "WHISPER_PYTHON",
+    str(Path.home() / ".venvs" / "whisper" / "bin" / "python"),
+)
 
 
 def load_dotenv() -> None:
@@ -50,27 +61,65 @@ def load_dotenv() -> None:
             os.environ[k] = v
 
 
+def _git(*args, check: bool = False) -> subprocess.CompletedProcess:
+    return subprocess.run(["git", "-C", str(ROOT), *args],
+                          capture_output=True, text=True, check=check)
+
+
+def push_if_ahead() -> bool:
+    """Rebase onto origin/main and push IF local has unpushed commits.
+
+    Pushing on "local is ahead of origin" rather than "this run made a commit"
+    means a push that failed on an earlier run (network blip, lost race) is
+    retried automatically on the next run — even when no new episode appeared.
+    Returns True if a push happened.
+    """
+    fetch = _git("fetch", "origin", "main")
+    if fetch.returncode != 0:
+        print(f"  [git] fetch FAILED: {fetch.stderr[-300:]}")
+        return False
+    ahead = _git("rev-list", "--count", "origin/main..HEAD")
+    try:
+        n = int((ahead.stdout or "0").strip())
+    except ValueError:
+        n = 0
+    if n == 0:
+        print("  [git] up to date with origin, nothing to push")
+        return False
+    print(f"  [git] {n} local commit(s) ahead of origin → rebase + push")
+    # The remote moves independently — the market-data GitHub Action pushes
+    # daily — so a bare push is rejected non-fast-forward. Rebase first.
+    # Episodes touch only _episodes_auto.json; market data touches other files,
+    # so this is conflict-free in practice. On conflict, abort cleanly and log
+    # LOUDLY rather than wedge the repo.
+    pull = _git("pull", "--rebase", "origin", "main")
+    if pull.returncode != 0:
+        print(f"  [git] !!! pull --rebase FAILED (push aborted): {pull.stderr[-400:]}")
+        _git("rebase", "--abort")
+        return False
+    push = _git("push")
+    if push.returncode != 0:
+        print(f"  [git] !!! push FAILED: {push.stderr[-400:]}")
+        return False
+    print("  [git] pushed.")
+    return True
+
+
 def git_commit_and_push(files: list[Path], message: str) -> bool:
-    """Stage given files, commit if there's a diff, push to origin.
+    """Stage given files, commit if there's a diff, then push if local is ahead.
     Returns True if a push happened, False otherwise."""
     try:
         rel = [str(p.relative_to(ROOT)) for p in files if p.exists()]
-        if not rel:
-            return False
-        # Check for staged + unstaged changes against HEAD
-        status = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain", "--"] + rel,
-                                capture_output=True, text=True)
-        if not status.stdout.strip():
-            print("  [git] no changes to commit")
-            return False
-        subprocess.run(["git", "-C", str(ROOT), "add", "--"] + rel, check=True)
-        subprocess.run(["git", "-C", str(ROOT), "commit", "-m", message], check=True)
-        push = subprocess.run(["git", "-C", str(ROOT), "push"], capture_output=True, text=True)
-        if push.returncode != 0:
-            print(f"  [git] push failed: {push.stderr[-400:]}")
-            return False
-        print("  [git] pushed.")
-        return True
+        if rel:
+            status = _git("status", "--porcelain", "--", *rel)
+            if status.stdout.strip():
+                _git("add", "--", *rel, check=True)
+                _git("commit", "-m", message, check=True)
+            else:
+                print("  [git] no file changes to commit")
+        # Push regardless of whether THIS call committed — covers unpushed
+        # commits from earlier runs (e.g. a previously-failed push).
+        return push_if_ahead()
     except subprocess.CalledProcessError as e:
         print(f"  [git] error: {e}")
         return False
@@ -160,6 +209,41 @@ def get_audio_url(item: ET.Element) -> str | None:
     return enc.get("url")
 
 
+def find_whisper() -> str | None:
+    """Locate a working whisper CLI.
+
+    Priority order:
+    1. The repo-local faster-whisper shim (whisper_cli.py). This is the
+       canonical transcriber: native arm64 via ~/.venvs/whisper, no numba/torch.
+       The old openai-whisper CLI broke when its numba dep failed to initialize
+       under the x86_64/Rosetta anaconda Python on this arm64 machine.
+    2. A `whisper` binary on PATH (shutil.which).
+    3. Known install locations — the LaunchAgent PATH can miss ~/.local/bin, so
+       shutil.which alone returns None under launchd even when whisper exists.
+    """
+    shim = ROOT / "whisper_cli.py"
+    # Prefer the shim whenever it exists AND the faster-whisper venv is present.
+    # We launch it via WHISPER_PYTHON (see transcribe), so the shim's own
+    # executable bit does not matter — only that the interpreter exists.
+    if shim.exists() and Path(WHISPER_PYTHON).exists():
+        return str(shim)
+    if shim.exists() and os.access(shim, os.X_OK):
+        return str(shim)
+    found = shutil.which("whisper")
+    if found:
+        return found
+    candidates = [
+        Path.home() / ".local" / "bin" / "whisper",
+        Path("/usr/local/bin/whisper"),
+        Path("/opt/homebrew/bin/whisper"),
+        Path.home() / "opt" / "anaconda3" / "bin" / "whisper",
+    ]
+    for c in candidates:
+        if c.exists() and os.access(c, os.X_OK):
+            return str(c)
+    return None
+
+
 def download_audio(ep: int, url: str) -> Path:
     CACHE_DIR.mkdir(exist_ok=True)
     dest = CACHE_DIR / f"EP{ep}.mp3"
@@ -180,12 +264,20 @@ def transcribe(ep: int, audio_path: Path, model: str = "small") -> Path | None:
     if txt_path.exists() and txt_path.stat().st_size > 500:
         print(f"  [whisper] cache hit: {txt_path.name}")
         return txt_path
-    if shutil.which("whisper") is None:
+    whisper_bin = find_whisper()
+    if whisper_bin is None:
         print("  [whisper] CLI not found — install openai-whisper or use --no-audio")
         return None
-    print(f"  [whisper] transcribing EP{ep} with model={model} (this can take a while)…")
+    print(f"  [whisper] transcribing EP{ep} with model={model} via {whisper_bin} (this can take a while)…")
+    # If the resolved transcriber is our .py shim, run it through the venv
+    # interpreter that has faster-whisper — don't rely on the executable bit or
+    # shebang surviving git checkout / file-permission resets.
+    if whisper_bin.endswith(".py") and Path(WHISPER_PYTHON).exists():
+        launcher = [WHISPER_PYTHON, whisper_bin]
+    else:
+        launcher = [whisper_bin]
     cmd = [
-        "whisper", str(audio_path),
+        *launcher, str(audio_path),
         "--model", model,
         "--language", "Chinese",
         "--task", "transcribe",
@@ -256,26 +348,47 @@ calls 至少 3 條、至多 7 條；每條對應一個主軸的具體 call。
 stock_meta 對應 stocks 陣列中每檔出現的標的；name 用繁中正式名稱、若 whisper 拼錯就修正。
 stocks_groups: 把提及個股按主題分 3-5 組（如「被動元件主軸」「散熱事件」「防守換手」「海外觀察」），每組內每檔股票配一行 reason。
 剛發布的新集 v 通常都 "pending"。"""
-    resp = client.messages.create(
-        model="claude-opus-4-7",
-        max_tokens=4000,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    text = (resp.content[0].text if resp.content else "").strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```\w*\n?", "", text)
-        text = re.sub(r"\n?```$", "", text)
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError as e:
-        print(f"  [claude] JSON parse failed: {e}; first 300 chars: {text[:300]}")
-        return None
+    # The structured JSON (tags + summary + deep_html + calls + stock_meta +
+    # stocks_groups) is large. max_tokens=4000 truncated it mid-string and the
+    # parse failed (that's what dropped EP666 to audio-only with no CALLS). Give
+    # it real headroom and detect truncation explicitly via stop_reason; retry
+    # once with even more room if we still hit the ceiling.
+    last_err = None
+    for attempt, max_tok in enumerate((16000, 24000), start=1):
+        try:
+            resp = client.messages.create(
+                model="claude-opus-4-7",
+                max_tokens=max_tok,
+                messages=[{"role": "user", "content": prompt}],
+            )
+        except Exception as e:  # network / API error
+            last_err = e
+            print(f"  [claude] API call failed (attempt {attempt}): {type(e).__name__}: {str(e)[:200]}")
+            continue
+        text = (resp.content[0].text if resp.content else "").strip()
+        if text.startswith("```"):
+            text = re.sub(r"^```\w*\n?", "", text)
+            text = re.sub(r"\n?```$", "", text)
+        if getattr(resp, "stop_reason", None) == "max_tokens":
+            print(f"  [claude] response hit max_tokens={max_tok} (truncated); "
+                  f"{'retrying with more room' if attempt == 1 else 'giving up'}")
+            last_err = "truncated"
+            continue
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as e:
+            last_err = e
+            print(f"  [claude] JSON parse failed (attempt {attempt}, stop_reason="
+                  f"{getattr(resp,'stop_reason',None)}): {e}; first 300 chars: {text[:300]}")
+            continue
+    print(f"  [claude] structuring failed after retries (last: {last_err})")
+    return None
 
 
 def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
                       model: str, no_audio: bool) -> dict:
     """Audio-first entry. Falls back to placeholder if whisper missing."""
-    if no_audio or shutil.which("whisper") is None:
+    if no_audio or find_whisper() is None:
         entry = build_placeholder_entry(ep, title, date, link)
         entry["auto_status"] = "audio-pending"
         entry["audio_url"] = audio_url
@@ -574,6 +687,24 @@ def save_auto(data: dict) -> None:
     OUT_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 
 
+def compute_next_last_seen(last_seen: int, candidate_eps, episodes: dict) -> int:
+    """Advance last_seen_ep ONLY across a contiguous run of fully-successful
+    episodes from the bottom up. Stop at the first episode that did not get a
+    real LLM summary, so it (and anything above it) is retried on the next run.
+
+    This is the fix for the "stuck placeholder" bug that froze EP666: the old
+    code advanced last_seen unconditionally, so a failed transcription / failed
+    LLM call was marked "seen" and never retried.
+    """
+    new_last = last_seen
+    for cep in sorted(int(e) for e in candidate_eps):
+        if episodes.get(str(cep), {}).get("auto_status") == REAL_SUMMARY_STATUS:
+            new_last = cep
+        else:
+            break  # gap: stop so this ep is retried next run
+    return new_last
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -619,6 +750,16 @@ def main() -> int:
             max_seen = max(max_seen, ep)
             continue
 
+        # If a prior run already produced a real (LLM-structured) summary for
+        # this episode, reuse it — don't re-transcribe or re-call the API, and
+        # don't risk clobbering good data. (force_ep always reprocesses.)
+        prior = episodes.get(str(ep)) if args.force_ep is None else None
+        if prior and prior.get("auto_status") == REAL_SUMMARY_STATUS:
+            print(f"  EP{ep} ({date}) → reuse (already has real summary)")
+            new_entries.append(prior)
+            max_seen = max(max_seen, ep)
+            continue
+
         if audio_url and not args.no_audio:
             entry = build_audio_entry(ep, title, date, link, audio_url,
                                        model=args.model, no_audio=False)
@@ -636,6 +777,11 @@ def main() -> int:
 
     if not new_entries:
         print("  no new episodes.")
+        # Even with nothing new, push any unpushed local commits (e.g. content
+        # committed by a prior run whose push failed, or an episode generated
+        # out-of-band). push_if_ahead is a no-op when already in sync.
+        if args.push and not args.dry_run:
+            git_commit_and_push([OUT_FILE], "auto: sync episodes")
         return 0
 
     if args.dry_run:
@@ -644,7 +790,12 @@ def main() -> int:
 
     save_auto(auto)
     if args.force_ep is None:
-        state["last_seen_ep"] = max_seen
+        candidate_eps = [e["ep"] for e in new_entries if e.get("ep")]
+        state["last_seen_ep"] = compute_next_last_seen(last_seen, candidate_eps, episodes)
+        stuck = [ep for ep in candidate_eps
+                 if episodes.get(str(ep), {}).get("auto_status") != REAL_SUMMARY_STATUS]
+        if stuck:
+            print(f"  [retry] episodes pending a real summary, will retry next run: {sorted(stuck)}")
     save_state(state)
     print(f"[done] wrote {OUT_FILE.name}, state.last_seen_ep={state['last_seen_ep']}")
     prune_audio_cache(keep=8)
