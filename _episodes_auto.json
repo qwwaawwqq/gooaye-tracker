@@ -1024,8 +1024,25 @@
       "auto_status": "audio+llm",
       "auto_generated_at": "2026-05-27T17:47:44+00:00",
       "transcript_chars": 22936
+    },
+    "666": {
+      "ep": 666,
+      "date": "2026-05-30",
+      "title": "EP666 | 🍐",
+      "dur": "—",
+      "v": "pending",
+      "tags": [
+        "新集上線",
+        "深度摘要待補"
+      ],
+      "summary": "<b>EP666 已上線（2026-05-30）</b>。Show notes 為贊助/開場內容，<b>vocus 社群整理約 1-2 天後上線</b>，屆時本卡片會自動補上深度摘要與個股清單。",
+      "stocks": [],
+      "deep": "<h4>狀態</h4><p style=\"color:#fbbf24\">EP666 於 2026-05-30 發布，目前僅 RSS show notes（贊助/開場），尚未取得 vocus 社群整理或逐字稿。<br>下次 auto_update 跑到時若 vocus 已發佈會自動補齊。</p><h4>RSS Link</h4><p><a href=\"https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/fd5d4766-183d-4ed9-8d68-958c50d8e730\" target=\"_blank\" style=\"color:#7dd3fc\">SoundOn 收聽</a></p>",
+      "auto_status": "audio-pending",
+      "auto_generated_at": "2026-05-30T12:14:44+00:00",
+      "audio_url": "https://rss.soundon.fm/rssf/954689a5-3096-43a4-a80b-7810b219cef3/feedurl/fd5d4766-183d-4ed9-8d68-958c50d8e730/rssFileVip.mp3?timestamp=1780125124518"
     }
   },
   "schema": 1,
-  "updated_at": "2026-05-28T01:47:44+08:00"
+  "updated_at": "2026-05-30T20:14:44+08:00"
 }
