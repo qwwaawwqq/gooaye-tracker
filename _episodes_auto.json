@@ -1029,20 +1029,377 @@
       "ep": 666,
       "date": "2026-05-30",
       "title": "EP666 | 🍐",
-      "dur": "—",
+      "dur": "55分",
       "v": "pending",
       "tags": [
-        "新集上線",
-        "深度摘要待補"
+        "內觀生活",
+        "被動元件",
+        "老AI回歸",
+        "軟體股噴發",
+        "業務能力",
+        "資金輪動"
       ],
-      "summary": "<b>EP666 已上線（2026-05-30）</b>。Show notes 為贊助/開場內容，<b>vocus 社群整理約 1-2 天後上線</b>，屆時本卡片會自動補上深度摘要與個股清單。",
-      "stocks": [],
-      "deep": "<h4>狀態</h4><p style=\"color:#fbbf24\">EP666 於 2026-05-30 發布，目前僅 RSS show notes（贊助/開場），尚未取得 vocus 社群整理或逐字稿。<br>下次 auto_update 跑到時若 vocus 已發佈會自動補齊。</p><h4>RSS Link</h4><p><a href=\"https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/fd5d4766-183d-4ed9-8d68-958c50d8e730\" target=\"_blank\" style=\"color:#7dd3fc\">SoundOn 收聽</a></p>",
-      "auto_status": "audio-pending",
-      "auto_generated_at": "2026-05-30T12:14:44+00:00",
-      "audio_url": "https://rss.soundon.fm/rssf/954689a5-3096-43a4-a80b-7810b219cef3/feedurl/fd5d4766-183d-4ed9-8d68-958c50d8e730/rssFileVip.mp3?timestamp=1780125124518"
+      "summary": "本集孟公分享生活放慢後的「內觀」感悟，從吸管、咖啡到下背痛調整，談儀式感如何改善身心。市場方面，<b>被動元件持續強勢</b>，從成本驅動轉為需求驅動漲價，鋁電容、牛角電容缺口達20%以上。<b>老AI族群全面回歸</b>，ODM/EMS、CPU、軟體股全面噴發，陳泰銘成為台灣首富。軟體發布會心得：未來決勝點不在模型本身，而在<b>資料掌握、業務能力與商務能力</b>，可究責性將成企業選擇關鍵。手上九成資金被關處置股，無法動彈。",
+      "stocks": [
+        [
+          "TW",
+          "2327"
+        ],
+        [
+          "TW",
+          "2317"
+        ],
+        [
+          "TW",
+          "2382"
+        ],
+        [
+          "TW",
+          "2308"
+        ],
+        [
+          "TW",
+          "2492"
+        ],
+        [
+          "TW",
+          "6230"
+        ],
+        [
+          "US",
+          "NVDA"
+        ],
+        [
+          "US",
+          "CRM"
+        ],
+        [
+          "US",
+          "NOW"
+        ],
+        [
+          "US",
+          "SNOW"
+        ],
+        [
+          "US",
+          "OKTA"
+        ],
+        [
+          "US",
+          "PLTR"
+        ],
+        [
+          "US",
+          "NET"
+        ],
+        [
+          "US",
+          "CRWD"
+        ],
+        [
+          "US",
+          "GOOGL"
+        ],
+        [
+          "US",
+          "META"
+        ],
+        [
+          "US",
+          "TSLA"
+        ],
+        [
+          "US",
+          "INTC"
+        ],
+        [
+          "US",
+          "TSM"
+        ]
+      ],
+      "deep": "<h4>主軸一：內觀生活與儀式感</h4><ul><li>從開吸管、喝咖啡的細節察覺，過去生活如反射動作，每天只記得在洗澡，缺乏記憶點</li><li>聽眾與「天賺法師」點出這就是<b>內觀/禪修</b>，把生活放慢才能感受美好</li><li>不必裝逼但可借用儀式感：摸熱咖啡杯、認真插吸管，讓每件事有印象</li><li>意外發現下背痛主因是<b>坐太挺</b>，下背肌肉長期緊繃，物理治療師教深呼吸引導氣到下背支撐</li></ul><p style=\"color:#fde047\"><b>「重點不是給你四個數字，而是怎麼樣讓沒有人引導你的時候，你自己也可以把事情做好。」</b></p><h4>主軸二：被動元件從成本驅動轉需求驅動</h4><ul><li>日本被動元件公司全部做壞掉，公司派一兩個月前還認為是成本驅動，現在全面改口</li><li><b>市場派走在公司派前面</b>，因為認識買方（下單者）；公司派只看眼前訂單偏保守</li><li>許多台灣公司派內部人持股很低，甚至在這波出脫，錯過AI大行情</li><li>市場過度關注MLCC，忽略鋁電容（SPCAP、OSCON、牛角電容）<b>全球缺口逾20%</b></li><li>江海MEMO顯示鋁電容後續持續漲價</li></ul><h4>主軸三：老AI族群全面回歸</h4><ul><li>陳泰銘成為台灣首富，鴻海、廣達直接縮漲停</li><li>資金從光通休息後，輪回ODM/OEM/EMS，CPU相關也跟著噴</li><li>承熟製程因台積電釋出Legacy產能也被帶動</li><li>軟體股全面爆射：Salesforce創紀錄buyback、ServiceNow、Snowflake、Okta交出好成績</li><li>Dario與Sam Altman開始修正論述，因AI末日論引發政治反彈與監管壓力</li></ul><p style=\"color:#fde047\"><b>「黃仁勳一直都是對的，AI是來幫大家改善工作效率，會有更多Hiring出現。」</b></p><h4>主軸四：軟體發布會心得—業務能力為王</h4><ul><li>各家模型訓練資料來源類似（公開網路），通用資料邊際效應遞減</li><li><b>掌握封閉式、付費、特有資料</b>者才是真贏家</li><li>Perplexity Comet模式：用戶不在意背後用哪個模型，誰能deliver就贏</li><li>企業端重視<b>可究責性</b>，不會把資料丟給Meta/Google，傾向選擇可負責的SI</li><li>頂尖AI公司開始大量Hire FDE工程師，進入精緻化AI時代</li></ul><h4>主軸五：盤勢與資金狀態</h4><ul><li>九成資金卡在處置股（20分鐘處置），完全動不了</li><li>券商收緊不限用途借款，部位被封控反而避免過度槓桿</li><li>融資增加速度超快，已有人拚命博</li><li>多頭健康，時不時的回檔是壓力測試，避免日後一次大殺</li><li>IGV ETF拉出高Power代表軟體表態</li></ul><h4>📊 提及個股（15 檔）</h4><p style=\"color:#8ea3c0;font-size:11px;margin-bottom:8px\">由 Claude API 自逐字稿分類；whisper 對公司名 homophone 錯誤多，個股代號以模型還原為準，必要時人工二校。</p><div style=\"display:grid;grid-template-columns:1fr;gap:6px;font-size:12px;line-height:1.55\"><div style=\"background:rgba(74,222,128,0.04);border-left:2px solid #4ade80;padding:6px 10px;border-radius:4px\"><b>⚡ 被動元件主軸</b><br><b>2327 國巨</b>　陳泰銘登台灣首富，MLCC龍頭，本波<b>從成本驅動轉需求驅動</b>漲價的核心受惠者<br><b>6230 尼得電（江海代表）</b>　鋁電容江海MEMO揭露<b>全球缺口逾20%</b>，市場過度關注MLCC而忽略此處，是房間裡的大象<br><b>2492 華新科</b>　法說會表示持續擴產，但目前產業仍在<b>需求驅動漲價</b>初期，股價持續噴</div><div style=\"background:rgba(251,191,36,0.04);border-left:2px solid #fbbf24;padding:6px 10px;border-radius:4px\"><b>🔥 老AI硬體回歸</b><br><b>2317 鴻海</b>　資金從光通輪回老AI ODM，禮拜五<b>縮漲停</b>，公司派個人市值與首富距離拉近<br><b>2382 廣達</b>　與鴻海同步縮漲停，老AI ODM代表，資金測出後重新回流<br><b>2308 台達電</b>　老AI族群成員，CPU題材帶動，硬體面全面噴發<br><b>2330 台積電</b>　釋出Legacy產能讓<b>承熟製程</b>跟著動，本來不愛但被資金推上去</div><div style=\"background:rgba(167,139,250,0.04);border-left:2px solid #a78bfa;padding:6px 10px;border-radius:4px\"><b>💻 軟體股回歸</b><br><b>NVDA NVIDIA</b>　黃仁勳「AI幫人不取代人」論述持續正確，<b>AI Hiring會增加</b>非減少<br><b>CRM Salesforce</b>　祭出<b>創紀錄buyback</b>，公司派用行動回擊AI取代軟體的論述<br><b>NOW ServiceNow</b>　老闆強硬反駁AI末日論，公司處於大順風，靠成績證明<br><b>SNOW Snowflake</b>　財報數字<b>跳出去是幀數</b>，從Seat-based轉Token-based受惠AI<br><b>OKTA Okta</b>　開出極好成績，AI為軟體加分而非扣分的證明<br><b>INTC Intel</b>　<b>CPU循環</b>受關注，前面GPU/ASIC熱完後資金流向CPU</div><div style=\"background:rgba(96,165,250,0.04);border-left:2px solid #60a5fa;padding:6px 10px;border-radius:4px\"><b>🎯 業務能力派</b><br><b>GOOGL Google</b>　與黑石合作<b>TPU as a Service</b>，比自家Cloud有搞頭，企業不想把資料放Google<br><b>META Meta</b>　模型出問題<b>找不到人負責</b>，企業端可究責性疑慮高，反襯SI價值</div></div><h4>資料狀態</h4><p style=\"color:#fbbf24\">本摘要由 Claude API 自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。</p>",
+      "calls": [
+        {
+          "ep": 666,
+          "t": "鋁電容缺口",
+          "c": "<b>全球缺口逾20%</b>，江海MEMO顯示產能不足，後續持續漲價發酵",
+          "a": "剛發布",
+          "v": "pending"
+        },
+        {
+          "ep": 666,
+          "t": "老AI回歸",
+          "c": "ODM/EMS/CPU全面噴發，<b>陳泰銘成台灣首富</b>，資金從光通輪回老AI",
+          "a": "剛發布",
+          "v": "pending"
+        },
+        {
+          "ep": 666,
+          "t": "軟體股表態",
+          "c": "IGV ETF拉高Power，Snowflake/Okta財報幀數，<b>資金往軟體跑</b>",
+          "a": "剛發布",
+          "v": "pending"
+        },
+        {
+          "ep": 666,
+          "t": "被動元件首選",
+          "c": "市場過度關注MLCC，<b>鋁電容/牛角電容更缺</b>，是房間裡的大象",
+          "a": "剛發布",
+          "v": "pending"
+        },
+        {
+          "ep": 666,
+          "t": "AI業務能力",
+          "c": "未來決勝在<b>資料掌握與商務能力</b>，非模型強弱，可究責性是關鍵",
+          "a": "剛發布",
+          "v": "pending"
+        },
+        {
+          "ep": 666,
+          "t": "盤勢觀察",
+          "c": "多頭健康，時不時回檔是壓力測試，<b>融資增速快需留意</b>",
+          "a": "剛發布",
+          "v": "pending"
+        }
+      ],
+      "stock_meta": {
+        "TW/2327": {
+          "name": "國巨",
+          "stance": "看好",
+          "note": "陳泰銘成台灣首富，<b>MLCC龍頭</b>持續受惠被動元件漲價",
+          "ep": 666
+        },
+        "TW/2317": {
+          "name": "鴻海",
+          "stance": "看好",
+          "note": "老AI回歸，禮拜五直接<b>縮漲停</b>，ODM代表股",
+          "ep": 666
+        },
+        "TW/2382": {
+          "name": "廣達",
+          "stance": "看好",
+          "note": "與鴻海同步縮漲停，老AI ODM全面噴發",
+          "ep": 666
+        },
+        "TW/2308": {
+          "name": "台達電",
+          "stance": "觀察",
+          "note": "老AI族群之一，資金重新關注硬體",
+          "ep": 666
+        },
+        "TW/2492": {
+          "name": "華新科",
+          "stance": "觀察",
+          "note": "法說會表示持續擴產，被動元件仍噴",
+          "ep": 666
+        },
+        "TW/6230": {
+          "name": "尼得電",
+          "stance": "看好",
+          "note": "鋁電容（SPCAP/OSCON/牛角）<b>全球缺口逾20%</b>",
+          "ep": 666
+        },
+        "US/NVDA": {
+          "name": "NVIDIA",
+          "stance": "看好",
+          "note": "黃仁勳論述一直正確，AI幫提升效率而非取代",
+          "ep": 666
+        },
+        "US/CRM": {
+          "name": "Salesforce",
+          "stance": "看好",
+          "note": "祭出<b>record high buyback</b>，公司派以行動證明",
+          "ep": 666
+        },
+        "US/NOW": {
+          "name": "ServiceNow",
+          "stance": "看好",
+          "note": "老闆反駁AI末日論，公司處於大順風",
+          "ep": 666
+        },
+        "US/SNOW": {
+          "name": "Snowflake",
+          "stance": "看好",
+          "note": "財報數字<b>跳出去是幀數</b>，AI為軟體加分",
+          "ep": 666
+        },
+        "US/OKTA": {
+          "name": "Okta",
+          "stance": "看好",
+          "note": "開出極好成績，軟體股回歸代表之一",
+          "ep": 666
+        },
+        "US/PLTR": {
+          "name": "Palantir",
+          "stance": "提及",
+          "note": "2023-24小循環時從二十幾噴到一百多的代表",
+          "ep": 666
+        },
+        "US/NET": {
+          "name": "Cloudflare",
+          "stance": "提及",
+          "note": "上波軟體股翻倍代表，現在再一輪",
+          "ep": 666
+        },
+        "US/CRWD": {
+          "name": "CrowdStrike",
+          "stance": "提及",
+          "note": "上波軟體噴發代表股",
+          "ep": 666
+        },
+        "US/GOOGL": {
+          "name": "Google",
+          "stance": "觀察",
+          "note": "與黑石合作<b>TPU as a Service</b>，NeoCloud有搞頭",
+          "ep": 666
+        },
+        "US/META": {
+          "name": "Meta",
+          "stance": "觀察",
+          "note": "模型出問題找不到人負責，企業端疑慮高",
+          "ep": 666
+        },
+        "US/TSLA": {
+          "name": "Tesla",
+          "stance": "觀察",
+          "note": "聽眾提問，孟公稱<b>好戲還在後頭</b>",
+          "ep": 666
+        },
+        "US/INTC": {
+          "name": "Intel",
+          "stance": "看好",
+          "note": "前面講過看好<b>CPU循環</b>",
+          "ep": 666
+        },
+        "US/TSM": {
+          "name": "台積電",
+          "stance": "看好",
+          "note": "釋出Legacy產能帶動承熟製程",
+          "ep": 666
+        }
+      },
+      "stocks_groups": [
+        {
+          "tier": "primary",
+          "title": "⚡ 被動元件主軸",
+          "stocks": [
+            {
+              "code": "2327",
+              "mkt": "TW",
+              "name": "國巨",
+              "reason": "陳泰銘登台灣首富，MLCC龍頭，本波<b>從成本驅動轉需求驅動</b>漲價的核心受惠者"
+            },
+            {
+              "code": "6230",
+              "mkt": "TW",
+              "name": "尼得電（江海代表）",
+              "reason": "鋁電容江海MEMO揭露<b>全球缺口逾20%</b>，市場過度關注MLCC而忽略此處，是房間裡的大象"
+            },
+            {
+              "code": "2492",
+              "mkt": "TW",
+              "name": "華新科",
+              "reason": "法說會表示持續擴產，但目前產業仍在<b>需求驅動漲價</b>初期，股價持續噴"
+            }
+          ]
+        },
+        {
+          "tier": "adjacent",
+          "title": "🔥 老AI硬體回歸",
+          "stocks": [
+            {
+              "code": "2317",
+              "mkt": "TW",
+              "name": "鴻海",
+              "reason": "資金從光通輪回老AI ODM，禮拜五<b>縮漲停</b>，公司派個人市值與首富距離拉近"
+            },
+            {
+              "code": "2382",
+              "mkt": "TW",
+              "name": "廣達",
+              "reason": "與鴻海同步縮漲停，老AI ODM代表，資金測出後重新回流"
+            },
+            {
+              "code": "2308",
+              "mkt": "TW",
+              "name": "台達電",
+              "reason": "老AI族群成員，CPU題材帶動，硬體面全面噴發"
+            },
+            {
+              "code": "2330",
+              "mkt": "TW",
+              "name": "台積電",
+              "reason": "釋出Legacy產能讓<b>承熟製程</b>跟著動，本來不愛但被資金推上去"
+            }
+          ]
+        },
+        {
+          "tier": "overseas",
+          "title": "💻 軟體股回歸",
+          "stocks": [
+            {
+              "code": "NVDA",
+              "mkt": "US",
+              "name": "NVIDIA",
+              "reason": "黃仁勳「AI幫人不取代人」論述持續正確，<b>AI Hiring會增加</b>非減少"
+            },
+            {
+              "code": "CRM",
+              "mkt": "US",
+              "name": "Salesforce",
+              "reason": "祭出<b>創紀錄buyback</b>，公司派用行動回擊AI取代軟體的論述"
+            },
+            {
+              "code": "NOW",
+              "mkt": "US",
+              "name": "ServiceNow",
+              "reason": "老闆強硬反駁AI末日論，公司處於大順風，靠成績證明"
+            },
+            {
+              "code": "SNOW",
+              "mkt": "US",
+              "name": "Snowflake",
+              "reason": "財報數字<b>跳出去是幀數</b>，從Seat-based轉Token-based受惠AI"
+            },
+            {
+              "code": "OKTA",
+              "mkt": "US",
+              "name": "Okta",
+              "reason": "開出極好成績，AI為軟體加分而非扣分的證明"
+            },
+            {
+              "code": "INTC",
+              "mkt": "US",
+              "name": "Intel",
+              "reason": "<b>CPU循環</b>受關注，前面GPU/ASIC熱完後資金流向CPU"
+            }
+          ]
+        },
+        {
+          "tier": "defensive",
+          "title": "🎯 業務能力派",
+          "stocks": [
+            {
+              "code": "GOOGL",
+              "mkt": "US",
+              "name": "Google",
+              "reason": "與黑石合作<b>TPU as a Service</b>，比自家Cloud有搞頭，企業不想把資料放Google"
+            },
+            {
+              "code": "META",
+              "mkt": "US",
+              "name": "Meta",
+              "reason": "模型出問題<b>找不到人負責</b>，企業端可究責性疑慮高，反襯SI價值"
+            }
+          ]
+        }
+      ],
+      "auto_status": "audio+llm",
+      "auto_generated_at": "2026-05-30T15:38:46+00:00",
+      "transcript_chars": 24873
     }
   },
   "schema": 1,
-  "updated_at": "2026-05-30T20:14:44+08:00"
+  "updated_at": "2026-05-30T23:38:46+08:00"
 }
