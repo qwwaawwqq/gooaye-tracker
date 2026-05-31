@@ -2,5 +2,5 @@
 # Episode transcription (faster-whisper) runs in a separate native venv
 # (~/.venvs/whisper) — NOT here. See whisper_cli.py.
 anthropic==0.74.1
-yfinance==0.2.65
+yfinance==1.4.1
 pandas==2.2.3
