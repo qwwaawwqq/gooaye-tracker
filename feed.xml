@@ -6,7 +6,7 @@
 <atom:link href="https://qwwaawwqq.github.io/gooaye-tracker/feed.xml" rel="self" type="application/rss+xml"/>
 <description>投資 call 追蹤驗證 + 解題清單</description>
 <language>zh-tw</language>
-<lastBuildDate>Sun, 31 May 2026 02:06:08 +0000</lastBuildDate>
+<lastBuildDate>Sun, 31 May 2026 10:19:43 +0000</lastBuildDate>
 <item>
 <title>EP666 | 🍐</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#ep666</link>
@@ -58,54 +58,6 @@
 <category>hit</category>
 </item>
 <item>
-<title>EP661 2375 凱美 → partial ⚠️ (+73.4%)</title>
-<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2375</link>
-<guid isPermaLink="false">5f004ace727893618cffa96b344ebf4a</guid>
-<pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;鋁電容鏈&lt;/b&gt; · +73.4% over 16d · 自 EP661</description>
-<category>partial</category>
-</item>
-<item>
-<title>EP661 8261 富鼎 → partial ⚠️ (+37.1%)</title>
-<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-8261</link>
-<guid isPermaLink="false">5a548b41633b49cb1c603803e02745b5</guid>
-<pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;Power IC&lt;/b&gt; · +37.1% over 16d · 自 EP661</description>
-<category>partial</category>
-</item>
-<item>
-<title>EP661 VPG Vishay Precision → partial ⚠️ (+25.8%)</title>
-<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-VPG</link>
-<guid isPermaLink="false">8bd399008da48a996f7445cf8066f37d</guid>
-<pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;被動元件鏈&lt;/b&gt; · +25.8% over 16d · 自 EP661</description>
-<category>partial</category>
-</item>
-<item>
-<title>EP661 3037 欣興 → partial ⚠️ (+18.3%)</title>
-<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-3037</link>
-<guid isPermaLink="false">56d1dbb6b6b528da6b6df82a30c20f25</guid>
-<pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;PCB/載板&lt;/b&gt; · +18.3% over 16d · 自 EP661</description>
-<category>partial</category>
-</item>
-<item>
-<title>EP661 6285 啟碁 → partial ⚠️ (+17.9%)</title>
-<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-6285</link>
-<guid isPermaLink="false">953d2651b035086528afe3a16aad60c2</guid>
-<pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;網通/光通&lt;/b&gt; · +17.9% over 16d · 自 EP661</description>
-<category>partial</category>
-</item>
-<item>
-<title>EP661 QCOM Qualcomm → partial ⚠️ (+17.8%)</title>
-<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-QCOM</link>
-<guid isPermaLink="false">64fd3c9d0eb5e5c0aafb5d86f3372d2a</guid>
-<pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;AI infra&lt;/b&gt; · +17.8% over 16d · 自 EP661</description>
-<category>partial</category>
-</item>
-<item>
 <title>EP661 2308 台達電 → partial ⚠️ (+12.9%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2308</link>
 <guid isPermaLink="false">c55e30866136bbb244d48c9a8dd8dff8</guid>
@@ -120,14 +72,6 @@
 <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
 <description>&lt;b&gt;抗 AI&lt;/b&gt; · +55.8% over 25d · 自 EP658</description>
 <category>hit</category>
-</item>
-<item>
-<title>EP658 TEAM Atlassian → partial ⚠️ (+15.5%)</title>
-<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-TEAM</link>
-<guid isPermaLink="false">ac14e32fa4590941667233ded7287409</guid>
-<pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;被誤殺反指標&lt;/b&gt; · +15.5% over 25d · 自 EP658</description>
-<category>partial</category>
 </item>
 <item>
 <title>EP658 NET Cloudflare → partial ⚠️ (+7.9%)</title>
@@ -154,6 +98,22 @@
 <category>partial</category>
 </item>
 <item>
+<title>EP658 CRM Salesforce → partial ⚠️ (+3.0%)</title>
+<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-CRM</link>
+<guid isPermaLink="false">4c2e9fce32e5c5aa4613da2dbcde3718</guid>
+<pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
+<description>&lt;b&gt;中性&lt;/b&gt; · +3.0% over 25d · 自 EP658</description>
+<category>partial</category>
+</item>
+<item>
+<title>EP658 ADBE Adobe → partial ⚠️ (+2.1%)</title>
+<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-ADBE</link>
+<guid isPermaLink="false">1e054b14775192fd40591fb1e65f7ecf</guid>
+<pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
+<description>&lt;b&gt;估值打壓&lt;/b&gt; · +2.1% over 25d · 自 EP658</description>
+<category>partial</category>
+</item>
+<item>
 <title>EP657 6531 愛普 → hit ✅ (+45.1%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-6531</link>
 <guid isPermaLink="false">e379065f57ee9efefb6e54d3ec13b10f</guid>
@@ -162,12 +122,20 @@
 <category>hit</category>
 </item>
 <item>
-<title>EP657 META Meta → partial ⚠️ (-5.5%)</title>
+<title>EP657 2337 旺宏 → partial ⚠️ (-0.3%)</title>
+<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2337</link>
+<guid isPermaLink="false">a979bbd404ba2cc4a5b9bb01b06c3e0e</guid>
+<pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
+<description>&lt;b&gt;看好&lt;/b&gt; · -0.3% over 30d · 自 EP657</description>
+<category>partial</category>
+</item>
+<item>
+<title>EP657 META Meta → miss ❌ (-5.5%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-META</link>
-<guid isPermaLink="false">451a7be80039084a57e531ffa6d91256</guid>
+<guid isPermaLink="false">f9ecf83ac558f0d8d029fccc8d024c63</guid>
 <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
 <description>&lt;b&gt;CPU 大客戶&lt;/b&gt; · -5.5% over 30d · 自 EP657</description>
-<category>partial</category>
+<category>miss</category>
 </item>
 <item>
 <title>EP656 AVGO Broadcom → partial ⚠️ (+6.8%)</title>
