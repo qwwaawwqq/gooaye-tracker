@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parent
 EPS_AUTO = ROOT / "_episodes_auto.json"
 
 # Built-in factual mapping of common 股癌 stock names → {mkt, code}
+# Market-aware: TW names → TW/code; US names → US/ticker. NEVER use US/TSM for 台積電.
 COMMON_STOCKS = {
     "台積電": {"mkt": "tw", "code": "2330"},
     "國巨": {"mkt": "tw", "code": "2327"},
@@ -64,6 +65,12 @@ COMMON_STOCKS = {
     "CRM": {"mkt": "us", "code": "CRM"},
 }
 
+# Skip list: private/unlisted companies, thematic macros, or ambiguous multi-stock calls.
+# Never resolve these names to tickers, even if they appear in text.
+SKIP_NAMES = {
+    "SpaceX",  # Private/unlisted; will IPO but should not resolve until public confirmation.
+}
+
 
 def build_mapping_from_stock_meta(eps_data: dict) -> dict:
     """Extract {name → {mkt, code}} from episode stock_meta blocks."""
@@ -82,11 +89,17 @@ def build_mapping_from_stock_meta(eps_data: dict) -> dict:
 
 
 def resolve_ticker_in_text(text: str, all_mappings: dict) -> dict | None:
-    """Scan text for known stock names, return first match as {mkt, code} or None."""
+    """Scan text for known stock names, return first match as {mkt, code} or None.
+    
+    Skips names in SKIP_NAMES (unlisted/private/thematic). Returns None if no unambiguous match.
+    """
     if not text:
         return None
     text_lower = text.lower()
     for name, ticker in all_mappings.items():
+        # Skip if name is in the exclusion list (unlisted, private, etc.)
+        if name in SKIP_NAMES:
+            continue
         name_lower = name.lower()
         # Check if name appears as whole word (not substring)
         if re.search(r"\b" + re.escape(name_lower) + r"\b", text_lower):
@@ -106,9 +119,21 @@ def backfill_tickers() -> int:
         print(f"[error] failed to parse {EPS_AUTO.name}: {e}")
         return 0
 
-    # Build full mapping: built-in + episode stock_meta
+    # Build full mapping: built-in + episode stock_meta, filtering out broken entries
     mapping = dict(COMMON_STOCKS)
-    mapping.update(build_mapping_from_stock_meta(eps_data))
+    stock_meta_map = build_mapping_from_stock_meta(eps_data)
+    
+    # Filter out broken entries: US/TSM for 台積電, US/SPACEX, etc.
+    for name, ticker in stock_meta_map.items():
+        # Reject: 台積電 with US market (should always be TW/2330)
+        if name == "台積電" and ticker.get("mkt") == "us":
+            print(f"  [skip] rejecting broken entry: {name} → US/{ticker.get('code')} (should be TW/2330)")
+            continue
+        # Reject: names in skip list (unlisted/private)
+        if name in SKIP_NAMES:
+            print(f"  [skip] rejecting unlisted/private: {name}")
+            continue
+        mapping[name] = ticker
 
     resolved = 0
     for ep_str, ep_obj in (eps_data.get("episodes") or {}).items():
@@ -126,7 +151,8 @@ def backfill_tickers() -> int:
             if ticker:
                 call["ticker"] = ticker
                 resolved += 1
-                print(f"  EP{call.get('ep')} '{t[:40]}...' → {ticker['mkt'].upper()}/{ticker['code']}")
+                mkt_upper = ticker['mkt'].upper() if ticker['mkt'] == 'tw' else ticker['mkt']
+                print(f"  EP{call.get('ep')} '{t[:40]}...' → {mkt_upper}/{ticker['code']}")
 
     # Write back atomically
     if resolved > 0:
