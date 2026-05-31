@@ -949,6 +949,37 @@ def main() -> int:
         eps_done = sorted(int(e.get("ep") or 0) for e in new_entries if e.get("ep"))
         msg = f"auto: ingest EP{eps_done[-1]}" if eps_done else "auto: update episodes"
         git_commit_and_push([OUT_FILE], msg)
+        
+        # Regenerate episode-dependent outputs after successful push
+        print("  [gen] regenerating SEO pages + feeds + search index...")
+        try:
+            gen_result = subprocess.run(
+                ["bash", str(ROOT / "gen_all.sh")],
+                capture_output=True, text=True, timeout=300, cwd=str(ROOT)
+            )
+            if gen_result.returncode == 0:
+                # Commit the regenerated outputs
+                outputs = [
+                    ROOT / "_search_index.json",
+                    ROOT / "feed.xml",
+                    ROOT / "feed.json",
+                    ROOT / "sitemap.xml",
+                    ROOT / "robots.txt",
+                ]
+                # Also capture ep/ and stock/ dirs if they exist
+                ep_dir = ROOT / "ep"
+                stock_dir = ROOT / "stock"
+                if ep_dir.exists():
+                    outputs.extend(ep_dir.glob("*.html"))
+                if stock_dir.exists():
+                    outputs.extend(stock_dir.glob("*.html"))
+                git_commit_and_push(outputs, "auto: regenerate SEO pages + feeds")
+                print("  [gen] outputs committed.")
+            else:
+                print(f"  [gen] warning: gen_all.sh failed rc={gen_result.returncode}")
+                print(f"  [gen] stderr: {gen_result.stderr[-500:]}")
+        except Exception as e:
+            print(f"  [gen] best-effort regeneration failed (non-blocking): {e}")
     
     # Record successful run
     if degraded:

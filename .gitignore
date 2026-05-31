@@ -9,12 +9,4 @@ __pycache__/
 sim_launchd.py
 # Pipeline health record (runtime state, like _state.json)
 _pipeline_health.json
-# Generated build outputs (produced by gen_*.py; not wired into the live pipeline yet).
-# Commit the generators (gen_*.py), not their output, until the pipeline regenerates them.
-/ep/
-/stock/
-feed.xml
-feed.json
-sitemap.xml
-robots.txt
-_search_index.json
+

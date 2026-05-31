@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://qwwaawwqq.github.io/gooaye-tracker/sitemap.xml
+Disallow: /*.json$

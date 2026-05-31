@@ -15,7 +15,10 @@ python3 gen_static.py
 echo "[2/2] gen_search_index.py (search index)..."
 python3 gen_search_index.py
 
+echo "[3/3] gen_feed.py (RSS + JSON feeds)..."
+python3 gen_feed.py
+
 echo ""
 echo "[gen_all.sh] ✓ All generators completed."
-echo "  Generated: /ep/*.html, /stock/*.html, sitemap.xml, robots.txt, _search_index.json"
+echo "  Generated: /ep/*.html, /stock/*.html, sitemap.xml, robots.txt, _search_index.json, feed.xml, feed.json"
 echo "  Next step: Add search JS to index.html settings pane + commit changes"

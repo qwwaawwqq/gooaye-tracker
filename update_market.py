@@ -203,6 +203,53 @@ def rank_top_and_misses(perf_map: dict, stocks: dict) -> dict:
     return {"top_hits": top_hits, "misses": misses, "flat": flat_warnings}
 
 
+def load_call_tickers_from_episodes() -> list[dict] | None:
+    """Load resolved call tickers from _episodes_auto.json. Returns list of {mkt, code, ep, t} or None."""
+    if not EPS_AUTO.exists():
+        return None
+    try:
+        eps_data = json.loads(EPS_AUTO.read_text())
+        call_tickers = []
+        for ep_str, ep_obj in (eps_data.get("episodes") or {}).items():
+            for call in (ep_obj.get("calls") or []):
+                if call.get("ticker") and isinstance(call["ticker"], dict):
+                    ticker_obj = call["ticker"]
+                    if ticker_obj.get("mkt") and ticker_obj.get("code"):
+                        call_tickers.append({
+                            "mkt": ticker_obj["mkt"],
+                            "code": ticker_obj["code"],
+                            "ep": call.get("ep"),
+                            "t": call.get("t"),
+                        })
+        return call_tickers if call_tickers else None
+    except Exception:
+        return None
+
+
+def grade_call_tickers(call_tickers: list[dict], eps_dates: dict) -> dict:
+    """Grade per-call tickers using fetch_perf + verdict_from. Returns {code: perf} map."""
+    perf_map = {}
+    for ct in call_tickers:
+        code = ct["code"]
+        mkt = ct["mkt"]
+        ep = ct["ep"]
+        start_date = eps_dates.get(ep) if ep else None
+        if not start_date:
+            continue
+        if code in perf_map:  # already graded this code
+            continue
+        symbol = yf_symbol(code, mkt)
+        perf = fetch_perf(symbol, start_date)
+        if perf is None:
+            print(f"  [call:{code}] no price data ({symbol} since {start_date})")
+            continue
+        perf["verdict"] = verdict_from("", perf["change_pct"], perf["days_elapsed"])  # calls don't have stance; use neutral
+        perf_map[code] = perf
+        print(f"  [call:{code}] {symbol} since {start_date}: "
+              f"{perf['start_close']} → {perf['end_close']} = {perf['change_pct']:+.2f}% [{perf['verdict']}]")
+    return perf_map
+
+
 def build_validation_summary(perf_map: dict, stocks: dict) -> dict:
     """Per-stock prediction-vs-actual rows + aggregate stats."""
     rows: list[dict] = []
@@ -366,6 +413,17 @@ def main() -> int:
         print(f"  [{code}] {symbol} since {start_date}: "
               f"{perf['start_close']} → {perf['end_close']} = {perf['change_pct']:+.2f}% [{perf['verdict']}]")
 
+    # Grade per-call tickers (additive, deduped vs STOCKS)
+    call_tickers = load_call_tickers_from_episodes()
+    call_perf_map = {}
+    if call_tickers:
+        call_perf_map = grade_call_tickers(call_tickers, eps_dates)
+        print(f"  [calls] graded {len(call_perf_map)} unique call tickers")
+        # Merge: call-derived rows go into perf_map, dedupe by code (STOCKS takes priority)
+        for code, perf in call_perf_map.items():
+            if code not in perf_map:  # don't override STOCKS-derived perf
+                perf_map[code] = perf
+    
     rankings = rank_top_and_misses(perf_map, stocks)
     validation = build_validation_summary(perf_map, stocks)
     eps_data = json.loads(EPS_AUTO.read_text()) if EPS_AUTO.exists() else {"episodes": {}}
