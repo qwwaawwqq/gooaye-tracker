@@ -36,3 +36,15 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python update_market.py --push
+
+      - name: Regenerate SEO pages + feeds + search index
+        run: bash gen_all.sh
+
+      - name: Commit + push regenerated outputs
+        run: |
+          git add ep stock feed.xml feed.json sitemap.xml robots.txt _search_index.json
+          git diff --cached --quiet || {
+            git pull --rebase origin main || true
+            git commit -m "auto: regenerate SEO pages + feeds + search index"
+            git push
+          }
