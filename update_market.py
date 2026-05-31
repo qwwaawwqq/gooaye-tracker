@@ -23,6 +23,11 @@ from pathlib import Path
 
 warnings.filterwarnings("ignore")
 
+# Unified stance→direction mapping used by verdict_from() and rank_top_and_misses()
+POS_STANCES = ("看好", "啟動", "受惠", "轉強", "抗 AI", "中性", "CPU 大客戶",
+               "CPU+ASIC", "底氣足", "近期屌噴", "被動元件主角", "Power 鏈延伸")
+NEG_STANCES = ("預期打滿", "減碼", "看淡", "估值打壓", "退出")
+
 ROOT = Path(__file__).resolve().parent
 INDEX_HTML = ROOT / "index.html"
 EPS_AUTO = ROOT / "_episodes_auto.json"
@@ -129,21 +134,46 @@ def fetch_perf(symbol: str, start_date: str) -> dict | None:
     }
 
 
-def verdict_from(stance: str, change_pct: float) -> str:
-    pos_stances = ("看好", "啟動", "受惠", "轉強", "抗 AI", "中性", "CPU 大客戶",
-                   "CPU+ASIC", "底氣足", "近期屌噴", "被動元件主角", "Power 鏈延伸")
-    neg_stances = ("預期打滿", "減碼", "看淡", "估值打壓", "退出")
-    is_pos = any(p in stance for p in pos_stances)
-    is_neg = any(n in stance for n in neg_stances)
-    if change_pct >= 15:
-        return "hit" if is_pos else ("miss" if is_neg else "partial")
-    if change_pct >= 5:
-        return "partial" if is_pos else ("partial" if is_neg else "pending")
-    if change_pct <= -10:
-        return "miss" if is_pos else ("hit" if is_neg else "partial")
-    if -5 <= change_pct <= 5:
-        return "pending"
-    return "partial"
+def verdict_from(stance: str, change_pct: float, days_elapsed: int = 0) -> str:
+    """Grade a call stance vs actual price change.
+    
+    cred-4: Make 'miss' reachable for positive stances. Conservative thresholds:
+      - Hit: +15% (clear win) or any negative-stance call down >10%
+      - Miss: positive stance ≤-10% (anytime) OR ≤-3% after >=20 days (allows recovery)
+      - Partial: -10% < change < +5% (mixed outcomes)
+      - Pending: -5% ≤ change ≤ +5% (unresolved, <10 days old)
+    """
+    is_pos = any(p in stance for p in POS_STANCES)
+    is_neg = any(n in stance for n in NEG_STANCES)
+    
+    # Positive-stance call: hit on strong gain, miss on flat-to-down
+    if is_pos:
+        if change_pct >= 15:
+            return "hit"
+        elif change_pct <= -10:  # cred-4: miss threshold — anytime
+            return "miss"
+        elif change_pct <= -3 and days_elapsed >= 20:  # cred-4: miss after 3+ weeks flat-to-down
+            return "miss"
+        elif change_pct >= 5:
+            return "partial"
+        elif -5 <= change_pct <= 5 and days_elapsed < 10:
+            return "pending"  # cred-5: tag very recent as unrealized
+        else:
+            return "partial"
+    
+    # Negative-stance call: hit on loss, miss on gain
+    if is_neg:
+        if change_pct <= -10:
+            return "hit"
+        elif change_pct >= 15:
+            return "miss"
+        elif change_pct >= 5:
+            return "partial"
+        else:
+            return "partial"
+    
+    # Unmatched stance (neither pos nor neg matched)
+    return "pending"
 
 
 def rank_top_and_misses(perf_map: dict, stocks: dict) -> dict:
@@ -160,7 +190,7 @@ def rank_top_and_misses(perf_map: dict, stocks: dict) -> dict:
             "end_close": perf.get("end_close"),
         })
 
-    pos_stance = lambda s: any(p in s for p in ("看好", "啟動", "受惠", "轉強", "抗 AI", "底氣足", "新進", "被動元件"))
+    pos_stance = lambda s: any(p in s for p in POS_STANCES)  # unified from module constant (cred-6/dp-corr-3)
     top_hits = sorted(
         [r for r in rows if pos_stance(r["stance"]) and r["change_pct"] is not None],
         key=lambda r: r["change_pct"], reverse=True,
@@ -277,6 +307,21 @@ def git_commit_push(file: Path, msg: str) -> None:
         if not status.stdout.strip():
             print("  [git] no changes")
             return
+        
+        # dp-rel-3: Rebase before push (mirrors auto_update.py:push_if_ahead)
+        fetch = subprocess.run(["git", "-C", str(ROOT), "fetch", "origin", "main"], 
+                               capture_output=True, text=True)
+        if fetch.returncode != 0:
+            print(f"  [git] fetch failed: {fetch.stderr[-300:]}")
+            return
+        
+        rebase = subprocess.run(["git", "-C", str(ROOT), "pull", "--rebase", "origin", "main"],
+                                capture_output=True, text=True)
+        if rebase.returncode != 0:
+            print(f"  [git] rebase conflict — aborting: {rebase.stderr[-300:]}")
+            subprocess.run(["git", "-C", str(ROOT), "rebase", "--abort"], capture_output=True)
+            return
+        
         subprocess.run(["git", "-C", str(ROOT), "add", str(file.relative_to(ROOT))], check=True)
         subprocess.run(["git", "-C", str(ROOT), "commit", "-m", msg], check=True)
         push = subprocess.run(["git", "-C", str(ROOT), "push"], capture_output=True, text=True)
@@ -316,7 +361,7 @@ def main() -> int:
         if perf is None:
             print(f"  [{code}] no price data ({symbol} since {start_date})")
             continue
-        perf["verdict"] = verdict_from(meta["stance"], perf["change_pct"])
+        perf["verdict"] = verdict_from(meta["stance"], perf["change_pct"], perf["days_elapsed"])
         perf_map[code] = perf
         print(f"  [{code}] {symbol} since {start_date}: "
               f"{perf['start_close']} → {perf['end_close']} = {perf['change_pct']:+.2f}% [{perf['verdict']}]")
@@ -330,8 +375,12 @@ def main() -> int:
         actions = synthesize_actions(rankings, eps_data, os.environ["ANTHROPIC_API_KEY"])
         if actions: print(f"  [actions] {len(actions)} cards synthesized")
 
+    # dp-corr-4: surface data_end_date (max trading date in perf_map) for frontend freshness badge
+    data_end_date = max((perf.get("end_date") for perf in perf_map.values() if perf), default=None)
+    
     out = {
         "updated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        "data_end_date": data_end_date,  # pairs with index.html freshness badge; shows true price age
         "perf": perf_map,
         "rankings": rankings,
         "validation": validation,

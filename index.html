@@ -5,10 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gooaye 股癌 · 預測追蹤</title>
 <meta name="description" content="Gooaye 股癌 podcast 預測追蹤與命中率回測，整理各集個股、權重與走勢驗證。">
-<link rel="icon" href="data:,">
+<meta property="og:title" content="Gooaye 股癌 · 追蹤個股 call 的真實結果">
+<meta property="og:description" content="追蹤股癌每一檔個股 call 的真實結果。整理謝孟恭歷集點名個股、命中率驗證與走勢分析。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qwwaawwqq.github.io/gooaye-tracker/">
+<meta property="og:image" content="https://qwwaawwqq.github.io/gooaye-tracker/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://qwwaawwqq.github.io/gooaye-tracker/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' text-anchor='middle' x='50'>📊</text></svg>">
+<meta name="theme-color" content="#0d1117">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" media="print" onload="this.media='all'">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scrollbar-gutter: stable; overflow-y: scroll; }
@@ -90,8 +99,11 @@
     font-weight: 700;
     margin-bottom: 14px;
   }
-  .eyebrow .dot { width:6px; height:6px; border-radius:50%; background:#4ade80; animation:pulse 2s infinite }
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+  @media (prefers-reduced-motion: no-preference) {
+    .eyebrow .dot { animation:pulse 2s infinite }
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+  }
+  .eyebrow .dot { width:6px; height:6px; border-radius:50%; background:#4ade80; }
   .hero h1 {
     font-size: 26px;
     line-height: 1.2;
@@ -165,8 +177,11 @@
     line-height: 1.7;
     display: none;
   }
-  .notice.show { display: block; animation: slideIn 0.3s ease; }
-  @keyframes slideIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
+  @media (prefers-reduced-motion: no-preference) {
+    .notice.show { animation: slideIn 0.3s ease; }
+    @keyframes slideIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
+  }
+  .notice.show { display: block; }
   .notice b { color: #fde047; }
 
   /* ========== TOOLBAR ========== */
@@ -329,7 +344,10 @@
     line-height: 1.7;
     color: #cbd5e1;
   }
-  .ep-detail.show { display: block; animation: slideIn 0.25s ease; }
+  @media (prefers-reduced-motion: no-preference) {
+    .ep-detail.show { animation: slideIn 0.25s ease; }
+  }
+  .ep-detail.show { display: block; }
   .ep-detail h4 { color: #fde047; font-size: 12px; margin: 8px 0 4px; font-weight: 700; }
   .ep-detail b { color: #fbbf24; }
 
@@ -361,15 +379,20 @@
 </head>
 <body>
 
-<nav class="top">
-  <button class="tab" data-pane="highlight" type="button">🔥 精華</button>
-  <button class="tab active" data-pane="overview" type="button">📊 總覽</button>
-  <button class="tab" data-pane="watchlist" type="button">🎯 推薦個股</button>
-  <button class="tab" data-pane="stocks" type="button">💹 個股</button>
-  <button class="tab" data-pane="calls" type="button">📋 驗證</button>
-  <button class="tab" data-pane="backtest100" type="button">🕐 660 集驗證</button>
-  <button class="tab" data-pane="episodes" type="button">🎙 集數</button>
-  <button class="tab" data-pane="settings" type="button">⚙️ 設定</button>
+<div style="background:rgba(251,113,133,0.08);border-bottom:1px solid rgba(251,113,133,0.2);padding:8px 16px;text-align:center;font-size:11px;color:#fde047;line-height:1.6;position:relative">
+  <span>⚠️ <b>非投資建議</b> · 本站為獨立追蹤專案，與股癌/謝孟恭無任何隸屬關係。內容整理自公開節目，僅供記錄與研究。</span>
+  <button style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fde047;cursor:pointer;font-size:14px;padding:0" onclick="this.parentElement.style.display='none'" title="關閉">✕</button>
+</div>
+
+<nav class="top" role="tablist">
+  <button class="tab" data-pane="highlight" type="button" role="tab" aria-selected="false">🔥 精華</button>
+  <button class="tab active" data-pane="overview" type="button" role="tab" aria-selected="true">📊 總覽</button>
+  <button class="tab" data-pane="watchlist" type="button" role="tab" aria-selected="false">🎯 推薦個股</button>
+  <button class="tab" data-pane="stocks" type="button" role="tab" aria-selected="false">💹 個股</button>
+  <button class="tab" data-pane="calls" type="button" role="tab" aria-selected="false">📋 驗證</button>
+  <button class="tab" data-pane="backtest100" type="button" role="tab" aria-selected="false">🕐 660 集驗證</button>
+  <button class="tab" data-pane="episodes" type="button" role="tab" aria-selected="false">🎙 集數</button>
+  <button class="tab" data-pane="settings" type="button" role="tab" aria-selected="false">⚙️ 設定</button>
 </nav>
 
 <div class="page">
@@ -402,9 +425,9 @@
 
 <!-- ========== KPI ========== -->
 <div class="summary-grid">
-  <div class="summary-card"><span class="label">命中率</span><span class="value green">73%</span></div>
-  <div class="summary-card"><span class="label">命中 / 失準</span><span class="value">17 / 2</span></div>
-  <div class="summary-card"><span class="label">總 call 數</span><span class="value amber">23</span></div>
+  <div class="summary-card"><span class="label">命中率</span><span class="value green" id="kpiHitRate">73%</span></div>
+  <div class="summary-card"><span class="label">命中 / 失準</span><span class="value" id="kpiHitMiss">17 / 2</span></div>
+  <div class="summary-card"><span class="label">總 call 數</span><span class="value amber" id="kpiTotal">23</span></div>
 </div>
 
 <div class="notice" id="alert">
@@ -1309,6 +1332,12 @@ const PROXIES = [
   { name:'cors.lol',     url: u=>`https://api.cors.lol/?url=${encodeURIComponent(u)}`,                              type:'xml' },
   { name:'thingproxy',   url: u=>`https://thingproxy.freeboard.io/fetch/${u}`,                                      type:'xml' },
 ];
+
+// Escape HTML special characters to prevent XSS
+function escapeHtml(s){
+  return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
 const LS_KEY = 'gooaye_chengwaye_read';
 const LS_NOTIFY = 'gooaye_chengwaye_notify';
 const LS_CACHE = 'gooaye_rss_cache_v1';
@@ -1531,6 +1560,19 @@ function updateHeaderDates(){
   });
 }
 
+// Update hero KPI cards (命中率 / 命中失準 / 總call數) from _market_auto.json validation data
+// Ensures hero metrics always agree with the 驗證 table below
+function updateKpiCards(data) {
+  if (!data || !data.validation) return;
+  const v = data.validation;
+  const hitRateEl = document.getElementById('kpiHitRate');
+  const hitMissEl = document.getElementById('kpiHitMiss');
+  const totalEl = document.getElementById('kpiTotal');
+  if (hitRateEl) hitRateEl.textContent = `${v.hit_rate_pct}%`;
+  if (hitMissEl) hitMissEl.textContent = `${v.counts.hit} / ${v.counts.miss}`;
+  if (totalEl) totalEl.textContent = `${v.total}`;
+}
+
 // Rebuild the "🔥 最新 5 集精華" cards from EPISODES dict so any new episode
 // added (inline or via _episodes_auto.json) shows up automatically.
 function rebuildHighlightCards(){
@@ -1549,8 +1591,8 @@ function rebuildHighlightCards(){
     const col = COLOR[v] || COLOR.pending;
     const lbl = TAG[v] || v.toUpperCase();
     const md = (e.date || '').slice(5).replace('-', '/');
-    const cleanTitle = (e.title || '').replace(/^EP\d+\s*\|\s*/, '');
-    const oneLine = (e.summary || '').replace(/<[^>]+>/g, '').slice(0, 140);
+    const cleanTitle = escapeHtml((e.title || '').replace(/^EP\d+\s*\|\s*/, ''));
+    const oneLine = escapeHtml((e.summary || '').replace(/<[^>]+>/g, '').slice(0, 140));
     return `<div style="background:linear-gradient(90deg,rgba(${v==='hit'?'74,222,128':'148,163,184'},0.06),rgba(9,14,29,0.84));border:1px solid #1f2d47;border-left:3px solid ${col};border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:center">
       <div>
         <div style="font-size:18px;font-weight:800;color:#bae6fd;font-family:'JetBrains Mono',monospace">${e.ep}</div>
@@ -1595,6 +1637,7 @@ async function loadMarketAuto(){
     rebuildTop5Panel(data);
     rebuildAutoActionCards(data);
     rebuildValidationTable(data);
+    updateKpiCards(data);
     updateAutoHealth({ market: data.updated_at });
     // Also overlay perf into STOCKS for renderStocks
     if (data.perf && typeof data.perf === 'object'){
@@ -1645,15 +1688,15 @@ function rebuildTop5Panel(data){
   const fmtPct = (p) => `${p >= 0 ? '+' : ''}${p.toFixed(1)}%`;
   const hitRow = (r, last) => `<div style="padding:8px 0${last ? '' : ';border-bottom:1px solid #1f2d47'}">
     <div style="display:flex;justify-content:space-between;align-items:baseline">
-      <span style="font-size:13px;font-weight:700;color:#e6edf3">${r.name} <span style="color:#8ea3c0;font-weight:400;font-family:'JetBrains Mono',monospace;font-size:11px">${r.code}</span></span>
+      <span style="font-size:13px;font-weight:700;color:#e6edf3">${escapeHtml(r.name)} <span style="color:#8ea3c0;font-weight:400;font-family:'JetBrains Mono',monospace;font-size:11px">${escapeHtml(r.code)}</span></span>
       <span class="delta ${r.change_pct >= 0 ? 'pos' : 'neg'}" style="font-size:14px">${fmtPct(r.change_pct)}</span>
     </div>
-    <div style="font-size:10px;color:#6f84a1;margin-top:2px">${r.stance || '—'} · 自 EP${r.first_ep} (${r.start_date || '?'})</div>
+    <div style="font-size:10px;color:#6f84a1;margin-top:2px">${escapeHtml(r.stance || '—')} · 自 EP${r.first_ep} (${escapeHtml(r.start_date || '?')})</div>
   </div>`;
-  const missLine = (r) => `<div style="font-size:11px;color:#fde047;margin-top:4px;line-height:1.5">${r.name} <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#fb7185">${r.code}</span> <b style="color:#fb7185">${fmtPct(r.change_pct)}</b>（自 EP${r.first_ep}，${r.stance || ''}）</div>`;
+  const missLine = (r) => `<div style="font-size:11px;color:#fde047;margin-top:4px;line-height:1.5">${escapeHtml(r.name)} <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#fb7185">${escapeHtml(r.code)}</span> <b style="color:#fb7185">${fmtPct(r.change_pct)}</b>（自 EP${r.first_ep}，${escapeHtml(r.stance || '')}）</div>`;
   host.innerHTML = `
     <div style="color:#fbbf24;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px">⭐ Top 5 命中</div>
-    <div style="font-size:9px;color:#6f84a1;margin-bottom:8px">每日盤後自動更新 · ${updated}</div>
+    <div style="font-size:9px;color:#6f84a1;margin-bottom:8px">每日盤後自動更新 · ${data.data_end_date ? `資料截至 ${data.data_end_date}` : `更新於 ${updated}`}</div>
     ${top_hits.slice(0, 5).map((r, i) => hitRow(r, i === Math.min(4, top_hits.length - 1))).join('')}
     ${misses.length ? `<div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:6px;padding:8px 10px;margin-top:10px">
       <div style="font-size:10px;color:#fbbf24;font-weight:700;text-transform:uppercase;letter-spacing:.5px">⚠️ 失準項（自動偵測）</div>
@@ -1675,7 +1718,7 @@ function rebuildValidationTable(data){
   if (statsHost){
     const c = v.counts || {};
     const cell = (label, value, color) => `<div style="background:rgba(9,14,29,0.84);border:1px solid #1f2d47;border-radius:8px;padding:10px 12px">
-      <div style="font-size:10px;color:#6f84a1;letter-spacing:.5px;text-transform:uppercase;font-weight:700">${label}</div>
+      <div style="font-size:10px;color:#6f84a1;letter-spacing:.5px;text-transform:uppercase;font-weight:700">${escapeHtml(label)}</div>
       <div style="font-size:18px;font-weight:800;color:${color};font-family:'JetBrains Mono',monospace;margin-top:2px">${value}</div>
     </div>`;
     statsHost.innerHTML = [
@@ -1696,10 +1739,10 @@ function rebuildValidationTable(data){
       const deltaCol = (r.change_pct ?? 0) > 0 ? '#4ade80' : ((r.change_pct ?? 0) < 0 ? '#fb7185' : '#cbd5e1');
       const mktTag = (r.mkt || '').toUpperCase();
       return `<tr style="border-top:1px solid #1f2d47">
-        <td style="padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#bae6fd">${r.code}</td>
-        <td style="padding:8px 10px;font-size:12px;color:#e6edf3">${r.name}<span style="color:#6f84a1;font-size:10px;margin-left:6px">${mktTag}</span></td>
-        <td style="padding:8px 10px;font-size:11px;color:#8ea3c0">EP${r.first_ep ?? '?'}<br><span style="color:#6f84a1;font-size:10px">${r.start_date || ''}</span></td>
-        <td style="padding:8px 10px;font-size:11px;color:#cdd6f0">${r.stance || '—'}</td>
+        <td style="padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#bae6fd">${escapeHtml(r.code)}</td>
+        <td style="padding:8px 10px;font-size:12px;color:#e6edf3">${escapeHtml(r.name)}<span style="color:#6f84a1;font-size:10px;margin-left:6px">${escapeHtml(mktTag)}</span></td>
+        <td style="padding:8px 10px;font-size:11px;color:#8ea3c0">EP${r.first_ep ?? '?'}<br><span style="color:#6f84a1;font-size:10px">${escapeHtml(r.start_date || '')}</span></td>
+        <td style="padding:8px 10px;font-size:11px;color:#cdd6f0">${escapeHtml(r.stance || '—')}</td>
         <td style="padding:8px 10px;font-size:11px;color:#8ea3c0;text-align:right;font-family:'JetBrains Mono',monospace">${r.days_elapsed ?? '—'} 天</td>
         <td style="padding:8px 10px;font-size:13px;color:${deltaCol};text-align:right;font-family:'JetBrains Mono',monospace;font-weight:700">${fmt(r.change_pct)}</td>
         <td style="padding:8px 10px;text-align:right"><span class="badge" style="background:${col}22;color:${col};font-size:9px">${lbl}</span></td>
@@ -1734,13 +1777,14 @@ function rebuildAutoActionCards(data){
     const t = TIER[a.tier] || TIER.caution;
     return `<div style="background:${t.bg};border:1px solid ${t.bd};border-left:4px solid ${t.accent};border-radius:10px;padding:14px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-        <span style="font-size:13px;font-weight:700;color:#e6edf3">🤖 ${a.title || ''}</span>
-        <span><span class="badge" style="background:rgba(167,139,250,0.2);color:#a78bfa;font-size:9px">AUTO</span> <span class="badge" style="background:${t.bd};color:${t.accent};font-size:9px">${t.tag}</span></span>
+        <span style="font-size:13px;font-weight:700;color:#e6edf3">🤖 ${escapeHtml(a.title || '')}</span>
+        <span><span class="badge" style="background:rgba(167,139,250,0.2);color:#a78bfa;font-size:9px">AUTO</span> <span class="badge" style="background:${t.bd};color:${t.accent};font-size:9px">${escapeHtml(t.tag)}</span></span>
       </div>
-      <div style="font-size:11px;color:#bae6fd;margin-top:6px"><b>建議：</b>${a.stance || ''}</div>
-      <div style="font-size:11px;color:#bae6fd;margin-top:4px">${a.depends || ''}</div>
-      <div style="font-size:12px;color:#cbd5e1;margin-top:6px;line-height:1.6">${a.checklist || ''}</div>
-      <div style="font-size:10px;color:#fb7185;margin-top:6px">${a.risk || ''}</div>
+      <div style="font-size:10px;color:#a78bfa;margin-top:6px;padding:6px;background:rgba(167,139,250,0.1);border-left:2px solid #a78bfa;border-radius:4px"><b>⚙️ 此為 AI 自動生成建議，不構成投資建議</b></div>
+      <div style="font-size:11px;color:#bae6fd;margin-top:6px"><b>建議：</b>${escapeHtml(a.stance || '')}</div>
+      <div style="font-size:11px;color:#bae6fd;margin-top:4px">${escapeHtml(a.depends || '')}</div>
+      <div style="font-size:12px;color:#cbd5e1;margin-top:6px;line-height:1.6">${escapeHtml(a.checklist || '')}</div>
+      <div style="font-size:10px;color:#fb7185;margin-top:6px">${escapeHtml(a.risk || '')}</div>
     </div>`;
   }).join('');
 }
@@ -1853,9 +1897,15 @@ function switchTab(paneId) {
   // Special case: 'highlight' is a section above the panes, not a pane itself.
   // Just scroll to it and update tab states. Keep current pane visible.
   if (paneId === 'highlight') {
-    document.querySelectorAll('nav.top .tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('nav.top .tab').forEach(x => {
+      x.classList.remove('active');
+      x.setAttribute('aria-selected', 'false');
+    });
     const activeTab = document.querySelector(`nav.top .tab[data-pane="highlight"]`);
-    if (activeTab) activeTab.classList.add('active');
+    if (activeTab) {
+      activeTab.classList.add('active');
+      activeTab.setAttribute('aria-selected', 'true');
+    }
     const hl = document.getElementById('highlight');
     if (hl) hl.scrollIntoView({behavior: 'smooth', block: 'start'});
     return;
@@ -1875,9 +1925,15 @@ function switchTab(paneId) {
   target.style.display = 'block';
 
   // Update tab active states
-  document.querySelectorAll('nav.top .tab').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('nav.top .tab').forEach(x => {
+    x.classList.remove('active');
+    x.setAttribute('aria-selected', 'false');
+  });
   const activeTab = document.querySelector(`nav.top .tab[data-pane="${paneId}"]`);
-  if (activeTab) activeTab.classList.add('active');
+  if (activeTab) {
+    activeTab.classList.add('active');
+    activeTab.setAttribute('aria-selected', 'true');
+  }
 
   // Scroll to the start of the pane (so user sees the change clearly)
   setTimeout(() => target.scrollIntoView({behavior: 'smooth', block: 'start'}), 50);
@@ -1926,11 +1982,11 @@ function renderStocks(filter='all', search=''){
   tb.innerHTML = list.map(([code,s])=>`
     <tr class="clickable" data-code="${code}">
       <td>${mktBadge(s.mkt)}</td>
-      <td><span class="ticker">${code}</span> ${s.name}</td>
+      <td><span class="ticker">${escapeHtml(code)}</span> ${escapeHtml(s.name)}</td>
       <td class="num">${s.mentions}</td>
-      <td>${s.stance}</td>
-      <td class="num"><span class="delta ${s.perfDelta}">${s.perf}</span></td>
-      <td style="color:#cbd5e1;font-size:12px">${s.note.length > 50 ? s.note.slice(0,50)+'…' : s.note}</td>
+      <td>${escapeHtml(s.stance)}</td>
+      <td class="num"><span class="delta ${s.perfDelta}">${escapeHtml(s.perf)}</span></td>
+      <td style="color:#cbd5e1;font-size:12px">${escapeHtml(s.note.length > 50 ? s.note.slice(0,50)+'…' : s.note)}</td>
       <td>${badge(s.v)}</td>
     </tr>`).join('');
   tb.querySelectorAll('tr.clickable').forEach(tr=>{
@@ -1939,10 +1995,10 @@ function renderStocks(filter='all', search=''){
       tr.classList.add('selected');
       const s = STOCKS[tr.dataset.code];
       const det = document.getElementById('stockDetail');
-      det.innerHTML = `<h4>${tr.dataset.code} ${s.name} · 提及集數</h4>
+      det.innerHTML = `<h4>${escapeHtml(tr.dataset.code)} ${escapeHtml(s.name)} · 提及集數</h4>
         <p>${s.eps.map(e=>`<a href="#" class="ep-link" data-ep="${e}">EP${e}</a>`).join(' · ')}</p>
-        <h4>主持人立場</h4><p>${s.stance}</p>
-        <h4>實際走勢 / 評語</h4><p><span class="delta ${s.perfDelta}">${s.perf}</span> · ${s.note}</p>`;
+        <h4>主持人立場</h4><p>${escapeHtml(s.stance)}</p>
+        <h4>實際走勢 / 評語</h4><p><span class="delta ${s.perfDelta}">${escapeHtml(s.perf)}</span> · ${escapeHtml(s.note)}</p>`;
       det.classList.add('show');
       det.querySelectorAll('.ep-link').forEach(a => a.addEventListener('click', e => {
         e.preventDefault();
@@ -1973,9 +2029,9 @@ function renderCalls(filter='all', search=''){
   tb.innerHTML = list.map(c=>`
     <tr>
       <td><a href="#" class="ep-link" data-ep="${c.ep}">EP${c.ep}</a></td>
-      <td><span class="ticker">${c.t}</span></td>
+      <td><span class="ticker">${escapeHtml(c.t)}</span></td>
       <td class="wrap">${c.c}</td>
-      <td class="wrap" style="color:#cbd5e1">${c.a}</td>
+      <td class="wrap" style="color:#cbd5e1">${escapeHtml(c.a)}</td>
       <td>${badge(c.v)}</td>
     </tr>`).join('');
   tb.querySelectorAll('.ep-link').forEach(a => a.addEventListener('click', e => {
@@ -1992,7 +2048,7 @@ function setRssLoadTime(name) {
   const now = new Date();
   const t = now.toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
   const el = document.getElementById('rssLoadTime');
-  if (el) el.innerHTML = `<span style="color:#4ade80">${t}</span> <span style="color:#6f84a1;font-size:10px">via ${name}</span>`;
+  if (el) el.innerHTML = `<span style="color:#4ade80">${escapeHtml(t)}</span> <span style="color:#6f84a1;font-size:10px">via ${escapeHtml(name)}</span>`;
 }
 
 const RSS_CACHE_KEY = 'gooaye_rss_v3_cache';
@@ -2084,13 +2140,13 @@ function renderEpisodes(items, search=''){
   tb.innerHTML = list.map(it => {
     const d = EPISODES[it.ep];
     const isNew = it.ep > lastSeen && lastSeen > 0;
-    const tags = d ? d.tags.slice(0,3).map(t=>`<span class="badge market" style="background:rgba(96,165,250,0.1);color:#93c5fd">${t}</span>`).join('') : '';
-    const stocks = d ? d.stocks.slice(0,4).map(([m,c])=>`<span class="ticker">${c}</span>`).join(' ') : '';
+    const tags = d ? d.tags.slice(0,3).map(t=>`<span class="badge market" style="background:rgba(96,165,250,0.1);color:#93c5fd">${escapeHtml(t)}</span>`).join('') : '';
+    const stocks = d ? d.stocks.slice(0,4).map(([m,c])=>`<span class="ticker">${escapeHtml(c)}</span>`).join(' ') : '';
     return `
       <tr class="clickable" data-ep="${it.ep}">
         <td><span class="ep-link">EP${it.ep}</span> ${isNew?'<span class="badge" style="background:rgba(253,224,71,0.18);color:#fde047">NEW</span>':''}</td>
         <td>${fmtDate(it.pubDate)}</td>
-        <td>${(d?d.title:it.title).replace(/^EP\d+\s*\|\s*/,'')}</td>
+        <td>${escapeHtml((d?d.title:it.title).replace(/^EP\d+\s*\|\s*/,''))}</td>
         <td>${tags}</td>
         <td>${stocks}</td>
         <td>${d&&d.v?badge(d.v):'<span class="badge pending">—</span>'}</td>
@@ -2111,12 +2167,12 @@ function showEpDetail(ep){
   if (!d) {
     det.innerHTML = `<h4>EP${ep}</h4><p>暫無深度摘要（剛發布或資料未匯入）。</p>`;
   } else {
-    const stocks = d.stocks.map(([m,c])=>`<span class="ticker">${c}</span>`).join(' ');
-    const tags = d.tags.map(t=>`<span class="badge market" style="background:rgba(96,165,250,0.1);color:#93c5fd;margin-right:4px">${t}</span>`).join('');
+    const stocks = d.stocks.map(([m,c])=>`<span class="ticker">${escapeHtml(c)}</span>`).join(' ');
+    const tags = d.tags.map(t=>`<span class="badge market" style="background:rgba(96,165,250,0.1);color:#93c5fd;margin-right:4px">${escapeHtml(t)}</span>`).join('');
     // Use deep content if available, otherwise fall back to summary
-    const body = d.deep ? d.deep : `<p>${d.summary}</p>`;
+    const body = d.deep ? d.deep : `<p>${escapeHtml(d.summary)}</p>`;
     det.innerHTML = `<div style="border-bottom:1px solid #1f2d47;padding-bottom:8px;margin-bottom:10px">
-      <div style="font-size:14px;font-weight:700;color:#e6edf3">${d.title}</div>
+      <div style="font-size:14px;font-weight:700;color:#e6edf3">${escapeHtml(d.title)}</div>
       <div style="font-size:11px;color:#8ea3c0;margin-top:3px">${fmtDate(d.date)} · ${d.dur}${d.sponsor ? ' · 贊助：' + d.sponsor : ''} ${d.v?badge(d.v):''}</div>
       <div style="margin-top:6px">${tags}</div>
     </div>
@@ -2135,7 +2191,7 @@ function checkNew(items){
   if (newOnes.length && lastSeen > 0) {
     const a = document.getElementById('alert');
     document.getElementById('alertTitle').innerHTML = `🎙 ${newOnes.length} 集新內容！`;
-    document.getElementById('alertBody').innerHTML = newOnes.slice(0,3).map(e => `<b>EP${e.ep}</b> ${e.title.replace(/EP\d+\s*\|\s*/,'')}`).join('　／　');
+    document.getElementById('alertBody').innerHTML = newOnes.slice(0,3).map(e => `<b>EP${e.ep}</b> ${escapeHtml(e.title.replace(/EP\d+\s*\|\s*/,''))}`).join('　／　');
     a.classList.add('show');
     if (localStorage.getItem(LS_NOTIFY) === 'on' && Notification.permission === 'granted') {
       try { new Notification('股癌新集出爐 🎙', { body: newOnes.slice(0,2).map(e=>e.title).join('\n') }); } catch{}
@@ -2154,10 +2210,10 @@ function updateSettings(items) {
   document.getElementById('readListStat').textContent = read.size ? [...read].sort((a,b)=>b-a).slice(0,8).map(e=>'EP'+e).join(', ') + (read.size>8?'…':'') : '無';
   if (items.length) {
     document.getElementById('latestEp').textContent = 'EP'+items[0].ep;
-    document.getElementById('latestMeta').textContent = fmtDate(items[0].pubDate) + ' · ' + items[0].title.replace(/EP\d+\s*\|\s*\S*\s*/,'');
+    document.getElementById('latestMeta').textContent = fmtDate(items[0].pubDate) + ' · ' + escapeHtml(items[0].title.replace(/EP\d+\s*\|\s*\S*\s*/,''));
     // Update top bar
     const el = document.getElementById('rssLatestEp');
-    if (el) el.innerHTML = `<span style="color:#4ade80">EP${items[0].ep}</span> <span style="color:#6f84a1">(${fmtDate(items[0].pubDate)})</span>`;
+    if (el) el.innerHTML = `<span style="color:#4ade80">EP${escapeHtml(items[0].ep)}</span> <span style="color:#6f84a1">(${escapeHtml(fmtDate(items[0].pubDate))})</span>`;
   }
 }
 

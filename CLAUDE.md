@@ -9,14 +9,14 @@ When a new EP appears in the RSS feed, the show notes typically contain only the
 **Correct flow for a newly-detected episode:**
 1. Add a minimal placeholder inline entry: `summary` only, **no `deep` field**, and `tags` should include `"⏳ 待 whisper 轉錄"`.
 2. Let the LaunchAgent (`com.gooaye.update-episodes`, runs Wed/Sat 20:00+22:00 TPE / Thu/Sun 09:00 TPE) run `auto_update.py` which does whisper + LLM and writes to `_episodes_auto.json`.
-3. The runtime merge at `index.html:1394` (`if (existing && existing.deep) continue;`) means inline-with-`deep` blocks the auto pipeline. Placeholder-without-`deep` lets auto take over.
+3. The runtime merge in `loadAutoEpisodes()` (currently `index.html:1411`, `if (existing && existing.deep) continue;`) means inline-with-`deep` blocks the auto pipeline. Placeholder-without-`deep` lets auto take over. (Navigate by the function name, not the line number — it drifts.)
 4. If you need to manually trigger whisper now: `/Users/wangtingwei/opt/anaconda3/bin/python auto_update.py --force-ep <N> --model small` (~25-30 min on Rosetta).
 
 **Never write `deep` content for an EP whose audio you haven't fed to whisper.** Title-emoji-pattern-matching plus "previous-EP narrative continuation" is exactly how the EP662/663/664 speculation went wrong.
 
 ## Other key rules
 
-- **`index.html` inline `EPISODES` is authoritative if it has `deep`.** See merge rule at index.html:1394.
+- **`index.html` inline `EPISODES` is authoritative if it has `deep`.** See merge rule in `loadAutoEpisodes()` (currently index.html:1411). Prefer navigating by function name — absolute line numbers drift as the file changes.
 - **Don't edit the orphan `*.html` / `*.md` files** at repo root (e.g. `股癌_Ting_wei_Wang_App.html`, `股癌_新集_*.html`). They are not linked from `index.html`.
 - **Pipeline is split**: episodes via local LaunchAgent (GH Actions timed out — don't try to fix the workflow). Market data via GitHub Actions `update-market.yml` (daily 17:30 TPE, works reliably).
 - **Git remote is SSH** (`git@github.com:qwwaawwqq/gooaye-tracker.git`). HTTPS PAT is broken — `gh api repos/...` returns 404.

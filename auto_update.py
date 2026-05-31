@@ -45,11 +45,33 @@ WHISPER_PYTHON = os.environ.get(
 )
 
 
+def atomic_write_json(path: Path, obj: dict) -> None:
+    """Write JSON atomically: temp file + os.replace to avoid truncation on crash."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.parent / f"{path.name}.tmp"
+    try:
+        tmp.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n")
+        os.replace(str(tmp), str(path))
+    except Exception as e:
+        try:
+            tmp.unlink()
+        except OSError:
+            pass
+        raise
+
+
 def load_dotenv() -> None:
     """Minimal .env loader — KEY=value lines, # comments. Cron runs without
     a shell rc, so env vars set in ~/.zshrc are not visible. .env fixes that."""
     if not ENV_FILE.exists():
         return
+    # Warn if .env is group/other-readable (should be 0600).
+    try:
+        st = ENV_FILE.stat()
+        if st.st_mode & 0o077:
+            print(f"  [sec] warning: {ENV_FILE.name} is group/other-readable (mode {oct(st.st_mode)}); should be 0600")
+    except OSError:
+        pass
     for raw in ENV_FILE.read_text().splitlines():
         line = raw.strip()
         if not line or line.startswith("#") or "=" not in line:
@@ -394,6 +416,25 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
         entry["audio_url"] = audio_url
         return entry
 
+    # Fast preflight: verify faster_whisper can be imported before expensive download.
+    try:
+        proc = subprocess.run(
+            [WHISPER_PYTHON, "-c", "import faster_whisper"],
+            capture_output=True, text=True, timeout=5
+        )
+        if proc.returncode != 0:
+            print(f"  [whisper] preflight FAILED: venv broken (faster_whisper import failed); falling back to placeholder")
+            entry = build_placeholder_entry(ep, title, date, link)
+            entry["auto_status"] = "audio-pending"
+            entry["audio_url"] = audio_url
+            return entry
+    except Exception as e:
+        print(f"  [whisper] preflight error: {e}; falling back to placeholder")
+        entry = build_placeholder_entry(ep, title, date, link)
+        entry["auto_status"] = "audio-pending"
+        entry["audio_url"] = audio_url
+        return entry
+
     audio_path = download_audio(ep, audio_url)
     txt_path = transcribe(ep, audio_path, model=model)
     if txt_path is None:
@@ -654,16 +695,22 @@ Show notes:
 
 def load_state() -> dict:
     if STATE_FILE.exists():
-        return json.loads(STATE_FILE.read_text())
+        try:
+            return json.loads(STATE_FILE.read_text())
+        except json.JSONDecodeError as e:
+            print(f"  [state] WARNING: {STATE_FILE.name} corrupt (JSONDecodeError: {e}); using defaults")
+            return {"last_seen_ep": 0, "initialized_by": "auto_update"}
     return {"last_seen_ep": 0, "initialized_by": "auto_update"}
 
 
-def prune_audio_cache(keep: int = 8) -> None:
-    """Keep only the most recent N EP*.mp3 and EP*.txt files to avoid disk fill."""
+def prune_audio_cache(keep_mp3: int = 8, keep_txt: int = 100) -> None:
+    """Keep most recent N MP3 files (large, re-downloadable) and M TXT files
+    (small, expensive to regenerate), to avoid disk fill and unnecessary re-transcription."""
     if not CACHE_DIR.exists(): return
-    for pattern in ("EP*.mp3", "EP*.txt"):
+    # Keep fewer MP3s (they're re-downloadable), more TXTs (they're expensive to regenerate).
+    for pattern, keep_count in (("EP*.mp3", keep_mp3), ("EP*.txt", keep_txt)):
         files = sorted(CACHE_DIR.glob(pattern), key=lambda p: p.stat().st_mtime, reverse=True)
-        for old in files[keep:]:
+        for old in files[keep_count:]:
             try:
                 old.unlink()
                 print(f"  [prune] removed {old.name}")
@@ -673,18 +720,22 @@ def prune_audio_cache(keep: int = 8) -> None:
 
 def save_state(state: dict) -> None:
     state["last_check"] = datetime.now().astimezone().isoformat(timespec="seconds")
-    STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
+    atomic_write_json(STATE_FILE, state)
 
 
 def load_existing_auto() -> dict:
     if OUT_FILE.exists():
-        return json.loads(OUT_FILE.read_text())
+        try:
+            return json.loads(OUT_FILE.read_text())
+        except json.JSONDecodeError as e:
+            print(f"  [auto] WARNING: {OUT_FILE.name} corrupt (JSONDecodeError: {e}); using defaults")
+            return {"episodes": {}, "schema": 1}
     return {"episodes": {}, "schema": 1}
 
 
 def save_auto(data: dict) -> None:
     data["updated_at"] = datetime.now().astimezone().isoformat(timespec="seconds")
-    OUT_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    atomic_write_json(OUT_FILE, data)
 
 
 def compute_next_last_seen(last_seen: int, candidate_eps, episodes: dict) -> int:
@@ -733,6 +784,9 @@ def main() -> int:
         title = (item.findtext("title") or "").strip()
         ep = parse_ep_num(title)
         if ep is None:
+            # Warn if item has audio but no parseable EP number (title format may have changed).
+            if get_audio_url(item):
+                print(f"  [parse] WARNING: item with audio but no parseable EP number in title: {title[:60]}")
             continue
         if args.force_ep is not None:
             if ep != args.force_ep:
