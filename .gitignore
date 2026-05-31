@@ -9,4 +9,6 @@ __pycache__/
 sim_launchd.py
 # Pipeline health record (runtime state, like _state.json)
 _pipeline_health.json
+# Converter output — monolith extraction is deferred; seed not wired in yet
+_episodes_seed.json
 
