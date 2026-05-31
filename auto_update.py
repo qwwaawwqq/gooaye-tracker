@@ -60,6 +60,48 @@ def atomic_write_json(path: Path, obj: dict) -> None:
         raise
 
 
+def notify(msg: str, status: str = "info") -> None:
+    """Best-effort notification: macOS osascript + _pipeline_health.json record.
+    
+    Never throws — all errors are silent. Called on terminal-failure paths.
+    Records status/last_error/last_success_ts/last_ep/updated_at to _pipeline_health.json.
+    """
+    # Try macOS notification (silently fail on non-Mac or osascript errors)
+    try:
+        subprocess.run(
+            ["osascript", "-e",
+             f'display notification "{msg}" with title "股癌 Pipeline"'],
+            capture_output=True, timeout=2
+        )
+    except Exception:
+        pass
+    
+    # Record to _pipeline_health.json via atomic write
+    health_file = ROOT / "_pipeline_health.json"
+    try:
+        existing = {}
+        if health_file.exists():
+            try:
+                existing = json.loads(health_file.read_text())
+            except (json.JSONDecodeError, OSError):
+                pass
+        
+        record = {
+            "status": status,
+            "message": msg[:500],
+            "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        }
+        if status == "success":
+            record["last_success_ts"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        else:
+            record["last_error"] = msg[:500]
+        
+        existing.update(record)
+        atomic_write_json(health_file, existing)
+    except Exception:
+        pass
+
+
 def load_dotenv() -> None:
     """Minimal .env loader — KEY=value lines, # comments. Cron runs without
     a shell rc, so env vars set in ~/.zshrc are not visible. .env fixes that."""
@@ -121,7 +163,9 @@ def push_if_ahead() -> bool:
         return False
     push = _git("push")
     if push.returncode != 0:
-        print(f"  [git] !!! push FAILED: {push.stderr[-400:]}")
+        msg = f"[git] push FAILED: {push.stderr[-400:]}"
+        print(f"  !!! {msg}")
+        notify(msg, status="error")
         return False
     print("  [git] pushed.")
     return True
@@ -288,7 +332,9 @@ def transcribe(ep: int, audio_path: Path, model: str = "small") -> Path | None:
         return txt_path
     whisper_bin = find_whisper()
     if whisper_bin is None:
-        print("  [whisper] CLI not found — install openai-whisper or use --no-audio")
+        msg = "[whisper] CLI not found — install openai-whisper or use --no-audio"
+        print(f"  {msg}")
+        notify(msg, status="warning")
         return None
     print(f"  [whisper] transcribing EP{ep} with model={model} via {whisper_bin} (this can take a while)…")
     # If the resolved transcriber is our .py shim, run it through the venv
@@ -349,7 +395,7 @@ EP: {ep}    Title: {title}    Date: {date}
   "duration_minutes": 數字（如逐字稿能推估，否則 null）,
   "deep_html": "深度摘要 HTML 區塊：用 <h4>主軸 N：...</h4><ul><li>...</li></ul> 分段，金句用 <p style=\\"color:#fde047\\"><b>「...」</b></p>，結尾加 <h4>資料狀態</h4><p style=\\"color:#fbbf24\\">本摘要由 Claude API 自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。</p>",
   "calls": [
-    {{"t": "主軸短標(8字內)", "c": "call 內容(60字內，可用<b>)", "a": "後續動作或剛發布字樣", "v": "pending|hit|partial|miss"}}
+    {{"t": "主軸短標(8字內)", "c": "call 內容(60字內，可用<b>)", "a": "後續動作或剛發布字樣", "v": "pending|hit|partial|miss", "ticker": "[optional] 代號如 2327|NVDA，若有請帶 market 前綴", "quote": "[optional] 逐字稿引文 30-60 字"}}
   ],
   "stock_meta": {{
     "TW/2327": {{"name": "國巨", "stance": "啟動|看好|觀察|減碼 等(8字內)", "note": "本集脈絡(40字內，可用<b>)"}},
@@ -403,7 +449,9 @@ stocks_groups: 把提及個股按主題分 3-5 組（如「被動元件主軸」
             print(f"  [claude] JSON parse failed (attempt {attempt}, stop_reason="
                   f"{getattr(resp,'stop_reason',None)}): {e}; first 300 chars: {text[:300]}")
             continue
-    print(f"  [claude] structuring failed after retries (last: {last_err})")
+    msg = f"[claude] structuring failed after retries for EP{ep}: {last_err}"
+    print(f"  {msg}")
+    notify(msg, status="error")
     return None
 
 
@@ -458,6 +506,20 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
             elif m == "US" and re.fullmatch(r"[A-Z][A-Z\.\-]{0,7}", c):
                 clean_stocks.append(["US", c])
 
+        # Build a simple name→code resolver for common TW/US stocks mentioned in stock_meta.
+        # Maps informal names (from LLM speech recognition) to canonical {mkt, code}.
+        name_to_code = {}
+        raw_meta = structured.get("stock_meta", {}) or {}
+        for key in raw_meta:
+            m_match = re.fullmatch(r"(TW|US)/([A-Za-z0-9\.\-]{1,8})", str(key))
+            if m_match:
+                meta = raw_meta[key]
+                if isinstance(meta, dict):
+                    name = str(meta.get("name", "")).strip()
+                    code = m_match.group(2).upper() if m_match.group(1) == "US" else m_match.group(2)
+                    if name and code:
+                        name_to_code[name] = (m_match.group(1), code)
+
         raw_calls = structured.get("calls", []) or []
         clean_calls: list[dict] = []
         for call in raw_calls:
@@ -467,11 +529,38 @@ def build_audio_entry(ep: int, title: str, date: str, link: str, audio_url: str,
             if not t or not c: continue
             v = call.get("v", "pending")
             if v not in ("hit", "partial", "miss", "pending"): v = "pending"
-            clean_calls.append({
+            
+            # Try to resolve ticker from the call's ticker field or infer from name.
+            ticker_resolved = None
+            ticker_field = str(call.get("ticker", "")).strip()
+            if ticker_field:
+                # Validate and normalize the ticker.
+                if "/" in ticker_field:
+                    parts = ticker_field.split("/", 1)
+                    if len(parts) == 2 and parts[0] in ("TW", "US"):
+                        mkt, code = parts[0], parts[1].strip()
+                        code = code.upper() if mkt == "US" else code
+                        if mkt == "TW" and re.fullmatch(r"\d{4,5}", code):
+                            ticker_resolved = {"mkt": mkt, "code": code}
+                        elif mkt == "US" and re.fullmatch(r"[A-Z][A-Z\.\-]{0,7}", code):
+                            ticker_resolved = {"mkt": mkt, "code": code}
+                else:
+                    # No mkt prefix; check if it matches a name in name_to_code.
+                    if ticker_field in name_to_code:
+                        mkt, code = name_to_code[ticker_field]
+                        ticker_resolved = {"mkt": mkt, "code": code}
+            
+            out_call = {
                 "ep": ep, "t": t[:24], "c": c[:240],
                 "a": str(call.get("a", "")).strip()[:160] or "剛發布",
                 "v": v,
-            })
+            }
+            if ticker_resolved:
+                out_call["ticker"] = ticker_resolved
+            quote = str(call.get("quote", "")).strip()
+            if quote:
+                out_call["quote"] = quote[:200]
+            clean_calls.append(out_call)
 
         raw_meta = structured.get("stock_meta", {}) or {}
         clean_meta: dict = {}
@@ -843,6 +932,7 @@ def main() -> int:
         return 0
 
     save_auto(auto)
+    degraded = False
     if args.force_ep is None:
         candidate_eps = [e["ep"] for e in new_entries if e.get("ep")]
         state["last_seen_ep"] = compute_next_last_seen(last_seen, candidate_eps, episodes)
@@ -850,6 +940,7 @@ def main() -> int:
                  if episodes.get(str(ep), {}).get("auto_status") != REAL_SUMMARY_STATUS]
         if stuck:
             print(f"  [retry] episodes pending a real summary, will retry next run: {sorted(stuck)}")
+            degraded = True
     save_state(state)
     print(f"[done] wrote {OUT_FILE.name}, state.last_seen_ep={state['last_seen_ep']}")
     prune_audio_cache(keep=8)
@@ -858,6 +949,13 @@ def main() -> int:
         eps_done = sorted(int(e.get("ep") or 0) for e in new_entries if e.get("ep"))
         msg = f"auto: ingest EP{eps_done[-1]}" if eps_done else "auto: update episodes"
         git_commit_and_push([OUT_FILE], msg)
+    
+    # Record successful run
+    if degraded:
+        msg = f"Pipeline completed with degraded status (stuck episodes: see logs)"
+        notify(msg, status="warning")
+        return 2
+    notify("Pipeline completed successfully", status="success")
     return 0
 
 

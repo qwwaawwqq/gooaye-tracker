@@ -12,6 +12,7 @@
 <meta property="og:image" content="https://qwwaawwqq.github.io/gooaye-tracker/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://qwwaawwqq.github.io/gooaye-tracker/">
+<link rel="alternate" type="application/rss+xml" title="股癌 — 追蹤清單 + 解題" href="feed.xml">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' text-anchor='middle' x='50'>📊</text></svg>">
 <meta name="theme-color" content="#0d1117">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1295,6 +1296,10 @@
 <!-- ========== PANE: SETTINGS ========== -->
 <section class="pane" id="settings" hidden>
   <div class="section-title"><h2>設定</h2><span class="sub">追蹤偏好</span></div>
+  <div style="margin-bottom:16px">
+    <input id="globalSearch" type="text" placeholder="🔍 搜尋 EP / 個股 / call (e.g. EP661, 2330, MLCC)" style="width:100%;padding:8px 12px;background:#161b22;border:1px solid #30363d;border-radius:6px;color:#e6edf3;font-family:inherit;font-size:12px" aria-label="全文搜尋">
+    <div id="searchResults" style="margin-top:8px;max-height:300px;overflow-y:auto;display:none"></div>
+  </div>
   <div class="table-wrap">
     <table>
       <tbody>
@@ -1455,7 +1460,7 @@ const EPISODES = {
       if (epsAlreadyInCalls.has(v.ep)) continue;
       for (const call of v.calls){
         if (!call || !call.t || !call.c) continue;
-        CALLS.push({ ep: call.ep || v.ep, t: call.t, c: call.c, a: call.a || '剛發布', v: call.v || 'pending' });
+        CALLS.push({ ep: call.ep || v.ep, t: call.t, c: call.c, a: call.a || '剛發布', v: call.v || 'pending', ticker: call.ticker, quote: call.quote });
         callsAdded++;
       }
     }
@@ -1467,6 +1472,7 @@ const EPISODES = {
     }
 
     // Merge per-stock metadata into STOCKS dict (gap-fill + append ep to eps[])
+    // Initialize tracking for computed verdict sources (will be set in loadMarketAuto).
     let stocksTouched = 0;
     for (const v of Object.values(eps)){
       if (!v || !v.stock_meta || typeof v.stock_meta !== 'object') continue;
@@ -1647,6 +1653,8 @@ async function loadMarketAuto(){
           STOCKS[code].perf = `${sign}${p.change_pct.toFixed(1)}%`;
           STOCKS[code].perfDelta = p.change_pct >= 3 ? 'pos' : (p.change_pct <= -3 ? 'neg' : 'neutral');
           if (p.verdict) STOCKS[code].v = p.verdict;
+          // Mark this stock as having a computed verdict (not hand-authored).
+          STOCKS[code]._verdictSource = 'computed';
         }
       }
       if (typeof renderStocks === 'function'){ try { renderStocks(); } catch(_) {} }
@@ -1987,7 +1995,7 @@ function renderStocks(filter='all', search=''){
       <td>${escapeHtml(s.stance)}</td>
       <td class="num"><span class="delta ${s.perfDelta}">${escapeHtml(s.perf)}</span></td>
       <td style="color:#cbd5e1;font-size:12px">${escapeHtml(s.note.length > 50 ? s.note.slice(0,50)+'…' : s.note)}</td>
-      <td>${badge(s.v)}</td>
+      <td>${badge(s.v)}${s._verdictSource === 'manual' ? ' <span style="color:#8ea3c0;font-size:9px;margin-left:4px">(人工)</span>' : ''}</td>
     </tr>`).join('');
   tb.querySelectorAll('tr.clickable').forEach(tr=>{
     tr.addEventListener('click', ()=>{
@@ -2025,15 +2033,32 @@ function renderCalls(filter='all', search=''){
   });
   if (callSort.col === 'ep') list.sort((a,b)=>callSort.dir==='asc'?a.ep-b.ep:b.ep-a.ep);
   document.getElementById('callCount').textContent = `${list.length} 項`;
-  if (!list.length) { tb.innerHTML='<tr><td colspan="5" class="empty">無符合結果</td></tr>'; return; }
-  tb.innerHTML = list.map(c=>`
+  if (!list.length) { tb.innerHTML='<tr><td colspan="6" class="empty">無符合結果</td></tr>'; return; }
+  tb.innerHTML = list.map(c=>{
+    // Resolve live verdict from _market_auto.json if call has a resolved ticker.
+    let liveVerdict = null;
+    let liveReturn = null;
+    if (c.ticker && typeof c.ticker === 'object' && c.ticker.mkt && c.ticker.code){
+      const code = c.ticker.code;
+      const stock = STOCKS[code];
+      if (stock && stock.v){
+        liveVerdict = stock.v;
+        liveReturn = stock.perf;
+      }
+    }
+    // Use live verdict if available, else fall back to call's own verdict.
+    const verdict = liveVerdict || c.v;
+    const verdictHtml = badge(verdict);
+    const returnHtml = liveReturn ? `<span style="font-size:11px;color:#8ea3c0;margin-left:4px">${escapeHtml(liveReturn)}</span>` : '';
+    return `
     <tr>
       <td><a href="#" class="ep-link" data-ep="${c.ep}">EP${c.ep}</a></td>
-      <td><span class="ticker">${escapeHtml(c.t)}</span></td>
+      <td><span class="ticker">${escapeHtml(c.ticker && c.ticker.code ? c.ticker.code : c.t)}</span></td>
       <td class="wrap">${c.c}</td>
       <td class="wrap" style="color:#cbd5e1">${escapeHtml(c.a)}</td>
-      <td>${badge(c.v)}</td>
-    </tr>`).join('');
+      <td>${verdictHtml}${returnHtml}</td>
+    </tr>`;
+  }).join('');
   tb.querySelectorAll('.ep-link').forEach(a => a.addEventListener('click', e => {
     e.preventDefault();
     document.querySelector('nav.top .tab[data-pane="episodes"]').click();

@@ -1,8 +1,8 @@
 name: Update episodes (RSS → whisper → Claude → push)
 
-# When 股癌 publishes (Wed/Sat 16:00 TPE), give the feed a buffer then run.
-# 12:00 UTC = 20:00 Taipei, 14:00 UTC = 22:00 Taipei.
-# Also a Thu/Sun 01:00 UTC sweep in case the earlier runs missed something.
+# ARCHIVED: This pipeline timed out 5/5 times. Episodes are now LaunchAgent-only.
+# Keeping this file as a reference for the automated episode ingestion architecture.
+# To re-enable, remove the 'if: false' guard below and test thoroughly.
 on:
   schedule:
     - cron: "0 12 * * 3,6"   # Wed/Sat 20:00 TPE
@@ -24,6 +24,7 @@ permissions:
 
 jobs:
   update:
+    if: ${{ false }}  # Archived: LaunchAgent-only; GitHub Actions timed out 5/5 times
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -65,12 +66,14 @@ jobs:
       - name: Run auto_update.py
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODEL: ${{ github.event.inputs.model || 'small' }}
+          FORCE_EP: ${{ github.event.inputs.force_ep }}
         run: |
-          ARGS="--push --model ${{ github.event.inputs.model || 'small' }}"
-          if [ -n "${{ github.event.inputs.force_ep }}" ]; then
-            ARGS="$ARGS --force-ep ${{ github.event.inputs.force_ep }}"
+          ARGS=(--push --model "${MODEL:-small}")
+          if [ -n "${FORCE_EP}" ]; then
+            ARGS+=(--force-ep "${FORCE_EP}")
           fi
-          python auto_update.py $ARGS
+          python auto_update.py "${ARGS[@]}"
 
       - name: Prune cache (keep last 8 episodes)
         run: |
