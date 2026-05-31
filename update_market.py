@@ -47,11 +47,38 @@ def load_dotenv() -> None:
 
 def extract_stocks_from_html(path: Path) -> dict:
     """Pull the STOCKS = { ... } block out of index.html and parse each entry.
-    Robust enough for the project's formatting (one entry per line)."""
+    Robust enough for the project's formatting (one entry per line).
+    
+    PREFER _stocks.json if it exists (decouples from HTML formatting).
+    FALLBACK to regex scrape of inline STOCKS if _stocks.json absent (reversible, safe).
+    """
+    stocks_json = path.parent / "_stocks.json"
+    
+    # Preferred: read from _stocks.json if present
+    if stocks_json.exists():
+        try:
+            data = json.loads(stocks_json.read_text())
+            if data.get("stocks") and isinstance(data["stocks"], dict):
+                result = {}
+                for code, entry in data["stocks"].items():
+                    # Normalize to internal format (code, name, mkt, stance, eps)
+                    result[code] = {
+                        "code": code,
+                        "name": entry.get("name", code),
+                        "mkt": entry.get("mkt", ""),
+                        "stance": entry.get("stance", ""),
+                        "eps": entry.get("eps", [])
+                    }
+                print(f"  [stocks] loaded {len(result)} from _stocks.json")
+                return result
+        except Exception as e:
+            print(f"  [stocks] failed to load _stocks.json: {e}, falling back to HTML regex", file=sys.stderr)
+    
+    # Fallback: regex scrape from inline STOCKS in HTML
     text = path.read_text()
     m = re.search(r"const STOCKS = \{(.*?)\n\};", text, re.DOTALL)
     if not m:
-        raise SystemExit("[error] could not locate STOCKS dict in index.html")
+        raise SystemExit("[error] could not locate STOCKS dict in index.html or _stocks.json")
     body = m.group(1)
     stocks: dict = {}
     line_re = re.compile(r"^\s*'([^']+)':\s*\{(.+)\},?\s*$")
@@ -71,6 +98,7 @@ def extract_stocks_from_html(path: Path) -> dict:
         eps = [int(x) for x in re.findall(r"\d+", ep.group(1))] if ep else []
         entry["eps"] = eps
         stocks[code] = entry
+    print(f"  [stocks] loaded {len(stocks)} from index.html (regex fallback)")
     return stocks
 
 

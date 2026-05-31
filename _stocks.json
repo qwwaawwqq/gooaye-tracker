@@ -1,0 +1,502 @@
+{
+  "stocks": {
+    "2308": {
+      "name": "台達電",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "Power 鏈延伸",
+      "perf": "—",
+      "perfDelta": "pos",
+      "v": "pending",
+      "note": "EP661 Power 廠包被動元件產能、VR Rubin 放量後交期拉長，反推 Power 鏈底氣足",
+      "eps": [
+        661
+      ]
+    },
+    "2327": {
+      "name": "國巨",
+      "mkt": "tw",
+      "mentions": 4,
+      "stance": "啟動 → 主軸延伸",
+      "perf": "漲停",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP659 陳泰銘 AI 誓師大會 → 5/7 漲停；EP661 被動元件主軸再強調（MLCC 缺 47UF 僅做到 22UF，偏排擠效應）",
+      "eps": [
+        661,
+        659,
+        653,
+        652
+      ]
+    },
+    "2330": {
+      "name": "台積電",
+      "mkt": "tw",
+      "mentions": 6,
+      "stance": "看好",
+      "perf": "+6.6%",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP656 投信 25% 解封吸星，5/7 達 $2,345 史上新高；EP661 再次點名為盤面主軸",
+      "eps": [
+        661,
+        660,
+        659,
+        658,
+        657,
+        656,
+        654,
+        653
+      ]
+    },
+    "2337": {
+      "name": "旺宏",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "看好",
+      "perf": "漲價",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP657 法說會老闆轉強，MLC NAND/NOR Flash 漲價",
+      "eps": [
+        657
+      ]
+    },
+    "2375": {
+      "name": "凱美",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "鋁電容鏈",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 鋁電容/MLCC 鏈條，國內被動元件補漲名單",
+      "eps": [
+        661
+      ]
+    },
+    "2449": {
+      "name": "京元電",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "半導體測試",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 半導體後段測試，探針卡客戶（對應 FORM 海外脈絡）",
+      "eps": [
+        661
+      ]
+    },
+    "2454": {
+      "name": "聯發科",
+      "mkt": "tw",
+      "mentions": 6,
+      "stance": "看好→預期打滿",
+      "perf": "+30%",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP655 兩根漲停 / EP657 利空解除 / EP659 預期打滿；EP661 仍為注目標的",
+      "eps": [
+        661,
+        660,
+        659,
+        657,
+        656,
+        655,
+        653
+      ]
+    },
+    "2492": {
+      "name": "華新科",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "被動元件主角",
+      "perf": "—",
+      "perfDelta": "pos",
+      "v": "pending",
+      "note": "EP661 MLCC 跟漲族群，國內被動元件第二梯隊（與國巨並列）",
+      "eps": [
+        661
+      ]
+    },
+    "3036": {
+      "name": "文曄",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "IC 通路",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 IC 通路代表；對應 Legacy 製程補庫存、客戶提前強買題材",
+      "eps": [
+        661
+      ]
+    },
+    "3037": {
+      "name": "欣興",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "PCB/載板",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 PCB / 載板，AI 後段封裝鏈條",
+      "eps": [
+        661
+      ]
+    },
+    "3443": {
+      "name": "創意 GUC",
+      "mkt": "tw",
+      "mentions": 3,
+      "stance": "看好",
+      "perf": "+36%",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP656 點名 Google CPU/TSLA AI5，4/25 ~$4,000 → 5/7 $5,450",
+      "eps": [
+        659,
+        656,
+        653
+      ]
+    },
+    "3661": {
+      "name": "世芯-KY",
+      "mkt": "tw",
+      "mentions": 2,
+      "stance": "看好",
+      "perf": "~+26%",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "Amazon Trainium 綁定，EP659 漲停 5/7 +5%",
+      "eps": [
+        659,
+        656
+      ]
+    },
+    "5371": {
+      "name": "中光電",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "光學/散熱",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 光學/散熱模組族群，對應「散熱事件不是小作文」討論",
+      "eps": [
+        661
+      ]
+    },
+    "5469": {
+      "name": "瀚宇博",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "PCB/被動",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 PCB/被動鏈，DDR4/DDR5 漲幅延伸題材",
+      "eps": [
+        661
+      ]
+    },
+    "6173": {
+      "name": "信昌電",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "啟動",
+      "perf": "漲停",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP659 交期拉長 → 5/7 同日漲停",
+      "eps": [
+        659
+      ]
+    },
+    "6285": {
+      "name": "啟碁",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "網通/光通",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 網通/光通模組 ODM，與 Power 鏈拉長交期/光通晶片題材相關",
+      "eps": [
+        661
+      ]
+    },
+    "6531": {
+      "name": "愛普",
+      "mkt": "tw",
+      "mentions": 2,
+      "stance": "受惠",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "partial",
+      "note": "EP657 Intel 載板 IPD 受惠；EP661 提及 IPD 30-40% 良率脈絡",
+      "eps": [
+        661,
+        657
+      ]
+    },
+    "8261": {
+      "name": "富鼎",
+      "mkt": "tw",
+      "mentions": 1,
+      "stance": "Power IC",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 Power IC，Power 鏈延伸（對應 Power 廠包被動元件產能）",
+      "eps": [
+        661
+      ]
+    },
+    "INTC": {
+      "name": "Intel",
+      "mkt": "us",
+      "mentions": 4,
+      "stance": "轉強",
+      "perf": "-3%",
+      "perfDelta": "neg",
+      "v": "partial",
+      "note": "EP657 後段封裝良率 90% 利多兌現；但孟恭說「噴到看不懂、有機會丟」",
+      "eps": [
+        658,
+        657,
+        656,
+        655,
+        652,
+        651
+      ]
+    },
+    "AMD": {
+      "name": "AMD",
+      "mkt": "us",
+      "mentions": 3,
+      "stance": "看好",
+      "perf": "-3.09%",
+      "perfDelta": "neg",
+      "v": "partial",
+      "note": "EP659 法說 Server CPU 50%+ 兌現；5/8 短期回檔",
+      "eps": [
+        659,
+        657,
+        652
+      ]
+    },
+    "NVDA": {
+      "name": "NVIDIA",
+      "mkt": "us",
+      "mentions": 3,
+      "stance": "底氣足",
+      "perf": "橫盤",
+      "perfDelta": "neutral",
+      "v": "hit",
+      "note": "EP659「老大暫時休息，輪動全開」；EP661 散熱事件分析「研發 vs 量產雙線、不必過度恐慌殺出」",
+      "eps": [
+        661,
+        659,
+        658
+      ]
+    },
+    "QCOM": {
+      "name": "Qualcomm",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "AI infra",
+      "perf": "強勢",
+      "perfDelta": "pos",
+      "v": "pending",
+      "note": "EP661 近期屌噴；非 AIPC、非 Cloud 故事，偏向 AI infrastructure + custom 光通晶片",
+      "eps": [
+        661
+      ]
+    },
+    "VPG": {
+      "name": "Vishay Precision",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "被動元件鏈",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 全球被動元件鏈對照（日廠 Nichicon/Chemi-Con 並列）",
+      "eps": [
+        661
+      ]
+    },
+    "FORM": {
+      "name": "FormFactor",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "半導體測試",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "pending",
+      "note": "EP661 探針卡龍頭；對應 Legacy 製程補庫存中半導體測試需求",
+      "eps": [
+        661
+      ]
+    },
+    "AVGO": {
+      "name": "Broadcom",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "看好",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "hit",
+      "note": "EP656 AI 晶片代工 Inference 約 50%",
+      "eps": [
+        656
+      ]
+    },
+    "PLTR": {
+      "name": "Palantir",
+      "mkt": "us",
+      "mentions": 2,
+      "stance": "抗 AI 三劍客",
+      "perf": "EPS Beat",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP658 抗 AI 三劍客之首；5/4 財報 EPS $0.33 vs $0.27 / Rev +67%",
+      "eps": [
+        659,
+        658
+      ]
+    },
+    "CRWD": {
+      "name": "CrowdStrike",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "抗 AI",
+      "perf": "+7.93%",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP658 抗 AI 三劍客；Day Zero Threat Summit 後反應正面",
+      "eps": [
+        658
+      ]
+    },
+    "NET": {
+      "name": "Cloudflare",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "抗 AI",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "hit",
+      "note": "EP658 抗 AI 三劍客之一",
+      "eps": [
+        658
+      ]
+    },
+    "TEAM": {
+      "name": "Atlassian",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "被誤殺反指標",
+      "perf": "—",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP658 財報意外繳出 seat expansion，打破 SaaS apocalypse 論",
+      "eps": [
+        658
+      ]
+    },
+    "ADBE": {
+      "name": "Adobe",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "估值打壓",
+      "perf": "弱",
+      "perfDelta": "neg",
+      "v": "hit",
+      "note": "EP658 AI 生圖搶走初階用戶，估值雙降",
+      "eps": [
+        658
+      ]
+    },
+    "CRM": {
+      "name": "Salesforce",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "中性",
+      "perf": "—",
+      "perfDelta": "neutral",
+      "v": "hit",
+      "note": "EP658 Agentforce + headless 架構",
+      "eps": [
+        658
+      ]
+    },
+    "META": {
+      "name": "Meta",
+      "mkt": "us",
+      "mentions": 1,
+      "stance": "CPU 大客戶",
+      "perf": "—",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP657 與 AWS 簽 multi-billion Graviton 5",
+      "eps": [
+        657
+      ]
+    },
+    "AMZN": {
+      "name": "Amazon",
+      "mkt": "us",
+      "mentions": 2,
+      "stance": "CPU+ASIC",
+      "perf": "—",
+      "perfDelta": "pos",
+      "v": "hit",
+      "note": "EP657/659 Graviton 5 + Trainium ASIC 帶動",
+      "eps": [
+        657,
+        652
+      ]
+    }
+  },
+  "schema": "stockData-v1",
+  "entry_count": 33,
+  "codes": [
+    "2308",
+    "2327",
+    "2330",
+    "2337",
+    "2375",
+    "2449",
+    "2454",
+    "2492",
+    "3036",
+    "3037",
+    "3443",
+    "3661",
+    "5371",
+    "5469",
+    "6173",
+    "6285",
+    "6531",
+    "8261",
+    "ADBE",
+    "AMD",
+    "AMZN",
+    "AVGO",
+    "CRM",
+    "CRWD",
+    "FORM",
+    "INTC",
+    "META",
+    "NET",
+    "NVDA",
+    "PLTR",
+    "QCOM",
+    "TEAM",
+    "VPG"
+  ],
+  "extracted_at": "2026-05-31T02:47:02.025Z"
+}
