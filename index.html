@@ -403,7 +403,7 @@
   <div>
     <div class="eyebrow"><span class="dot"></span><span id="liveStatus">即時 RSS · 自動偵測新集</span> <span id="autoHealth" style="margin-left:8px;font-size:10px;color:#6f84a1"></span></div>
     <h1>Gooaye 股癌 · 預測追蹤</h1>
-    <p>整理 Gooaye 股癌 podcast 主持人 <b style="color:#bae6fd">謝孟恭</b> 在 EP651-EP666 點名的個股與主軸論述，截至 2026/05/30 的<b style="color:#bae6fd">命中率</b>、實際走勢與來源摘要。每次開啟自動拉 RSS 偵測新集——可從任何電腦／手機開啟。</p>
+    <p>整理 Gooaye 股癌 podcast 主持人 <b style="color:#bae6fd">謝孟恭</b> 在 EP651-EP667 點名的個股與主軸論述，截至 2026/06/03 的<b style="color:#bae6fd">命中率</b>、實際走勢與來源摘要。每次開啟自動拉 RSS 偵測新集——可從任何電腦／手機開啟。</p>
   </div>
   <div class="hero-meta">
     <div class="meta-label">最新集數</div>
@@ -440,7 +440,7 @@
 <section id="highlight" style="margin:18px 0 24px;scroll-margin-top:60px">
   <div class="section-title" style="margin-top:0">
     <h2 style="background:linear-gradient(90deg,#fbbf24,#fb7185);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🔥 最新 5 集精華 + 驗證亮點</h2>
-    <span class="sub">EP656-EP665 · 截至 2026/05/27 · 🌸 EP665 剛上架 (待 whisper)</span>
+    <span class="sub">EP656-EP667 · 截至 2026/06/03 · 🌍 EP667 剛上架 (待 whisper)</span>
     <span class="action-hint">一目了然</span>
   </div>
 
@@ -773,7 +773,7 @@
 <section class="pane" id="watchlist" hidden>
   <div class="section-title">
     <h2>🎯 推薦個股 · 套用 100 集回測方法論</h2>
-    <span class="sub">截至 2026/05/27 · 基於命中率 74% / DTFM 3.2 天的篩選 · 🌸 EP665 placeholder 已加入（待 whisper · 不更新評等）</span>
+    <span class="sub">截至 2026/06/03 · 基於命中率 74% / DTFM 3.2 天的篩選 · 🌍 EP667 placeholder 已加入（待 whisper · 不更新評等）</span>
   </div>
 
   <div class="notice show" style="display:block;background:rgba(96,165,250,0.08);border-color:rgba(96,165,250,0.3);color:#cbd5e1;margin-bottom:14px">
@@ -1367,6 +1367,10 @@ function setCache(items) {
 
 // ============ DATA ============
 const EPISODES = {
+  667:{date:'2026-06-03',title:'EP667 | 🌍 這兩天開始品到…土味',dur:'51分',v:'pending',sponsor:'NordVPN',
+    tags:['show notes only','⏳ 待 whisper 轉錄','RSS 剛上架'],
+    summary:'<b>剛上架 (2026-06-03 15:34 TPE)</b>，社群整理與逐字稿待補。show notes 僅提供贊助商資訊（NordVPN 專屬優惠碼 gooaye）+ 一句標題 tagline「這兩天開始品到…土味」🌍。<b>暫不從標題 + emoji 推測本集論點</b>（EP662/663/664 三次「標題猜內容」全部翻車的歷史教訓）。LaunchAgent (`com.gooaye.update-episodes`) 將於今晚 Wed 20:00+22:00 TPE 跑 whisper + LLM，產出寫入 `_episodes_auto.json`，網頁前端會自動合併替換此 placeholder。如需立即觸發：`auto_update.py --force-ep 667 --model small`。',
+    stocks:[]},
   665:{date:'2026-05-27',title:'EP665 | 🌸 整組做壞掉了',dur:'50分',v:'pending',sponsor:'善存葉黃素',
     tags:['show notes only','⏳ 待 whisper 轉錄','RSS 剛上架'],
     summary:'<b>剛上架 (2026-05-27 15:25 TPE)</b>，社群整理與逐字稿待補。show notes 僅提供贊助商資訊（善存葉黃素 Momo 限時優惠）+ 一句標題 tagline「整組做壞掉了」。<b>暫不從標題 + emoji 推測本集論點</b>（EP662/663/664 三次「標題猜內容」全部翻車的歷史教訓）。LaunchAgent (`com.gooaye.update-episodes`) 將於 Wed/Sat 20:00+22:00 TPE 跑 whisper + LLM，產出寫入 `_episodes_auto.json`，網頁前端會自動合併替換此 placeholder。如需立即觸發：<code>auto_update.py --force-ep 665</code>。',

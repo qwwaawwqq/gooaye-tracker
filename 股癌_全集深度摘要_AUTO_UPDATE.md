@@ -1,11 +1,12 @@
 # Gooaye 股癌 · 全集深度摘要（自動更新）
 
 <!-- AUTO_UPDATE_META
-last_seen_ep: 665
-last_check: 2026-05-27T19:10:00+08:00
-total_episodes_covered: 15
+last_seen_ep: 667
+last_check: 2026-06-03T19:16:00+08:00
+total_episodes_covered: 16
 oldest_ep_in_file: 651
-newest_ep_in_file: 665
+newest_ep_in_file: 667
+note: EP666 已 whisper（見 _episodes_auto.json，網頁已呈現）但本 md 段落待補；665 仍為 placeholder
 -->
 
 > **主持人：** 謝孟恭　·　**自動更新：** 每週三、六 19:09（Cowork 排程）
@@ -18,6 +19,33 @@ newest_ep_in_file: 665
 <!-- 📌 排程會在 ===== AUTO_INSERT_POINT_BELOW ===== 這行下面插入新集摘要，請勿刪除標記 -->
 
 ===== AUTO_INSERT_POINT_BELOW =====
+
+## EP667 | 🌍 這兩天開始品到…土味 (2026-06-03)
+
+> **狀態：** ⏳ Placeholder only — 等待 whisper 轉錄 + vocus 社群整理
+> **贊助：** NordVPN（nordvpn.com/gooaye，專屬優惠碼 `gooaye`：2 年方案 + 4 個月、30 天試用可隨時取消）
+> **時長：** 約 51 分鐘（3,051 秒）· GMT 2026-06-03 07:34 上架（台灣下午 3:34）
+
+### 為什麼這集只有 placeholder
+
+依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論。
+
+**標題 tagline 為「這兩天開始品到…土味」**（+ 🌍 emoji）— 解讀必須等到逐字稿出來再下定論，本檔不作任何主題推測。
+
+### 自動補完流程
+
+1. 本筆記由 Cowork 排程任務 `gooaye-new-episode-watcher` 於 2026-06-03 19:16 TPE 偵測 SoundOn RSS 後寫入。
+2. LaunchAgent `com.gooaye.update-episodes`（cron: Wed/Sat 20:00 + 22:00 TPE / Thu/Sun 09:00 TPE）會在今晚跑 `auto_update.py`，下載 EP667 音檔 → whisper small → Claude 生成 → 寫入 `_episodes_auto.json`。
+3. 前端 `loadAutoEpisodes()` 的 merge logic 會在 placeholder 沒有 `deep` 欄位時把 auto 版本疊上來（依函式名導航，行號會漂移）。
+4. 如需立即觸發：
+   ```
+   /Users/wangtingwei/opt/anaconda3/bin/python auto_update.py --force-ep 667 --model small
+   ```
+   (~25-30 min on Rosetta)
+
+> ℹ️ **EP666 補記：** EP666（🍐 誰敢說他們老，2026-05-30）已由 LaunchAgent whisper 轉錄完成，內容存於 `_episodes_auto.json`、網頁 EP666 卡片已呈現（重點：被動元件由成本驅動轉需求驅動、鋁電容/牛角電容缺口 20%+、老 AI 族群全面回歸、軟體股噴發、陳泰銘成台灣首富）。其 master md 完整段落待下次整理補寫。
+
+---
 
 ## EP665 | 🌸 整組做壞掉了 (2026-05-27)
 
