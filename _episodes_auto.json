@@ -1422,8 +1422,264 @@
       "auto_status": "audio+llm",
       "auto_generated_at": "2026-05-30T15:38:46+00:00",
       "transcript_chars": 24873
+    },
+    "667": {
+      "ep": 667,
+      "date": "2026-06-03",
+      "title": "EP667 | 🌍",
+      "dur": "45分",
+      "v": "pending",
+      "tags": [
+        "品酒會",
+        "Computex",
+        "NVIDIA",
+        "Marvell",
+        "AI PC",
+        "光通訊"
+      ],
+      "summary": "本集分享參加加配飯店品酒會的體驗，學到品酒如同學語言，需要具體形容詞才能真正理解味道。投資面聚焦 Computex，老黃喊 <b>Marvell 是下一個兆元企業</b>讓股價大噴，光通訊成為共識主軸。NVIDIA 發表 DGX Spark (N1X) 開啟 AI PC 第二次挑戰，搭配開源模型追上閉源約半年差距的趨勢，地端運算有望崛起。盤面討論 TSMC、NVIDIA 補漲機會，並點名功率半導體可能是下一波題材。",
+      "stocks": [
+        [
+          "US",
+          "NVDA"
+        ],
+        [
+          "US",
+          "MRVL"
+        ],
+        [
+          "TW",
+          "2330"
+        ],
+        [
+          "US",
+          "TSM"
+        ],
+        [
+          "US",
+          "SNOW"
+        ],
+        [
+          "TW",
+          "2454"
+        ],
+        [
+          "US",
+          "ON"
+        ],
+        [
+          "US",
+          "MPWR"
+        ]
+      ],
+      "deep": "<h4>主軸 1：品酒會的語言學習啟發</h4><ul><li>參加加配飯店品酒會，原本怕社交想躲角落，卻遇到熱情大哥大姐引導。</li><li>品酒如同學語言：金針菇味、菌菇、土壤等具體形容是真實存在，菜鳥需要牙牙學語去拼湊。</li><li>把味覺嗅覺玩到滿的人，能成為 <b>human algorithm</b>，推薦對方喜歡的東西。</li><li>現場大哥直接開兩瓶加起來近百萬的特級園分享，體會品酒圈的大方文化。</li></ul><p style=\"color:#fde047\"><b>「當你把這個語言給參透之後，你可以去抓到你愛的人喜歡的東西是什麼。」</b></p><h4>主軸 2：Computex 與 Marvell 噴射</h4><ul><li>老黃喊 <b>Marvell 是下一個兆元企業</b>，從大牛車變飛天神牛，超出預期。</li><li>Marvell 在 DSP 不錯但 ASIC 仍在發展中，不如 MediaTek、Broadcom 名氣。</li><li>NVIDIA 強調<b>光是必行的發展方向</b>，從 pluggable 到 CPO 共識強化，資金可能回流光通訊。</li><li>老黃點石成金能力驚人，連背板上的台灣餐廳都可能受惠。</li></ul><h4>主軸 3：DGX Spark 與 AI PC 第二次挑戰</h4><ul><li>NVIDIA DGX Spark (N1X) 為一年前提過的遞延產品，原本規劃高階筆電、初階筆電、車用三條線。</li><li>兩年前高通 AI PC 雷聲大雨點小，這次經過算力堆疊與軟體優化有新機會。</li><li>Snowflake 員工分享：<b>開源模型約落後閉源半年</b>，到達 sweet spot 後地端就能滿足多數需求。</li><li>AI PC 用料較好，被動元件等材料規格提升，可 offset 傳統 PC 銷售疲軟。</li></ul><h4>主軸 4：盤面策略與補漲機會</h4><ul><li>NVIDIA、TSMC 交易在相對便宜位置，可能擔綱最後一棒補漲。</li><li>市場資金愛追跑得快的小標股，但 TSMC 形態轉強、投信換書可能帶動。</li><li>被動元件、營建出現橫盤整理是好事，避免處置與下游過重。</li><li>點名<b>功率半導體（ON、MPWR）</b>基本面顯著改善，可能是下一波題材匯聚點。</li></ul><p style=\"color:#fde047\"><b>「以這個斜率來講，要直接做一個終結會比較困難，今年都還是走多。」</b></p><h4>📊 提及個股（8 檔）</h4><p style=\"color:#8ea3c0;font-size:11px;margin-bottom:8px\">由 Claude API 自逐字稿分類；whisper 對公司名 homophone 錯誤多，個股代號以模型還原為準，必要時人工二校。</p><div style=\"display:grid;grid-template-columns:1fr;gap:6px;font-size:12px;line-height:1.55\"><div style=\"background:rgba(74,222,128,0.04);border-left:2px solid #4ade80;padding:6px 10px;border-radius:4px\"><b>🚀 Computex 主軸</b><br><b>NVDA NVIDIA</b>　演講論述從 GPU 到 <b>total solution</b>，光通訊與 DGX Spark 雙主軸推進。<br><b>MRVL Marvell</b>　老黃喊<b>兆元企業</b>，從大牛車變飛天神牛，估值大幅 re-rate。</div><div style=\"background:rgba(251,191,36,0.04);border-left:2px solid #fbbf24;padding:6px 10px;border-radius:4px\"><b>💻 AI PC 與軟體層</b><br><b>2454 聯發科</b>　AI PC 晶片設計受惠 N1X 開啟的<b>地端運算</b>商機。<br><b>SNOW Snowflake</b>　員工分享<b>開源模型追上閉源</b>後，DataLake 與軟體層獲客成關鍵戰場。</div><div style=\"background:rgba(96,165,250,0.04);border-left:2px solid #60a5fa;padding:6px 10px;border-radius:4px\"><b>🛡️ 龍頭補漲</b><br><b>2330 台積電</b>　形態轉強，<b>金管會換書</b>後投信資金可能進場，擔綱最後一棒。<br><b>TSM 台積電 ADR</b>　與台股同步，AI 龍頭估值相對便宜位置。</div><div style=\"background:rgba(167,139,250,0.04);border-left:2px solid #a78bfa;padding:6px 10px;border-radius:4px\"><b>⚡ 功率半導體題材</b><br><b>ON 安森美</b>　<b>基本面顯著改善</b>，可能是下一波題材匯聚點。<br><b>MPWR MPS</b>　功率 IDM 配合電源櫃拉貨，潛在<b>戴維斯雙擊</b>機會。</div></div><h4>資料狀態</h4><p style=\"color:#fbbf24\">本摘要由 Claude API 自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。</p>",
+      "calls": [
+        {
+          "ep": 667,
+          "t": "Marvell 噴射",
+          "c": "老黃喊 <b>Marvell 是下一個兆元企業</b>，股價超預期大噴，但 ASIC 業務仍在發展中，估值撐起為主。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "US",
+            "code": "MRVL"
+          },
+          "quote": "老黃講說瑪莉奧可能是下一個兆元企業之後，瑪莉奧這一個有點像是說大牛車的東西，突然間變成媽的飛天神牛"
+        },
+        {
+          "ep": 667,
+          "t": "光通訊主軸",
+          "c": "NVIDIA 強調<b>光是必行方向</b>，從 pluggable 到 CPO 共識強化，資金可能再次流向光通訊。",
+          "a": "剛發布",
+          "v": "pending",
+          "quote": "光的一個成長的速率跟未來發展的可能性是持續的在拉大"
+        },
+        {
+          "ep": 667,
+          "t": "AI PC 第二波",
+          "c": "DGX Spark/N1X 啟動 AI PC 第二次挑戰，搭配開源模型成熟，地端運算有望崛起，被動元件用料升級受惠。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "US",
+            "code": "NVDA"
+          },
+          "quote": "AI PC 的第二次挑戰，經過了一兩年的算力堆疊跟技術的加強，那有沒有可能在 AI PC 這邊產出新的可能性"
+        },
+        {
+          "ep": 667,
+          "t": "TSMC/NVIDIA 補漲",
+          "c": "兩大龍頭交易在相對便宜位置，<b>TSMC 形態轉強</b>，投信換書資金進來可能擔綱最後一棒。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "TW",
+            "code": "2330"
+          },
+          "quote": "TSMC 很明顯的在轉牆，然後搭配前面因為金管會開了一個大門"
+        },
+        {
+          "ep": 667,
+          "t": "功率半導體題材",
+          "c": "<b>功率元件基本面顯著改善</b>，ON、MPWR 等 IDM 可能是下一波題材匯聚點，但缺全面屌缺。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "US",
+            "code": "ON"
+          },
+          "quote": "功率元件或者是功率半導體相關的一些公司，其實我們都注意到他的基本面有滿顯著的在改善中"
+        },
+        {
+          "ep": 667,
+          "t": "被動元件盤整",
+          "c": "被動元件出現橫盤整理是好事，避免處置與下游過重；月線未破不調整部位。",
+          "a": "剛發布",
+          "v": "pending",
+          "quote": "他現在回檔你看他連十字線都沒有破，那為什麼要出去"
+        },
+        {
+          "ep": 667,
+          "t": "Snowflake 軟體層",
+          "c": "開源模型追上後，<b>DataLake 與軟體層商機浮現</b>，獲取客戶能力成關鍵。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "US",
+            "code": "SNOW"
+          },
+          "quote": "如何的去獲得你的用戶，可能就像我們上集所強調，他是現在最重要的事情"
+        }
+      ],
+      "stock_meta": {
+        "US/NVDA": {
+          "name": "NVIDIA",
+          "stance": "龍頭看好",
+          "note": "Computex 演講論述<b>與時俱進</b>，從 GPU 到 total solution；估值相對便宜可能補漲。",
+          "ep": 667
+        },
+        "US/MRVL": {
+          "name": "Marvell",
+          "stance": "超預期噴射",
+          "note": "老黃點名<b>下一個兆元企業</b>，估值撐起為主，ASIC 仍在發展中。",
+          "ep": 667
+        },
+        "TW/2330": {
+          "name": "台積電",
+          "stance": "轉強補漲",
+          "note": "形態明顯轉強，搭配<b>金管會換書</b>投信資金可能進場，擔綱最後一棒。",
+          "ep": 667
+        },
+        "US/TSM": {
+          "name": "台積電 ADR",
+          "stance": "轉強補漲",
+          "note": "與 2330 同步，AI 龍頭交易在相對便宜位置。",
+          "ep": 667
+        },
+        "US/SNOW": {
+          "name": "Snowflake",
+          "stance": "觀察",
+          "note": "員工分享<b>開源模型半年差距</b>論述，DataLake 與軟體層獲客成關鍵。",
+          "ep": 667
+        },
+        "TW/2454": {
+          "name": "聯發科",
+          "stance": "觀察",
+          "note": "AI PC 概念股，可能受惠 N1X 帶動的<b>地端運算</b>趨勢與晶片設計需求。",
+          "ep": 667
+        },
+        "US/ON": {
+          "name": "安森美",
+          "stance": "題材匯聚點",
+          "note": "<b>功率半導體基本面改善</b>，可能是下一波題材的潛在領頭。",
+          "ep": 667
+        },
+        "US/MPWR": {
+          "name": "MPS",
+          "stance": "題材匯聚點",
+          "note": "功率 IDM 同樣受惠 ASP 改善，搭配電源櫃拉貨可能戴維斯雙擊。",
+          "ep": 667
+        }
+      },
+      "stocks_groups": [
+        {
+          "tier": "primary",
+          "title": "🚀 Computex 主軸",
+          "stocks": [
+            {
+              "code": "NVDA",
+              "mkt": "US",
+              "name": "NVIDIA",
+              "reason": "演講論述從 GPU 到 <b>total solution</b>，光通訊與 DGX Spark 雙主軸推進。"
+            },
+            {
+              "code": "MRVL",
+              "mkt": "US",
+              "name": "Marvell",
+              "reason": "老黃喊<b>兆元企業</b>，從大牛車變飛天神牛，估值大幅 re-rate。"
+            }
+          ]
+        },
+        {
+          "tier": "adjacent",
+          "title": "💻 AI PC 與軟體層",
+          "stocks": [
+            {
+              "code": "2454",
+              "mkt": "TW",
+              "name": "聯發科",
+              "reason": "AI PC 晶片設計受惠 N1X 開啟的<b>地端運算</b>商機。"
+            },
+            {
+              "code": "SNOW",
+              "mkt": "US",
+              "name": "Snowflake",
+              "reason": "員工分享<b>開源模型追上閉源</b>後，DataLake 與軟體層獲客成關鍵戰場。"
+            }
+          ]
+        },
+        {
+          "tier": "defensive",
+          "title": "🛡️ 龍頭補漲",
+          "stocks": [
+            {
+              "code": "2330",
+              "mkt": "TW",
+              "name": "台積電",
+              "reason": "形態轉強，<b>金管會換書</b>後投信資金可能進場，擔綱最後一棒。"
+            },
+            {
+              "code": "TSM",
+              "mkt": "US",
+              "name": "台積電 ADR",
+              "reason": "與台股同步，AI 龍頭估值相對便宜位置。"
+            }
+          ]
+        },
+        {
+          "tier": "overseas",
+          "title": "⚡ 功率半導體題材",
+          "stocks": [
+            {
+              "code": "ON",
+              "mkt": "US",
+              "name": "安森美",
+              "reason": "<b>基本面顯著改善</b>，可能是下一波題材匯聚點。"
+            },
+            {
+              "code": "MPWR",
+              "mkt": "US",
+              "name": "MPS",
+              "reason": "功率 IDM 配合電源櫃拉貨，潛在<b>戴維斯雙擊</b>機會。"
+            }
+          ]
+        }
+      ],
+      "auto_status": "audio+llm",
+      "auto_generated_at": "2026-06-03T12:32:29+00:00",
+      "transcript_chars": 22526
     }
   },
   "schema": 1,
-  "updated_at": "2026-05-31T09:00:06+08:00"
+  "updated_at": "2026-06-03T20:32:29+08:00"
 }
