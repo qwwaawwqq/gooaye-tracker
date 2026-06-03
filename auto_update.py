@@ -943,7 +943,7 @@ def main() -> int:
             degraded = True
     save_state(state)
     print(f"[done] wrote {OUT_FILE.name}, state.last_seen_ep={state['last_seen_ep']}")
-    prune_audio_cache(keep=8)
+    prune_audio_cache(keep_mp3=8)
 
     if args.push:
         eps_done = sorted(int(e.get("ep") or 0) for e in new_entries if e.get("ep"))
