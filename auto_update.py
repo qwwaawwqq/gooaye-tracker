@@ -224,9 +224,19 @@ def fetch_rss(url: str = RSS_URL) -> ET.Element:
         return ET.parse(resp).getroot()
 
 
+# Publisher RSS title typos: parsed-number → corrected episode number.
+# 2026-06-06: the 🦞 episode (real EP668, follows EP667) shipped titled
+# "EP688 | 🦞". Unmapped, parse_ep_num returns 688 → pipeline jumps
+# last_seen_ep to 688 and skips 669–687 forever. Remap it back. Revisit /
+# remove this entry if the feed is corrected or once real episodes reach 688.
+_EP_NUM_TYPOS = {688: 668}
+
+
 def parse_ep_num(title: str) -> int | None:
     m = re.search(r"EP\s*(\d+)", title, re.IGNORECASE)
-    return int(m.group(1)) if m else None
+    if not m:
+        return None
+    return _EP_NUM_TYPOS.get(int(m.group(1)), int(m.group(1)))
 
 
 def parse_pubdate(raw: str) -> str:

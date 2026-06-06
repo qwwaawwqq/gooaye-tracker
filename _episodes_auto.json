@@ -1678,8 +1678,242 @@
       "auto_status": "audio+llm",
       "auto_generated_at": "2026-06-03T12:32:29+00:00",
       "transcript_chars": 22526
+    },
+    "668": {
+      "ep": 668,
+      "date": "2026-06-06",
+      "title": "EP668 | 🦞",
+      "dur": "48分",
+      "v": "pending",
+      "tags": [
+        "Computex",
+        "NVIDIA",
+        "RTX Spark",
+        "聯發科",
+        "Adobe",
+        "AI筆電",
+        "市場警示"
+      ],
+      "summary": "本集為 Computex 2026 觀展心得，主持人說是近兩三年最喜歡的一場：展會大幅<b>出圈</b>、黃仁勳成 superstar，整體訴求從「無人世界」轉為<b>把人放回舞台中央</b>、AI 當生產力加乘。重點落在 NVIDIA 消費端與 <b>Adobe 深度合作</b>、聯發科 <b>RTX Spark（N1X/N1）</b>主打 Unified Memory 與「AI 筆電＝電競筆電」、ASUS ROG 精緻化與 AR 眼鏡；企業端 PowerRack、LPU、CPU Rack、Kyber 與過去差異不大。尾段提醒夜盤大跌、下週 <b>brace for impact</b>，視為洗槓桿的健康修正，產業端基本面無虞。",
+      "stocks": [
+        [
+          "TW",
+          "2454"
+        ],
+        [
+          "US",
+          "NVDA"
+        ],
+        [
+          "US",
+          "ADBE"
+        ],
+        [
+          "TW",
+          "2357"
+        ],
+        [
+          "US",
+          "SNOW"
+        ],
+        [
+          "US",
+          "AMD"
+        ],
+        [
+          "US",
+          "QCOM"
+        ]
+      ],
+      "deep": "<h4>主軸 1：Computex 2026 大幅出圈，人重回舞台中央</h4><ul><li>主持人認為今年是過去兩三年最喜歡的一場展會，東西都「超級實際」，看完會 Shut up take my money。</li><li>展會明顯<b>出圈</b>：黃仁勳成 superstar、走到哪都是簽名與追星族；批評「Computex 不純粹了」被放大，但出圈代表紅了、會額外創造機會。</li><li>過去兩年強調「AI 取代人、走向無人世界、滿場機械狗與 AI gadget」造成審美疲勞；今年各攤位都改<b>強調人機結合</b>、把人放回中央。</li></ul><p style=\"color:#fde047\"><b>「我覺得把人重新的放到舞台的正中間，這也是我喜歡的，這也是我覺得是對的」</b></p><h4>主軸 2：NVIDIA 企業端——與過去差異不大</h4><ul><li>PowerRack 超大<b>超級電容</b>（尺寸約 5 倍、ASP 近百倍）；LPU 被封起來看不到內構，估一年約 1～1.5 萬 racks。</li><li>CPU Rack 主打 Agentic AI workflow；CPU 用量大是因現階段 agentic 還不夠優化、模型一直「撞牆」找路，但以 Satya 邏輯<b>降成本反而用的人更多、總量更大</b>，CPU configuration 值得續關注。</li><li>VR Rubin／Grace Blackwell 已熟悉；Kyber 工藝複雜、有地緣風險，市場關注背板、QB 等元件。</li></ul><h4>主軸 3：NVIDIA 消費端 × Adobe——生產力加乘，反 AI 全自動</h4><ul><li>市場喊「Adobe 要被 AI 取代」，NVIDIA 消費展卻見<b>深度合作</b>：RTX Spark 讓 Premiere／Photoshop 只花 1/3～1/5 時間、自動抓鏡頭切點、剪片超快。</li><li>主持人反對創作者全自動化：折扣訊息可全自動，但導演、編劇、老師全交給 AI 是「把自己推進棺材」；觀眾越來越討厭 AI slop、想找有人味的東西（諾蘭、塔倫提諾）。</li><li>RTX Spark 靠 <b>Unified Memory</b> 可瞬間 render 紐約 30～50 個 block、不卡頓；AI 補幀讓硬體不必頂規也能跑好 3A 大作。</li></ul><p style=\"color:#fde047\"><b>「你身為一個創作者、導演、編劇，或者說你是一個老師，你用 AI 去自動化這件事情，你是把自己推到棺材裡面」</b></p><h4>主軸 4：聯發科 RTX Spark（N1X／N1）——直上頂規、AI 筆電＝電競筆電</h4><ul><li>兩規格：N1X 高規（筆電 ASP 約 9～10 萬台幣）、N1 低規（約 5～6 萬）；主持人主張<b>真的要直上</b>，Unified Memory 容量是關鍵，買低規會失望。</li><li>主持人個人每月固定花約 6,000 元月費＋額外買 token 用 agentic AI（如查紅酒拍賣價）；地端模型若省下雲端 LLM 費用，約一年回本，買硬體動機強，但非人人如此。</li><li>臨門一角＝<b>遊戲</b>：聯發科人員稱 RTX Spark 約等同 RTX 5070、可打遊戲；定位「AI 筆電 slash 電競筆電」、輕薄、無痛打 GTA 6，預期高階銷量較好，成功機率高於先前高通／Macbook 地端 AI。</li></ul><h4>主軸 5：ASUS ROG 與 AR 眼鏡——精緻化、Future is now</h4><ul><li>ROG 走精緻化：與 T1 聯名顯卡、抽盲盒鍵帽、24K 鍍金背板等「中二」設計，外觀與實用性都加強；主機可放客製化面板影片，朋友「天賺法師」當場被說服要買 20 萬電腦。</li><li>ROG <b>眼鏡像輕量化 Apple Vision Pro</b>：畫面好、流暢、僅眼鏡重量；主持人自評 Vision Pro 太重養灰塵，但看好 AR 眼鏡再一兩年很有搞頭。</li><li>ASUS 伺服器展示可快速定位哪排伺服器哪個環節出問題、即時排除；強調有 AI agent 不代表不需要軟體，AI coding 反而做出更多實用軟體。</li></ul><h4>主軸 6：短線市場——brace for impact，但產業端無虞</h4><ul><li>昨夜盤出現大場面，台指最深摸到約 <b>-10%</b>、後拉回約 -6～7%；下週一台股要承受，提醒 brace for impact、會有大場面。</li><li>視為<b>洗槓桿</b>的健康修正：融資／槓桿仔最大、已在殺；8:45 開超低再拉上來是槓桿者被洗掉，後面可能還有一陣腥風血雨。</li><li>但產業端沒看到太多問題，這次 Computex 更添信心；漲多拉回正常，整理後再看新方向。</li></ul><p style=\"color:#fde047\"><b>「你舒服久了，你知道要還，一定會有天罰……下禮拜大家就是 brace for impact」</b></p><h4>主軸 7：聽眾信箱——健康、心態與不要無腦跟單</h4><ul><li>腰痠背痛：建議<b>功能性訓練</b>＋物理治療師，並學腹式呼吸（氣要鼓到下背）、阻力弓箭步矯正左右失衡，主持人自己已改善過半。</li><li>不要把選擇外包給別人：很討厭「<b>無腦跟單</b>」，節目不收費、你賺賠與他無關；台股四萬多點同一標的仍很多人賠錢，技術、認知、抗壓都是考驗。</li><li>夫妻是這輩子唯一能選的家人，對方有錯且願修正就散口扶持；面對 IVF 胎停等難關維持樂觀，「寶寶只是忘了帶東西」。</li></ul><h4>資料狀態</h4><p style=\"color:#fbbf24\">本摘要由 Claude（訂閱對話，非 API）自 whisper 逐字稿生成，可能有口誤/轉錄錯誤。RSS 標題誤植為 EP688，實為 EP668。</p>",
+      "calls": [
+        {
+          "ep": 668,
+          "t": "RTX Spark 直上頂規",
+          "c": "聯發科 <b>N1X/N1</b> 兩規，主軸是 Unified Memory 容量；地端 agentic AI／剪片／遊戲補幀都吃記憶體，主持人主張直上高規、看好高階銷量。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "TW",
+            "code": "2454"
+          },
+          "quote": "你就是必須要買到那個頂規，那你才可以去跑一些 local 端的 agentic AI"
+        },
+        {
+          "ep": 668,
+          "t": "AI筆電=電競筆電",
+          "c": "RTX Spark 約等同 <b>RTX 5070</b>、可打遊戲；定位輕薄電競筆電、無痛打 GTA 6 兼搞 AI，成功機率高於高通/Macbook 地端 AI。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "TW",
+            "code": "2454"
+          },
+          "quote": "你買這台筆電，可以直接無痛打 GTA 6，買不買，它可以順便搞 AI"
+        },
+        {
+          "ep": 668,
+          "t": "Adobe 意外反轉",
+          "c": "市場喊 Adobe 被 AI 取代，NVIDIA 消費展卻見<b>深度合作</b>：RTX Spark 讓 Premiere/Photoshop 快 3-5 倍、自動抓切點。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "US",
+            "code": "ADBE"
+          },
+          "quote": "一個大家在市場上說要被淘汰的某個東西，竟然是看出來是他們深度合作的夥伴"
+        },
+        {
+          "ep": 668,
+          "t": "NVIDIA 人機結合",
+          "c": "今年訴求從「無人世界」轉為<b>把人放回舞台中央</b>、AI 當生產力加乘；Future is now，主持人最喜歡的一屆。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "US",
+            "code": "NVDA"
+          },
+          "quote": "我覺得把人重新的放到舞台的正中間，這也是我喜歡的"
+        },
+        {
+          "ep": 668,
+          "t": "ROG AR 眼鏡",
+          "c": "ROG 眼鏡像<b>輕量化 Vision Pro</b>，畫面好、僅眼鏡重量；主持人看好 AR 眼鏡再一兩年很有搞頭。",
+          "a": "剛發布",
+          "v": "pending",
+          "ticker": {
+            "mkt": "TW",
+            "code": "2357"
+          },
+          "quote": "你再給他們一兩年的時間，他們會把這個東西完成什麼樣子"
+        },
+        {
+          "ep": 668,
+          "t": "brace for impact",
+          "c": "夜盤台指最深約 <b>-10%</b>、拉回約 -6~7%，下週一台股要承受；視為洗槓桿的健康修正，產業端基本面無虞。",
+          "a": "剛發布",
+          "v": "pending",
+          "quote": "下禮拜大家就是 brace for impact"
+        }
+      ],
+      "stock_meta": {
+        "TW/2454": {
+          "name": "聯發科",
+          "stance": "直上頂規",
+          "note": "RTX Spark N1X/N1 主打 <b>Unified Memory</b>，AI 筆電 slash 電競筆電，主持人看好高階銷量。",
+          "ep": 668
+        },
+        "US/NVDA": {
+          "name": "NVIDIA",
+          "stance": "龍頭看好",
+          "note": "消費端訴求人機結合、Future is now；RTX Spark 帶動生產力與遊戲補幀。",
+          "ep": 668
+        },
+        "US/ADBE": {
+          "name": "Adobe",
+          "stance": "意外反轉",
+          "note": "市場喊被 AI 取代，卻與 NVIDIA <b>深度合作</b>，RTX Spark 加速 Premiere/Photoshop。",
+          "ep": 668
+        },
+        "TW/2357": {
+          "name": "華碩",
+          "stance": "精緻化",
+          "note": "ROG 走精緻化、與 T1 聯名；<b>AR 眼鏡</b>如輕量 Vision Pro，被看好。",
+          "ep": 668
+        },
+        "US/SNOW": {
+          "name": "Snowflake",
+          "stance": "觀察",
+          "note": "地端 vs 雲端資料話題；建立 data 後部分運算可回地端。",
+          "ep": 668
+        },
+        "US/AMD": {
+          "name": "AMD",
+          "stance": "未遇到",
+          "note": "漢來有施展但當天未遇到，若有酷東西想再看。",
+          "ep": 668
+        },
+        "US/QCOM": {
+          "name": "高通",
+          "stance": "前車之鑑",
+          "note": "地端 AI 嘗試<b>時間未到</b>而略失敗，作為 RTX Spark 對照。",
+          "ep": 668
+        }
+      },
+      "stocks_groups": [
+        {
+          "tier": "primary",
+          "title": "🚀 Computex 消費端主軸",
+          "stocks": [
+            {
+              "code": "NVDA",
+              "mkt": "US",
+              "name": "NVIDIA",
+              "reason": "消費展把人放回中央、Future is now，RTX Spark 帶動生產力與遊戲。"
+            },
+            {
+              "code": "2454",
+              "mkt": "TW",
+              "name": "聯發科",
+              "reason": "RTX Spark N1X/N1，<b>Unified Memory</b> 為關鍵，AI 筆電＝電競筆電。"
+            }
+          ]
+        },
+        {
+          "tier": "adjacent",
+          "title": "🎬 生產力與資料軟體",
+          "stocks": [
+            {
+              "code": "ADBE",
+              "mkt": "US",
+              "name": "Adobe",
+              "reason": "與 NVIDIA <b>深度合作</b>，RTX Spark 加速剪片修圖，市場恐錯殺。"
+            },
+            {
+              "code": "SNOW",
+              "mkt": "US",
+              "name": "Snowflake",
+              "reason": "地端 vs 雲端資料，建立 data 後部分可回地端跑。"
+            }
+          ]
+        },
+        {
+          "tier": "defensive",
+          "title": "🕶️ 硬體與 AR",
+          "stocks": [
+            {
+              "code": "2357",
+              "mkt": "TW",
+              "name": "華碩",
+              "reason": "ROG 精緻化＋<b>AR 眼鏡</b>（輕量 Vision Pro），消費級全力吸客。"
+            }
+          ]
+        },
+        {
+          "tier": "overseas",
+          "title": "⚡ 對照與觀望",
+          "stocks": [
+            {
+              "code": "QCOM",
+              "mkt": "US",
+              "name": "高通",
+              "reason": "地端 AI <b>時間未到</b>略失敗，作 RTX Spark 成敗對照。"
+            },
+            {
+              "code": "AMD",
+              "mkt": "US",
+              "name": "AMD",
+              "reason": "漢來施展當天未遇到，待看是否有酷東西。"
+            }
+          ]
+        }
+      ],
+      "auto_status": "audio+llm",
+      "auto_generated_at": "2026-06-06T10:16:53+00:00",
+      "transcript_chars": 19599,
+      "source_note": "hand-structured by Claude session from whisper transcript; RSS title mislabeled EP688"
     }
   },
   "schema": 1,
-  "updated_at": "2026-06-03T20:32:29+08:00"
+  "updated_at": "2026-06-06T18:16:53+08:00"
 }
