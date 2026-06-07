@@ -131855,7 +131855,7 @@
     "type": "stock",
     "id": "stock2375",
     "title": "2375 凱美",
-    "text": "2375 凱美 partial",
+    "text": "2375 凱美 pending",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2375.html",
     "tokens": [
       "2375",
@@ -131867,7 +131867,7 @@
     "type": "stock",
     "id": "stock8261",
     "title": "8261 富鼎",
-    "text": "8261 富鼎 partial",
+    "text": "8261 富鼎 pending",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-8261.html",
     "tokens": [
       "8261",
@@ -131879,7 +131879,7 @@
     "type": "stock",
     "id": "stockVPG",
     "title": "VPG Vishay Precision",
-    "text": "VPG Vishay Precision partial",
+    "text": "VPG Vishay Precision pending",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-VPG.html",
     "tokens": [
       "VPG",
@@ -131889,37 +131889,14 @@
   },
   {
     "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
-    "tokens": [
-      "3037",
-      "欣",
-      "興"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock6285",
     "title": "6285 啟碁",
-    "text": "6285 啟碁 partial",
+    "text": "6285 啟碁 pending",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
     "tokens": [
       "6285",
       "啟",
       "碁"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
     ]
   },
   {
@@ -131937,15 +131914,14 @@
   },
   {
     "type": "stock",
-    "id": "stock2449",
-    "title": "2449 京元電",
-    "text": "2449 京元電 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2449.html",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
     "tokens": [
-      "2449",
-      "京",
-      "元",
-      "電"
+      "3037",
+      "欣",
+      "興"
     ]
   },
   {
@@ -131959,6 +131935,30 @@
       "瀚",
       "宇",
       "博"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2449",
+    "title": "2449 京元電",
+    "text": "2449 京元電 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2449.html",
+    "tokens": [
+      "2449",
+      "京",
+      "元",
+      "電"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
     ]
   },
   {
@@ -131997,17 +131997,6 @@
   },
   {
     "type": "stock",
-    "id": "stockTEAM",
-    "title": "TEAM Atlassian",
-    "text": "TEAM Atlassian partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-TEAM.html",
-    "tokens": [
-      "TEAM",
-      "Atlassian"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockNET",
     "title": "NET Cloudflare",
     "text": "NET Cloudflare partial",
@@ -132019,13 +132008,13 @@
   },
   {
     "type": "stock",
-    "id": "stockPLTR",
-    "title": "PLTR Palantir",
-    "text": "PLTR Palantir partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
+    "id": "stockTEAM",
+    "title": "TEAM Atlassian",
+    "text": "TEAM Atlassian pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-TEAM.html",
     "tokens": [
-      "PLTR",
-      "Palantir"
+      "TEAM",
+      "Atlassian"
     ]
   },
   {
@@ -132043,7 +132032,7 @@
     "type": "stock",
     "id": "stockCRM",
     "title": "CRM Salesforce",
-    "text": "CRM Salesforce pending",
+    "text": "CRM Salesforce partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-CRM.html",
     "tokens": [
       "CRM",
@@ -132054,11 +132043,22 @@
     "type": "stock",
     "id": "stockADBE",
     "title": "ADBE Adobe",
-    "text": "ADBE Adobe pending",
+    "text": "ADBE Adobe partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
     "tokens": [
       "ADBE",
       "Adobe"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockPLTR",
+    "title": "PLTR Palantir",
+    "text": "PLTR Palantir miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
+    "tokens": [
+      "PLTR",
+      "Palantir"
     ]
   },
   {
@@ -132077,7 +132077,7 @@
     "type": "stock",
     "id": "stock2337",
     "title": "2337 旺宏",
-    "text": "2337 旺宏 pending",
+    "text": "2337 旺宏 miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2337.html",
     "tokens": [
       "2337",
@@ -132089,22 +132089,11 @@
     "type": "stock",
     "id": "stockMETA",
     "title": "META Meta",
-    "text": "META Meta partial",
+    "text": "META Meta miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
     "tokens": [
       "META",
       "Meta"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockAVGO",
-    "title": "AVGO Broadcom",
-    "text": "AVGO Broadcom partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AVGO.html",
-    "tokens": [
-      "AVGO",
-      "Broadcom"
     ]
   },
   {
@@ -132118,6 +132107,17 @@
       "世",
       "芯",
       "KY"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockAVGO",
+    "title": "AVGO Broadcom",
+    "text": "AVGO Broadcom miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AVGO.html",
+    "tokens": [
+      "AVGO",
+      "Broadcom"
     ]
   },
   {
@@ -132202,6 +132202,61 @@
     "tokens": [
       "INTC",
       "Intel"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockSNOW",
+    "title": "SNOW SNOW",
+    "text": "SNOW SNOW pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-SNOW.html",
+    "tokens": [
+      "SNOW",
+      "SNOW"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockGOOGL",
+    "title": "GOOGL GOOGL",
+    "text": "GOOGL GOOGL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-GOOGL.html",
+    "tokens": [
+      "GOOGL",
+      "GOOGL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockTSLA",
+    "title": "TSLA TSLA",
+    "text": "TSLA TSLA pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
+    "tokens": [
+      "TSLA",
+      "TSLA"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockON",
+    "title": "ON ON",
+    "text": "ON ON pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-ON.html",
+    "tokens": [
+      "ON",
+      "ON"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockMRVL",
+    "title": "MRVL MRVL",
+    "text": "MRVL MRVL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
+    "tokens": [
+      "MRVL",
+      "MRVL"
     ]
   }
 ]
