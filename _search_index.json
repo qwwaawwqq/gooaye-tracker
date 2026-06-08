@@ -131889,18 +131889,6 @@
   },
   {
     "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
-    "tokens": [
-      "6285",
-      "啟",
-      "碁"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock2308",
     "title": "2308 台達電",
     "text": "2308 台達電 partial",
@@ -131922,6 +131910,29 @@
       "3037",
       "欣",
       "興"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "tokens": [
+      "6285",
+      "啟",
+      "碁"
     ]
   },
   {
@@ -131952,13 +131963,13 @@
   },
   {
     "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
     "tokens": [
-      "QCOM",
-      "Qualcomm"
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -131971,17 +131982,6 @@
       "3036",
       "文",
       "曄"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
     ]
   },
   {
@@ -132065,12 +132065,23 @@
     "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
-    "text": "6531 愛普 hit",
+    "text": "6531 愛普 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6531.html",
     "tokens": [
       "6531",
       "愛",
       "普"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockMETA",
+    "title": "META Meta",
+    "text": "META Meta miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
+    "tokens": [
+      "META",
+      "Meta"
     ]
   },
   {
@@ -132083,17 +132094,6 @@
       "2337",
       "旺",
       "宏"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockMETA",
-    "title": "META Meta",
-    "text": "META Meta miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
-    "tokens": [
-      "META",
-      "Meta"
     ]
   },
   {
