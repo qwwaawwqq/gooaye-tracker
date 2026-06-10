@@ -131865,6 +131865,18 @@
   },
   {
     "type": "stock",
+    "id": "stockVPG",
+    "title": "VPG Vishay Precision",
+    "text": "VPG Vishay Precision pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-VPG.html",
+    "tokens": [
+      "VPG",
+      "Vishay",
+      "Precision"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock8261",
     "title": "8261 富鼎",
     "text": "8261 富鼎 pending",
@@ -131877,14 +131889,13 @@
   },
   {
     "type": "stock",
-    "id": "stockVPG",
-    "title": "VPG Vishay Precision",
-    "text": "VPG Vishay Precision pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-VPG.html",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
     "tokens": [
-      "VPG",
-      "Vishay",
-      "Precision"
+      "QCOM",
+      "Qualcomm"
     ]
   },
   {
@@ -131898,18 +131909,6 @@
       "台",
       "達",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
-    "tokens": [
-      "3037",
-      "欣",
-      "興"
     ]
   },
   {
@@ -131939,13 +131938,14 @@
   },
   {
     "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
     "tokens": [
-      "QCOM",
-      "Qualcomm"
+      "3037",
+      "欣",
+      "興"
     ]
   },
   {
@@ -132065,7 +132065,7 @@
     "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
-    "text": "6531 愛普 hit",
+    "text": "6531 愛普 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6531.html",
     "tokens": [
       "6531",
