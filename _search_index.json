@@ -131889,14 +131889,15 @@
   },
   {
     "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "id": "stock5469",
+    "title": "5469 瀚宇博",
+    "text": "5469 瀚宇博 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-5469.html",
     "tokens": [
-      "6285",
-      "啟",
-      "碁"
+      "5469",
+      "瀚",
+      "宇",
+      "博"
     ]
   },
   {
@@ -131914,19 +131915,6 @@
   },
   {
     "type": "stock",
-    "id": "stock5469",
-    "title": "5469 瀚宇博",
-    "text": "5469 瀚宇博 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-5469.html",
-    "tokens": [
-      "5469",
-      "瀚",
-      "宇",
-      "博"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock3037",
     "title": "3037 欣興",
     "text": "3037 欣興 pending",
@@ -131939,17 +131927,6 @@
   },
   {
     "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockFORM",
     "title": "FORM FormFactor",
     "text": "FORM FormFactor pending",
@@ -131957,6 +131934,29 @@
     "tokens": [
       "FORM",
       "FormFactor"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "tokens": [
+      "6285",
+      "啟",
+      "碁"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
     ]
   },
   {
@@ -132008,6 +132008,17 @@
   },
   {
     "type": "stock",
+    "id": "stockNET",
+    "title": "NET Cloudflare",
+    "text": "NET Cloudflare partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NET.html",
+    "tokens": [
+      "NET",
+      "Cloudflare"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockTEAM",
     "title": "TEAM Atlassian",
     "text": "TEAM Atlassian pending",
@@ -132019,13 +132030,13 @@
   },
   {
     "type": "stock",
-    "id": "stockNET",
-    "title": "NET Cloudflare",
-    "text": "NET Cloudflare partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NET.html",
+    "id": "stockPLTR",
+    "title": "PLTR Palantir",
+    "text": "PLTR Palantir miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
     "tokens": [
-      "NET",
-      "Cloudflare"
+      "PLTR",
+      "Palantir"
     ]
   },
   {
@@ -132043,22 +132054,11 @@
     "type": "stock",
     "id": "stockADBE",
     "title": "ADBE Adobe",
-    "text": "ADBE Adobe partial",
+    "text": "ADBE Adobe hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
     "tokens": [
       "ADBE",
       "Adobe"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockPLTR",
-    "title": "PLTR Palantir",
-    "text": "PLTR Palantir miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
-    "tokens": [
-      "PLTR",
-      "Palantir"
     ]
   },
   {
@@ -132075,17 +132075,6 @@
   },
   {
     "type": "stock",
-    "id": "stockMETA",
-    "title": "META Meta",
-    "text": "META Meta miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
-    "tokens": [
-      "META",
-      "Meta"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock2337",
     "title": "2337 旺宏",
     "text": "2337 旺宏 miss",
@@ -132094,6 +132083,17 @@
       "2337",
       "旺",
       "宏"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockMETA",
+    "title": "META Meta",
+    "text": "META Meta miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
+    "tokens": [
+      "META",
+      "Meta"
     ]
   },
   {
@@ -132217,6 +132217,17 @@
   },
   {
     "type": "stock",
+    "id": "stockMRVL",
+    "title": "MRVL MRVL",
+    "text": "MRVL MRVL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
+    "tokens": [
+      "MRVL",
+      "MRVL"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockGOOGL",
     "title": "GOOGL GOOGL",
     "text": "GOOGL GOOGL pending",
@@ -132235,17 +132246,6 @@
     "tokens": [
       "TSLA",
       "TSLA"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockMRVL",
-    "title": "MRVL MRVL",
-    "text": "MRVL MRVL pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
-    "tokens": [
-      "MRVL",
-      "MRVL"
     ]
   },
   {
