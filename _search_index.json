@@ -131865,18 +131865,6 @@
   },
   {
     "type": "stock",
-    "id": "stockVPG",
-    "title": "VPG Vishay Precision",
-    "text": "VPG Vishay Precision pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-VPG.html",
-    "tokens": [
-      "VPG",
-      "Vishay",
-      "Precision"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock8261",
     "title": "8261 富鼎",
     "text": "8261 富鼎 pending",
@@ -131889,13 +131877,14 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "id": "stockVPG",
+    "title": "VPG Vishay Precision",
+    "text": "VPG Vishay Precision pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-VPG.html",
     "tokens": [
-      "FORM",
-      "FormFactor"
+      "VPG",
+      "Vishay",
+      "Precision"
     ]
   },
   {
@@ -131913,15 +131902,13 @@
   },
   {
     "type": "stock",
-    "id": "stock2308",
-    "title": "2308 台達電",
-    "text": "2308 台達電 partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
     "tokens": [
-      "2308",
-      "台",
-      "達",
-      "電"
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -131934,6 +131921,19 @@
       "3037",
       "欣",
       "興"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2308",
+    "title": "2308 台達電",
+    "text": "2308 台達電 partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "tokens": [
+      "2308",
+      "台",
+      "達",
+      "電"
     ]
   },
   {
