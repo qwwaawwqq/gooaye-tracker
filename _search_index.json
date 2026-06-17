@@ -131865,18 +131865,6 @@
   },
   {
     "type": "stock",
-    "id": "stockVPG",
-    "title": "VPG Vishay Precision",
-    "text": "VPG Vishay Precision pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-VPG.html",
-    "tokens": [
-      "VPG",
-      "Vishay",
-      "Precision"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock8261",
     "title": "8261 富鼎",
     "text": "8261 富鼎 pending",
@@ -131885,6 +131873,18 @@
       "8261",
       "富",
       "鼎"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockVPG",
+    "title": "VPG Vishay Precision",
+    "text": "VPG Vishay Precision pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-VPG.html",
+    "tokens": [
+      "VPG",
+      "Vishay",
+      "Precision"
     ]
   },
   {
@@ -131925,19 +131925,6 @@
   },
   {
     "type": "stock",
-    "id": "stock2308",
-    "title": "2308 台達電",
-    "text": "2308 台達電 partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
-    "tokens": [
-      "2308",
-      "台",
-      "達",
-      "電"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockQCOM",
     "title": "QCOM Qualcomm",
     "text": "QCOM Qualcomm pending",
@@ -131957,6 +131944,19 @@
       "6285",
       "啟",
       "碁"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2308",
+    "title": "2308 台達電",
+    "text": "2308 台達電 partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "tokens": [
+      "2308",
+      "台",
+      "達",
+      "電"
     ]
   },
   {
@@ -132077,7 +132077,7 @@
     "type": "stock",
     "id": "stock2337",
     "title": "2337 旺宏",
-    "text": "2337 旺宏 partial",
+    "text": "2337 旺宏 miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2337.html",
     "tokens": [
       "2337",
@@ -132150,7 +132150,7 @@
     "type": "stock",
     "id": "stock2330",
     "title": "2330 台積電",
-    "text": "2330 台積電 hit",
+    "text": "2330 台積電 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2330.html",
     "tokens": [
       "2330",
@@ -132217,17 +132217,6 @@
   },
   {
     "type": "stock",
-    "id": "stockMRVL",
-    "title": "MRVL MRVL",
-    "text": "MRVL MRVL pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
-    "tokens": [
-      "MRVL",
-      "MRVL"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockGOOGL",
     "title": "GOOGL GOOGL",
     "text": "GOOGL GOOGL pending",
@@ -132235,6 +132224,17 @@
     "tokens": [
       "GOOGL",
       "GOOGL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockMRVL",
+    "title": "MRVL MRVL",
+    "text": "MRVL MRVL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
+    "tokens": [
+      "MRVL",
+      "MRVL"
     ]
   },
   {
