@@ -131925,17 +131925,6 @@
   },
   {
     "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock6285",
     "title": "6285 啟碁",
     "text": "6285 啟碁 pending",
@@ -131948,19 +131937,6 @@
   },
   {
     "type": "stock",
-    "id": "stock2308",
-    "title": "2308 台達電",
-    "text": "2308 台達電 partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
-    "tokens": [
-      "2308",
-      "台",
-      "達",
-      "電"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock2449",
     "title": "2449 京元電",
     "text": "2449 京元電 pending",
@@ -131969,6 +131945,30 @@
       "2449",
       "京",
       "元",
+      "電"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2308",
+    "title": "2308 台達電",
+    "text": "2308 台達電 partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "tokens": [
+      "2308",
+      "台",
+      "達",
       "電"
     ]
   },
@@ -131997,17 +131997,6 @@
   },
   {
     "type": "stock",
-    "id": "stockNET",
-    "title": "NET Cloudflare",
-    "text": "NET Cloudflare partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NET.html",
-    "tokens": [
-      "NET",
-      "Cloudflare"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockNVDA",
     "title": "NVDA NVIDIA",
     "text": "NVDA NVIDIA partial",
@@ -132015,6 +132004,17 @@
     "tokens": [
       "NVDA",
       "NVIDIA"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockNET",
+    "title": "NET Cloudflare",
+    "text": "NET Cloudflare partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NET.html",
+    "tokens": [
+      "NET",
+      "Cloudflare"
     ]
   },
   {
@@ -132065,7 +132065,7 @@
     "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
-    "text": "6531 愛普 partial",
+    "text": "6531 愛普 hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6531.html",
     "tokens": [
       "6531",
@@ -132077,7 +132077,7 @@
     "type": "stock",
     "id": "stock2337",
     "title": "2337 旺宏",
-    "text": "2337 旺宏 miss",
+    "text": "2337 旺宏 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2337.html",
     "tokens": [
       "2337",
@@ -132150,7 +132150,7 @@
     "type": "stock",
     "id": "stock2330",
     "title": "2330 台積電",
-    "text": "2330 台積電 partial",
+    "text": "2330 台積電 hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2330.html",
     "tokens": [
       "2330",
@@ -132217,17 +132217,6 @@
   },
   {
     "type": "stock",
-    "id": "stockGOOGL",
-    "title": "GOOGL GOOGL",
-    "text": "GOOGL GOOGL pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-GOOGL.html",
-    "tokens": [
-      "GOOGL",
-      "GOOGL"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockMRVL",
     "title": "MRVL MRVL",
     "text": "MRVL MRVL pending",
@@ -132235,6 +132224,17 @@
     "tokens": [
       "MRVL",
       "MRVL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockGOOGL",
+    "title": "GOOGL GOOGL",
+    "text": "GOOGL GOOGL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-GOOGL.html",
+    "tokens": [
+      "GOOGL",
+      "GOOGL"
     ]
   },
   {
