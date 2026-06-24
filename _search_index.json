@@ -131900,18 +131900,6 @@
   },
   {
     "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
-    "tokens": [
-      "3037",
-      "欣",
-      "興"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock2449",
     "title": "2449 京元電",
     "text": "2449 京元電 pending",
@@ -131938,6 +131926,18 @@
   },
   {
     "type": "stock",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
+    "tokens": [
+      "3037",
+      "欣",
+      "興"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockQCOM",
     "title": "QCOM Qualcomm",
     "text": "QCOM Qualcomm pending",
@@ -131945,6 +131945,18 @@
     "tokens": [
       "QCOM",
       "Qualcomm"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "tokens": [
+      "6285",
+      "啟",
+      "碁"
     ]
   },
   {
@@ -131958,18 +131970,6 @@
       "台",
       "達",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
-    "tokens": [
-      "6285",
-      "啟",
-      "碁"
     ]
   },
   {
@@ -132030,17 +132030,6 @@
   },
   {
     "type": "stock",
-    "id": "stockPLTR",
-    "title": "PLTR Palantir",
-    "text": "PLTR Palantir miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
-    "tokens": [
-      "PLTR",
-      "Palantir"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockCRM",
     "title": "CRM Salesforce",
     "text": "CRM Salesforce miss",
@@ -132048,6 +132037,17 @@
     "tokens": [
       "CRM",
       "Salesforce"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockPLTR",
+    "title": "PLTR Palantir",
+    "text": "PLTR Palantir miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
+    "tokens": [
+      "PLTR",
+      "Palantir"
     ]
   },
   {
@@ -132150,7 +132150,7 @@
     "type": "stock",
     "id": "stock2330",
     "title": "2330 台積電",
-    "text": "2330 台積電 hit",
+    "text": "2330 台積電 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2330.html",
     "tokens": [
       "2330",
@@ -132206,6 +132206,17 @@
   },
   {
     "type": "stock",
+    "id": "stockSNOW",
+    "title": "SNOW SNOW",
+    "text": "SNOW SNOW pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-SNOW.html",
+    "tokens": [
+      "SNOW",
+      "SNOW"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockMRVL",
     "title": "MRVL MRVL",
     "text": "MRVL MRVL pending",
@@ -132213,6 +132224,17 @@
     "tokens": [
       "MRVL",
       "MRVL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockGOOGL",
+    "title": "GOOGL GOOGL",
+    "text": "GOOGL GOOGL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-GOOGL.html",
+    "tokens": [
+      "GOOGL",
+      "GOOGL"
     ]
   },
   {
@@ -132228,17 +132250,6 @@
   },
   {
     "type": "stock",
-    "id": "stockSNOW",
-    "title": "SNOW SNOW",
-    "text": "SNOW SNOW pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-SNOW.html",
-    "tokens": [
-      "SNOW",
-      "SNOW"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockTSLA",
     "title": "TSLA TSLA",
     "text": "TSLA TSLA pending",
@@ -132246,17 +132257,6 @@
     "tokens": [
       "TSLA",
       "TSLA"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockGOOGL",
-    "title": "GOOGL GOOGL",
-    "text": "GOOGL GOOGL pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-GOOGL.html",
-    "tokens": [
-      "GOOGL",
-      "GOOGL"
     ]
   }
 ]
