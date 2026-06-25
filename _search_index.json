@@ -131889,13 +131889,14 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
     "tokens": [
-      "FORM",
-      "FormFactor"
+      "3037",
+      "欣",
+      "興"
     ]
   },
   {
@@ -131913,6 +131914,17 @@
   },
   {
     "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -131926,14 +131938,14 @@
   },
   {
     "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
     "tokens": [
-      "3037",
-      "欣",
-      "興"
+      "6285",
+      "啟",
+      "碁"
     ]
   },
   {
@@ -131945,18 +131957,6 @@
     "tokens": [
       "QCOM",
       "Qualcomm"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
-    "tokens": [
-      "6285",
-      "啟",
-      "碁"
     ]
   },
   {
@@ -132077,7 +132077,7 @@
     "type": "stock",
     "id": "stock2337",
     "title": "2337 旺宏",
-    "text": "2337 旺宏 partial",
+    "text": "2337 旺宏 miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2337.html",
     "tokens": [
       "2337",
