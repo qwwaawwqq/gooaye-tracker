@@ -6,7 +6,7 @@
 <atom:link href="https://qwwaawwqq.github.io/gooaye-tracker/feed.xml" rel="self" type="application/rss+xml"/>
 <description>投資 call 追蹤驗證 + 解題清單</description>
 <language>zh-tw</language>
-<lastBuildDate>Sat, 27 Jun 2026 10:18:51 +0000</lastBuildDate>
+<lastBuildDate>Sun, 28 Jun 2026 10:21:33 +0000</lastBuildDate>
 <item>
 <title>EP668 | 🦞</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#ep668</link>
@@ -80,51 +80,51 @@
 <category>miss</category>
 </item>
 <item>
-<title>EP658 CRWD CrowdStrike → hit ✅ (+44.6%)</title>
+<title>EP658 CRWD CrowdStrike → hit ✅ (+49.4%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-CRWD</link>
 <guid isPermaLink="false">a6d076c5a420b271ffba1d69323ed6d3</guid>
 <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;抗 AI&lt;/b&gt; · +44.6% over 52d · 自 EP658</description>
+<description>&lt;b&gt;抗 AI&lt;/b&gt; · +49.4% over 53d · 自 EP658</description>
 <category>hit</category>
 </item>
 <item>
-<title>EP658 NET Cloudflare → partial ⚠️ (+1.1%)</title>
+<title>EP658 NET Cloudflare → partial ⚠️ (+5.8%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-NET</link>
 <guid isPermaLink="false">68d0a009fad70e1d22bccfa217eeeb2f</guid>
 <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;抗 AI&lt;/b&gt; · +1.1% over 52d · 自 EP658</description>
+<description>&lt;b&gt;抗 AI&lt;/b&gt; · +5.8% over 53d · 自 EP658</description>
 <category>partial</category>
 </item>
 <item>
-<title>EP658 NVDA NVIDIA → partial ⚠️ (-1.4%)</title>
+<title>EP658 NVDA NVIDIA → miss ❌ (-3.0%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-NVDA</link>
-<guid isPermaLink="false">60bf4c2428cfa53e4c458466f3f75e8f</guid>
+<guid isPermaLink="false">93f0dbf10d56000de082e42d5c6a50f4</guid>
 <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;底氣足&lt;/b&gt; · -1.4% over 52d · 自 EP658</description>
-<category>partial</category>
-</item>
-<item>
-<title>EP658 CRM Salesforce → miss ❌ (-19.0%)</title>
-<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-CRM</link>
-<guid isPermaLink="false">47046cd8e8bc9484a8cb129ffcf98845</guid>
-<pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;中性&lt;/b&gt; · -19.0% over 52d · 自 EP658</description>
+<description>&lt;b&gt;底氣足&lt;/b&gt; · -3.0% over 53d · 自 EP658</description>
 <category>miss</category>
 </item>
 <item>
-<title>EP658 ADBE Adobe → hit ✅ (-23.8%)</title>
+<title>EP658 CRM Salesforce → miss ❌ (-14.6%)</title>
+<link>https://qwwaawwqq.github.io/gooaye-tracker/#call-CRM</link>
+<guid isPermaLink="false">47046cd8e8bc9484a8cb129ffcf98845</guid>
+<pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
+<description>&lt;b&gt;中性&lt;/b&gt; · -14.6% over 53d · 自 EP658</description>
+<category>miss</category>
+</item>
+<item>
+<title>EP658 ADBE Adobe → hit ✅ (-20.2%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-ADBE</link>
 <guid isPermaLink="false">ade799b7a214070997007b6102d57c48</guid>
 <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;估值打壓&lt;/b&gt; · -23.8% over 52d · 自 EP658</description>
+<description>&lt;b&gt;估值打壓&lt;/b&gt; · -20.2% over 53d · 自 EP658</description>
 <category>hit</category>
 </item>
 <item>
-<title>EP658 PLTR Palantir → miss ❌ (-26.5%)</title>
+<title>EP658 PLTR Palantir → miss ❌ (-22.7%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-PLTR</link>
 <guid isPermaLink="false">460ccf722136c6709047f236673a5c3b</guid>
 <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;抗 AI 三劍客&lt;/b&gt; · -26.5% over 52d · 自 EP658</description>
+<description>&lt;b&gt;抗 AI 三劍客&lt;/b&gt; · -22.7% over 53d · 自 EP658</description>
 <category>miss</category>
 </item>
 <item>
@@ -144,11 +144,11 @@
 <category>partial</category>
 </item>
 <item>
-<title>EP657 META Meta → miss ❌ (-18.9%)</title>
+<title>EP657 META Meta → miss ❌ (-17.8%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-META</link>
 <guid isPermaLink="false">f9ecf83ac558f0d8d029fccc8d024c63</guid>
 <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;CPU 大客戶&lt;/b&gt; · -18.9% over 57d · 自 EP657</description>
+<description>&lt;b&gt;CPU 大客戶&lt;/b&gt; · -17.8% over 58d · 自 EP657</description>
 <category>miss</category>
 </item>
 <item>
@@ -160,11 +160,11 @@
 <category>miss</category>
 </item>
 <item>
-<title>EP656 AVGO Broadcom → miss ❌ (-9.4%)</title>
+<title>EP656 AVGO Broadcom → miss ❌ (-12.7%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-AVGO</link>
 <guid isPermaLink="false">ab59f48869c1db08afa77a105f8ceea5</guid>
 <pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;看好&lt;/b&gt; · -9.4% over 59d · 自 EP656</description>
+<description>&lt;b&gt;看好&lt;/b&gt; · -12.7% over 60d · 自 EP656</description>
 <category>miss</category>
 </item>
 <item>
@@ -200,27 +200,27 @@
 <category>hit</category>
 </item>
 <item>
-<title>EP652 AMD AMD → hit ✅ (+115.8%)</title>
+<title>EP652 AMD AMD → hit ✅ (+111.3%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-AMD</link>
 <guid isPermaLink="false">caf8adf0f8d902e5c2e88683487de211</guid>
 <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;看好&lt;/b&gt; · +115.8% over 73d · 自 EP652</description>
+<description>&lt;b&gt;看好&lt;/b&gt; · +111.3% over 74d · 自 EP652</description>
 <category>hit</category>
 </item>
 <item>
-<title>EP652 AMZN Amazon → miss ❌ (-5.4%)</title>
+<title>EP652 AMZN Amazon → miss ❌ (-3.0%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-AMZN</link>
 <guid isPermaLink="false">3fb58fbf169bc9f18bd932b687c80066</guid>
 <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;CPU+ASIC&lt;/b&gt; · -5.4% over 73d · 自 EP652</description>
+<description>&lt;b&gt;CPU+ASIC&lt;/b&gt; · -3.0% over 74d · 自 EP652</description>
 <category>miss</category>
 </item>
 <item>
-<title>EP651 INTC Intel → hit ✅ (+125.4%)</title>
+<title>EP651 INTC Intel → hit ✅ (+117.7%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-INTC</link>
 <guid isPermaLink="false">54034b0bda747d34a5e3bea8950a774a</guid>
 <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;轉強&lt;/b&gt; · +125.4% over 78d · 自 EP651</description>
+<description>&lt;b&gt;轉強&lt;/b&gt; · +117.7% over 79d · 自 EP651</description>
 <category>hit</category>
 </item>
 </channel>

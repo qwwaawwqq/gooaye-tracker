@@ -131889,17 +131889,6 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock3037",
     "title": "3037 欣興",
     "text": "3037 欣興 pending",
@@ -131921,6 +131910,17 @@
       "瀚",
       "宇",
       "博"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -132010,7 +132010,7 @@
     "type": "stock",
     "id": "stockNVDA",
     "title": "NVDA NVIDIA",
-    "text": "NVDA NVIDIA partial",
+    "text": "NVDA NVIDIA miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
     "tokens": [
       "NVDA",
@@ -132228,17 +132228,6 @@
   },
   {
     "type": "stock",
-    "id": "stockON",
-    "title": "ON ON",
-    "text": "ON ON pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-ON.html",
-    "tokens": [
-      "ON",
-      "ON"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockGOOGL",
     "title": "GOOGL GOOGL",
     "text": "GOOGL GOOGL pending",
@@ -132257,6 +132246,17 @@
     "tokens": [
       "TSLA",
       "TSLA"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockON",
+    "title": "ON ON",
+    "text": "ON ON pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-ON.html",
+    "tokens": [
+      "ON",
+      "ON"
     ]
   }
 ]
