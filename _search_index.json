@@ -131853,18 +131853,6 @@
   },
   {
     "type": "stock",
-    "id": "stock2375",
-    "title": "2375 凱美",
-    "text": "2375 凱美 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2375.html",
-    "tokens": [
-      "2375",
-      "凱",
-      "美"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock8261",
     "title": "8261 富鼎",
     "text": "8261 富鼎 pending",
@@ -131877,6 +131865,18 @@
   },
   {
     "type": "stock",
+    "id": "stock2375",
+    "title": "2375 凱美",
+    "text": "2375 凱美 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2375.html",
+    "tokens": [
+      "2375",
+      "凱",
+      "美"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockVPG",
     "title": "VPG Vishay Precision",
     "text": "VPG Vishay Precision pending",
@@ -131885,6 +131885,19 @@
       "VPG",
       "Vishay",
       "Precision"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2449",
+    "title": "2449 京元電",
+    "text": "2449 京元電 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2449.html",
+    "tokens": [
+      "2449",
+      "京",
+      "元",
+      "電"
     ]
   },
   {
@@ -131908,19 +131921,6 @@
       "3037",
       "欣",
       "興"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock2449",
-    "title": "2449 京元電",
-    "text": "2449 京元電 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2449.html",
-    "tokens": [
-      "2449",
-      "京",
-      "元",
-      "電"
     ]
   },
   {
@@ -132019,17 +132019,6 @@
   },
   {
     "type": "stock",
-    "id": "stockCRM",
-    "title": "CRM Salesforce",
-    "text": "CRM Salesforce miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-CRM.html",
-    "tokens": [
-      "CRM",
-      "Salesforce"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockTEAM",
     "title": "TEAM Atlassian",
     "text": "TEAM Atlassian pending",
@@ -132041,13 +132030,13 @@
   },
   {
     "type": "stock",
-    "id": "stockADBE",
-    "title": "ADBE Adobe",
-    "text": "ADBE Adobe hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
+    "id": "stockCRM",
+    "title": "CRM Salesforce",
+    "text": "CRM Salesforce miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-CRM.html",
     "tokens": [
-      "ADBE",
-      "Adobe"
+      "CRM",
+      "Salesforce"
     ]
   },
   {
@@ -132059,6 +132048,17 @@
     "tokens": [
       "PLTR",
       "Palantir"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockADBE",
+    "title": "ADBE Adobe",
+    "text": "ADBE Adobe hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
+    "tokens": [
+      "ADBE",
+      "Adobe"
     ]
   },
   {
@@ -132075,6 +132075,17 @@
   },
   {
     "type": "stock",
+    "id": "stockMETA",
+    "title": "META Meta",
+    "text": "META Meta miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
+    "tokens": [
+      "META",
+      "Meta"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2337",
     "title": "2337 旺宏",
     "text": "2337 旺宏 miss",
@@ -132087,20 +132098,9 @@
   },
   {
     "type": "stock",
-    "id": "stockMETA",
-    "title": "META Meta",
-    "text": "META Meta miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
-    "tokens": [
-      "META",
-      "Meta"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock3661",
     "title": "3661 世芯-KY",
-    "text": "3661 世芯-KY partial",
+    "text": "3661 世芯-KY hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3661.html",
     "tokens": [
       "3661",
@@ -132217,17 +132217,6 @@
   },
   {
     "type": "stock",
-    "id": "stockMRVL",
-    "title": "MRVL MRVL",
-    "text": "MRVL MRVL pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
-    "tokens": [
-      "MRVL",
-      "MRVL"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockTSLA",
     "title": "TSLA TSLA",
     "text": "TSLA TSLA pending",
@@ -132246,6 +132235,17 @@
     "tokens": [
       "GOOGL",
       "GOOGL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockMRVL",
+    "title": "MRVL MRVL",
+    "text": "MRVL MRVL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
+    "tokens": [
+      "MRVL",
+      "MRVL"
     ]
   },
   {
