@@ -131902,17 +131902,6 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock3037",
     "title": "3037 欣興",
     "text": "3037 欣興 pending",
@@ -131938,18 +131927,6 @@
   },
   {
     "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
-    "tokens": [
-      "6285",
-      "啟",
-      "碁"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock2308",
     "title": "2308 台達電",
     "text": "2308 台達電 miss",
@@ -131959,6 +131936,29 @@
       "台",
       "達",
       "電"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "tokens": [
+      "6285",
+      "啟",
+      "碁"
     ]
   },
   {
@@ -132100,7 +132100,7 @@
     "type": "stock",
     "id": "stock3661",
     "title": "3661 世芯-KY",
-    "text": "3661 世芯-KY hit",
+    "text": "3661 世芯-KY partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3661.html",
     "tokens": [
       "3661",
@@ -132217,17 +132217,6 @@
   },
   {
     "type": "stock",
-    "id": "stockTSLA",
-    "title": "TSLA TSLA",
-    "text": "TSLA TSLA pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
-    "tokens": [
-      "TSLA",
-      "TSLA"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockGOOGL",
     "title": "GOOGL GOOGL",
     "text": "GOOGL GOOGL pending",
@@ -132235,6 +132224,17 @@
     "tokens": [
       "GOOGL",
       "GOOGL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockTSLA",
+    "title": "TSLA TSLA",
+    "text": "TSLA TSLA pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
+    "tokens": [
+      "TSLA",
+      "TSLA"
     ]
   },
   {
