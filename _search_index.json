@@ -131902,18 +131902,6 @@
   },
   {
     "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
-    "tokens": [
-      "3037",
-      "欣",
-      "興"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -131927,15 +131915,14 @@
   },
   {
     "type": "stock",
-    "id": "stock2308",
-    "title": "2308 台達電",
-    "text": "2308 台達電 miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
     "tokens": [
-      "2308",
-      "台",
-      "達",
-      "電"
+      "3037",
+      "欣",
+      "興"
     ]
   },
   {
@@ -131959,6 +131946,19 @@
       "6285",
       "啟",
       "碁"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2308",
+    "title": "2308 台達電",
+    "text": "2308 台達電 miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "tokens": [
+      "2308",
+      "台",
+      "達",
+      "電"
     ]
   },
   {
