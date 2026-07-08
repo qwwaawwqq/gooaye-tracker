@@ -131889,19 +131889,6 @@
   },
   {
     "type": "stock",
-    "id": "stock2449",
-    "title": "2449 京元電",
-    "text": "2449 京元電 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2449.html",
-    "tokens": [
-      "2449",
-      "京",
-      "元",
-      "電"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -131911,6 +131898,19 @@
       "瀚",
       "宇",
       "博"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2449",
+    "title": "2449 京元電",
+    "text": "2449 京元電 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2449.html",
+    "tokens": [
+      "2449",
+      "京",
+      "元",
+      "電"
     ]
   },
   {
@@ -131927,17 +131927,6 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock6285",
     "title": "6285 啟碁",
     "text": "6285 啟碁 pending",
@@ -131946,6 +131935,19 @@
       "6285",
       "啟",
       "碁"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2308",
+    "title": "2308 台達電",
+    "text": "2308 台達電 miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "tokens": [
+      "2308",
+      "台",
+      "達",
+      "電"
     ]
   },
   {
@@ -131961,15 +131963,13 @@
   },
   {
     "type": "stock",
-    "id": "stock2308",
-    "title": "2308 台達電",
-    "text": "2308 台達電 miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
     "tokens": [
-      "2308",
-      "台",
-      "達",
-      "電"
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -131999,7 +131999,7 @@
     "type": "stock",
     "id": "stockNET",
     "title": "NET Cloudflare",
-    "text": "NET Cloudflare partial",
+    "text": "NET Cloudflare hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NET.html",
     "tokens": [
       "NET",
@@ -132100,7 +132100,7 @@
     "type": "stock",
     "id": "stock3661",
     "title": "3661 世芯-KY",
-    "text": "3661 世芯-KY miss",
+    "text": "3661 世芯-KY partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3661.html",
     "tokens": [
       "3661",
@@ -132217,17 +132217,6 @@
   },
   {
     "type": "stock",
-    "id": "stockTSLA",
-    "title": "TSLA TSLA",
-    "text": "TSLA TSLA pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
-    "tokens": [
-      "TSLA",
-      "TSLA"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockGOOGL",
     "title": "GOOGL GOOGL",
     "text": "GOOGL GOOGL pending",
@@ -132235,6 +132224,17 @@
     "tokens": [
       "GOOGL",
       "GOOGL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockTSLA",
+    "title": "TSLA TSLA",
+    "text": "TSLA TSLA pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
+    "tokens": [
+      "TSLA",
+      "TSLA"
     ]
   },
   {
