@@ -131889,19 +131889,6 @@
   },
   {
     "type": "stock",
-    "id": "stock5469",
-    "title": "5469 瀚宇博",
-    "text": "5469 瀚宇博 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-5469.html",
-    "tokens": [
-      "5469",
-      "瀚",
-      "宇",
-      "博"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock2449",
     "title": "2449 京元電",
     "text": "2449 京元電 pending",
@@ -131911,6 +131898,19 @@
       "京",
       "元",
       "電"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock5469",
+    "title": "5469 瀚宇博",
+    "text": "5469 瀚宇博 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-5469.html",
+    "tokens": [
+      "5469",
+      "瀚",
+      "宇",
+      "博"
     ]
   },
   {
@@ -131939,6 +131939,17 @@
   },
   {
     "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2308",
     "title": "2308 台達電",
     "text": "2308 台達電 miss",
@@ -131948,17 +131959,6 @@
       "台",
       "達",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
     ]
   },
   {
