@@ -867,6 +867,27 @@ def main() -> int:
     auto = load_existing_auto()
     episodes = auto.setdefault("episodes", {})
 
+    # ── Self-heal against a concurrent writer (the cowork "gooaye-bot" agent) ──
+    # It has been observed to (a) `git add` the gitignored _state.json, which
+    # wedges push_if_ahead's `git pull --rebase` ("index contains uncommitted
+    # changes"), and (b) bump last_seen_ep past an episode it placeholdered but
+    # never transcribed, which makes the RSS loop below skip that episode forever
+    # (ep <= last_seen → continue). Undo both so this run proceeds autonomously
+    # regardless of what the other agent did. See _state.json notes / MEMORY.
+    _staged = _git("diff", "--cached", "--name-only")
+    if _staged.returncode == 0 and "_state.json" in (_staged.stdout or "").split():
+        print("  [self-heal] _state.json was staged by a concurrent agent → unstaging")
+        _git("restore", "--staged", "_state.json")
+    _real_eps = [int(k) for k, v in episodes.items()
+                 if str(k).isdigit() and isinstance(v, dict)
+                 and v.get("auto_status") == REAL_SUMMARY_STATUS]
+    _max_real = max(_real_eps) if _real_eps else 0
+    if _max_real and last_seen > _max_real:
+        print(f"  [self-heal] last_seen_ep={last_seen} ahead of last real "
+              f"transcript EP{_max_real} → clamping (will re-detect & transcribe)")
+        last_seen = _max_real
+        state["last_seen_ep"] = _max_real
+
     new_entries: list[dict] = []
     max_seen = last_seen
     for item in items:

@@ -1,12 +1,11 @@
 # Gooaye 股癌 · 全集深度摘要（自動更新）
 
 <!-- AUTO_UPDATE_META
-last_seen_ep: 667
-last_check: 2026-06-03T19:16:00+08:00
-total_episodes_covered: 16
+last_seen_ep: 678
+last_check: 2026-07-11T21:30:00+08:00
+total_episodes_covered: 25
 oldest_ep_in_file: 651
-newest_ep_in_file: 667
-note: EP666 已 whisper（見 _episodes_auto.json，網頁已呈現）但本 md 段落待補；665 仍為 placeholder
+newest_ep_in_file: 678
 -->
 
 > **主持人：** 謝孟恭　·　**自動更新：** 每週三、六 19:09（Cowork 排程）
@@ -16,34 +15,169 @@ note: EP666 已 whisper（見 _episodes_auto.json，網頁已呈現）但本 md 
 
 > 📡 **本檔案會自動更新** — Cowork 排程任務 `gooaye-new-episode-watcher` 每週三、六 19:09 偵測 SoundOn RSS，發現新集會自動追加深度摘要（往上插入，最新集永遠在最頂端）。
 
-<!-- 📌 排程會在 ===== AUTO_INSERT_POINT_BELOW ===== 這行下面插入新集摘要，請勿刪除標記 -->
+<!-- 📌 排程會在 ===== AUTO_INSERT_POINT_BELOW =====
+
+---
+
+## EP678 | 🎮（2026-07-11 · 53分 · 贊助：Saily eSIM）
+
+> **狀態：📝 whisper 逐字稿已入庫（2026-07-11 19:02 轉錄）· 本節由 watcher 依逐字稿整理；LLM 結構化深度切分待 auto pipeline（ANTHROPIC_API_KEY 未設）**
+
+**盤勢**：週五（7/10）颱風假休市＝「閃漲」（富台週五走高、夜盤收斂）；加權距新高不遠，中小降槓桿震盪延續。對「延長交易至 15:30」由昔日贊成轉為保留（健康／家庭）。
+
+**Meta 驗證（本集最大事件）**：Zuckerberg 受訪證實 Meta 算力「滿倉加碼」——EP676 的「double down 而非退出」判讀 **5 天內獲證實（HIT）**。舊 Hopper 轉推論／外租 → 反駁 Michael Burry 的 GPU 折舊質疑（GPU 變成能創造營收的資產、折舊年限拉長可自我 justify）。後續影響：算力租價趨穩 → Neocloud 與「本夢比」算力供應鏈估值面臨壓縮；token 單價下降 → 利 AI 應用爆發與 AI-native 軟體毛利地板上移。
+
+**漲價潮盤點**：
+- 記憶體：下季合約價續漲、**斜率收斂**；主委多單早已下車、僅追蹤產業（巨頭採購力未見敗象）。
+- 被動元件：漲價「絕大多數成功、少數失敗」，母雞帶小雞，未來 1-2 季持續。
+- 功率元件：**全面漲價**——類比大廠 **ADI 發漲價函**；怪象：美系 IDM 股軟、台鏈 MOSFET／封裝反強（同當年日系被動元件先動的 lag）。
+- **導線架（新瓶頸）**：lead time 3-4 個月 → **7-8 個月**、漲 **10~20%**；封裝廠全滿後轉單卡在「B 廠有產能、沒導線架」。相關標的「漲多橫盤」，主委未點名個股。
+- 封測：「營收年增平平、獲利跳增」＝漲價＋稼動率拉滿的財報訊號。
+
+**光通內部輪動（聽眾服務）**：Narrow & Fast（矽光、磷化銦雷射）軟調 vs **Wide & Slow（VCSEL／AOC／MicroLED）轉強**；類比當年「光進銅退」錯殺 Credo／Astera Labs（今皆創高、Amphenol 為純銅概念）。高估值光通需**大盤創高後資金回流**；催化：SemiAnalysis 光通 ETF。主委聲明自己資金未介入、純聽眾服務。
+
+**QA 精華**：只聽一個 Podcast 可行？——雜訊管理：兩條純的線勝過一百條雜訊線；投資 vs 投機要誠實（投機就該看資金流向而非基本面安慰劑）；咖啡入門從 Americano 開始。
+
+---
+
+## EP677 | 🐎（2026-07-08 · 50分 · 贊助：曾的茶）
+
+> **狀態：📝 whisper 逐字稿已入庫 · watcher 整理版；LLM 深度切分待 auto pipeline**
+
+**修正定性**：本波中小劇烈震盪＝**降槓桿行為**（對照韓股「槓桿 ETF 賭場」完全體，台股為縮小版）；市場找不到夠大的壞消息 justify，型態壞在籌碼不在基本面。強勢族群仍多：**功率元件（月線／季線上、現主流）、CCL、矽晶圓、封測**；跌破季線者「大哥換人當」。關鍵結構：功率強股市值僅數百億、**法人難停泊** → 大資金可能回頭找被動元件大市值（**國巨、華新科**）。
+
+**SemiAnalysis 論戰（中性拆解）**：Kyber NVL144 遞延（PTFE/Q 布背板混搭、可能延至 Feynman）、800VDC/CPO 滲透 5%、SOCAMM、HBM4 等報告＝「修正短期過度預期、長線不變」；Kyber 遞延自 Computex 起即業內共識。放大跌幅的其實是只看標題的速食閱聽人；教訓：**Technology vs Product**——市場常在 trade 研發專案（GB200 7-10 萬 rack 傳言為前例）。該機構正快速燒掉多年信譽、恐遭獵巫。
+
+**券商鎖額度**：4 月至今質押／不限用途借貸全面緊縮（大戶申請 50 萬額度案例）＝被動風控；主委「想上槓也上不了」反而心態超脫。
+
+**軟體股訊號（EP457 論點兌現中）**：token 成本下降 → 軟體財報轉好；「AI steal jobs」敘事翻轉為 create jobs；SaaS 末日論被證偽、資安股全面右上角。主委最愛：**Palantir、CrowdStrike、Cloudflare**；若軟體續強而 CPO 走弱，資金考慮移往軟體或 Apple／Google。**NVDA**：2018 年顯卡時代長抱至今、現有「便宜 factor」；**TSLA**：信仰股（願景：SpaceX 併回 Tesla 單一 Musk 載體；「SpaceX 上市後一天震盪＝一個巴菲特」）。
+
+**槓桿世代觀察（開場）**：新世代「四代同堂、槓上加槓」信貸+質押+融資動輒 5-6 倍、斷頭當家常便飯；自己巔峰融資 2.5 倍已成「保守派頭之人」。「慢慢來比較快」：快是拿全家生活去換的。今年上半年 0050 ~+50%（歷史預期僅 8-12%/年），知足常樂。
+
+**QA 精華**：熊市定義 -20%；2018/2022 最痛、2020/2025 關稅 V 轉快；「回檔兩萬點」未來一定會遇到、屆時輿論必稱 AI 泡沫——不預判、見招拆招；凹單 vs 逢低加碼的差別在「你是不是廢咖」（同一行為、不同人用結果不同）；爆倉者先重建信心再放大。
+
+---
+
+## EP676 | 🐬（2026-07-04 · 50分 · 贊助：善存）
+
+> **狀態：📝 whisper 逐字稿已入庫 · watcher 整理版；LLM 深度切分待 auto pipeline**
+
+**盤勢節奏**：上週三警示「做強勢股會被修理」兌現（解套賣壓＋亂追散戶互殺）；週四五氣氛轉變、賣壓吸收中。**被動元件率先轉強、功率元件跟上**；等大盤創新高確認 → 資金重新凝聚、強勢族群易識別、「準備要射出去」。主委已完成相應佈局。
+
+**功率元件＝房間裡的大象**：ODM/EMS 買不到 MOSFET、部分料號**斷貨**；7 月起漲價函密集出籠、缺貨擴張不輸被動元件。受惠順位：**IDM 一條龍** ＞ 能透過集團／大股東 secure 產能的 fabless（「看集團、看大股東」）＞ 無產能者（但記憶體模組廠敢賭料的前例證明事在人為）。
+
+**封測 AI 排擠效應（下一棒候選）**：IC 設計向封裝廠詢價，新季報價直接被喊漲 **30~50%**（疫情時僅 10-20%）；封裝廠現在「挑客人」。敘事邏輯同「巴結台積電」，套用在成熟製程晶圓廠（6吋/8吋）與後段封測；**KYEC 京元電**為 household name 案例（幫 NVIDIA 做 CoWoS 後段）。功率元件封裝端也醞釀同樣情形。
+
+**Meta Neocloud＝double down**：與 X 大 V「Meta 不玩了」解讀相反——Meta 要靠出租舊算力賺錢、進而蓋更多（內部 CFO 派 vs 衝派的分歧因「閒置可出租」達成共識）；效仿 xAI Colossus「出租一年回本」。對 Meta 偏多；對既有 Neocloud 業者＝多了超級深口袋對手。（本判讀於 EP678 獲 Zuckerberg 受訪證實 ✅）
+
+**QA 精華**：台新停「不限用途借貸」屬個案、券商普遍鎖額度＝被動風控（質押到期不同天、散戶資金量體影響有限）；光通「產業都好、但資金不在這」——SemiAnalysis ETF 或為事件驅動觀察點、拉起後馬上軟掉就代表錢真的不在；驅動 IC 逆勢強＝成本轉嫁漲價成功＋PE re-rating 先行（聯發科大逃殺後連續漲停前例）；360 萬績效可否辭職專職——可，但要撐過空頭洗禮才知道適不適合。
+
+**生活開場**：宜蘭凱渡親子飯店體驗、夏令營是「老天恩惠」、勸友「別為週末度假在宜蘭買房——你會被 commitment 綁死」；「一天太長、一年太短」育兒感悟。
+
+
+---
+
+## EP669 | 🎈（2026-06-10 · 51分 · 贊助：Dr.情趣）
+
+> **狀態：show notes only — 逐字稿待補（⏳ 待 whisper 轉錄）**
+> RSS show notes 僅含贊助商文案 + tagline「**這片汪洋，還要考驗我們到什麼時候**」。
+> 依 CLAUDE.md 規則不從標題/emoji 推測內容（EP662/663/664 教訓）。
+> LaunchAgent 今晚 20:00/22:00 TPE 跑 whisper 後，本節將由完整深度摘要取代。
+> 截稿時 (發布後 ~3.5h) vocus / 社工日常尚無社群整理。
+
+- **發布**：2026-06-10 15:37 TPE（週三集）
+- **音檔長度**：50:41
+- **個股提及**：待逐字稿
+- **SoundOn**：https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/f208d558-a3a0-4812-a19a-777c69ac31bf
+ 這行下面插入新集摘要，請勿刪除標記 -->
 
 ===== AUTO_INSERT_POINT_BELOW =====
 
-## EP667 | 🌍 這兩天開始品到…土味 (2026-06-03)
+## EP675 | 🎢 (2026-07-01)
 
 > **狀態：** ⏳ Placeholder only — 等待 whisper 轉錄 + vocus 社群整理
-> **贊助：** NordVPN（nordvpn.com/gooaye，專屬優惠碼 `gooaye`：2 年方案 + 4 個月、30 天試用可隨時取消）
-> **時長：** 約 51 分鐘（3,051 秒）· GMT 2026-06-03 07:34 上架（台灣下午 3:34）
+> **贊助：** 綠藤生機（《股癌》聽眾專屬：全系列 2 件 88 折，滿額再送頭皮淨化蜂膠洗髮精 15ml／綠色海洋精華油 5ml；需 Fb/Line/手機號碼登入才看得到專屬優惠價）
+> **時長：** 約 50 分鐘（2,998 秒）· GMT 2026-07-01 07:59 上架（台灣下午 3:59）
+> **標題線索：** emoji 🎢 + 一句 tagline「突然想到上集有人許願要我放雲霄飛車我忘了」
 
 ### 為什麼這集只有 placeholder
 
-依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論。
+依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論（tagline 純粹呼應聽眾許願的節目玩笑，show notes 完全沒有個股或盤勢資訊）。發稿時（2026-07-01，發布後約 3 小時）vocus.cc / 社工日常 / yasac 自動筆記皆尚無 EP675 整理。LaunchAgent `com.gooaye.update-episodes` 今晚 20:00/22:00 TPE 跑 whisper + LLM 後，會自動補上 deep 內容。
 
-**標題 tagline 為「這兩天開始品到…土味」**（+ 🌍 emoji）— 解讀必須等到逐字稿出來再下定論，本檔不作任何主題推測。
+- **發布**：2026-07-01 15:59 TPE（週三集）
+- **音檔長度**：49:58
+- **個股提及**：待逐字稿
+- **SoundOn**：https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/31e6121a-9d45-4204-aac1-f3a2cd7cd5fe
 
-### 自動補完流程
+---
 
-1. 本筆記由 Cowork 排程任務 `gooaye-new-episode-watcher` 於 2026-06-03 19:16 TPE 偵測 SoundOn RSS 後寫入。
-2. LaunchAgent `com.gooaye.update-episodes`（cron: Wed/Sat 20:00 + 22:00 TPE / Thu/Sun 09:00 TPE）會在今晚跑 `auto_update.py`，下載 EP667 音檔 → whisper small → Claude 生成 → 寫入 `_episodes_auto.json`。
-3. 前端 `loadAutoEpisodes()` 的 merge logic 會在 placeholder 沒有 `deep` 欄位時把 auto 版本疊上來（依函式名導航，行號會漂移）。
-4. 如需立即觸發：
-   ```
-   /Users/wangtingwei/opt/anaconda3/bin/python auto_update.py --force-ep 667 --model small
-   ```
-   (~25-30 min on Rosetta)
+## EP674 | 🦋 (2026-06-27)
 
-> ℹ️ **EP666 補記：** EP666（🍐 誰敢說他們老，2026-05-30）已由 LaunchAgent whisper 轉錄完成，內容存於 `_episodes_auto.json`、網頁 EP666 卡片已呈現（重點：被動元件由成本驅動轉需求驅動、鋁電容/牛角電容缺口 20%+、老 AI 族群全面回歸、軟體股噴發、陳泰銘成台灣首富）。其 master md 完整段落待下次整理補寫。
+> **狀態：** ⏳ Placeholder only — 等待 whisper 轉錄 + vocus 社群整理
+> **贊助：** EVOASIS（《股癌》聽眾專屬：輸入推薦代碼 EVO股癌1000 享家用充電樁現折 $1,000，活動 6/29 週一 15:00 開始；全台最大電動車充電網／公共快充／慢充／家用充電／跨品牌漫遊，下載 EVOASIS App evoasis.co/appdownload）
+> **時長：** 約 53 分鐘（3,181 秒）· GMT 2026-06-27 07:23 上架（台灣下午 3:23）
+> **標題線索：** emoji 🦋 + 一句 tagline「小光：你會老我會大」
+
+### 為什麼這集只有 placeholder
+
+依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論（tagline「小光：你會老我會大」語意隱晦，更不宜逕自解讀為個股或盤勢觀點）。發稿時（2026-06-27，發布後約 4 小時）vocus.cc / 社工日常 / yasac 自動筆記皆尚無 EP674 整理（最新社群內容仍為 EP671）。LaunchAgent `com.gooaye.update-episodes` 今晚 20:00/22:00 TPE 跑 whisper + LLM 後，會自動補上 deep 內容。
+
+- **發布**：2026-06-27 15:23 TPE（週六集）
+- **音檔長度**：53:01
+- **個股提及**：待逐字稿
+- **SoundOn**：https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/1b5e1964-2bc3-4634-80c6-228c02e87474
+
+---
+
+## EP673 | 🥬 (2026-06-24)
+
+> **狀態：** ⏳ Placeholder only — 等待 whisper 轉錄 + vocus 社群整理
+> **贊助：** 雨傘王 Umbrella King（《股癌》聽眾專屬：搜尋 umbrellaking.cc/Gooaye 或結帳輸入推薦碼 gooaye，享全館限定商品 89 折、消費滿 $999 超商取貨免運）
+> **時長：** 約 51 分鐘（3,057 秒）· GMT 2026-06-24 08:09 上架（台灣下午 4:09）
+> **標題線索：** emoji 🥬 + 一句 tagline「韓國人真的很會玩」
+
+### 為什麼這集只有 placeholder
+
+依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論。發稿時（2026-06-24，發布後約 3 小時）vocus.cc / 社工日常 / yasac 自動筆記皆尚無 EP673 整理（最新社群內容仍為 EP671）。LaunchAgent `com.gooaye.update-episodes` 今晚 20:00/22:00 TPE 跑 whisper + LLM 後，會自動補上 deep 內容。
+
+---
+
+## EP672 | 🐣 (2026-06-20)
+
+> **狀態：** ⏳ Placeholder only — 等待 whisper 轉錄 + vocus 社群整理
+> **贊助：** NordVPN（搜尋 nordvpn.com/gooaye 或結帳輸入優惠碼 gooaye；2 年方案＋送 4 個月、一個月一杯咖啡價、30 天試用可隨時取消）
+> **時長：** 約 53 分鐘（3,205 秒）· GMT 2026-06-20 05:40 上架（台灣下午 1:40）
+> **標題線索：** emoji 🐣 + 一句 tagline「又新高拉」（呼應台股加權指數近期連創新高、重返 46K 一帶的盤勢，但本集實際論點待逐字稿確認）
+
+### 為什麼這集只有 placeholder
+
+依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論。發稿時（2026-06-20，發布後約 5–6 小時）vocus.cc / 社工日常 / yasac 自動筆記皆尚無 EP672 整理（最新社群內容仍為 EP671）。LaunchAgent `com.gooaye.update-episodes` 今晚 20:00/22:00 TPE 跑 whisper + LLM 後，會自動補上 deep 內容。
+
+---
+
+## EP671 | 🌼 (2026-06-17)
+
+> **狀態：** ⏳ Placeholder only — 等待 whisper 轉錄 + vocus 社群整理
+> **贊助：** TAIZAKU 火星生技 武倍對策／武倍對策 Gold（男性保健；618 檔期 6/11–6/21 買五送一、Gold 六贈一，折扣傳送門 tzk.one/googye06）
+> **時長：** 約 51 分鐘（3,046 秒）· GMT 2026-06-17 06:29 上架（台灣下午 2:29）
+> **標題線索：** emoji 🌼 + 一句 tagline「不可能一關再關吧」
+
+### 為什麼這集只有 placeholder
+
+依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論。發稿時（2026-06-17，發布後約數小時）vocus.cc / 社工日常 / yasac 自動筆記皆尚無 EP671 整理。LaunchAgent `com.gooaye.update-episodes` 今晚 20:00/22:00 TPE 跑 whisper + LLM 後，會自動補上 deep 內容。
+
+---
+
+## EP670 | 🫡 (2026-06-13)
+
+> **狀態：** ⏳ Placeholder only — 等待 whisper 轉錄 + vocus 社群整理
+> **贊助：** Roichen 正脊坐墊 EX（主委 52 折起，加寬 30mm / 軟墊加厚 7mm / 椅深 +15mm）
+> **時長：** 約 52 分鐘（3,127 秒）· GMT 2026-06-13 07:07 上架（台灣下午 3:07）
+> **標題線索：** 「Dario 哥求仁得仁」+ 市場 tagline，提到「台指期夜盤一度殺到跌停水準、最後大跌三千多點」
+
+### 為什麼這集只有 placeholder
+
+依 `CLAUDE.md` 規定：新集剛上架時，RSS show notes 通常只有「標題 + 贊助商廣告 + 一句 tagline」，**不得**根據這些線索撰寫 `deep` 內容。EP662 / EP663 / EP664 三次「靠標題猜內容」全部翻車並回滾，所以這集 placeholder 不寫任何主軸推論。發稿時（2026-06-13）vocus.cc / 社工日常皆尚無 EP670 整理。LaunchAgent `com.gooaye.update-episodes` 今晚 20:00/22:00 TPE 跑 whisper + LLM 後，會自動補上 deep 內容。
 
 ---
 

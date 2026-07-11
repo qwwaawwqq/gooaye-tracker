@@ -1,0 +1,59 @@
+{
+  "date": "2026-07-10",
+  "stocks": {
+    "3443": {
+      "name": "創意",
+      "call_ep": 656,
+      "call_price": 4000,
+      "current": 4340.0,
+      "pct_change": 8.5,
+      "days_held": 76,
+      "verdict": "⏳ PENDING"
+    },
+    "3661": {
+      "name": "世芯-KY",
+      "call_ep": 656,
+      "call_price": 3800,
+      "current": 4210.0,
+      "pct_change": 10.79,
+      "days_held": 76,
+      "verdict": "⏳ PENDING"
+    },
+    "2327": {
+      "name": "國巨",
+      "call_ep": 659,
+      "call_price": null,
+      "current": 900.0,
+      "pct_change": null,
+      "days_held": 65,
+      "verdict": "PENDING"
+    },
+    "2337": {
+      "name": "旺宏",
+      "call_ep": 657,
+      "call_price": null,
+      "current": 143.5,
+      "pct_change": null,
+      "days_held": 72,
+      "verdict": "PENDING"
+    },
+    "2454": {
+      "name": "聯發科",
+      "call_ep": 659,
+      "call_price": 3500,
+      "current": 3925.0,
+      "pct_change": 12.14,
+      "days_held": 65,
+      "verdict": "⏳ PENDING"
+    },
+    "2330": {
+      "name": "台積電",
+      "call_ep": 656,
+      "call_price": 2200,
+      "current": 2415.0,
+      "pct_change": 9.77,
+      "days_held": 76,
+      "verdict": "⏳ PENDING"
+    }
+  }
+}
