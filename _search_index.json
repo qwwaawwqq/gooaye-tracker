@@ -132030,17 +132030,6 @@
   },
   {
     "type": "stock",
-    "id": "stockPLTR",
-    "title": "PLTR Palantir",
-    "text": "PLTR Palantir miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
-    "tokens": [
-      "PLTR",
-      "Palantir"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockADBE",
     "title": "ADBE Adobe",
     "text": "ADBE Adobe hit",
@@ -132063,6 +132052,17 @@
   },
   {
     "type": "stock",
+    "id": "stockPLTR",
+    "title": "PLTR Palantir",
+    "text": "PLTR Palantir miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
+    "tokens": [
+      "PLTR",
+      "Palantir"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
     "text": "6531 愛普 partial",
@@ -132077,7 +132077,7 @@
     "type": "stock",
     "id": "stockMETA",
     "title": "META Meta",
-    "text": "META Meta miss",
+    "text": "META Meta partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
     "tokens": [
       "META",
