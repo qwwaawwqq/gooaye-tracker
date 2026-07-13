@@ -131889,6 +131889,18 @@
   },
   {
     "type": "stock",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
+    "tokens": [
+      "3037",
+      "欣",
+      "興"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2449",
     "title": "2449 京元電",
     "text": "2449 京元電 pending",
@@ -131911,18 +131923,6 @@
       "瀚",
       "宇",
       "博"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
-    "tokens": [
-      "3037",
-      "欣",
-      "興"
     ]
   },
   {
