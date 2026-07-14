@@ -131939,17 +131939,6 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockQCOM",
     "title": "QCOM Qualcomm",
     "text": "QCOM Qualcomm pending",
@@ -131970,6 +131959,17 @@
       "台",
       "達",
       "電"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -132008,17 +132008,6 @@
   },
   {
     "type": "stock",
-    "id": "stockNVDA",
-    "title": "NVDA NVIDIA",
-    "text": "NVDA NVIDIA partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
-    "tokens": [
-      "NVDA",
-      "NVIDIA"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockTEAM",
     "title": "TEAM Atlassian",
     "text": "TEAM Atlassian pending",
@@ -132030,13 +132019,13 @@
   },
   {
     "type": "stock",
-    "id": "stockADBE",
-    "title": "ADBE Adobe",
-    "text": "ADBE Adobe hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
+    "id": "stockNVDA",
+    "title": "NVDA NVIDIA",
+    "text": "NVDA NVIDIA partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
     "tokens": [
-      "ADBE",
-      "Adobe"
+      "NVDA",
+      "NVIDIA"
     ]
   },
   {
@@ -132048,6 +132037,17 @@
     "tokens": [
       "CRM",
       "Salesforce"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockADBE",
+    "title": "ADBE Adobe",
+    "text": "ADBE Adobe partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
+    "tokens": [
+      "ADBE",
+      "Adobe"
     ]
   },
   {
@@ -132098,19 +132098,6 @@
   },
   {
     "type": "stock",
-    "id": "stock3661",
-    "title": "3661 世芯-KY",
-    "text": "3661 世芯-KY partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3661.html",
-    "tokens": [
-      "3661",
-      "世",
-      "芯",
-      "KY"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockAVGO",
     "title": "AVGO Broadcom",
     "text": "AVGO Broadcom miss",
@@ -132118,6 +132105,19 @@
     "tokens": [
       "AVGO",
       "Broadcom"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock3661",
+    "title": "3661 世芯-KY",
+    "text": "3661 世芯-KY miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3661.html",
+    "tokens": [
+      "3661",
+      "世",
+      "芯",
+      "KY"
     ]
   },
   {
@@ -132217,17 +132217,6 @@
   },
   {
     "type": "stock",
-    "id": "stockTSLA",
-    "title": "TSLA TSLA",
-    "text": "TSLA TSLA pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
-    "tokens": [
-      "TSLA",
-      "TSLA"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockGOOGL",
     "title": "GOOGL GOOGL",
     "text": "GOOGL GOOGL pending",
@@ -132235,6 +132224,17 @@
     "tokens": [
       "GOOGL",
       "GOOGL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockTSLA",
+    "title": "TSLA TSLA",
+    "text": "TSLA TSLA pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
+    "tokens": [
+      "TSLA",
+      "TSLA"
     ]
   },
   {
