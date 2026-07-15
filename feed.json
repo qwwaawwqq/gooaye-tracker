@@ -8,6 +8,16 @@
   "items": [
     {
       "type": "episode_published",
+      "pubDate": "Wed, 15 Jul 2026 00:00:00 +0000",
+      "ep": 679,
+      "title": "EP679 | 🧌",
+      "link": "https://qwwaawwqq.github.io/gooaye-tracker/#ep679",
+      "guid": "ca9c267dad0305d1a6308d2a0cf1c39c",
+      "description": "歡迎收聽古來為聖夢宮本集節目由諾爾的VPN贊助 7月的暑假正式開始 大家的旅遊計畫應該都準備就緒了吧 除了幫你規劃行程也要提醒大家 諾爾VPN不只是VPN 而是一個全方位的數位安全解決方案 只要一個App就可以阻止釣魚詐騙 提供反詐騙防護 進行按網監控 還能夠封鎖彈出式廣告等 為你的數位生活打造最堅實的防護網 當然旅遊士想省錢諾爾VPN 依然是規劃行程的實用工具 面對貴鬆鬆的機票 透過切換不同地區",
+      "raw_date": "2026-07-15"
+    },
+    {
+      "type": "episode_published",
       "pubDate": "Sat, 11 Jul 2026 00:00:00 +0000",
       "ep": 678,
       "title": "EP678 | 🎮",
