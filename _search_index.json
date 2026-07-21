@@ -131889,6 +131889,18 @@
   },
   {
     "type": "stock",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
+    "tokens": [
+      "3037",
+      "欣",
+      "興"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2449",
     "title": "2449 京元電",
     "text": "2449 京元電 pending",
@@ -131914,18 +131926,6 @@
   },
   {
     "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
-    "tokens": [
-      "3037",
-      "欣",
-      "興"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -131935,6 +131935,19 @@
       "瀚",
       "宇",
       "博"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2308",
+    "title": "2308 台達電",
+    "text": "2308 台達電 miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
+    "tokens": [
+      "2308",
+      "台",
+      "達",
+      "電"
     ]
   },
   {
@@ -131957,19 +131970,6 @@
     "tokens": [
       "QCOM",
       "Qualcomm"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock2308",
-    "title": "2308 台達電",
-    "text": "2308 台達電 miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
-    "tokens": [
-      "2308",
-      "台",
-      "達",
-      "電"
     ]
   },
   {
@@ -132008,17 +132008,6 @@
   },
   {
     "type": "stock",
-    "id": "stockNVDA",
-    "title": "NVDA NVIDIA",
-    "text": "NVDA NVIDIA partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
-    "tokens": [
-      "NVDA",
-      "NVIDIA"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockTEAM",
     "title": "TEAM Atlassian",
     "text": "TEAM Atlassian pending",
@@ -132030,13 +132019,13 @@
   },
   {
     "type": "stock",
-    "id": "stockADBE",
-    "title": "ADBE Adobe",
-    "text": "ADBE Adobe partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
+    "id": "stockNVDA",
+    "title": "NVDA NVIDIA",
+    "text": "NVDA NVIDIA partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
     "tokens": [
-      "ADBE",
-      "Adobe"
+      "NVDA",
+      "NVIDIA"
     ]
   },
   {
@@ -132052,6 +132041,17 @@
   },
   {
     "type": "stock",
+    "id": "stockADBE",
+    "title": "ADBE Adobe",
+    "text": "ADBE Adobe partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
+    "tokens": [
+      "ADBE",
+      "Adobe"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockPLTR",
     "title": "PLTR Palantir",
     "text": "PLTR Palantir miss",
@@ -132063,6 +132063,18 @@
   },
   {
     "type": "stock",
+    "id": "stock6531",
+    "title": "6531 愛普",
+    "text": "6531 愛普 partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6531.html",
+    "tokens": [
+      "6531",
+      "愛",
+      "普"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockMETA",
     "title": "META Meta",
     "text": "META Meta miss",
@@ -132070,18 +132082,6 @@
     "tokens": [
       "META",
       "Meta"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock6531",
-    "title": "6531 愛普",
-    "text": "6531 愛普 miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6531.html",
-    "tokens": [
-      "6531",
-      "愛",
-      "普"
     ]
   },
   {
@@ -132150,7 +132150,7 @@
     "type": "stock",
     "id": "stock2330",
     "title": "2330 台積電",
-    "text": "2330 台積電 partial",
+    "text": "2330 台積電 hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2330.html",
     "tokens": [
       "2330",
