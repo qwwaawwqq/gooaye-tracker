@@ -131939,6 +131939,17 @@
   },
   {
     "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2308",
     "title": "2308 台達電",
     "text": "2308 台達電 miss",
@@ -131948,17 +131959,6 @@
       "台",
       "達",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
     ]
   },
   {
@@ -132008,17 +132008,6 @@
   },
   {
     "type": "stock",
-    "id": "stockTEAM",
-    "title": "TEAM Atlassian",
-    "text": "TEAM Atlassian pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-TEAM.html",
-    "tokens": [
-      "TEAM",
-      "Atlassian"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockNVDA",
     "title": "NVDA NVIDIA",
     "text": "NVDA NVIDIA partial",
@@ -132026,6 +132015,17 @@
     "tokens": [
       "NVDA",
       "NVIDIA"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockTEAM",
+    "title": "TEAM Atlassian",
+    "text": "TEAM Atlassian pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-TEAM.html",
+    "tokens": [
+      "TEAM",
+      "Atlassian"
     ]
   },
   {
@@ -132041,17 +132041,6 @@
   },
   {
     "type": "stock",
-    "id": "stockADBE",
-    "title": "ADBE Adobe",
-    "text": "ADBE Adobe partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
-    "tokens": [
-      "ADBE",
-      "Adobe"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockPLTR",
     "title": "PLTR Palantir",
     "text": "PLTR Palantir miss",
@@ -132059,6 +132048,17 @@
     "tokens": [
       "PLTR",
       "Palantir"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockADBE",
+    "title": "ADBE Adobe",
+    "text": "ADBE Adobe hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
+    "tokens": [
+      "ADBE",
+      "Adobe"
     ]
   },
   {
@@ -132239,17 +132239,6 @@
   },
   {
     "type": "stock",
-    "id": "stockON",
-    "title": "ON ON",
-    "text": "ON ON pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-ON.html",
-    "tokens": [
-      "ON",
-      "ON"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockMRVL",
     "title": "MRVL MRVL",
     "text": "MRVL MRVL pending",
@@ -132257,6 +132246,17 @@
     "tokens": [
       "MRVL",
       "MRVL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockON",
+    "title": "ON ON",
+    "text": "ON ON pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-ON.html",
+    "tokens": [
+      "ON",
+      "ON"
     ]
   }
 ]
