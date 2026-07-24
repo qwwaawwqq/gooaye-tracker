@@ -132041,17 +132041,6 @@
   },
   {
     "type": "stock",
-    "id": "stockADBE",
-    "title": "ADBE Adobe",
-    "text": "ADBE Adobe hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
-    "tokens": [
-      "ADBE",
-      "Adobe"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockPLTR",
     "title": "PLTR Palantir",
     "text": "PLTR Palantir miss",
@@ -132059,6 +132048,17 @@
     "tokens": [
       "PLTR",
       "Palantir"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockADBE",
+    "title": "ADBE Adobe",
+    "text": "ADBE Adobe hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-ADBE.html",
+    "tokens": [
+      "ADBE",
+      "Adobe"
     ]
   },
   {
@@ -132150,13 +132150,24 @@
     "type": "stock",
     "id": "stock2330",
     "title": "2330 台積電",
-    "text": "2330 台積電 hit",
+    "text": "2330 台積電 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2330.html",
     "tokens": [
       "2330",
       "台",
       "積",
       "電"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockAMD",
+    "title": "AMD AMD",
+    "text": "AMD AMD hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMD.html",
+    "tokens": [
+      "AMD",
+      "AMD"
     ]
   },
   {
@@ -132169,17 +132180,6 @@
       "2327",
       "國",
       "巨"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockAMD",
-    "title": "AMD AMD",
-    "text": "AMD AMD hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMD.html",
-    "tokens": [
-      "AMD",
-      "AMD"
     ]
   },
   {
