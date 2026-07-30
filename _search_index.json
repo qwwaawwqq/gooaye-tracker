@@ -131889,6 +131889,18 @@
   },
   {
     "type": "stock",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
+    "tokens": [
+      "3037",
+      "欣",
+      "興"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -131925,25 +131937,15 @@
   },
   {
     "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
+    "id": "stock2308",
+    "title": "2308 台達電",
+    "text": "2308 台達電 miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
     "tokens": [
-      "3037",
-      "欣",
-      "興"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
+      "2308",
+      "台",
+      "達",
+      "電"
     ]
   },
   {
@@ -131961,19 +131963,6 @@
   },
   {
     "type": "stock",
-    "id": "stock2308",
-    "title": "2308 台達電",
-    "text": "2308 台達電 miss",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2308.html",
-    "tokens": [
-      "2308",
-      "台",
-      "達",
-      "電"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock3036",
     "title": "3036 文曄",
     "text": "3036 文曄 pending",
@@ -131982,6 +131971,17 @@
       "3036",
       "文",
       "曄"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -132019,17 +132019,6 @@
   },
   {
     "type": "stock",
-    "id": "stockNVDA",
-    "title": "NVDA NVIDIA",
-    "text": "NVDA NVIDIA partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
-    "tokens": [
-      "NVDA",
-      "NVIDIA"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockADBE",
     "title": "ADBE Adobe",
     "text": "ADBE Adobe partial",
@@ -132043,11 +132032,22 @@
     "type": "stock",
     "id": "stockCRM",
     "title": "CRM Salesforce",
-    "text": "CRM Salesforce miss",
+    "text": "CRM Salesforce partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-CRM.html",
     "tokens": [
       "CRM",
       "Salesforce"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockNVDA",
+    "title": "NVDA NVIDIA",
+    "text": "NVDA NVIDIA miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
+    "tokens": [
+      "NVDA",
+      "NVIDIA"
     ]
   },
   {
