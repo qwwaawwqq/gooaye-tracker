@@ -1,6 +1,6 @@
 # Dependencies for the GitHub Actions market job (update_market.py).
 # Episode transcription (faster-whisper) runs in a separate native venv
 # (~/.venvs/whisper) — NOT here. See whisper_cli.py.
-anthropic==0.74.1
+anthropic==0.120.2
 yfinance==0.2.65
 pandas==2.2.3
