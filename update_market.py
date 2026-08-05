@@ -383,21 +383,23 @@ def git_commit_push(file: Path, msg: str) -> None:
             print("  [git] no changes")
             return
         
+        # Stage file first so --autostash sees a clean worktree during rebase
+        subprocess.run(["git", "-C", str(ROOT), "add", str(file.relative_to(ROOT))], check=True)
+
         # dp-rel-3: Rebase before push (mirrors auto_update.py:push_if_ahead)
-        fetch = subprocess.run(["git", "-C", str(ROOT), "fetch", "origin", "main"], 
+        # --autostash handles any other unstaged changes (e.g. gen_all.sh outputs)
+        fetch = subprocess.run(["git", "-C", str(ROOT), "fetch", "origin", "main"],
                                capture_output=True, text=True)
         if fetch.returncode != 0:
             print(f"  [git] fetch failed: {fetch.stderr[-300:]}")
             return
-        
-        rebase = subprocess.run(["git", "-C", str(ROOT), "pull", "--rebase", "origin", "main"],
+
+        rebase = subprocess.run(["git", "-C", str(ROOT), "pull", "--rebase", "--autostash", "origin", "main"],
                                 capture_output=True, text=True)
         if rebase.returncode != 0:
             print(f"  [git] rebase conflict — aborting: {rebase.stderr[-300:]}")
             subprocess.run(["git", "-C", str(ROOT), "rebase", "--abort"], capture_output=True)
             return
-        
-        subprocess.run(["git", "-C", str(ROOT), "add", str(file.relative_to(ROOT))], check=True)
         subprocess.run(["git", "-C", str(ROOT), "commit", "-m", msg], check=True)
         push = subprocess.run(["git", "-C", str(ROOT), "push"], capture_output=True, text=True)
         if push.returncode != 0:
