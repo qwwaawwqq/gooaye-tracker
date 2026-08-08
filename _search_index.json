@@ -131938,6 +131938,17 @@
   },
   {
     "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2308",
     "title": "2308 台達電",
     "text": "2308 台達電 miss",
@@ -131947,17 +131958,6 @@
       "台",
       "達",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
     ]
   },
   {
@@ -131997,17 +131997,6 @@
   },
   {
     "type": "stock",
-    "id": "stockNET",
-    "title": "NET Cloudflare",
-    "text": "NET Cloudflare hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NET.html",
-    "tokens": [
-      "NET",
-      "Cloudflare"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockTEAM",
     "title": "TEAM Atlassian",
     "text": "TEAM Atlassian pending",
@@ -132019,6 +132008,28 @@
   },
   {
     "type": "stock",
+    "id": "stockNET",
+    "title": "NET Cloudflare",
+    "text": "NET Cloudflare hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NET.html",
+    "tokens": [
+      "NET",
+      "Cloudflare"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockPLTR",
+    "title": "PLTR Palantir",
+    "text": "PLTR Palantir hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
+    "tokens": [
+      "PLTR",
+      "Palantir"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockNVDA",
     "title": "NVDA NVIDIA",
     "text": "NVDA NVIDIA partial",
@@ -132026,17 +132037,6 @@
     "tokens": [
       "NVDA",
       "NVIDIA"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockPLTR",
-    "title": "PLTR Palantir",
-    "text": "PLTR Palantir partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-PLTR.html",
-    "tokens": [
-      "PLTR",
-      "Palantir"
     ]
   },
   {
