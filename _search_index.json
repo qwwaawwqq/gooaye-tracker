@@ -131840,18 +131840,6 @@
   },
   {
     "type": "stock",
-    "id": "stock8261",
-    "title": "8261 富鼎",
-    "text": "8261 富鼎 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-8261.html",
-    "tokens": [
-      "8261",
-      "富",
-      "鼎"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock2492",
     "title": "2492 華新科",
     "text": "2492 華新科 hit",
@@ -131861,6 +131849,18 @@
       "華",
       "新",
       "科"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock8261",
+    "title": "8261 富鼎",
+    "text": "8261 富鼎 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-8261.html",
+    "tokens": [
+      "8261",
+      "富",
+      "鼎"
     ]
   },
   {
@@ -131889,13 +131889,14 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
     "tokens": [
-      "FORM",
-      "FormFactor"
+      "6285",
+      "啟",
+      "碁"
     ]
   },
   {
@@ -131913,14 +131914,13 @@
   },
   {
     "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
     "tokens": [
-      "6285",
-      "啟",
-      "碁"
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -131934,17 +131934,6 @@
       "京",
       "元",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
     ]
   },
   {
@@ -131970,6 +131959,17 @@
       "3036",
       "文",
       "曄"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
     ]
   },
   {
@@ -132065,7 +132065,7 @@
     "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
-    "text": "6531 愛普 hit",
+    "text": "6531 愛普 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6531.html",
     "tokens": [
       "6531",

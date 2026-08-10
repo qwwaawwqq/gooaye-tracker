@@ -6,7 +6,7 @@
 <atom:link href="https://qwwaawwqq.github.io/gooaye-tracker/feed.xml" rel="self" type="application/rss+xml"/>
 <description>投資 call 追蹤驗證 + 解題清單</description>
 <language>zh-tw</language>
-<lastBuildDate>Sun, 09 Aug 2026 10:07:27 +0000</lastBuildDate>
+<lastBuildDate>Mon, 10 Aug 2026 10:45:37 +0000</lastBuildDate>
 <item>
 <title>EP668 | 🦞</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#ep668</link>
@@ -64,19 +64,19 @@
 <description>本集先聊台中走跳與林口房價，延伸到紅酒收藏心法——用價格排序建立樣本、找出自己味蕾喜歡的標的。盤面焦點放在被動元件全面噴發：MLCC因高階料被日韓大廠卡住產生排擠效應，鋁電容Nichikon、ChemiCon走強，台廠國巨、華新科、麗智、立隆、金山跟上。Legacy漲價主要是成本驅動而非需求回升，世界、漢唐財報雖好但股價沒表態。提醒台股已噴太遠，不要追高、手綁起來，留意強勢族群是否開始濃縮收斂。</description>
 </item>
 <item>
-<title>EP661 2492 華新科 → hit ✅ (+25.5%)</title>
+<title>EP661 2492 華新科 → hit ✅ (+36.8%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2492</link>
 <guid isPermaLink="false">37d3ec47f6dac26d211d4f4785f17880</guid>
 <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;被動元件主角&lt;/b&gt; · +25.5% over 86d · 自 EP661</description>
+<description>&lt;b&gt;被動元件主角&lt;/b&gt; · +36.8% over 89d · 自 EP661</description>
 <category>hit</category>
 </item>
 <item>
-<title>EP661 2308 台達電 → miss ❌ (-23.8%)</title>
+<title>EP661 2308 台達電 → miss ❌ (-16.2%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2308</link>
 <guid isPermaLink="false">32d045ee678300477908f717202b8041</guid>
 <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;Power 鏈延伸&lt;/b&gt; · -23.8% over 86d · 自 EP661</description>
+<description>&lt;b&gt;Power 鏈延伸&lt;/b&gt; · -16.2% over 89d · 自 EP661</description>
 <category>miss</category>
 </item>
 <item>
@@ -128,12 +128,12 @@
 <category>partial</category>
 </item>
 <item>
-<title>EP657 6531 愛普 → hit ✅ (+16.0%)</title>
+<title>EP657 6531 愛普 → partial ⚠️ (+12.6%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-6531</link>
-<guid isPermaLink="false">e379065f57ee9efefb6e54d3ec13b10f</guid>
+<guid isPermaLink="false">9524cf285fd1c795e8e6d9203d1d0e61</guid>
 <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;受惠&lt;/b&gt; · +16.0% over 100d · 自 EP657</description>
-<category>hit</category>
+<description>&lt;b&gt;受惠&lt;/b&gt; · +12.6% over 103d · 自 EP657</description>
+<category>partial</category>
 </item>
 <item>
 <title>EP657 META Meta → miss ❌ (-11.5%)</title>
@@ -144,11 +144,11 @@
 <category>miss</category>
 </item>
 <item>
-<title>EP657 2337 旺宏 → miss ❌ (-27.2%)</title>
+<title>EP657 2337 旺宏 → miss ❌ (-20.1%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2337</link>
 <guid isPermaLink="false">1cb91d345d688020b0b4becfdef29971</guid>
 <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;看好&lt;/b&gt; · -27.2% over 100d · 自 EP657</description>
+<description>&lt;b&gt;看好&lt;/b&gt; · -20.1% over 103d · 自 EP657</description>
 <category>miss</category>
 </item>
 <item>
@@ -160,35 +160,35 @@
 <category>partial</category>
 </item>
 <item>
-<title>EP656 3661 世芯-KY → miss ❌ (-10.7%)</title>
+<title>EP656 3661 世芯-KY → miss ❌ (-8.7%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-3661</link>
 <guid isPermaLink="false">38f3d87f5c5f11c73c801ef3b19c338c</guid>
 <pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;看好&lt;/b&gt; · -10.7% over 102d · 自 EP656</description>
+<description>&lt;b&gt;看好&lt;/b&gt; · -8.7% over 105d · 自 EP656</description>
 <category>miss</category>
 </item>
 <item>
-<title>EP653 2454 聯發科 → hit ✅ (+117.9%)</title>
+<title>EP653 2454 聯發科 → hit ✅ (+121.2%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2454</link>
 <guid isPermaLink="false">928700a50d7d72102e8604d31d40fa1f</guid>
 <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;看好→預期打滿&lt;/b&gt; · +117.9% over 114d · 自 EP653</description>
+<description>&lt;b&gt;看好→預期打滿&lt;/b&gt; · +121.2% over 117d · 自 EP653</description>
 <category>hit</category>
 </item>
 <item>
-<title>EP653 3443 創意 GUC → hit ✅ (+48.0%)</title>
+<title>EP653 3443 創意 GUC → hit ✅ (+47.6%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-3443</link>
 <guid isPermaLink="false">d979139b8afcaddbe1ed9db87a1f447a</guid>
 <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;看好&lt;/b&gt; · +48.0% over 114d · 自 EP653</description>
+<description>&lt;b&gt;看好&lt;/b&gt; · +47.6% over 117d · 自 EP653</description>
 <category>hit</category>
 </item>
 <item>
-<title>EP653 2330 台積電 → partial ⚠️ (+13.9%)</title>
+<title>EP653 2330 台積電 → partial ⚠️ (+14.4%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2330</link>
 <guid isPermaLink="false">5234253fe5a2be1bfa9e47f217532735</guid>
 <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;看好&lt;/b&gt; · +13.9% over 114d · 自 EP653</description>
+<description>&lt;b&gt;看好&lt;/b&gt; · +14.4% over 117d · 自 EP653</description>
 <category>partial</category>
 </item>
 <item>
@@ -200,11 +200,11 @@
 <category>hit</category>
 </item>
 <item>
-<title>EP652 2327 國巨 → hit ✅ (+77.9%)</title>
+<title>EP652 2327 國巨 → hit ✅ (+88.8%)</title>
 <link>https://qwwaawwqq.github.io/gooaye-tracker/#call-2327</link>
 <guid isPermaLink="false">1d81cf749701156bf5d4af572860bf96</guid>
 <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-<description>&lt;b&gt;啟動 → 主軸延伸&lt;/b&gt; · +77.9% over 116d · 自 EP652</description>
+<description>&lt;b&gt;啟動 → 主軸延伸&lt;/b&gt; · +88.8% over 119d · 自 EP652</description>
 <category>hit</category>
 </item>
 <item>
