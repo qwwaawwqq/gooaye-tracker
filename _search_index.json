@@ -132150,24 +132150,13 @@
     "type": "stock",
     "id": "stock2330",
     "title": "2330 台積電",
-    "text": "2330 台積電 partial",
+    "text": "2330 台積電 hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2330.html",
     "tokens": [
       "2330",
       "台",
       "積",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockAMD",
-    "title": "AMD AMD",
-    "text": "AMD AMD hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMD.html",
-    "tokens": [
-      "AMD",
-      "AMD"
     ]
   },
   {
@@ -132184,9 +132173,20 @@
   },
   {
     "type": "stock",
+    "id": "stockAMD",
+    "title": "AMD AMD",
+    "text": "AMD AMD hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMD.html",
+    "tokens": [
+      "AMD",
+      "AMD"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockAMZN",
     "title": "AMZN Amazon",
-    "text": "AMZN Amazon partial",
+    "text": "AMZN Amazon hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMZN.html",
     "tokens": [
       "AMZN",
