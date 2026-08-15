@@ -132113,7 +132113,7 @@
     "type": "stock",
     "id": "stockAVGO",
     "title": "AVGO Broadcom",
-    "text": "AVGO Broadcom partial",
+    "text": "AVGO Broadcom miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AVGO.html",
     "tokens": [
       "AVGO",
@@ -132161,6 +132161,17 @@
   },
   {
     "type": "stock",
+    "id": "stockAMD",
+    "title": "AMD AMD",
+    "text": "AMD AMD hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMD.html",
+    "tokens": [
+      "AMD",
+      "AMD"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2327",
     "title": "2327 國巨",
     "text": "2327 國巨 hit",
@@ -132169,17 +132180,6 @@
       "2327",
       "國",
       "巨"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockAMD",
-    "title": "AMD AMD",
-    "text": "AMD AMD hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMD.html",
-    "tokens": [
-      "AMD",
-      "AMD"
     ]
   },
   {
