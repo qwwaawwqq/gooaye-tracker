@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>股癌新集速報 · 2026-08-20 · EP689</title>
+<style>
+  :root{
+    --bg:#0a0e1f; --panel:#131a35; --panel2:#0f1530; --panel3:#1a2348;
+    --ink:#e7ecf7; --ink2:#cdd6f0;
+    --muted:#8b97b5; --line:#1f2a4d;
+    --accent:#7cf2c1; --accent2:#ffb347; --accent3:#9ec5ff;
+    --bull:#22c55e; --bear:#ef4444; --warn:#f59e0b;
+    --us:#a78bfa; --tw:#60a5fa;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:28px 22px 80px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}
+  h1{margin:0;font-size:28px;letter-spacing:.5px;font-weight:800}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  .pill{display:inline-block;background:var(--panel);border:1px solid var(--line);
+    color:var(--muted);font-size:12px;padding:4px 10px;border-radius:999px;margin-right:6px;margin-top:8px}
+  .pill.warn{color:var(--warn);border-color:var(--warn)}
+  .pill.live{color:var(--accent);border-color:var(--accent)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px;margin-bottom:18px}
+  .card h2{margin:0 0 4px;font-size:20px}
+  .meta{color:var(--muted);font-size:13px;margin-bottom:12px}
+  .tag{display:inline-block;background:var(--panel3);border:1px solid var(--line);
+    color:var(--accent3);font-size:12px;padding:3px 10px;border-radius:999px;margin:0 6px 6px 0}
+  .tag.pending{color:var(--warn);border-color:var(--warn)}
+  .tag.done{color:var(--accent);border-color:var(--accent)}
+  .tag.us{color:var(--us);border-color:var(--us)}
+  .tag.tw{color:var(--tw);border-color:var(--tw)}
+  ul{margin:10px 0;padding-left:22px;color:var(--ink2)}
+  li{margin-bottom:8px;line-height:1.65}
+  a{color:var(--accent3)}
+  .note{background:var(--panel2);border-left:3px solid var(--warn);border-radius:0 10px 10px 0;
+    padding:12px 16px;font-size:13.5px;color:var(--ink2);line-height:1.7;margin-top:14px}
+  .note.good{border-left-color:var(--accent)}
+  .footer{color:var(--muted);font-size:12px;margin-top:30px;line-height:1.7}
+  b{color:var(--accent2)}
+  h3.sec{color:var(--accent);font-size:15px;margin:18px 0 6px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;line-height:1.55}
+  th{color:var(--muted);font-weight:600;font-size:12px}
+  td{color:var(--ink2)}
+  .pos{color:var(--bull);font-weight:700}
+  .neg{color:var(--bear);font-weight:700}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:12px}
+  .box{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .box h4{margin:0 0 8px;font-size:14px}
+  .box p{margin:0;font-size:12.5px;color:var(--ink2);line-height:1.65}
+  .quote{border-left:3px solid var(--accent);background:var(--panel2);padding:10px 16px;
+    margin:12px 0;font-size:13.5px;color:var(--ink2);line-height:1.7;border-radius:0 10px 10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>🎙 股癌新集速報 <span>EP689</span></h1>
+  <div class="sub">2026-08-20（週四）偵測 · 涵蓋 EP689 · 資料來源：SoundOn RSS ＋ <b>本次於 Cowork 沙箱自行執行 whisper 轉錄</b>（faster-whisper small／int8，50:53、1,122 段、64,404 字元）</div>
+  <span class="pill live">1 集新增</span>
+  <span class="pill">EP689 · 2026-08-19（三）16:43 TPE</span>
+  <span class="pill">50 分 53 秒</span>
+  <span class="pill warn">Mac LaunchAgent 8/19 全數 DNS 失敗</span>
+</header>
+
+<div class="note">
+  <b>⚠️ 本次流程異常說明</b>：Mac 端 LaunchAgent（<code>com.gooaye.update-episodes</code>）於 8/19 13:09 起共嘗試 11 次，
+  <b>每一次都在 <code>fetch_rss()</code> 階段拋出 <code>socket.gaierror: nodename nor servname provided</code></b>（DNS 解析失敗，研判為機器離線／休眠），
+  因此 <code>_episodes_auto.json</code> 與 <code>.cache_audio/</code> 皆無 EP689 資料。
+  依 <code>CLAUDE.md</code> 鐵則「<b>絕不從 RSS show notes 臆測集數內容</b>」，本次改由排程在沙箱內下載音檔並自行跑 whisper，
+  以下所有內容<b>全部出自實際逐字稿</b>，非 show notes 推測。轉錄檔已回寫至 <code>.cache_audio/EP689.txt</code>，Mac 端下次執行可直接 cache hit。
+</div>
+
+<!-- ============ EP689 ============ -->
+<div class="card">
+  <h2>EP689 ｜ 🏐　<span style="color:var(--muted);font-size:15px;font-weight:400">「一定是在測試我夠不夠薑」</span></h2>
+  <div class="meta">
+    2026-08-19（週三）16:43 TPE · 50 分 53 秒 ·
+    贊助：<b>Dr.情趣 TASLA 特濕拉 Model Sucks</b>（七夕檔期，折扣碼 GOOAYE888 折 250）·
+    <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/2b09a713-b103-4bf6-8cb8-745034ef0531">SoundOn 播放器 ↗</a>
+  </div>
+
+  <div>
+    <span class="tag done">📝 whisper 已轉錄（沙箱自轉）</span>
+    <span class="tag pending">⏳ 待 LLM 深度摘要</span>
+    <span class="tag">市場三分法：Components／Bottleneck／Value add</span>
+    <span class="tag">記憶體＝領先指標</span>
+    <span class="tag">WSJ 3 兆美元表外槓桿</span>
+    <span class="tag">年度封控風控法</span>
+    <span class="tag">產業知識怎麼堆疊</span>
+    <span class="tag">好報告 ≠ 會賺錢</span>
+    <span class="tag us">MU</span><span class="tag us">NVDA</span><span class="tag us">APH</span><span class="tag tw">3665</span>
+  </div>
+
+  <h3 class="sec">① 盤勢定調：回檔「真的還好」，不買單殖利率解釋</h3>
+  <ul>
+    <li>近日台美科技股同步回檔，市場歸因<b>美債殖利率走高</b>（無風險利率上去→壓縮高評價科技股）。
+        主委：「你可以硬去把它作為市場最近回檔的一種解釋，還 OK」，但<b>自己不太買單</b>。</li>
+    <li>理由：七月跌很多，但<b>最近已有蠻多股票回到前高、甚至直接攻新高</b>——不是一兩隻的孤例，是「越來越多」。
+        前面反彈幾十 %，「一天跌 3%、跌個兩三天，真的還好」。</li>
+    <li>反差觀察：<b>身邊蠻多人選擇把資金大幅往下降</b>——「可能七月真的被嚇到一波，現在大家都很害怕」。</li>
+    <li>8 月修復<b>超出主委自己的預期</b>：原本預期要等第四季才能收復失土，「沒想到 8 月可能就已經收復失土一半」。
+        （數學提醒：回檔三成後要爬回去不是漲三成，×0.7 後再 ×1.3 只有 0.91。）</li>
+  </ul>
+
+  <h3 class="sec">② 鬼故事拆解：WSJ「大科技 AI 支出比看到的多 3 兆美元」</h3>
+  <ul>
+    <li>報導點出<b>表外</b>（off balance sheet）的未開始租約、採購承諾 → 真實槓桿率被藏起來，
+        主委類比<b>黃仁勳做的供應商融資</b>：「場外的槓桿跟融資持續往上疊加」＝<b>房間裡的大象</b>。</li>
+    <li><b>時機判斷：不會這麼快爆。</b>「一定要再走一陣子之後才會爆炸，等它爆炸的時候會造成巨大衝擊。」</li>
+    <li><b>真正的引爆前兆指標（可直接當書籤）</b>：當你看到 AI 債務／投資被<b>打包成各種投資理財商品</b>、
+        「地方大媽都可以買到資料中心發出來的債券、利率多少、保證回本殺小的」——
+        <b>「當你看到大量的產品在市場上這樣子跑的時候，就代表距離爆炸已經不遠了」</b>。</li>
+    <li>但現階段 AI 變現明確（以 Anthropic 財務表現為例<span style="color:var(--muted)">〔逐字稿音為 Enfrapi，判為 Anthropic，音譯待確認〕</span>）：
+        「一兩年前很少人敢想像他們可以這麼快就賺錢」→ 不必急著喊泡沫。</li>
+    <li class="quote" style="list-style:none;margin-left:-22px">
+        「哪一次的炒作、哪一次的多頭最後面沒有變成泡泡跟泡沫？一定都會。<br>
+        但問題是如果你想要完美去閃掉每一個泡泡變泡沫，那可能這個泡泡會吹到你沒有參與到資產的增長，那也是滿可惜的一件事情。」</li>
+  </ul>
+
+  <h3 class="sec">③ 🔑 本集核心框架：把市場拆成三種 trade</h3>
+  <div class="grid3">
+    <div class="box">
+      <h4 style="color:var(--tw)">🔵 Components trade</h4>
+      <p><b>本質＝缺貨漲價。</b>領先指標看<b>記憶體</b>——它是「市場裡面最缺、並且展望最明確的東西」。
+      判準：<b>如果連記憶體的評價都拉不上去，其他 components 憑什麼說服市場給更高的 PE ratio？</b>
+      → 「記憶體要持續維持強勢，components 才會動。」</p>
+    </div>
+    <div class="box">
+      <h4 style="color:var(--accent2)">🟠 Bottleneck trade</h4>
+      <p><b>本質＝瓶頸在哪、錢就去哪。</b>目前市場焦點在<b>後段（封測 / OSAT / 測試廠）</b>。
+      判準：<b>如果封測段股價推不上去，bottleneck trade 也就暫時休息</b>——「還有什麼東西可以比這個東西更缺？」</p>
+    </div>
+    <div class="box">
+      <h4 style="color:var(--accent)">🟢 Value add trade</h4>
+      <p><b>本質＝無形價值疊加</b>，不是缺貨漲價。晶片疊代／軟體更新／產品更迭真的替客戶產生更多價值。
+      主委吐槽拆 iPhone 算零件成本的人：「那你那麼厲害你也去組一台 iPhone」。
+      <b>「目前看起來比較兇的族群，我覺得是偏向 value add 這一塊。」</b></p>
+    </div>
+  </div>
+  <div class="note good">
+    <b>🎯 可執行的判準（本集最實用的一句）</b>：這波回檔之後，
+    <b>不管是哪個 sector、哪一種 trade，誰先攻破「回檔前的高點」，誰就定掉下一個主流族群</b>——
+    「在現在看就會變得是相對的敏感（關鍵）」。<br>
+    → 追蹤方式：分別盯 ①記憶體族群 ②封測/測試廠 ③價值型科技股，看誰先站回 7 月崩跌前高。
+  </div>
+
+  <h3 class="sec">④ 解瓶頸的四種手法（為什麼 bottleneck trade 有時效）</h3>
+  <ul>
+    <li>Time to compute 是關鍵：「每個人都希望可以快一點讓你的東西上線」。</li>
+    <li>手法一：<b>直接接受漲價／用很高價格把產能包下來</b>。</li>
+    <li>手法二：<b>NVIDIA 式買設備放到供應商那裡</b>（封裝／測試廠）——「我真的讓供應商去擴產，他們不一定敢、覺得風險太大；我直接買設備去那邊放，利潤談好，你做不做？這就一定會做了。」</li>
+    <li>手法三：<b>超額下單擠掉競爭者</b>——呼應先前光通判讀：「NVIDIA 多下了蠻多光通元件，目的不一定是立刻要用，而是想讓競爭者出局、讓你買不到東西」。</li>
+    <li>⚠️ <b>本集新增風險書籤</b>：記憶體後續會有<b>降規／減層</b>的狀況
+        <span style="color:var(--muted)">〔逐字稿音為 disback，依上下文判為 de-stack／降規，音譯待確認〕</span>——
+        高疊層（12／16 層）良率低、產出少 → 改「不拼容量、拼頻寬」的較低疊層方案。
+        主委：<b>即便這仍是長多故事，「有些人光是聽到這一段他就不想要了」</b>，可能在市場造成動盪與衝擊。</li>
+  </ul>
+
+  <h3 class="sec">⑤ 風控：用「年度」而不是 WTD／MTD 做封控</h3>
+  <ul>
+    <li>市場現實：「不要講什麼 YTD，沒有人在看 YTD，都在看 MTD 一個月賺多少，甚至看 WTD 這個禮拜賠多少。」
+        → 所以要在派對結束前離場「真的非常困難，你就是要做到最後一刻，甚至去吃到一小坡的大怒神之後再出場」。</li>
+    <li><b>主委的做法</b>：績效以<b>年度</b>結算。七月自己一次回檔三成，但因為今年賺太多，「回掉三成對我來講還是我很難想像可以在連年多頭之後獲得的報酬」→ 願意留在場內等。</li>
+    <li><b>撤退條件（明講）</b>：如果走到 2027，「今年只賺 ○○%，然後這個獲利在某一次回檔直接全部被打掉」，
+        <b>就算外面指標都還很正向，也會考慮先去休息</b>。類比投信封控：「PM 這個月回檔數字太大，我就強迫你綁手」。</li>
+    <li>金句：<b>「股價的歷史有教會我們什麼事情的話，就是每次股價已經腰斬之後，我們才會知道原來 shit hit the fan。一般來講股價都是已經先跑了。」</b></li>
+    <li>2021→2022 類比：當年信「握有越多庫存＝大贏家」，最後是供應鏈庫存調整。
+        <b>現在的對應警訊＝各種料的報價「穩住了、不一定下跌但上不去」時就要警覺</b>；
+        「至少以現階段來講，我們所看到的各種元件其實都還是持續維持在漲價」。</li>
+  </ul>
+
+  <h3 class="sec">⑥ QA 精選</h3>
+  <table>
+    <thead><tr><th style="width:20%">題目</th><th>主委回答重點</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>美光員工</b>：產能滿載累得跟狗一樣、分紅遠低同業，該不該走？好公司爛部門 vs 爛公司好部門</td>
+        <td>「<b>美光有很小氣嗎？</b>我記得前陣子不是發得蠻大方的嗎？」——最近缺料漲價相關公司很多人拿很多錢，
+            <b>「甚至一些系統廠的 ODM，他們拿的 package 甚至會去擊敗以前大家講的神山」</b>。<br>
+            結論：<b>「錢給到位什麼都不是問題」</b>；「大家出來工作不是來交朋友的，進去上班說我們是一家人，誰跟你談一家人」。
+            硬要二選一→選<b>好部門</b>（氣氛對、至少快樂）；但差 10% 不會走、差 100% 立刻走，「那就是一個全盤標準」。</td>
+      </tr>
+      <tr>
+        <td><b>產業知識怎麼東拼西湊？</b>（呼應 EP688 的 800V busbar／cable／connector）</td>
+        <td>逐項拆解知識來源：<b>Busbar</b>＝早年一家做浸沒式散熱的 stealth company 朋友，為解 busbar 花很多時間；
+            <b>Cable</b>＝投資<b>貿聯（3665）</b>時逐條研究每條線幹嘛，「最後看到某個顏色的線就知道是貿聯的」；
+            <b>Connector／Socket</b>＝研究 <b>Amphenol（APH）</b>＋電話會議＋同業互相吐槽，才知道早期 AI 伺服器「插拔五次東西就壞掉」的良率問題。<br>
+            <b>底層邏輯</b>：尖端科技追微縮、成熟／車用追穩定度（「我車子容量這麼大，多塞幾顆晶片有什麼差」）；
+            懂手機→懂 PC→推伺服器＝<b>「一路通、路路通」</b>（用 LOL 打野 gank 類比：換角色但邏輯一樣）。<br>
+            <b>「聲量優勢沒有辦法幫你把前面生根、要根源的東西做好」</b>——聲量只讓你拿消息快一點（如年初知道衛星狀況好）。</td>
+      </tr>
+      <tr>
+        <td><b>基本面研究要做到什麼程度才 OK？</b>（已會讀年報/季報/法說、拆 PQ 做 EPS 模型）</td>
+        <td>拆 PQ <b>不能只拆到全公司 ASP</b>——要拆到<b>單一元件</b>。舉自己最近在看的一家公司：本來多是傳統 Consumer PC 業務，
+            現在切進光通元件<span style="color:var(--muted)">〔「光通 X 拔二」音譯待確認〕</span>，用過往資料完全看不出來。<br>
+            <b>關鍵參數＝該元件單價</b>：去法說會問；問不到就<b>參照歐美同業電話會議的暗示</b>（「這個東西跟傳統品比毛利多幾個百分點」、「某產品會對某 sector 營收貢獻多少」→ 回推單價或出貨量）。<br>
+            <b>但最重要的一段</b>：好報告 ≠ 賺錢。「巧婦難為無米之炊，你給他一坨垃圾，他研究了半天，不會漲就是不會漲。」
+            反過來，每次有題材市場一定 <b>overshoot</b>（後段太滿→外包，每家接外包的都聲稱能拿多少收益，
+            「憑什麼這麼多人在競爭，你就是分到這個 share？」）——那些高估 share／ASP 的報告「你用純產業面角度會給它 thumbs down，
+            但問題就是<b>你買了還是會漲、還是會賺錢</b>」。<br>
+            <b>「一個完全正確的報告不代表在你的投資上面可以獲得收益。」</b>純想懂產業真相→推薦訂閱曼報 Pro。</td>
+      </tr>
+      <tr>
+        <td><b>學英文想找相關工作</b></td>
+        <td>「你的需求很奇怪」——直接<b>下載任一家 AI 模型、開語音模式一直對話</b>，比補習／找班有效；
+            「這個功能是 entry level 的語言是最簡單的」，AI 可相當有效取代家教。想練勇氣可找家教或打工度假當服務生；
+            <b>用「上班」來學英文效率最差</b>：「老闆的角度就是，老子付你錢不知道讓你來學英文的」。</td>
+      </tr>
+      <tr>
+        <td><b>笑蘭資本／遊戲投資</b><span style="color:var(--muted)">〔公司名與作品名皆為音譯，待確認〕</span></td>
+        <td>否認做慈善：「做慈善就是你會沒有回報」。目標是<b>證明台灣有很棒的團隊與軟體開發人員</b>，給資源就做得出來；
+            投進去<b>不指導、不廢話</b>（「相信你之術」）。「我們是進來打<b>逆風牌</b>的」——加入的團隊很多當下發不出薪水。
+            若成功證明→更多年輕人願意做、更多資本敢進來（過去「投資遊戲可以賺錢」根本沒人信）。
+            也回應大量來信求投資：信都有看，不會每封回。</td>
+      </tr>
+      <tr>
+        <td><b>聽眾祝福「希望韓國人別做股票」</b></td>
+        <td>「這個希望蠻不錯的，他們真的是進入恐怖分子」——<b>「韓國人進去瘋狂的東西，後面真的會出事情，然後把大家一起炸掉。」</b></td>
+      </tr>
+      <tr>
+        <td>楓之谷黃色雨傘 / 魔獸時光龍</td>
+        <td>沒認真玩楓之谷；魔獸寒冰地圖蹲時光龍蹲上百小時。現在<b>喜歡 pay to win</b>：「如果我可以用錢買練功時間或裝備，我幹嘛不買？上班就很累了」——年紀大了的理解，但承認熬夜網咖是「年輕的浪漫」。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="sec">⑦ 開場生活段（約前 10 分鐘）</h3>
+  <ul>
+    <li><b>功能性訓練後續</b>（延續 EP688）：怎麼找教練？去附近場館，<b>找一個「身材就是你想成為的樣子」的教練直接上</b>——
+        「講起來有點膚淺，但動機最重要」；類比自己當年因為媽媽買的 iPod Photo 裡有 Coldplay 才對英文產生興趣。
+        「一定殊途同歸，絕對不是只有某一派方法可以解決」。</li>
+    <li><b>育兒篇</b>（峇里島回來、暑假還要再出國）：與兒子的「乖寶寶點數」制度——挑戰大滑水道開價 20 點，
+        兒子抗議「爸爸你在炫耀，你跟我講有這麼多點數，可是你不給我你壞」，最後仍克服恐懼去玩。
+        <b>小朋友不懂價格</b>：卡包一點、冰淇淋一球一點、抱抱也一點——「這個階段真的非常可愛」，
+        「他可以重新提醒你這樣的一些生活」。</li>
+    <li>金句：<b>「我就不是那種浪漫咖，我真的沒有辦法給你什麼情緒價值，但是有一件事情我做得很好，就是買單。」</b></li>
+  </ul>
+</div>
+
+<!-- ============ 市場背景 ============ -->
+<div class="card">
+  <h2>📉 市場背景（發布當日 ± 1 日）</h2>
+  <table>
+    <thead><tr><th>日期</th><th>加權指數</th><th>變動</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>2026-08-14（五）</td><td>45,811.01</td><td class="neg">-210.47（-0.46%）</td><td>EP688 前一交易日</td></tr>
+      <tr><td>2026-08-12（三）</td><td>45,518</td><td class="pos">+0.88%</td><td>EP687 當日</td></tr>
+      <tr><td><b>2026-08-19（三）· EP689 發布日</b></td><td><b>44,719</b></td><td class="neg"><b>-589（-1.30%）</b></td><td>成交量約 8,478 億；台積電 2,350（-30，-1.26%）· 受前一交易日美股全面下跌影響開低走低</td></tr>
+    </tbody>
+  </table>
+  <div class="note">
+    <b>對照本集論述：</b>EP689 錄製於這波回檔進行中。主委的立場是「<b>回檔真的還好</b>、8 月已收復失土一半、
+    不加速往下撞就是找機會」，而非轉空。<b>驗證點</b>：接下來要看記憶體／封測／value add 三組誰先站回 7 月崩跌前高——
+    這是主委本集給出的、最可操作的族群輪動判準。
+  </div>
+</div>
+
+<!-- ============ 追蹤清單異動 ============ -->
+<div class="card">
+  <h2>🎯 Watchlist 異動（已同步寫入 index.html）</h2>
+  <table>
+    <thead><tr><th>動作</th><th>標的 / 主題</th><th>依據</th><th>評級</th></tr></thead>
+    <tbody>
+      <tr><td><b style="color:var(--accent)">新增</b></td>
+          <td><b>市場三分法框架</b>（Components／Bottleneck／Value add）</td>
+          <td>EP689 主軸；記憶體為 components 領先指標、封測為 bottleneck 領先指標、「誰先攻破回檔前高＝下一個主流」</td>
+          <td>⭐⭐⭐⭐ 主題級 · 跨集連貫（記憶體／封測論述橫跨 EP678-689）</td></tr>
+      <tr><td><b style="color:var(--accent)">新增</b></td>
+          <td><b>後段封測／測試（Bottleneck trade）</b>（主委未點名個股）</td>
+          <td>EP689：市場焦點在後段、解瓶頸四手法（包產能／NVDA 買設備放廠／超額下單擠競爭者）；推不上去＝bottleneck trade 休息</td>
+          <td>⭐⭐⭐ 類股級 · 無個股點名，不套 DTFM</td></tr>
+      <tr><td><b style="color:var(--warn)">更新</b></td>
+          <td><span style="color:var(--tw)">2337</span> 旺宏／記憶體族群（🟡 持有觀察）</td>
+          <td>EP689 賦予<b>新角色＝整個 components trade 的領先指標</b>；同時新增降規／減層（de-stack）動盪風險書籤</td>
+          <td>維持 🟡，但監看優先度提高</td></tr>
+      <tr><td><b style="color:var(--warn)">更新</b></td>
+          <td>操作框架「進場時機」</td>
+          <td>加入三分法 + 「誰先攻破回檔前高＝下一個主流族群」判準</td>
+          <td>—</td></tr>
+      <tr><td><b style="color:var(--warn)">更新</b></td>
+          <td>操作框架「何時撤退」</td>
+          <td>加入 WSJ 3T 表外槓桿＝房間裡的大象（不會這麼快爆）、
+              <b>引爆前兆＝AI 債務被打包成零售理財商品</b>、<b>料價由漲轉「穩住上不去」＝警覺</b>、年度封控法</td>
+          <td>維持 🟡（本集零過熱訊號）</td></tr>
+      <tr><td style="color:var(--muted)">不列入</td>
+          <td><span style="color:var(--tw)">3665</span> 貿聯 · <span style="color:var(--us)">APH</span> Amphenol · <span style="color:var(--us)">MU</span> 美光</td>
+          <td>三者本集皆<b>作為「知識來源／提問背景」出現，非個股推薦</b>；依回測標準不計為 call</td>
+          <td>僅登錄於 EPISODES stocks 欄</td></tr>
+    </tbody>
+  </table>
+  <div class="note">
+    <b>降級：0 項。</b>本集<b>零個股級點名、零過熱訊號</b>——與 EP688 相同屬「純框架＋心法集」，
+    因此未觸發任何 🟢→🟡 或 🟡→🔴 的再評級。
+  </div>
+</div>
+
+<div class="footer">
+  <b>產出方式：</b>SoundOn RSS 偵測 → 沙箱下載音檔 → faster-whisper small（int8, 4 threads, VAD）分 11 段轉錄 → 依逐字稿人工策展。<br>
+  <b>未撰寫 <code>deep</code> 欄位</b>：依 <code>CLAUDE.md</code> 合併規則，inline 帶 <code>deep</code> 會阻擋 auto pipeline；
+  保留 summary/tags/stocks 讓 Mac 端 LLM 深度摘要接手。<br>
+  <b>未觸碰</b>：<code>股癌_Ting_wei_Wang_App.html</code>（依 CLAUDE.md 屬 orphan 檔）、
+  <code>股癌_最新5集_視覺化摘要.html</code>、<code>股癌_互動式深度摘要_v2.html</code>、
+  <code>股癌_即時追蹤_WebApp.html</code>、<code>股癌_預測驗證_Backtest.html</code>。<br>
+  <b>音譯待確認</b>：Anthropic（稿作 Enfrapi）· de-stack／降規（稿作 disback）· 笑蘭資本與其投資之遊戲作品名 · 「光通 X 拔二」元件名。<br>
+  排程任務 <code>gooaye-new-episode-watcher</code> · 產出於 2026-08-20。
+</div>
+
+</div>
+</body>
+</html>
