@@ -8,6 +8,16 @@
   "items": [
     {
       "type": "episode_published",
+      "pubDate": "Wed, 26 Aug 2026 00:00:00 +0000",
+      "ep": 691,
+      "title": "EP691 | 🎂",
+      "link": "https://qwwaawwqq.github.io/gooaye-tracker/#ep691",
+      "guid": "10a5ab2db37feedfdeaab192ead4ac0e",
+      "description": "歡迎收聽古來維生木工本集節目由菲利浦電弧刀贊助 我是菲利浦電弧刀用戶 由於鬍子多長得快又濃 需要出門的時候每天都得刮 電弧刀好不好用 差異很明顯一旦用到好的就很難回去 選擇菲利浦很大的語言性 為旋轉式三刀頭 能夠一次把不同方向生長的鬍鬚給刮乾淨 不用來回刮 減少反覆摩擦 整體天鵝度很好 像下巴下額 這些難處理的地方 也能夠快速的刮乾淨 如果說你每天都刮 可以升級菲利浦旗艦9系XP9404 它的微體",
+      "raw_date": "2026-08-26"
+    },
+    {
+      "type": "episode_published",
       "pubDate": "Sat, 22 Aug 2026 00:00:00 +0000",
       "ep": 690,
       "title": "EP690 | ⛳",
@@ -590,21 +600,6 @@
       "change_pct": 2.56,
       "stance": "CPU+ASIC",
       "raw_date": "2026-04-13"
-    },
-    {
-      "type": "call_resolved",
-      "pubDate": "Wed, 08 Apr 2026 00:00:00 +0000",
-      "ep": 651,
-      "code": "INTC",
-      "name": "Intel",
-      "verdict": "hit",
-      "title": "EP651 INTC Intel → hit ✅ (+68.2%)",
-      "link": "https://qwwaawwqq.github.io/gooaye-tracker/#call-INTC",
-      "guid": "54034b0bda747d34a5e3bea8950a774a",
-      "description": "<b>轉強</b> · +68.2% over 58d · 自 EP651",
-      "change_pct": 68.23,
-      "stance": "轉強",
-      "raw_date": "2026-04-08"
     }
   ]
 }
