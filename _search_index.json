@@ -131902,6 +131902,18 @@
   },
   {
     "type": "stock",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "tokens": [
+      "6285",
+      "啟",
+      "碁"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -131911,18 +131923,6 @@
       "瀚",
       "宇",
       "博"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
-    "tokens": [
-      "6285",
-      "啟",
-      "碁"
     ]
   },
   {
@@ -132041,6 +132041,17 @@
   },
   {
     "type": "stock",
+    "id": "stockNVDA",
+    "title": "NVDA NVIDIA",
+    "text": "NVDA NVIDIA hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
+    "tokens": [
+      "NVDA",
+      "NVIDIA"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockADBE",
     "title": "ADBE Adobe",
     "text": "ADBE Adobe partial",
@@ -132048,17 +132059,6 @@
     "tokens": [
       "ADBE",
       "Adobe"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockNVDA",
-    "title": "NVDA NVIDIA",
-    "text": "NVDA NVIDIA partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-NVDA.html",
-    "tokens": [
-      "NVDA",
-      "NVIDIA"
     ]
   },
   {
@@ -132150,7 +132150,7 @@
     "type": "stock",
     "id": "stock2330",
     "title": "2330 台積電",
-    "text": "2330 台積電 partial",
+    "text": "2330 台積電 hit",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2330.html",
     "tokens": [
       "2330",
