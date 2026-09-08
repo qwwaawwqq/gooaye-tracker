@@ -131927,6 +131927,17 @@
   },
   {
     "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2308",
     "title": "2308 台達電",
     "text": "2308 台達電 miss",
@@ -131936,17 +131947,6 @@
       "台",
       "達",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
     ]
   },
   {
@@ -132065,7 +132065,7 @@
     "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
-    "text": "6531 愛普 hit",
+    "text": "6531 愛普 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6531.html",
     "tokens": [
       "6531",
@@ -132100,7 +132100,7 @@
     "type": "stock",
     "id": "stock3661",
     "title": "3661 世芯-KY",
-    "text": "3661 世芯-KY partial",
+    "text": "3661 世芯-KY miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3661.html",
     "tokens": [
       "3661",
@@ -132161,6 +132161,17 @@
   },
   {
     "type": "stock",
+    "id": "stockAMD",
+    "title": "AMD AMD",
+    "text": "AMD AMD hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMD.html",
+    "tokens": [
+      "AMD",
+      "AMD"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2327",
     "title": "2327 國巨",
     "text": "2327 國巨 hit",
@@ -132169,17 +132180,6 @@
       "2327",
       "國",
       "巨"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockAMD",
-    "title": "AMD AMD",
-    "text": "AMD AMD hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-AMD.html",
-    "tokens": [
-      "AMD",
-      "AMD"
     ]
   },
   {
