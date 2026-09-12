@@ -131902,17 +131902,6 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -131922,6 +131911,17 @@
       "瀚",
       "宇",
       "博"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -132077,7 +132077,7 @@
     "type": "stock",
     "id": "stockMETA",
     "title": "META Meta",
-    "text": "META Meta partial",
+    "text": "META Meta miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
     "tokens": [
       "META",
