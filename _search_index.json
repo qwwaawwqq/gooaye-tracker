@@ -131902,6 +131902,17 @@
   },
   {
     "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -131915,13 +131926,14 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
     "tokens": [
-      "FORM",
-      "FormFactor"
+      "6285",
+      "啟",
+      "碁"
     ]
   },
   {
@@ -131933,18 +131945,6 @@
     "tokens": [
       "QCOM",
       "Qualcomm"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
-    "tokens": [
-      "6285",
-      "啟",
-      "碁"
     ]
   },
   {
