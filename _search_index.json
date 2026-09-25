@@ -132228,17 +132228,6 @@
   },
   {
     "type": "stock",
-    "id": "stockTSLA",
-    "title": "TSLA TSLA",
-    "text": "TSLA TSLA pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
-    "tokens": [
-      "TSLA",
-      "TSLA"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockMRVL",
     "title": "MRVL MRVL",
     "text": "MRVL MRVL pending",
@@ -132246,6 +132235,17 @@
     "tokens": [
       "MRVL",
       "MRVL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockTSLA",
+    "title": "TSLA TSLA",
+    "text": "TSLA TSLA pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-TSLA.html",
+    "tokens": [
+      "TSLA",
+      "TSLA"
     ]
   },
   {
