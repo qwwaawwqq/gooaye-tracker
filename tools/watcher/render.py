@@ -2,16 +2,22 @@
 """Render curated episode content (JSON) into the site files.
 
 usage:  python3 tools/watcher/render.py content/EP703.json [content/EP704.json ...] [--report-cards OUT.html]
-- index.html: inserts each episode at the top of `const EPISODES = {` (newest first; no `deep`)
+- index.html: inserts each episode at the top of `const EPISODES = {` (newest first), with its `deep`
+  abstract (detail pane HTML) built by deep.py from the same content JSON
 - 股癌_全集深度摘要_AUTO_UPDATE.md: inserts sections right after the marker line, updates AUTO_UPDATE_META
 - --report-cards: writes the per-episode <div class="card"> blocks for the dated report
 Content schema: see tools/watcher/content/EP702.json (keys: ep, date, wd, pub, emoji, tagline,
 dur_sec, sponsor, mentions, stocks [[mkt, code]], overheat, fixes [[wrong, right]], unresolved,
 tags, position, sections [{h, lead, bullets [[label, text]]}], market, link).
-summary text is rendered through escapeHtml() on the site: never put HTML in content fields.
+summary text is rendered through escapeHtml() on the site, and deep.py HTML-escapes every field:
+never put HTML in content fields. Status tags: '⏳ 待 LLM 深度摘要' is dropped and '📝 …' tags go last,
+so the site's 主軸 column (first three tags) shows real topics.
 """
 import html, json, os, re, sys
 from datetime import datetime, timedelta, timezone
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from deep import deep_from_content, tl_safe  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 MD = f'{ROOT}/股癌_全集深度摘要_AUTO_UPDATE.md'
@@ -34,7 +40,7 @@ def dur_txt(sec):
 def summary(e):
     b, l = tstats(e['ep'])
     parts = [f"主軸（依 whisper 逐字稿 transcripts/EP{e['ep']}.txt，{b:,} bytes／{l:,} 段；"
-             f"雲端 faster-whisper small int8 單次轉錄，深度摘要待 auto pipeline）：" + e['position']]
+             f"雲端 faster-whisper small int8 單次轉錄）：" + e['position']]
     for s in e['sections']:
         parts.append(f"{s['h']}：主委原話：「{s['lead']}」")
         parts += [f'{lab}：{txt}' for lab, txt in s['bullets']]
@@ -44,12 +50,18 @@ def summary(e):
     return out
 
 
+def clean_tags(tags):
+    """Drop the pending-abstract status tag; move the whisper status tag(s) to the end."""
+    status = [t for t in tags if t.startswith('📝')]
+    return [t for t in tags if not t.startswith(('⏳ 待 LLM', '📝'))] + status
+
+
 def inline_entry(e):
-    tags = ','.join(f"'{js(t)}'" for t in e['tags'])
+    tags = ','.join(f"'{js(t)}'" for t in clean_tags(e['tags']))
     stocks = ','.join(f"['{m}','{c}']" for m, c in e['stocks'])
     return (f"  {e['ep']}:{{date:'{e['date']}',title:'EP{e['ep']} | {e['emoji']}',dur:'{round(e['dur_sec'] / 60)}分',"
             f"v:'pending',sponsor:'{js(e['sponsor'])}',\n    tags:[{tags}],\n    summary:'{js(summary(e))}',\n"
-            f"    stocks:[{stocks}]}},\n")
+            f"    stocks:[{stocks}],\n    deep:`{tl_safe(deep_from_content(e))}`}},\n")
 
 
 def md_section(e):
@@ -90,7 +102,7 @@ def report_card(e):
     out = [f'<div class="card" id="ep{e["ep"]}">', f"  <h2>{e['emoji']} EP{e['ep']}｜「{h(e['tagline'])}」</h2>",
            f"  <div class=\"meta\">{e['date']}（{e['wd']}）{e['pub']} TPE · {h(dur_txt(e['dur_sec']))} · 贊助：{h(e['sponsor'])} · "
            f"<a href=\"{e['link']}\" target=\"_blank\">SoundOn</a> · 逐字稿 {b:,} bytes／{l:,} 段</div>", '  <div>']
-    out += [f'    <span class="{tag_cls(t)}">{h(t)}</span>' for t in e['tags']]
+    out += [f'    <span class="{tag_cls(t)}">{h(t)}</span>' for t in clean_tags(e['tags'])]
     out += ['  </div>', f"  <div class=\"note good\"><b>本集定位</b>　{h(e['position'])}</div>"]
     for s in e['sections']:
         out += [f"  <h3 class=\"sec\">{h(s['h'])}</h3>", f"  <div class=\"quote\">「{h(s['lead'])}」</div>", '  <ul>']
