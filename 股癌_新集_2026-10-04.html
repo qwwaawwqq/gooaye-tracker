@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>股癌新集速報 · 2026-10-04 · EP700-EP702</title>
+<style>
+  :root{
+    --bg:#0a0e1f; --panel:#131a35; --panel2:#0f1530; --panel3:#1a2348;
+    --ink:#e7ecf7; --ink2:#cdd6f0;
+    --muted:#8b97b5; --line:#1f2a4d;
+    --accent:#7cf2c1; --accent2:#ffb347; --accent3:#9ec5ff;
+    --bull:#22c55e; --bear:#ef4444; --warn:#f59e0b;
+    --us:#a78bfa; --tw:#60a5fa;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:28px 22px 80px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}
+  h1{margin:0;font-size:28px;letter-spacing:.5px;font-weight:800}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  .pill{display:inline-block;background:var(--panel);border:1px solid var(--line);
+    color:var(--muted);font-size:12px;padding:4px 10px;border-radius:999px;margin-right:6px;margin-top:8px}
+  .pill.warn{color:var(--warn);border-color:var(--warn)}
+  .pill.live{color:var(--accent);border-color:var(--accent)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px;margin-bottom:18px}
+  .card h2{margin:0 0 4px;font-size:20px}
+  .meta{color:var(--muted);font-size:13px;margin-bottom:12px}
+  .tag{display:inline-block;background:var(--panel3);border:1px solid var(--line);
+    color:var(--accent3);font-size:12px;padding:3px 10px;border-radius:999px;margin:0 6px 6px 0}
+  .tag.pending{color:var(--warn);border-color:var(--warn)}
+  .tag.done{color:var(--accent);border-color:var(--accent)}
+  .tag.us{color:var(--us);border-color:var(--us)}
+  .tag.tw{color:var(--tw);border-color:var(--tw)}
+  ul{margin:10px 0;padding-left:22px;color:var(--ink2)}
+  li{margin-bottom:8px;line-height:1.65}
+  a{color:var(--accent3)}
+  .note{background:var(--panel2);border-left:3px solid var(--warn);border-radius:0 10px 10px 0;
+    padding:12px 16px;font-size:13.5px;color:var(--ink2);line-height:1.7;margin-top:14px}
+  .note.good{border-left-color:var(--accent)}
+  .footer{color:var(--muted);font-size:12px;margin-top:30px;line-height:1.7}
+  b{color:var(--accent2)}
+  h3.sec{color:var(--accent);font-size:15px;margin:18px 0 6px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;line-height:1.55}
+  th{color:var(--muted);font-weight:600;font-size:12px}
+  td{color:var(--ink2)}
+  .pos{color:var(--bull);font-weight:700}
+  .neg{color:var(--bear);font-weight:700}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:12px}
+  .box{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .box h4{margin:0 0 8px;font-size:14px}
+  .box p{margin:0;font-size:12.5px;color:var(--ink2);line-height:1.65}
+  .quote{border-left:3px solid var(--accent);background:var(--panel2);padding:10px 16px;
+    margin:12px 0;font-size:13.5px;color:var(--ink2);line-height:1.7;border-radius:0 10px 10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>股癌新集速報 · <span>EP700-EP702</span></h1>
+  <div class="sub">產生時間 2026-10-04（週日）· 涵蓋新集 3 集（EP700 9/26 → EP702 10/3）· 前次已入庫至 EP699（9/23）· 排程自 9/24 重建後未曾執行，本次為補跑</div>
+  <div>
+    <span class="pill live">✅ 三集全部依 whisper 逐字稿（雲端 faster-whisper small 轉錄）</span>
+    <span class="pill">EP700 72,075 · EP701 72,198 · EP702 78,579 bytes</span>
+    <span class="pill warn">⏳ 待 LLM 深度摘要</span>
+    <span class="pill">三集皆零過熱訊號、零買進點名</span>
+    <span class="pill live">166 則引述逐一比對逐字稿</span>
+  </div>
+</header>
+
+<div class="card">
+  <h2>🧭 三集一次看：主軸怎麼走</h2>
+  <ul>
+    <li><b>盤勢弧線</b>：EP700 連假前資金收回、「在放假之後就會回來」→ EP701 季末檢討後「後面應該就會變成是比較積極的方式去做一些操作」、「我最近有感覺到那個氣氛，有漸漸的回來啦」→ <b>EP702「光輝 10 月果然是，如假包換」、本週「開始出現全面轉強的一個訊號」</b>（10/2 加權收 48,475.74 再創收盤新高；台指期夜盤一度 49,495）。</li>
+    <li><b>主委部位</b>：Q3 台股部位 MDD 約三成、9 月初已收復高點；美股因重壓 Broadcom〔音譯〕「爆炸下去，就躺了蠻久的」而落後；現在「以光為主」，再加小 IC、銅纜〔音譯〕、衛星題材與明年約 10 倍本益比的深度價值股。</li>
+    <li><b>三個產業線</b>：Meta Muse Charm〔音譯〕（EP700：「Muse 的身體」，但 AI 裝置的對手是手機；EP702：Muse 聲量「會掉很多很多」）、台股小型 IC 設計集體表態（EP701：投片稀缺＋AI 協作設計）、Morgan Stanley 光通禁令傳聞（EP702：「這不就是原狀」）。</li>
+    <li><b>兩個冷靜點</b>：EP702 聯發科限縮員工 AI 額度＝「最終都是回到成本」→ 供應鏈想像「不能夠想像得太快」；EP701 自我預警「然後他突然間又 FOMO 又回來之後，就搞不好又是下一波要殺人的時候」。</li>
+    <li><b>反向個股評論</b>：只有 EP700 QA 的台達（2308）「早就已經轉空」、這波落後。</li>
+  </ul>
+</div>
+
+<div class="card" id="ep702">
+  <h2>🐉 EP702｜「氣氛對了真相就淡薄了」</h2>
+  <div class="meta">2026-10-03（週六）15:18 TPE · 53 分 38 秒（3,218 秒） · 贊助：明星3缺1（10 月週年慶：登入抽 iPhone、老玩家回鍋領紅包；資訊欄連結領 1888 i幣） · <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/42301381-6003-4b54-a28d-290a3fd2e258" target="_blank">SoundOn</a> · 逐字稿 78,579 bytes／2,275 段</div>
+  <div>
+    <span class="tag done">📝 whisper 已轉錄（雲端 faster-whisper small）</span>
+    <span class="tag pending">⏳ 待 LLM 深度摘要</span>
+    <span class="tag done">★ 夜盤期貨創新高、NQ 極好：「光輝 10 月果然是，如假包換」</span>
+    <span class="tag done">★ 本週盤面「開始出現全面轉強的一個訊號」</span>
+    <span class="tag">被動／功率元件：7 月前最後一波、這波最慢，上週終於動</span>
+    <span class="tag">主委「以光為主」＝這一波最主要的押注，續抱</span>
+    <span class="tag">不要跟大盤對作：均線下彎再討論都不遲（Michael Burry 例）</span>
+    <span class="tag">「這個盤是一個不錯的盤，因為就新高了」→ 不動就是選股問題</span>
+    <span class="tag">非 AI 的漲價＝賭排擠效應＝Tier 2 故事，主委比較怕</span>
+    <span class="tag">押 CPU 的「連日狂噴都停不下來」</span>
+    <span class="tag">SSD 因 HDD 擴產跳樓＝把短線雜訊當產業大變化</span>
+    <span class="tag done">★★ 聯發科（大 M）限縮員工 AI 額度：月支出一兩億、自建地端太慢</span>
+    <span class="tag done">★ 「最終都是回到成本」：企業主踩煞車→供應鏈想像不能太快</span>
+    <span class="tag">開源模型做晶片 layout 不夠用；地端部署 frontier 模型或可解</span>
+    <span class="tag done">★★ Morgan Stanley 10/1 傳聞：光模組 65% 美系 BOM 即可出貨</span>
+    <span class="tag">800G 光模組拆解：DSP→Driver→EML→透鏡／隔離器→PD→TIA</span>
+    <span class="tag">主委：「這不就是原狀」——高階光模組本來就 60 幾% 美系元件</span>
+    <span class="tag">核心受惠＝美系 DSP／雷射，核心受害＝中國 Laser 廠</span>
+    <span class="tag">台廠＝間接想像：組裝／機構／光學件、EML 封裝轉單</span>
+    <span class="tag">達發〔音譯〕＝台系唯一 DSP（400G），非第一波受惠</span>
+    <span class="tag">「這個禁令來得正是時候」：中國擴產恐把價格玩壞</span>
+    <span class="tag">「Morgan Stanley⋯⋯比較偏向這個傳聞⋯⋯不要太認真看待」</span>
+    <span class="tag">QA：Muse 三個月後「那個聲量會掉很多很多」</span>
+    <span class="tag">QA：Quant＝排位賽 vs 我們的積分制</span>
+    <span class="tag">生活：Radiohead 抽票又槓龜、觀音信仰、「你想要的東西才會獲得快樂」</span>
+  </div>
+  <div class="note good"><b>本集定位</b>　本集＝光輝十月全面轉強的確認＋兩條冷靜線（回到成本、回到原狀）。① ★ 盤勢：夜盤期貨創新高、NQ 極好，「光輝 10 月果然是，如假包換」，本週「開始出現全面轉強的一個訊號」——7 月前最後一波、這波最慢的被動／功率元件上週終於動；主委「以光為主」續抱、不換股，提醒不要跟大盤對作（均線下彎再討論）。② ★★ 聯發科（大 M）限縮員工 AI 額度：月支出一兩億、自建地端模型又太慢引來工程師反彈——「最終都是回到成本」，連最願意花錢的企業主都在踩煞車，「供應鏈的想像，就是確實不能夠想像得太快」。③ ★★ Morgan Stanley 10/1 的美國光通禁令傳聞（光模組 65% 美系 BOM 即可出貨、800G／1.6T 不太限縮）：主委拆解 800G 光模組 BOM 後判「這不就是原狀」——核心受惠＝美系 DSP／雷射、核心受害＝中國 Laser 廠，台廠＝間接想像，台系唯一 DSP 達發〔音譯〕400G 非第一波受惠；長期「滿 promising」但「不要太認真看待」。④ QA：Muse 三個月後「那個聲量會掉很多很多」；Quant＝排位賽。零過熱訊號；無買進點名（光通為主委自述主要部位）。</div>
+  <h3 class="sec">① ★ 盤勢：光輝十月與全面轉強訊號</h3>
+  <div class="quote">「那這個禮拜呢，我們就發現說市場就真的變得蠻好的，然後在夜盤，我們已經注意到期貨的部分，創新高，然後在 NQ 也是表現得極好，所以光輝 10 月果然是，如假包換」</div>
+  <ul>
+    <li><b>★ 全面轉強</b>：「然後在這個禮拜的盤面，也開始出現全面轉強的一個訊號」；「不然說在七月前，因為那時候各個題材是輪著上來的，然後走到最後一波，就是被動元件跟功率元件，那在這一波最慢上去的，也是被動元件跟功率元件，然後在上禮拜終於開始動起來了」，身邊的勇者已經又裝滿被動元件。</li>
+    <li><b>★ 主委部位</b>：「就我是以光為主，光算是我這一波最主要的一個押注，那就繼續留著」；押 CPU 的「連日狂噴都停不下來」、押光的也都好好的→不需要短期內換持股。</li>
+    <li><b>不要跟大盤對作</b>：「所以有時候就是要持續的維持你的信念，就是不要太容易在一些震盪的盤」——「大盤根本就沒有轉弱」卻提早喊空，就像 Michael Burry；「但整體來說，就是盡量不要去跟大盤對作⋯⋯就除非你今天看到，他已經確定的轉向，均線已經下彎，然後再來討論，都不遲，就是不要太早的想要去預判高點」。</li>
+    <li><b>不動就是選股問題</b>：「但是我覺得就是沒有什麼爭議，這個盤是一個不錯的盤，因為就新高了」；「就是如果說大盤都走得好好的，那手上的東西就不會動，那就是回到選股的問題」。</li>
+    <li><b>被動／功率的定位</b>：漲價後面幾季仍持續，但「那當然最主要缺貨的東西，是聚焦在 AI 相關的東西，所以如果你今天不是去押 AI 相關的，其實你賭的是一個排擠效應，那排擠效應，我自己會把它放成是，比較 Tier 2 以後的一個故事」；「我會比較害怕一點，然後當然看起來，市場還蠻喜歡去押這種排擠的東西，排擠的東西，就是很快就衝上去開燈鎖燈了」。</li>
+    <li><b>產業趨勢沒變</b>：「就是其實產業的東西，從年初至今都是維持在，同一個趨勢上面，那只是可能在 3 到 5 月之間，噴超級無敵多，然後後來 7 月衰很大」；把短線變化解釋成產業大變化＝不學無術。例：SSD 股因 HDD 擴產跳樓，但「可是你知道那個 HDD 的廠商，他的產能是不多的」；欣興（3037）也曾被唱衰後再創新高。</li>
+  </ul>
+  <h3 class="sec">② ★★ 聯發科限縮員工 AI 額度：「最終都是回到成本」</h3>
+  <div class="quote">「你要知道企業主，已經是在所有的使用者裡面，算是最願意花錢的，那如果說連他們都開始覺得，有些東西要去踩一些煞車的話，那有時候在供應鏈的想像，就是確實不能夠想像得太快」</div>
+  <ul>
+    <li><b>事件</b>：「就是有看到，大 M，就大家俗稱，大 M，麥當勞薯條的聯發科，他們要去，限縮員工，可能在 AI，可以去使用的一個額度」；「簡單講就是說，其實他們的用量，實在還滿大的，那持續的去往上刷，大概現在，可能一個月就要支出，個一兩億左右」。</li>
+    <li><b>兩難</b>：「同時，他們為了要去降低相關的費用，就是有去做自己的，Data Center 的建置，但問題是，如果今天要讓大家都，湧入自己自建的，這種地端的模型的話，那又會導致伺服器的，負荷是，不堪的，所以速度就變得很慢，於是，就招來一群工程師的反彈」；「理論上，如果預算是無限的話，大家誰不要 Token Maxing，對不對，誰不想要 Token Maxing」。主委自己開無上限模式也會喊停：一個問題幾千塊。</li>
+    <li><b>★ 回到成本</b>：「所以其實我們在討論，供應鏈上很多東西的時候，我們很常跟大家強調的一個觀念，就是，最終都是回到成本」（模擬城市比喻：經費有限的城市只能邊拆邊繞地長大）；歐美較小的企業也開始不追 Token Maxing。</li>
+    <li><b>解法＝地端 frontier 模型</b>：承上集：把尖端模型部署到客戶機房，前期建置貴、後面沒有高額 recurrent 費用；「但是我們知道，有這個模式去做，它就是要去解決這個痛點，因為你用一些開源的模型，其實它的表現，就是跟那些尖端模型比，還是有差，還是差蠻多，它是一個成本導向上的選項」，「可是如果你今天是，弄到晶片的 layout，然後要去做晶片的設計，其實這東西不一定是夠用的」。</li>
+  </ul>
+  <h3 class="sec">③ ★★ Morgan Stanley 光通禁令傳聞：「這不就是原狀」</h3>
+  <div class="quote">「在 10 月 1 號的時候，Morgan Stanley 出了一個報告，那這一份報告，其實他算是一個傳聞」</div>
+  <ul>
+    <li><b>傳聞內容</b>：「那最主要就在講說，如果未來在，這些光的收發模組裡面，Transceiver，只要是有 65% 的 BOM，BOM 就是 bill of material，就他 65% 的成分佔比，是美國的話，那就是沒有問題，還是可以讓你持續出貨」；同時「他們可能不會針對 800G，或是 1.6T 的，這些交換器的，光通的收發元件，去做太多的限縮」，報告寫 3.2T 才處理＝幾個世代以後。</li>
+    <li><b>800G 光模組拆解</b>：以中際旭創〔音譯〕800G EML DR8（ASP 315 美元）為例：發射＝DSP→Driver→8 顆 EML 雷射→透鏡／隔離器／光纖陣列（對光是 know-how，市場討論的大立光、FAU 即此段）；接收＝PD→TIA→DSP。</li>
+    <li><b>★ 判讀</b>：「但我乍看之下我覺得，它並沒有立刻的，然後就是告訴你說，誰會被做多到，反而是很明顯的，壓制到是，中國未來假設，他要去 Cost Down」；高階模組本來就用 Broadcom／Marvell／Semtech 的 DSP、Lumentum／Coherent 的雷射，「大概就是有 60 幾%左右，就像，Morgan Stanley 有報告說寫到，60 幾%左右，本來就是美國的元件」→ 週五 Marvell、MaxLinear、Broadcom 都漲，「我覺得就是這個事件驅動，但我自己的感受是，這不就是原狀，它是一個原狀」；市場是提早押注後續收緊，所以往 DSP／Driver／TIA／雷射方向押「就很合理」。</li>
+    <li><b>為什麼推不快</b>：其餘約 35% 由一大堆台、日、中廠分（被動光學、透鏡隔離器、光纖陣列、PCB 外殼，毛利較低），全球光模組組裝 6-7 成以上在中國，且上游材料由中國掌握；「但是我相信美國廠商，也會有一個動機，就是他可能要盡量的去，做到 No China」，「所以我覺得，這個應該不會推得太快」。</li>
+    <li><b>★ 受惠／受害地圖</b>：「但一樣他都比較偏向是，那種間接想像的一個故事，就是最主要這個是，可能以美國的廠商，作為核心的受惠，然後中國的可能像是，Laser 廠商是核心的受害」；台廠＝機構件、光學件、組裝、EML 封裝的轉單想像（有可能發生）。</li>
+    <li><b>台系 DSP</b>：「因為台系就只有一家 DSP，業者，也就是聯發科下面的達發，那他的 DSP 呢，其實目前應該是，鎖定出貨在 400G 這邊」，3.2T 是幾個世代以後，且非美系成分→「所以他也不會是第一波受惠」；但若中國也去美化、或美系找 second source 從中國換成台灣，「所以，這個故事看起來也是一個，就是以長期來說，滿 promising 滿好的故事」。</li>
+    <li><b>時機與保留</b>：海外研調示警中國關鍵零組件大擴產恐把價格玩壞，「但這個禁令來得正是時候」；收尾：「但還是要強調一下，就是 Morgan Stanley，他們所寫的這個報告，比較偏向這個傳聞，所以先大概的去做一些，平息就好，不要太認真看待」。</li>
+  </ul>
+  <h3 class="sec">④ QA 與生活</h3>
+  <div class="quote">「我覺得那個聲量會掉很多很多」</div>
+  <ul>
+    <li><b>Muse 三個月後</b>：承上集——很多巨頭都在做類似東西，Muse 爆紅後會端出自己的版本，「所以就是這個聲量會降低很多，那就變成是其中一個商品」。</li>
+    <li><b>Quant vs 我們</b>：「我們玩的遊戲，是有點類似是積分制」，「但是這些量化在競爭的東西，它比較偏向是一個排位賽」——設備或策略輸人，利潤就被搶走；題材基本面加中長期投資「而且是有機會真的每個人都賺到錢」。</li>
+    <li><b>父親與台灣心態</b>：「就是我會覺得說賺錢這種苦差事，就交給我來處理就好」；台灣的匱乏心態（要配息、不給本益比）——「那你這樣的心態，你就養不出美國的一些，那種什麼軟體巨獸」。</li>
+    <li><b>生活</b>：Radiohead 日本／澳洲場抽票又沒中、討厭實名綁定；觀音信仰＝無助時的心靈寄託、講話不要太鐵齒，希望大家「都可以獲得內心的平靜」；功能性訓練＝單邊動作找出左右不平衡、下背代償；決定吃什麼交給家裡有想法的人；想買跑車的空虛感：「你有的東西是不會獲得快樂的，你想要的東西才會獲得快樂」；大武營「白宮」鬼故事。</li>
+  </ul>
+  <div class="note"><b>市場背景（外部查證，非主委原話）</b>　10/2（五）加權收 48,475.74（+122.25、+0.25%）再創收盤新高，成交 8,981.7 億；櫃買 +1.94%；台積電 -10 元收 2,500、聯發科 -30 元收 4,950，權值股弱、中小型電子強，被動元件與光通族群領漲（鏡週刊 10/2）；本週累計約 +451 點。台指期夜盤 10/2 晚間一度衝上 49,495（+750 點以上）突破 49,000 關卡，市場稱『光輝十月』行情啟動（聯合報 10/3）。</div>
+  <div class="meta" style="margin-top:10px">〔音譯〕待確認：「聯發科下面的答法」→ 判為達發（6526）；「去拆空」→ 判為猜空／喊空（未入引號）；「Tasif 又開始起來」（被動元件語境，未辨識）；800G EML DR8 拆解的中國廠（稿作「中繼續創」，判為中際旭創）；「可能曦光那個路線」→ 判為矽光（silicon photonics）</div>
+</div>
+<div class="card" id="ep701">
+  <h2>🐡 EP701｜「願氣氛降臨 !」</h2>
+  <div class="meta">2026-09-30（週三）15:54 TPE · 51 分 20 秒（3,080 秒） · 贊助：NordVPN（優惠碼 gooaye／nordvpn.com/gooaye：兩年方案加送 4 個月、30 天退款保證；至 10/21 加碼最高 NT$1,200 7-ELEVEN 禮券，數量有限） · <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/2ab843a8-d7f8-4655-a73d-609b81c59baa" target="_blank">SoundOn</a> · 逐字稿 72,198 bytes／1,674 段</div>
+  <div>
+    <span class="tag done">📝 whisper 已轉錄（雲端 faster-whisper small）</span>
+    <span class="tag pending">⏳ 待 LLM 深度摘要</span>
+    <span class="tag done">★ Q3 檢討：7 月崩殺、台股部位 MDD 約三成、槓桿 1.1-1.3 倍</span>
+    <span class="tag done">★ 9 月初台股部位已收復高點；美股重壓 Broadcom〔音譯〕躺很久</span>
+    <span class="tag">換股順序：光通→小 IC→銅纜〔音譯〕＋衛星題材＋明年 ~10 倍本益比</span>
+    <span class="tag done">★ 「後面應該就會變成是比較積極的方式去做一些操作」</span>
+    <span class="tag">Hunting is over？「結果沒有想到還是可以繼續的打獵」</span>
+    <span class="tag us">Tesla Roadster 下訂（非帶貨）：「我就覺得說氣氛對了」</span>
+    <span class="tag">Muse Charm 後續：巨頭手上都有代理購物，壓力下可能跟進</span>
+    <span class="tag done">★★ 台股小型 IC 設計集體表態（罕見）</span>
+    <span class="tag tw">解釋一：投片是稀缺財，MTK 接 TPU 滿出來→大哥吃肉小弟喝湯</span>
+    <span class="tag us">解釋二：OpenAI Jalapeño〔音譯〕AI 協作設計→小公司營運槓桿</span>
+    <span class="tag">Design House 用開源模型地端部署；frontier 模型或將地端化（講太早）</span>
+    <span class="tag">美中會談＝什麼都沒有發生、光通禁令未解＝no change</span>
+    <span class="tag done">★ 台積電德州（達拉斯）設廠傳聞：廠務／設廠／材料概念受惠</span>
+    <span class="tag">廠務股＝便宜、未來好、但就是不會動→新 upside 可能重新聚焦</span>
+    <span class="tag">Musk NCNT（No China No Taiwan）：客戶也要求在地供應</span>
+    <span class="tag done">★ 「其實現在行情並不難做，你只要不要每天想要狂追」</span>
+    <span class="tag">FOMO 的條件：成交量上去、今天買不到明天更貴</span>
+    <span class="tag">走兩步退一步但慢慢往上墊＝盤面相對健康</span>
+    <span class="tag">總經指標與恐懼貪婪指數不能拿來做交易</span>
+    <span class="tag tw">QA：台股破 5 萬？「我也覺得會幹上去」</span>
+    <span class="tag">QA：最強的股票早盤就鎖、尾盤偷拉＝主力不認真</span>
+    <span class="tag">QA：AUM 最高的群組「並不是玩基本面的」</span>
+  </div>
+  <div class="note good"><b>本集定位</b>　本集＝季末自我檢討＋兩條產業線＋盤勢轉積極的表態。① ★ Q3 檢討：7 月是「台股今年以來最大的一個崩殺」，主委台股部位 MDD 約三成（槓桿 1.1-1.3 倍），本以為年底前難收復，結果 9 月初就收復台股高點；美股因重壓 Broadcom〔音譯〕「爆炸下去，就躺了蠻久的」而落後。8-9 月換股順序＝光通→小 IC→銅纜〔音譯〕概念，搭配衛星題材與明年約 10 倍本益比的深度價值股；結論「後面應該就會變成是比較積極的方式去做一些操作」。② ★★ 台股小型 IC 設計集體表態：解釋一＝晶片設計與投片是稀缺財，MTK 接 TPU 接到滿出來，「大哥們吃肉，小弟們喝到湯」；解釋二＝OpenAI Jalapeño〔音譯〕宣稱 AI 協作縮短設計，若為真，小公司「更高機率可以去開更大的營運上的槓桿」；延伸＝Design House 為保密用開源模型地端部署，frontier 模型可能也走向地端（主委自認講太早）。③ 美中會談 no change；★ 台積電德州設廠傳聞（9/29 起）＝廠務／設廠／材料概念「一定會是相當程度的受惠」，但這族群「便宜…但就是不會動」，可「稍微的去關注看看」。④ 盤勢：「其實現在行情並不難做」，FOMO 要成交量上去才會出來、「我最近有感覺到那個氣氛，有漸漸的回來啦」，但也預警 FOMO 回來後可能是下一波殺人的時候。QA 對台股破 5 萬：「我也覺得會幹上去」。零過熱訊號；主委自述持股方向（光通／小 IC／銅纜）但未點名個股。</div>
+  <h3 class="sec">① ★ Q3 檢討：7 月崩殺、MDD 三成、9 月初收復高點</h3>
+  <div class="quote">「本來以為說大概今年的 peak 差不多會落在 7 月初左右，應該在年底以前是很難去修復它，但沒有想到是差不多在 9 月初的時候我就已經修復，在台股是已經修復我的高點了」</div>
+  <ul>
+    <li><b>7 月崩殺與回撤</b>：「首先是進入 7 月的時候，就是我們見到了台股今年以來最大的一個崩殺，可能也是數年來最猛的一次」；「像是我自己在台股的部位，Maximum Drawdown，就是從最高到最低大概是回了三成左右」，但年初到高點已是兩倍多；「我使用的槓桿比例大概是 1.1 到 1.3 倍左右」。</li>
+    <li><b>為什麼砍</b>：「但其實差不多到 7 月的下半之後就有點那種信心缺失的感覺，因為一些比較大型的均線感覺要煞車的地方都沒有在做煞車」→ 減碼（多數仍是賺錢部位）。</li>
+    <li><b>★ 美股落後的原因</b>：「在美股是沒有，為什麼，因為美股跑去壓了一個 Broadcom，那 Broadcom 後來就爆炸下去，就躺了蠻久的」，壓的比例大，美股新高時點因此延後。</li>
+    <li><b>★ 換股順序</b>：「那很快的在 8、9 月去把部位做一些調整，換成比較新的一些主流題材，像是第一波起來的是光通，當你已經識別出來說是個族群之後就立刻就跳上車，接著到我比較近期像是一些小 IC，再來就是過去的一些銅纜相關的概念股」；「搭配一些衛星題材，以及一些就是我認為差不多已經跌到深度價值去，可能去換算明年的話只有在 10 倍左右的股票」；7 月強勢股多數仍在休息但後面仍有機會。</li>
+    <li><b>★ 姿態轉積極</b>：「就像我們前幾集 QA 講到，就是在中秋以後可以稍微觀察一下，我覺得有機會會有一些變化，然後現在是有感覺到這些變化，所以後面應該就會變成是比較積極的方式去做一些操作」；「Hunting is over，結果沒有想到還是可以繼續的打獵」。主委也自承轉換快「有時候有點運氣」。</li>
+    <li><b>Tesla Roadster</b>：訂單頁一開就下訂一台（訂金約 5 萬美元，主委猜最後可能要台幣千萬），內部有封口令、下單頁曾被關→「我就覺得說氣氛對了」；「但這邊不是要去帶貨或是鼓勵大家去買」，視為參與新科技的成本，期待 10/15〔音譯〕發表會。</li>
+    <li><b>Muse Charm 後續</b>：巨頭聽眾回饋：代理購物「其實這個東西他們早就在做」，只是敢不敢拿出來；有搜尋引擎的那家「他其實 search engine 他已經整合到，你去訂餐廳或是去訂飯店，你可以直接在他的 search engine 上面就完成了嘛」→「那相信在 Muse Charm 獲得的一個好評之後，或者說當然他是以 Muse 作為核心，有可能其他巨頭就會礙於這樣的壓力，然後他們就會想要去推出類似的東西」。</li>
+  </ul>
+  <h3 class="sec">② ★★ 台股小型 IC 設計集體表態：兩個解釋</h3>
+  <div class="quote">「那首先呢，我們注意到在台股有很多的小型 IC 設計集體表態，這個算是一個蠻罕見的情形」</div>
+  <ul>
+    <li><b>解釋一＝AI 排擠外溢</b>：「簡單來講就是現在他的晶片設計跟晶片的投片，他算是一個稀缺財」，團隊與能 secure 的投片量優先給 AI；「像 MTK 他接了很多 TPU 的訂單，那有些東西他就沒有辦法接嘛，他就會被後面的一些台灣的 IC 設計大頭也分到，這我們就有瞭解到有接到一些新的訂單啦」，再一路往下滴到中小型＝「就是大哥們吃肉，小弟們喝到湯」。</li>
+    <li><b>解釋二＝AI 加速晶片設計</b>：OpenAI Jalapeño〔音譯〕官宣 8-9 個月（主委估從架構定型到 tape out 約一年），宣稱透過 AI 協作省下大量人力與時間；「雖然其實有蠻高機率，是 Broadcom 本身的晶片設計能力非常厲害啦」，但若官宣為真——「透過 AI 你可以把設計晶片的 effort，不管是工程師的投入或是總時數顯著的縮小，那是不是對於這些小型的公司來講，他就是更高機率可以去開更大的營運上的槓桿」，「兩三年內我本來只能夠推一個產品，我現在是不是可以推三個」。主委：先看到東西飛出去、先買再研究，再找業界朋友驗證。</li>
+    <li><b>★ 地端模型</b>：「所以現在這些 Design House 都抓得非常嚴格，就是東西是不是可以上去，所以他們就用了很多的 Open-weight Model，也就是所謂的開源模型，然後在自己的機房裡面去做這件事」；觀察到的可能趨勢＝閉源 frontier 模型也可能以版本化方式部署到客戶機房（主委：「這個下有點講太早」，類比當初說 Google 要賣伺服器被罵、後來成真）。</li>
+    <li><b>不是零和</b>：「我們還是相信說這個市場呢，如果它是真的有料，如果它是真的很屌的話，它不會是一個零和市場」；若消息為真會影響開源模型相關公司的市值，但對營收獲利衝擊不大。</li>
+  </ul>
+  <h3 class="sec">③ 美中 no change；★ 台積電德州設廠傳聞＝廠務／材料受惠</h3>
+  <div class="quote">「那另外一個市場我覺得蠻重大的議題，就是在昨天跟前天呢，就是開始有新聞在講說，TSM 有可能要跑去德州，達拉斯這邊去做設廠」</div>
+  <ul>
+    <li><b>美中會談</b>：原以為可能放行中國巨頭買 NVIDIA，但「你也要看美國政府要不要賣你」；「這個事情我覺得可以直接把當成是，就是什麼都沒有發生」，中國的光通封鎖禁令也沒拿掉＝no change。</li>
+    <li><b>為什麼德州合理</b>：水、電等基礎設施充足、石油帶來的大型化工 hub；報導是 6 個 fab 的前段，主委最早聽到的是先做後段，但前段也有在評估，仍在很早期。</li>
+    <li><b>★ 受惠族群</b>：「那如果為真的話，當然就是對於一些廠務或是說，設廠跟材料相關的概念的公司，他們一定會是相當程度的受惠」；毛利仍有爭議，但上檔會再被拉出來，「所以可能也可以稍微的去關注看看」。股性提醒：「只是這個廠務相關的股票呢，他們就是非常有名的，便宜然後我也知道說未來很好，但就是不會動」，主委上半年試過幾波不好做；若有新 upside，市場可能重新聚焦。</li>
+    <li><b>政治只看賺錢</b>：Lutnick／川普早期言詞強硬讓投資圈害怕，但一兩年下來看得出不是要拔根；「那現在川普的態度就是你在美國，要去供應給客戶的東西，你就是應該要在美國做嘛」，客戶自己也要求（Musk 的 NCNT＝No China No Taiwan）；「所以我們就盡量把重點放在賺錢的這個部分」。</li>
+    <li><b>外部查證（非主委原話）</b>：9/29 媒體引述設備業者：台積電規劃美國第二園區落腳德州、6 座先進晶圓廠，總投資上看超過亞利桑那的 2,650 億美元；台積電回應『不評論市場傳聞』，國科會主委吳誠文：『德州有可能，但由董事會拍板』（數位時代 9/29）。媒體點名受惠：環球晶 6488、崇越 5434、均華 6640（優分析 9/30；非主委點名）。</li>
+  </ul>
+  <h3 class="sec">④ 盤勢：「並不難做」＋ FOMO 的條件與預警</h3>
+  <div class="quote">「其實現在行情並不難做，你只要不要每天想要狂追」</div>
+  <ul>
+    <li><b>節奏</b>：中秋後首個交易日尾盤又「在搞人」，今天大噴後明天可能再搞一次；跟著波段走就很不錯，想像 7 月前那樣賺快錢需要天時地利人和。</li>
+    <li><b>★ FOMO 的條件</b>：「我覺得大盤的成交量要上去，那 FOMO 的感覺要出來，什麼叫 FOMO 的感覺，就是有越來越多東西，它會，你今天買不到，那明天就只會更高價」；「我最近有感覺到那個氣氛，有漸漸的回來啦」，但要再等幾個交易日確認；有朋友已押注動能回來，主委仍維持放慢。</li>
+    <li><b>盤面健康</b>：「雖然它可能呈現的狀態是走兩步退一步，然後接著再走個三步，然後再退個兩步，但是它其實是有在慢慢往上墊的，其實這個就代表說這個盤面是相對健康啦」。</li>
+    <li><b>總經雜訊</b>：公債殖利率高值得擔心，但「因為如果你真的完全在看這些什麼總經相關的指標的話，你會發現你最後面很難出手」；恐懼貪婪指數不能拿來做交易。</li>
+    <li><b>★ 自我預警</b>：「等到這些就是前面一直跟人家說，不要不敢碰，然後他突然間又 FOMO 又回來之後，就搞不好又是下一波要殺人的時候」。</li>
+  </ul>
+  <h3 class="sec">⑤ QA 精華</h3>
+  <div class="quote">「一般最強的股票，就是早盤就會鎖起來，所以一定是早上就動，甚至只做前面的半小時」</div>
+  <ul>
+    <li><b>破 5 萬？</b>：聽眾：「這兩天台股已經在新高附近希望能夠一舉破 5 萬」→ 主委：「我也覺得會幹上去」。</li>
+    <li><b>動能盯盤</b>：尾盤才偷拉＝主力不想花太多錢、沒有認真想進攻；用 Radiohead 門票秒殺比喻「大家要的東西」一早就強。</li>
+    <li><b>研究深度</b>：對產業的整體架構理解應超越單一案子的 PM、也會直接對接公司發言人；但「這些人其實對基本面的研究沒有到很深，他們並不是玩基本面的」——主委所在 AUM 最高的群組不靠基本面賺錢。</li>
+    <li><b>生活</b>：Cybertruck 交車也不想去（台北停車場塞不下）；換環境是解卡的好方法；「就是一個東西沒有壞就不要修它，但如果他一給你有任何的不舒服，或覺得他可能壞掉就立刻的把他換掉」；不用錢衡量朋友，台灣這幾年吃到 AI 這波讓很多人翻上來。</li>
+  </ul>
+  <div class="note"><b>市場背景（外部查證，非主委原話）</b>　9/29（二）中秋後首個交易日加權收 47,631.96（反推）；9/30（三）錄音當天盤中一度漲 1.3%、收 47,940.13（+308.17、+0.65%），成交 8,756.7 億元（Focus Taiwan）；盤中台積電 +1.2%、聯發科 +2.8%、台達電 +3.0%、日月光投控 +2.6%（Trading Economics）。9/29 起台積電德州設廠傳聞發酵。</div>
+  <div class="meta" style="margin-top:10px">〔音譯〕待確認：美股重壓標的「brockham」→ 判為 Broadcom（與 watchlist 🔴→🟡 AVGO 敘事一致，待主委後續確認）；OpenAI 晶片代號（稿作 HotPenial／Halapeno）→ Jalapeño〔音譯〕；「Blocking 本身的晶片設計能力」→ 判為 Broadcom〔音譯〕；「同欄相關的概念股」→ 判為銅纜（承 EP699 銅線廠商轉身跟光通合作的說法）；Roadster 發表會日期（稿作「10月15號」）</div>
+</div>
+<div class="card" id="ep700">
+  <h2>🪭 EP700｜「ultimate father and son relationship」</h2>
+  <div class="meta">2026-09-26（週六）14:40 TPE · 50 分 01 秒（3,001 秒） · 贊助：ALUXE 亞立詩（婚戒；21 週年慶至 12/7：買婚戒送排鑽手鍊、週週抽婚戒免單；購物站輸入 gooaye 9 折起，門市出示貼文加贈珍珠耳環） · <a href="https://player.soundon.fm/p/954689a5-3096-43a4-a80b-7810b219cef3/episodes/6e0078b2-5a15-4f1d-95dd-16545ab2a236" target="_blank">SoundOn</a> · 逐字稿 72,075 bytes／1,846 段</div>
+  <div>
+    <span class="tag done">📝 whisper 已轉錄（雲端 faster-whisper small）</span>
+    <span class="tag pending">⏳ 待 LLM 深度摘要</span>
+    <span class="tag">中秋連假：台指期夜盤續往上收、週一也放假＝多一點變數</span>
+    <span class="tag">連假前降部位、丙種〔音譯〕資金收回→假後回流</span>
+    <span class="tag done">★★ Meta Connect 2026：Muse Charm〔音譯〕＝「Muse 的身體」發表會</span>
+    <span class="tag">電子雞外型、沒有價格沒有規格沒有預購：主委「會去買」</span>
+    <span class="tag">前輩墳場：Humane AI Pin／Rabbit R1／Limitless Pendant</span>
+    <span class="tag done">★ AI 裝置與眼鏡的真正對手＝手機→高滲透預期不切實際</span>
+    <span class="tag">光波導吃 12 吋 wafer 的恐怖算法＝前提是眼鏡變下一支手機</span>
+    <span class="tag us">Meta 的起跑點＝FB／IG；隱憂＝信任（存密碼 Google 30 幾% vs Meta 8%）</span>
+    <span class="tag">串接夥伴：Walmart／Best Buy／Gap／Sephora／PayPal／Expedia</span>
+    <span class="tag done">★ Amazon 卡掉代理＝話語權從平台移到機器人→巨頭合縱連橫</span>
+    <span class="tag">Muse 免費＋大量免費 token，長期靠交易抽成</span>
+    <span class="tag">AR 眼鏡／小裝置比 VR 值得注意；無鏡頭版回應隱私反撲</span>
+    <span class="tag done">★ QA：台達「早就已經轉空」、這波落後</span>
+    <span class="tag done">★ 追高＝7-9 月專門被殺；主委改「選強中帶落」買綠不追紅</span>
+    <span class="tag tw">財報狗 Jeff：台股這樣才是正常，瘋狂動能是過去五年的事</span>
+    <span class="tag">「你只要拿著放著，其實它一直是往上墊」</span>
+    <span class="tag">動能仔互相虐待＝盤面反映大家的心性</span>
+    <span class="tag us">聽眾組合（IFX／LITE／COHR／BE／GLW／TER／AMD）：「選得還蠻漂亮的」</span>
+    <span class="tag">生活：東京巨蛋壘球安打、棒球被三振＝模擬 vs 現實</span>
+    <span class="tag done">★ 人生目標：孩子 15-17 歲時會驕傲地跟爸爸一起比賽</span>
+  </div>
+  <div class="note good"><b>本集定位</b>　本集＝產業只講一件事（Meta Connect 2026）＋大量 QA 與生活。① ★★ Meta 在發表會尾聲丟出 Muse Charm〔音譯〕：電子雞外型的鑰匙圈裝置，「沒有價格，沒有規格表，沒有預購」，主委直說「會去買」；但他把它放進 AI 裝置的系譜（Humane AI Pin、Rabbit R1、Limitless Pendant）來看——這些都想「繞過手機」，而手機是極難競爭的對手，所以眼鏡／AI edge device 的高滲透率、光波導吃掉大量 12 吋 wafer 的算法都「比較不切實際」。Meta 的優勢＝本身就是巨頭（FB／IG 用戶），最大隱憂＝信任；整場發表會＝「Muse 的身體的發表會」，代理購物要靠交易抽成，而 Amazon 已經把代理卡掉＝話語權之爭。投資角度＝先買來用，若真的不一樣，受惠的「不一定是硬體供應鏈，可能是 Meta 本身」。② 盤勢：連假前賣壓＋金主收回丙種〔音譯〕資金是季節性，「在放假之後就會回來」，期待中秋後開盤。③ ★ QA 的實戰段：追高是 7-9 月上半「專門在殺」的對象，台達「早就已經轉空」；主委自己的改法＝「選強中帶落」、買綠不追紅；引財報狗 Jeff「台股這樣才是正常」；動能仔「在互相虐待」，盤面反映大家的心性，等中秋後觀察氣氛是否回來。零過熱訊號、無買進點名（META 為主題討論、台達為負面型態評論）。</div>
+  <h3 class="sec">① ★★ Meta Connect 2026：Muse Charm〔音譯〕＝「Muse 的身體」發表會</h3>
+  <div class="quote">「我們把所有東西都包一包呢，這場發表會，看起來是一個硬體的發表會，但你也可以換句話說，他是 Muse 的身體的發表會」</div>
+  <ul>
+    <li><b>產品</b>：「那簡單來講就是他沒有價格，沒有規格表，沒有預購，然後長得像是一個電子雞」；官方只有一句話加 email 登記欄，2 吋 OLED、5G、前後鏡頭等規格是 Bloomberg／The Verge 挖出來的。主委：「這個東西我一看我就覺得會去買他」。</li>
+    <li><b>前輩墳場</b>：Humane AI Pin（699 美元＋每月 24 美元訂閱，後被 HP 買下資產後停機）、Rabbit R1（199 美元，2024 年超熱鬧）、Limitless Pendant（99 美元，被 Meta 收購後停售）——「那這些裝置它的本質上都是，我認為他們都想要繞過手機」。</li>
+    <li><b>★ 對手是手機</b>：「所以先講一個很簡單的結論，就是我認為，在各方所看到的眼鏡，或是各種 AI edge device，類似這個 Muse Charm，然後他們可能可以獲得很高的一個滲透，跟很高的數量，這個都是比較不切實際，因為它本質上，我覺得它的競爭對手就是手機」；光波導算法：「因為光波導 Wave Guide，它其實會用掉蠻多 wafer 的，12 寸 wafer，所以它其實算下來，它的需求量是非常非常恐怖」，但「這個前提都是 Based on，就是眼鏡它會變成下一個手機⋯⋯有沒有可能變成下一個手機，我覺得很難」。</li>
+    <li><b>Meta 的起跑點 vs 隱憂</b>：「它已經是站在一個更好的起跑點」、「可是 Meta 本身就是一個巨頭」；但信任度極低——美國調查「大家願意去相信 Google，然後把密碼存在 Google 裡面的，是 30 幾%」⋯⋯「Meta 是幾%，8%」，詐騙廣告不抓＝「我覺得這個就是可能是，潛在的，超級大的隱憂」。</li>
+    <li><b>★ 代理購物與話語權</b>：串接夥伴 Walmart、Best Buy、Gap、Sephora、PayPal、Expedia；「前提是什麼？前提是，你要完全的相信他」。商業模式＝「那 Muse 應該會是用免費的方式繼續去經營著，然後大量的免費 token 來撐起這件事情，長期來說他靠什麼賺錢，一樣就是靠在交易裡面去抽一小筆費用」；Amazon 已把它卡掉，因為「最簡單的道理就是，以前我會自己上去看，我自己上去看，我可以讓對方賺到廣告錢⋯⋯那那些錢本來都在對方身上，可是現在變成是機器人去看的話，那變成話語權就在這個機器人身上」→ 後面巨頭之間會合縱連橫、被排在外面的可能出大問題。</li>
+    <li><b>為什麼 Zuckerberg 執著硬體</b>：「常年來他一直想要擺脫 Apple 跟 Google 的作業系統，然後他想要有自己的一個平台，他可能不想被抽稅，然後不想再被隱私政策給卡住他的廣告」；Muse 拿到第一名 App 後趁勝追擊，前期可能有不少浪費。</li>
+    <li><b>★ 投資角度</b>：「那但在投資的角度呢，其實我們就會去抓這些機會，然後就如果說，這台東西我買回來，我用我就發現說不一樣，那我可能就是，有機會去搶佔先機，就是抓到可能，不一定是說，這個硬體的相關供應鏈，可能是 Meta 的本身」；對新科技的態度：「但我覺得初步一定是會，大家預期很高，然後接著出來之後，發現說滿鳥的，你要稍微的有一點耐心」。</li>
+    <li><b>眼鏡／VR</b>：VR 眼鏡不含 puck 約 100 克（puck 本身約 300 克）解決重量痛點；主委認為 VR 未必是下一個核心，AR 眼鏡與小裝置更值得注意；另推無鏡頭版眼鏡回應偷拍與隱私反撲。</li>
+  </ul>
+  <h3 class="sec">② 盤勢：中秋連假的資金季節性</h3>
+  <div class="quote">「所以一般在連假前，你會注意到有一些賣壓的出現，然後就大家想要把錢收回來，去避免一些不確定性，那這些錢的蠻多，就是在放假之後就會回來」</div>
+  <ul>
+    <li><b>夜盤與變數</b>：連假期間台指期夜盤看起來又往上收；原本不知道週一（9/28 教師節）也放假，「所以不知道，就還是會多一點變數」。</li>
+    <li><b>丙種〔音譯〕收回</b>：「那或是一些金主們會把一些，在外面我們能說稱為丙種，或是那種地方借貸」連假前收回去；節目常年觀察到假後資金回流——「那希望在中秋節後的開盤，可以帶給大家一個蠻不錯的表現」。</li>
+  </ul>
+  <h3 class="sec">③ ★ QA 實戰：追高被殺、「選強中帶落」、台達早已轉空</h3>
+  <div class="quote">「追高就是七八月專門在殺的人啊，甚至連九月的前半段都是專門在殺這種追高的」</div>
+  <ul>
+    <li><b>★ 台達（2308）</b>：聽眾 H1 績效 +200%、7 月後「完全不會做股票」；主委：「如果是看強去追的話怎麼會買台達呢？因為台達早就已經轉空啦，就他的那個型態也是長得相對差一點，他算是這一波比較落後一點的」。</li>
+    <li><b>★ 主委的改法</b>：「所以後來我們的做法都是變成說，我選強中帶落的，聽起來很北爛，但就是他的型態是多頭型態，只是我就是買綠啦，很少買綠，平常都是買紅追強」；股性不變、只換「介入的方式」。</li>
+    <li><b>財報狗 Jeff</b>：「他就提到說，其實呢，台股這樣才是正常，那種過去動得很瘋狂，那其實是過去五年的事情」；主委即使動能盤回來也想維持現在的做法（加槓後再遇 30-40% 回檔扛不扛得住）。</li>
+    <li><b>拿著就好</b>：「我們一直講，說你這個東西你只要拿著放著，其實它一直是往上墊，你看指數都要新高勒」；想貪快、想上槓的「就會被上課」。</li>
+    <li><b>動能仔互相虐待</b>：「你們有沒有想過一件事情，是你們在互相虐待，因為你們都發現說拉不動之後，就他都亂丟啊」、「這個盤面是，在反映大家的一個心性」；收尾：「但隨著可能越來越多人放棄，只要這個盤面，真的是有感覺，有點氣氛回來，但一樣，還是要等這個中秋之後再來觀察」（前段亦說「但最近真的有聞到一點味道⋯⋯我看中秋之後怎麼樣再說」）。</li>
+    <li><b>聽眾組合點評（非主委持股）</b>：0050、IFX、Google、Lumentum、Coherent、Bloom Energy、GLW、Teradyne、AMD：「但其實這個配置感覺是選得還蠻漂亮的」；IFX「但如果你要往功率元件去看的話，就是一定是一定會看到的公司啊」，Bloom＝表後供電＋資料中心敘事。</li>
+  </ul>
+  <h3 class="sec">④ 生活與其他 QA</h3>
+  <div class="quote">「我的生涯目標就是我希望，等到我的孩子可能長到 15、17 歲的時候，他不會嫌棄他爸，甚至他會很驕傲的跟他爸去參加，不管什麼樣的比賽都可以」</div>
+  <ul>
+    <li><b>東京巨蛋</b>：帶大兒子到日本，球隊包下東京巨蛋：壘球打出安打、棒球被三振；被老婆吐槽後主委自比「這個就是現實跟模擬的差別」——打擊場＝模擬交易，比賽＝真實市場。看到大學生兒子與爸爸互相 cover、互相錄影→本集標題的父子關係。</li>
+    <li><b>其他</b>：推羽田不推成田（計程車 1 小時 20 分）；保加利亞分腿蹲：「所以現在保加利亞已經是我的愛，他已經不是我的恨」；公股投資長上班看片照片曝光 vs 犯罪嫌疑人打馬賽克；精品配貨不玩；社群「其實我也不喜歡講太多股票啦，後來都喜歡講生活的東西」；Radiohead 推薦 Motion Picture Soundtrack、2+2=5、Nude〔音譯〕、Weird Fishes〔音譯〕、The Tourist；北台灣帶外國朋友：北海岸、九份、宜蘭溫泉、北投、中山區小店。</li>
+  </ul>
+  <div class="note"><b>市場背景（外部查證，非主委原話）</b>　9/25（四）-9/28（一）中秋＋教師節連假休市；假後首個交易日 9/29（二）加權收 47,631.96（由 9/30 收盤 47,940.13、+308.17 反推）。本集錄音於連假期間，主委提到台指期夜盤續往上收。</div>
+  <div class="meta" style="margin-top:10px">〔音譯〕待確認：Muse Charm（稿作 Mew's Charm／MuseCharm／Muse Trump；依 9/23 起的 Meta Muse 脈絡判定）；丙種（稿作「品種」；依金主收回、地方借貸的語境判定）；「主克柏的 Threads」（稿作「主克博的Fred」）；眼鏡「可以賣個什麼幾億支」（稿作「極意之」）</div>
+</div>
+
+<div class="card">
+  <h2>🎯 Watchlist 更新（套用 100 集回測方法論 · 截至 2026/10/04）</h2>
+  <div class="meta">新增 3 · 降級 1 · 加星不升級 2 · 更新 14 · 三集皆零過熱訊號（EP702 全面轉強，但主委自按 FOMO 與成本兩個書籤）</div>
+  <h3 class="sec">🆕 新增</h3>
+  <table>
+    <thead><tr><th>項目</th><th>等級</th><th>依據</th></tr></thead>
+    <tbody>
+      <tr><td>台股小型 IC 設計集體表態（未點名個股）</td><td>🟠 ⭐⭐⭐⭐</td><td>EP701：投片是稀缺財＋MTK 接 TPU 外溢＝「就是大哥們吃肉，小弟們喝到湯」；AI 協作設計若為真＝小公司「更高機率可以去開更大的營運上的槓桿」；主委近期部位含小 IC。EP702 補上成本面提醒 → 暫列 🟠。</td></tr>
+      <tr><td>台積電德州設廠傳聞 → 廠務／設廠／材料</td><td>🟠 ⭐⭐⭐</td><td>EP701：「他們一定會是相當程度的受惠」但「便宜然後我也知道說未來很好，但就是不會動」；外部：9/29 傳 6 座先進晶圓廠、台積電不評論；媒體點名 6488／5434／6640（非主委點名）。</td></tr>
+      <tr><td>AI 用量成本煞車（聯發科限縮員工 AI 額度）</td><td>🔴 ⭐⭐⭐⭐</td><td>EP702：月支出一兩億、自建地端太慢引工程師反彈；「那如果說連他們都開始覺得，有些東西要去踩一些煞車的話，那有時候在供應鏈的想像，就是確實不能夠想像得太快」。</td></tr>
+    </tbody>
+  </table>
+  <h3 class="sec">🔽 降級</h3>
+  <table>
+    <thead><tr><th>標的</th><th>變動</th><th>依據</th></tr></thead>
+    <tbody>
+      <tr><td><b>Power／800VDC</b>（光寶 2301／台達電 2308）</td><td><span class="neg">🟠 ⭐⭐⭐⭐ → ⭐⭐⭐</span></td><td>EP700 QA：「因為台達早就已經轉空啦，就他的那個型態也是長得相對差一點，他算是這一波比較落後一點的」＝主委反向表態（型態面）；9/23 已因 EP698 遞延書籤降過一級。</td></tr>
+    </tbody>
+  </table>
+  <h3 class="sec">⭐ 加星但不升級</h3>
+  <table>
+    <thead><tr><th>項目</th><th>變動</th><th>為什麼留 🟠</th></tr></thead>
+    <tbody>
+      <tr><td>CPU／Agentic AI 二度催化（Meta Muse）</td><td><span class="pos">⭐⭐⭐ → ⭐⭐⭐⭐</span></td><td>跨 EP699-702 四集，EP702 押 CPU「連日狂噴都停不下來」；但主委預告 Muse「我覺得那個聲量會掉很多很多」，且二度催化本質＝衝一下再休息。</td></tr>
+      <tr><td>光模組 DSP 漲價（MRVL／MXL；達發〔音譯〕6526）</td><td><span class="pos">⭐⭐⭐ → ⭐⭐⭐⭐</span></td><td>EP699 漲價＋EP702 MS 傳聞事件驅動；但主委定調「這不就是原狀」、「不要太認真看待」，台系達發 400G「所以他也不會是第一波受惠」。</td></tr>
+    </tbody>
+  </table>
+  <h3 class="sec">🔁 更新（評級不變）</h3>
+  <ul>
+    <li><b>2454 聯發科 🟢</b>：EP701 TPU 訂單滿到外溢給台灣 IC 設計；EP702 限縮員工 AI 額度＝成本紀律；10/2 收 4,950（vs EP659 call 3,500 ＝ +41.4%）。</li>
+    <li><b>光互連／Scale-Up 光通鏈 🟢 ⭐⭐⭐⭐⭐</b>：EP701 換股第一棒「第一波起來的是光通」、EP702「就我是以光為主，光算是我這一波最主要的一個押注」；MS 傳聞＝美系 DSP／雷射核心受惠、台廠間接想像。</li>
+    <li><b>功率元件台鏈 🟢</b>：EP702 被動與功率「在上禮拜終於開始動起來了」，但非 AI 漲價＝排擠效應＝Tier 2 故事、主委「我會比較害怕一點」。</li>
+    <li><b>MRVL×GOOGL 🟢</b>：EP702 Marvell 週五隨 DSP 族群上漲＝事件驅動、「這不就是原狀」。</li>
+    <li><b>GOOGL 🟢</b>：EP701 搜尋引擎已整合訂餐廳／飯店，Muse Charm 壓力下可能推代理購物。</li>
+    <li><b>NVDA 🟡</b>：EP701 美中會談「就是什麼都沒有發生」。</li>
+    <li><b>AVGO 🟡</b>：EP701 主委自揭美股重壓 Broadcom〔音譯〕「躺了蠻久的」；Jalapeño〔音譯〕高機率是 Broadcom 的設計能力；EP702 DSP 事件上漲。</li>
+    <li><b>2327 國巨／被動元件 🟡</b>：EP702 上週終於動、漲價延續；10/2 現價 626（9/23 為 573）。</li>
+    <li><b>2330 台積電 🟡</b>：EP701 德州設廠傳聞「非常合理」，受惠在廠務／材料；10/2 收 2,500。</li>
+    <li><b>META Neocloud 🟠</b>：EP700-702 Muse Charm 主題觀察，受惠「可能是 Meta 的本身」，隱憂＝信任。</li>
+    <li><b>TSLA 🟠</b>：EP701 主委下訂 Roadster（非帶貨）。</li>
+    <li><b>8299 群聯 🟠</b>：EP702 SSD 股因 HDD 擴產跳樓＝短線雜訊。</li>
+    <li><b>EP687 布局清單 🟠</b>：台達電被評「早就已經轉空」。</li>
+    <li><b>🔴 追動能／強勢股</b>：EP700「追高就是七八月專門在殺的人啊」、EP701「你只要不要每天想要狂追」。</li>
+  </ul>
+  <h3 class="sec">🛡️ 操作框架四張卡</h3>
+  <ul>
+    <li><b>進場時機</b>：EP700「我選強中帶落的⋯⋯只是我就是買綠啦」；EP701 跟著波段走；EP702 不跟大盤對作、均線下彎再討論。</li>
+    <li><b>停損停利</b>：EP701 MDD 約三成（槓桿 1.1-1.3 倍），大型均線該煞車沒煞車就減碼。</li>
+    <li><b>何時撤退</b>：維持 🟡；新增 FOMO 條件書籤（成交量上去＋「你今天買不到，那明天就只會更高價」）與 AI 成本煞車 🔴。</li>
+    <li><b>部位配置</b>：主委組合＝光通為主＋小 IC＋銅纜〔音譯〕＋衛星題材＋明年約 10 倍本益比；單檔 ≤5% 不變。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>📈 市場背景（外部查證）</h2>
+  <table>
+    <thead><tr><th>日期</th><th>加權指數</th><th>重點</th></tr></thead>
+    <tbody>
+      <tr><td>9/25（四）-9/28（一）</td><td>休市</td><td>中秋＋教師節連假；EP700 錄於連假期間（台指期夜盤續往上收）。</td></tr>
+      <tr><td>9/29（二）</td><td>收 47,631.96（由 9/30 反推）</td><td>假後首日；台積電德州設廠傳聞（6 座先進晶圓廠）見報，台積電不評論。</td></tr>
+      <tr><td>9/30（三）</td><td>收 <span class="pos">47,940.13</span>（+308.17、+0.65%）</td><td>成交 8,756.7 億；盤中台積電 +1.2%、聯發科 +2.8%、台達電 +3.0%、日月光投控 +2.6%。EP701 錄音當天：「像今天這樣子大噴之後」。</td></tr>
+      <tr><td>10/2（五）</td><td>收 <span class="pos">48,475.74</span>（+122.25、+0.25%）再創收盤新高</td><td>成交 8,981.7 億；櫃買 +1.94%；台積電 2,500（-10）、聯發科 4,950（-30）；被動元件與光通領漲。夜盤一度 49,495（突破 49,000）。週漲約 451 點。</td></tr>
+      <tr><td>watchlist 現價（10/2）</td><td colspan="2">2330 台積電 2,500（vs EP656 call 2,200 ＝ +13.6%）· 2454 聯發科 4,950（vs EP659 call 3,500 ＝ +41.4%）· 3443 創意 7,900（vs 4,000 ＝ +97.5%）· 3661 世芯-KY 3,810 · 2327 國巨 626 · 2337 旺宏 122</td></tr>
+    </tbody>
+  </table>
+  <div class="note">來源：Focus Taiwan（9/30 收盤）、Trading Economics（9/30 盤中個股）、鏡週刊／三立（10/2 收盤）、聯合報（10/3 夜盤與光輝十月）、數位時代（9/29 台積電德州）、優分析（9/30 受惠股名單）；watchlist 現價取自 _watchlist_state.json（10/2）。</div>
+</div>
+
+<div class="footer">
+  本報告於 2026-10-04 由補跑產生（原排程自 9/24 重建後未曾執行）。三集內容全部依 whisper 逐字稿（faster-whisper small int8，雲端單次轉錄，逐字稿存 <code>transcripts/EP700-702.txt</code>）；166 則「」引述已逐一以 difflib 比對逐字稿（全數 ≥0.9），引號內僅修正 whisper 明顯誤字（如古來→股癌、轉落→轉弱、懸鼓→選股、壓住→押注、答法→達發），語序與語意未改動；仍有疑義者標〔音譯〕。<br>
+  ⚠️ whisper small 對英文專有名詞與人名辨識較差（Muse Charm、Jalapeño、Broadcom、達發等均為音譯判讀）；EP700-702 為單次轉錄，無分段邊界缺口。<br>
+  ⚠️ 本報告不構成投資建議；主持人多次強調「不要亂跟單當韭菜」。
+</div>
+
+</div>
+</body>
+</html>
