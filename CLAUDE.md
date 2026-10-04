@@ -17,6 +17,7 @@ When a new EP appears in the RSS feed, the show notes typically contain only the
 ## Other key rules
 
 - **`index.html` inline `EPISODES` is authoritative if it has `deep`.** See merge rule in `loadAutoEpisodes()`; navigate by function name — absolute line numbers drift as the file changes.
+- **`_episodes_auto.json` is legacy** (old Mac pipeline, EP661–692). Every inline entry from EP669 on now has `deep` (EP669–687 curated 2026-10-04 from their whisper transcripts in `transcripts/`), so auto entries only show for EP662–668 (their old audio+LLM abstracts). Leave the file alone.
 - **Don't edit the orphan `*.html` / `*.md` files** at repo root (e.g. `股癌_Ting_wei_Wang_App.html`, `股癌_新集_*.html`). They are not linked from `index.html`.
 - **Pipeline is split**: episodes via the cloud scheduled task (GitHub `main` is the source of truth; the Mac copy at `~/Documents/Claude/Projects/股癌` is only a mirror — `git pull` there before editing). The GH Actions `update-episodes.yml` job is skipped by design — don't try to fix it. Market data via GitHub Actions `update-market.yml` (daily 17:30 TPE; its commit-before-rebase bug that stalled `_market_auto.json` since 2026-05-30 was fixed 2026-10-04).
 - **GitHub Pages needs the repo public** (free plan): while it was private (2026-08-23 → 10-04) Pages silently stopped building.

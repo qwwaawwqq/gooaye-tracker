@@ -2,13 +2,17 @@
 """Render curated episode content (JSON) into the site files.
 
 usage:  python3 tools/watcher/render.py content/EP703.json [content/EP704.json ...] [--report-cards OUT.html]
+        python3 tools/watcher/render.py --replace content/EP680.json ...   # re-curate episodes already on the site
 - index.html: inserts each episode at the top of `const EPISODES = {` (newest first), with its `deep`
   abstract (detail pane HTML) built by deep.py from the same content JSON
 - 股癌_全集深度摘要_AUTO_UPDATE.md: inserts sections right after the marker line, updates AUTO_UPDATE_META
 - --report-cards: writes the per-episode <div class="card"> blocks for the dated report
+- --replace: rewrites existing inline entries (keeping their verdict `v`) and their AUTO_UPDATE.md
+  sections in place; nothing is inserted at the top and AUTO_UPDATE_META is left alone
 Content schema: see tools/watcher/content/EP702.json (keys: ep, date, wd, pub, emoji, tagline,
 dur_sec, sponsor, mentions, stocks [[mkt, code]], overheat, fixes [[wrong, right]], unresolved,
-tags, position, sections [{h, lead, bullets [[label, text]]}], market, link).
+tags, position, sections [{h, lead, bullets [[label, text]]}], market, link; optional tx_note = how the
+transcript was made, default 雲端 faster-whisper small int8 單次轉錄).
 summary text is rendered through escapeHtml() on the site, and deep.py HTML-escapes every field:
 never put HTML in content fields. Status tags: '⏳ 待 LLM 深度摘要' is dropped and '📝 …' tags go last,
 so the site's 主軸 column (first three tags) shows real topics.
@@ -40,7 +44,7 @@ def dur_txt(sec):
 def summary(e):
     b, l = tstats(e['ep'])
     parts = [f"主軸（依 whisper 逐字稿 transcripts/EP{e['ep']}.txt，{b:,} bytes／{l:,} 段；"
-             f"雲端 faster-whisper small int8 單次轉錄）：" + e['position']]
+             f"{e.get('tx_note', '雲端 faster-whisper small int8 單次轉錄')}）：" + e['position']]
     for s in e['sections']:
         parts.append(f"{s['h']}：主委原話：「{s['lead']}」")
         parts += [f'{lab}：{txt}' for lab, txt in s['bullets']]
@@ -56,24 +60,26 @@ def clean_tags(tags):
     return [t for t in tags if not t.startswith(('⏳ 待 LLM', '📝'))] + status
 
 
-def inline_entry(e):
+def inline_entry(e, v='pending'):
     tags = ','.join(f"'{js(t)}'" for t in clean_tags(e['tags']))
     stocks = ','.join(f"['{m}','{c}']" for m, c in e['stocks'])
     return (f"  {e['ep']}:{{date:'{e['date']}',title:'EP{e['ep']} | {e['emoji']}',dur:'{round(e['dur_sec'] / 60)}分',"
-            f"v:'pending',sponsor:'{js(e['sponsor'])}',\n    tags:[{tags}],\n    summary:'{js(summary(e))}',\n"
+            f"v:'{v}',sponsor:'{js(e['sponsor'])}',\n    tags:[{tags}],\n    summary:'{js(summary(e))}',\n"
             f"    stocks:[{stocks}],\n    deep:`{tl_safe(deep_from_content(e))}`}},\n")
 
 
 def md_section(e):
     b, l = tstats(e['ep'])
     fixes = '、'.join(f'{w}→{r}' for w, r in e['fixes'] if w != '臺')
+    opencc = '；另 OpenCC 的「臺」統一為「台」' if any(w == '臺' for w, _ in e['fixes']) else ''
     L = [f"## EP{e['ep']} ｜ {e['emoji']}「{e['tagline']}」", '',
          f"**日期：** {e['date']}（{e['wd']}）{e['pub']} TPE　**長度：** {dur_txt(e['dur_sec'])}",
          f"**贊助：** {e['sponsor']}",
-         f"**資料來源：** whisper 逐字稿（`transcripts/EP{e['ep']}.txt`，{b:,} bytes／{l:,} 段；雲端排程 faster-whisper small int8 單次轉錄）",
+         f"**資料來源：** whisper 逐字稿（`transcripts/EP{e['ep']}.txt`，{b:,} bytes／{l:,} 段；"
+         f"{e.get('tx_note', '雲端排程 faster-whisper small int8 單次轉錄')}）",
          f"**個股點名：** {e['mentions']}　**過熱訊號：** {e['overheat']}", '',
          f"> ⚠️ **引述處理原則**：本節引述已逐一以 difflib 比對 `transcripts/EP{e['ep']}.txt`（全數 ≥0.9）。為可讀性，"
-         f"引號內已修正 whisper 明顯誤字（{fixes}；另 OpenCC 的「臺」統一為「台」），並在跨行處補標點；**語序與語意未改動**。"
+         f"引號內已修正 whisper 明顯誤字（{fixes}{opencc}），並在跨行處補標點；**語序與語意未改動**。"
          f"仍有疑義者標記〔音譯〕：{'；'.join(e['unresolved'])}。", '',
          f"> 📌 **本集定位**：{e['position']}", '', '---', '']
     for s in e['sections']:
@@ -113,10 +119,42 @@ def report_card(e):
     return '\n'.join(out)
 
 
-def main(paths, cards_out=None):
+
+def replace_entry(s, e):
+    """Swap an existing inline EPISODES entry for a freshly rendered one, keeping its verdict."""
+    start = s.find(f"\n  {e['ep']}:{{date:")
+    assert start >= 0, f"EP{e['ep']} is not inline"
+    start += 1
+    nxt = re.search(r"\n  \d{3}:\{date:|\n\};", s[start:])
+    end = start + nxt.start() + 1
+    v = re.search(r"v:'([^']*)'", s[start:end]).group(1)
+    return s[:start] + inline_entry(e, v) + s[end:]
+
+
+def replace_section(m, e):
+    """Swap an existing AUTO_UPDATE.md section (keeps trailing <!-- --> marker comments)."""
+    h = re.search(rf'^## EP{e["ep"]}\b.*$', m, re.M)
+    assert h, f"EP{e['ep']} has no AUTO_UPDATE.md section"
+    nx = re.search(r'^## EP\d{3}\b', m[h.end():], re.M)
+    end = h.end() + nx.start() if nx else len(m)
+    old = m[h.start():end]
+    i = old.find('\n<!--')
+    tail = old[i:].strip('\n') + '\n\n' if i >= 0 else ''
+    return m[:h.start()] + md_section(e) + tail + m[end:]
+
+
+def main(paths, cards_out=None, replace=False):
     eps = sorted((json.load(open(p, encoding='utf-8')) for p in paths), key=lambda e: -e['ep'])
     ip = f'{ROOT}/index.html'
     s = open(ip, encoding='utf-8').read()
+    if replace:
+        m = open(MD, encoding='utf-8').read()
+        for e in eps:
+            s, m = replace_entry(s, e), replace_section(m, e)
+        open(ip, 'w', encoding='utf-8').write(s)
+        open(MD, 'w', encoding='utf-8').write(m)
+        print('replaced', [e['ep'] for e in eps])
+        return
     anchor = 'const EPISODES = {\n'
     assert s.count(anchor) == 1
     for e in eps:
@@ -142,8 +180,10 @@ def main(paths, cards_out=None):
 if __name__ == '__main__':
     a = sys.argv[1:]
     out = None
+    rep = '--replace' in a
+    a = [x for x in a if x != '--replace']
     if '--report-cards' in a:
         i = a.index('--report-cards')
         out = a[i + 1]
         a = a[:i] + a[i + 2:]
-    main(a, out)
+    main(a, out, rep)

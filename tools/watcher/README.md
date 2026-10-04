@@ -18,6 +18,10 @@ GitHub `main` is the source of truth; the Mac copy is only a mirror (`git pull` 
    and `--text <file> <EPs>` for watchlist/report text you wrote by hand.
 5. **Render** — `python3 tools/watcher/render.py tools/watcher/content/EP<N>.json ... --report-cards cards.html`
    (inline EPISODES entries with `deep`, AUTO_UPDATE.md sections + meta, report cards).
+   Re-curating an episode that is already on the site: write its content JSON the same way, then
+   `render.py --replace tools/watcher/content/EP<N>.json` (keeps the verdict `v`, rewrites the entry and its
+   AUTO_UPDATE.md section in place). Set `tx_note` when the transcript is not a fresh cloud run (EP669–687
+   were curated on 2026-10-04 from the old Mac transcripts; EP671/675/682 were re-transcribed in the cloud).
 6. **Watchlist** — edit `<section class="pane" id="watchlist">` surgically: 🟢/🟡 rows have 6 `<td>`, 🟠/🔴 4, ⚪ 3;
    band move = new row in the target band + badge on the old row; finish with a per-table column count and tag-balance check.
 7. **Report** — `股癌_新集_YYYY-MM-DD.html`, copy `<head>` from the newest existing report, insert the cards.
