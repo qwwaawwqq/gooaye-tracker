@@ -137896,18 +137896,6 @@
   },
   {
     "type": "stock",
-    "id": "stock8261",
-    "title": "8261 富鼎",
-    "text": "8261 富鼎 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-8261.html",
-    "tokens": [
-      "8261",
-      "富",
-      "鼎"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock3037",
     "title": "3037 欣興",
     "text": "3037 欣興 pending",
@@ -137916,6 +137904,18 @@
       "3037",
       "欣",
       "興"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock8261",
+    "title": "8261 富鼎",
+    "text": "8261 富鼎 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-8261.html",
+    "tokens": [
+      "8261",
+      "富",
+      "鼎"
     ]
   },
   {
@@ -137969,6 +137969,18 @@
   },
   {
     "type": "stock",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "tokens": [
+      "6285",
+      "啟",
+      "碁"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock2308",
     "title": "2308 台達電",
     "text": "2308 台達電 miss",
@@ -137978,18 +137990,6 @@
       "台",
       "達",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
-    "tokens": [
-      "6285",
-      "啟",
-      "碁"
     ]
   },
   {
@@ -138165,19 +138165,6 @@
   },
   {
     "type": "stock",
-    "id": "stock2454",
-    "title": "2454 聯發科",
-    "text": "2454 聯發科 hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2454.html",
-    "tokens": [
-      "2454",
-      "聯",
-      "發",
-      "科"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock3443",
     "title": "3443 創意 GUC",
     "text": "3443 創意 GUC hit",
@@ -138187,6 +138174,19 @@
       "創",
       "意",
       "GUC"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2454",
+    "title": "2454 聯發科",
+    "text": "2454 聯發科 hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2454.html",
+    "tokens": [
+      "2454",
+      "聯",
+      "發",
+      "科"
     ]
   },
   {
