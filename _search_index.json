@@ -138260,17 +138260,6 @@
   },
   {
     "type": "stock",
-    "id": "stockGOOGL",
-    "title": "GOOGL GOOGL",
-    "text": "GOOGL GOOGL pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-GOOGL.html",
-    "tokens": [
-      "GOOGL",
-      "GOOGL"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockMRVL",
     "title": "MRVL MRVL",
     "text": "MRVL MRVL pending",
@@ -138278,6 +138267,17 @@
     "tokens": [
       "MRVL",
       "MRVL"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockGOOGL",
+    "title": "GOOGL GOOGL",
+    "text": "GOOGL GOOGL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-GOOGL.html",
+    "tokens": [
+      "GOOGL",
+      "GOOGL"
     ]
   },
   {
