@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T15:32:27+00:00",
+  "updated_at": "2026-10-11T15:54:40+00:00",
   "data_end_date": "2026-10-09",
   "perf": {
     "2308": {
@@ -1034,44 +1034,44 @@
   },
   "actions": [
     {
-      "title": "AI 設計服務續抱創意",
+      "title": "GUC聯發科AI族群續抱",
       "stance": "續抱加碼",
-      "depends": "依據：EP690+EP691+EP692 ASIC 題材延燒，創意命中 +172%",
-      "checklist": "□ 分批加碼不追高<br>□ 設 15% 移動停利<br>□ 關注大客戶訂單進度",
-      "risk": "失準風險：ASIC 題材過熱，一旦大客戶砍單將回檔劇烈",
+      "depends": "依據：EP690+EP691+EP692 持續看好AI矽智財鏈，GUC+172%、聯發科+162%兌現",
+      "checklist": "□ GUC(3443) 回測季線分批加碼<br>□ 聯發科(2454) 跌破月線減半<br>□ 追蹤ASIC客戶訂單能見度",
+      "risk": "失準風險：ASIC競爭加劇、CoWoS產能排擠恐使毛利承壓",
       "tier": "opportunity"
     },
     {
-      "title": "聯發科 AI ASIC 卡位",
-      "stance": "逢回加碼",
-      "depends": "依據：EP691+EP692 強調 AI 邊緣運算，聯發科 +162%",
-      "checklist": "□ 季線附近分批建倉<br>□ 關注 Google TPU 合作進度<br>□ 搭配國巨做零組件組合",
-      "risk": "失準風險：若 AI PC/手機換機潮不如預期，評價將下修",
+      "title": "AMD美系AI второ梯隊",
+      "stance": "回檔加碼",
+      "depends": "依據：EP691+EP692 強調美系AI非輝達受惠族群，AMD+161.7%、CRWD+134.5%兌現",
+      "checklist": "□ AMD 跌破200MA停利1/3<br>□ CRWD 財報前降低槓桿<br>□ 關注MI350出貨節奏",
+      "risk": "失準風險：MI系列若延遲出貨或CSP轉單自研ASIC，評價面將快速修正",
       "tier": "opportunity"
     },
     {
-      "title": "旺宏停損處理",
-      "stance": "立即減碼",
-      "depends": "依據：EP690 曾點名記憶體但旺宏 -30.5% 失準",
-      "checklist": "□ 本週內出清至少一半<br>□ 剩餘部位設 5% 停損<br>□ 轉倉至命中率高的 ASIC 族群",
-      "risk": "失準風險：若 NOR Flash 急單回溫，可能錯過反彈",
-      "tier": "redline"
-    },
-    {
-      "title": "AVGO 博通警戒觀望",
-      "stance": "暫停加碼",
-      "depends": "依據：EP691 原看好 AI 網通，但 AVGO -13.6% 低於預期",
-      "checklist": "□ 不新增部位<br>□ 等財報確認客戶訂單<br>□ 跌破月線減半",
-      "risk": "失準風險：博通為 AI 核心標的，過度減碼恐錯失反彈",
+      "title": "國巨被動元件轉強",
+      "stance": "分批布局",
+      "depends": "依據：EP690+EP692 提及被動元件補庫存循環，國巨(2327)+113.2%驗證",
+      "checklist": "□ 國巨回測月線分三批進<br>□ 設-8%停損<br>□ 追蹤MLCC報價與BB-ratio",
+      "risk": "失準風險：中國低階MLCC殺價、終端手機PC需求若轉弱將反轉",
       "tier": "caution"
     },
     {
-      "title": "CRWD 資安新進場點",
-      "stance": "分批進場",
-      "depends": "依據：EP690 NordVPN 段落延伸資安題材，CRWD +134.5%",
-      "checklist": "□ 美股盤後分三批進場<br>□ 設 10% 停損<br>□ 留意財報營收指引",
-      "risk": "失準風險：資安股評價偏高，若 SaaS 成長放緩易殺本益比",
-      "tier": "opportunity"
+      "title": "旺宏重大失準警訊",
+      "stance": "立即避開",
+      "depends": "依據：EP690前後曾提記憶體落底，旺宏(2337)-30.5%驗證失準",
+      "checklist": "□ 持股即刻減碼至零<br>□ 不接刀不攤平<br>□ 等季線翻揚再重評",
+      "risk": "失準風險：NOR Flash庫存去化慢、車用需求遞延恐持續破底",
+      "tier": "redline"
+    },
+    {
+      "title": "台達電AVGO動能轉弱",
+      "stance": "提高警覺",
+      "depends": "依據：EP691+EP692 原列AI電源與博通題材，台達-9.2%、AVGO-13.6%明顯跑輸",
+      "checklist": "□ 台達電(2308) 減碼至半倉<br>□ AVGO 設-10%移動停損<br>□ 觀察GB200電源拉貨進度",
+      "risk": "失準風險：若AI電源規格轉單或博通ASIC客戶遞延，續跌空間擴大",
+      "tier": "caution"
     }
   ]
 }
