@@ -137945,17 +137945,6 @@
   },
   {
     "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock5469",
     "title": "5469 瀚宇博",
     "text": "5469 瀚宇博 pending",
@@ -137965,6 +137954,17 @@
       "瀚",
       "宇",
       "博"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
     ]
   },
   {
@@ -138029,17 +138029,6 @@
   },
   {
     "type": "stock",
-    "id": "stockCRWD",
-    "title": "CRWD CrowdStrike",
-    "text": "CRWD CrowdStrike hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-CRWD.html",
-    "tokens": [
-      "CRWD",
-      "CrowdStrike"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockTEAM",
     "title": "TEAM Atlassian",
     "text": "TEAM Atlassian pending",
@@ -138047,6 +138036,17 @@
     "tokens": [
       "TEAM",
       "Atlassian"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockCRWD",
+    "title": "CRWD CrowdStrike",
+    "text": "CRWD CrowdStrike hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-CRWD.html",
+    "tokens": [
+      "CRWD",
+      "CrowdStrike"
     ]
   },
   {
