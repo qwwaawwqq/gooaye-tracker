@@ -137896,6 +137896,18 @@
   },
   {
     "type": "stock",
+    "id": "stock2375",
+    "title": "2375 凱美",
+    "text": "2375 凱美 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2375.html",
+    "tokens": [
+      "2375",
+      "凱",
+      "美"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock3037",
     "title": "3037 欣興",
     "text": "3037 欣興 pending",
@@ -137920,14 +137932,15 @@
   },
   {
     "type": "stock",
-    "id": "stock2375",
-    "title": "2375 凱美",
-    "text": "2375 凱美 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2375.html",
+    "id": "stock5469",
+    "title": "5469 瀚宇博",
+    "text": "5469 瀚宇博 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-5469.html",
     "tokens": [
-      "2375",
-      "凱",
-      "美"
+      "5469",
+      "瀚",
+      "宇",
+      "博"
     ]
   },
   {
@@ -137941,19 +137954,6 @@
       "京",
       "元",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stock5469",
-    "title": "5469 瀚宇博",
-    "text": "5469 瀚宇博 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-5469.html",
-    "tokens": [
-      "5469",
-      "瀚",
-      "宇",
-      "博"
     ]
   },
   {
@@ -138108,7 +138108,7 @@
     "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
-    "text": "6531 愛普 hit",
+    "text": "6531 愛普 partial",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6531.html",
     "tokens": [
       "6531",
@@ -138143,7 +138143,7 @@
     "type": "stock",
     "id": "stock3661",
     "title": "3661 世芯-KY",
-    "text": "3661 世芯-KY partial",
+    "text": "3661 世芯-KY miss",
     "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3661.html",
     "tokens": [
       "3661",
