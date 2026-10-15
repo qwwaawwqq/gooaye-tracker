@@ -137908,18 +137908,6 @@
   },
   {
     "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
-    "tokens": [
-      "3037",
-      "欣",
-      "興"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock8261",
     "title": "8261 富鼎",
     "text": "8261 富鼎 pending",
@@ -137928,6 +137916,18 @@
       "8261",
       "富",
       "鼎"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
+    "tokens": [
+      "3037",
+      "欣",
+      "興"
     ]
   },
   {
@@ -137958,6 +137958,18 @@
   },
   {
     "type": "stock",
+    "id": "stock6285",
+    "title": "6285 啟碁",
+    "text": "6285 啟碁 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "tokens": [
+      "6285",
+      "啟",
+      "碁"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stockFORM",
     "title": "FORM FormFactor",
     "text": "FORM FormFactor pending",
@@ -137969,14 +137981,13 @@
   },
   {
     "type": "stock",
-    "id": "stock6285",
-    "title": "6285 啟碁",
-    "text": "6285 啟碁 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-6285.html",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
     "tokens": [
-      "6285",
-      "啟",
-      "碁"
+      "QCOM",
+      "Qualcomm"
     ]
   },
   {
@@ -137990,17 +138001,6 @@
       "台",
       "達",
       "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
     ]
   },
   {
@@ -138106,6 +138106,17 @@
   },
   {
     "type": "stock",
+    "id": "stockMETA",
+    "title": "META Meta",
+    "text": "META Meta partial",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
+    "tokens": [
+      "META",
+      "Meta"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
     "text": "6531 愛普 partial",
@@ -138114,17 +138125,6 @@
       "6531",
       "愛",
       "普"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockMETA",
-    "title": "META Meta",
-    "text": "META Meta partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
-    "tokens": [
-      "META",
-      "Meta"
     ]
   },
   {
@@ -138271,17 +138271,6 @@
   },
   {
     "type": "stock",
-    "id": "stockMRVL",
-    "title": "MRVL MRVL",
-    "text": "MRVL MRVL pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
-    "tokens": [
-      "MRVL",
-      "MRVL"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockTSLA",
     "title": "TSLA TSLA",
     "text": "TSLA TSLA pending",
@@ -138289,6 +138278,17 @@
     "tokens": [
       "TSLA",
       "TSLA"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockMRVL",
+    "title": "MRVL MRVL",
+    "text": "MRVL MRVL pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/-MRVL.html",
+    "tokens": [
+      "MRVL",
+      "MRVL"
     ]
   },
   {
