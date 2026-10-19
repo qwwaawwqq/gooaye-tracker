@@ -138062,17 +138062,6 @@
   },
   {
     "type": "stock",
-    "id": "stockCRM",
-    "title": "CRM Salesforce",
-    "text": "CRM Salesforce hit",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-CRM.html",
-    "tokens": [
-      "CRM",
-      "Salesforce"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stockPLTR",
     "title": "PLTR Palantir",
     "text": "PLTR Palantir hit",
@@ -138080,6 +138069,17 @@
     "tokens": [
       "PLTR",
       "Palantir"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockCRM",
+    "title": "CRM Salesforce",
+    "text": "CRM Salesforce hit",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-CRM.html",
+    "tokens": [
+      "CRM",
+      "Salesforce"
     ]
   },
   {
