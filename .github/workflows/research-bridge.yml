@@ -1,0 +1,31 @@
+name: Research bridge offline tests
+
+on:
+  pull_request:
+    paths:
+      - 'research_bridge/**'
+      - 'tests/test_research_bridge.py'
+      - '.github/workflows/research-bridge.yml'
+  push:
+    paths:
+      - 'research_bridge/**'
+      - 'tests/test_research_bridge.py'
+      - '.github/workflows/research-bridge.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate point-in-time research export
+        run: python3 -m unittest discover -s tests -p 'test_research_bridge.py' -v
