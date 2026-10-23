@@ -138106,17 +138106,6 @@
   },
   {
     "type": "stock",
-    "id": "stockMETA",
-    "title": "META Meta",
-    "text": "META Meta partial",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
-    "tokens": [
-      "META",
-      "Meta"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock6531",
     "title": "6531 愛普",
     "text": "6531 愛普 miss",
@@ -138125,6 +138114,17 @@
       "6531",
       "愛",
       "普"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stockMETA",
+    "title": "META Meta",
+    "text": "META Meta miss",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-META.html",
+    "tokens": [
+      "META",
+      "Meta"
     ]
   },
   {
