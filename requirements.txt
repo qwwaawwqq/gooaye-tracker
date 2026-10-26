@@ -3,4 +3,4 @@
 # (~/.venvs/whisper) — NOT here. See whisper_cli.py.
 anthropic==0.74.1
 yfinance==0.2.65
-pandas==2.2.3
+pandas==3.0.5
