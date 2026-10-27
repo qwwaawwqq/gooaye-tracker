@@ -137958,6 +137958,17 @@
   },
   {
     "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock6285",
     "title": "6285 啟碁",
     "text": "6285 啟碁 pending",
@@ -137966,17 +137977,6 @@
       "6285",
       "啟",
       "碁"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
     ]
   },
   {
