@@ -137969,6 +137969,17 @@
   },
   {
     "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock6285",
     "title": "6285 啟碁",
     "text": "6285 啟碁 pending",
@@ -137977,17 +137988,6 @@
       "6285",
       "啟",
       "碁"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
     ]
   },
   {
