@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-27T15:30:33+00:00",
-  "data_end_date": "2026-10-27",
+  "updated_at": "2026-10-28T16:13:35+00:00",
+  "data_end_date": "2026-10-28",
   "perf": {
     "2308": {
       "symbol": "2308.TW",
@@ -187,8 +187,8 @@
       "start_date": "2026-05-04",
       "start_close": 198.48,
       "end_date": "2026-10-27",
-      "end_close": 217.81,
-      "change_pct": 9.74,
+      "end_close": 217.94,
+      "change_pct": 9.8,
       "days_elapsed": 176,
       "verdict": "partial"
     },
@@ -196,30 +196,30 @@
       "symbol": "QCOM",
       "start_date": "2026-05-13",
       "start_close": 213.17,
-      "end_date": "2026-10-27",
-      "end_close": 181.35,
-      "change_pct": -14.93,
-      "days_elapsed": 167,
+      "end_date": "2026-10-28",
+      "end_close": 181.87,
+      "change_pct": -14.69,
+      "days_elapsed": 168,
       "verdict": "pending"
     },
     "VPG": {
       "symbol": "VPG",
       "start_date": "2026-05-13",
       "start_close": 99.6,
-      "end_date": "2026-10-27",
-      "end_close": 56.92,
-      "change_pct": -42.85,
-      "days_elapsed": 167,
+      "end_date": "2026-10-28",
+      "end_close": 60.42,
+      "change_pct": -39.34,
+      "days_elapsed": 168,
       "verdict": "pending"
     },
     "FORM": {
       "symbol": "FORM",
       "start_date": "2026-05-13",
       "start_close": 129.31,
-      "end_date": "2026-10-27",
-      "end_close": 105.73,
-      "change_pct": -18.24,
-      "days_elapsed": 167,
+      "end_date": "2026-10-28",
+      "end_close": 109.4,
+      "change_pct": -15.4,
+      "days_elapsed": 168,
       "verdict": "pending"
     },
     "AVGO": {
@@ -237,8 +237,8 @@
       "start_date": "2026-05-04",
       "start_close": 146.03,
       "end_date": "2026-10-27",
-      "end_close": 199.38,
-      "change_pct": 36.53,
+      "end_close": 198.73,
+      "change_pct": 36.09,
       "days_elapsed": 176,
       "verdict": "hit"
     },
@@ -247,8 +247,8 @@
       "start_date": "2026-05-04",
       "start_close": 117.31,
       "end_date": "2026-10-27",
-      "end_close": 266.6,
-      "change_pct": 127.26,
+      "end_close": 268.02,
+      "change_pct": 128.47,
       "days_elapsed": 176,
       "verdict": "hit"
     },
@@ -257,8 +257,8 @@
       "start_date": "2026-05-04",
       "start_close": 224.17,
       "end_date": "2026-10-27",
-      "end_close": 329.43,
-      "change_pct": 46.96,
+      "end_close": 327.8,
+      "change_pct": 46.23,
       "days_elapsed": 176,
       "verdict": "hit"
     },
@@ -267,8 +267,8 @@
       "start_date": "2026-05-04",
       "start_close": 93.16,
       "end_date": "2026-10-27",
-      "end_close": 219.47,
-      "change_pct": 135.58,
+      "end_close": 219.41,
+      "change_pct": 135.52,
       "days_elapsed": 176,
       "verdict": "pending"
     },
@@ -277,8 +277,8 @@
       "start_date": "2026-05-04",
       "start_close": 253.96,
       "end_date": "2026-10-27",
-      "end_close": 251.79,
-      "change_pct": -0.85,
+      "end_close": 248.36,
+      "change_pct": -2.21,
       "days_elapsed": 176,
       "verdict": "partial"
     },
@@ -287,8 +287,8 @@
       "start_date": "2026-05-04",
       "start_close": 185.48,
       "end_date": "2026-10-27",
-      "end_close": 242.72,
-      "change_pct": 30.86,
+      "end_close": 240.89,
+      "change_pct": 29.87,
       "days_elapsed": 176,
       "verdict": "hit"
     },
@@ -316,50 +316,50 @@
       "symbol": "GOOGL",
       "start_date": "2026-05-26",
       "start_close": 388.88,
-      "end_date": "2026-10-27",
-      "end_close": 320.17,
-      "change_pct": -17.67,
-      "days_elapsed": 154,
+      "end_date": "2026-10-28",
+      "end_close": 324.24,
+      "change_pct": -16.62,
+      "days_elapsed": 155,
       "verdict": "pending"
     },
     "TSLA": {
       "symbol": "TSLA",
       "start_date": "2026-05-27",
       "start_close": 440.36,
-      "end_date": "2026-10-27",
-      "end_close": 405.0,
-      "change_pct": -8.03,
-      "days_elapsed": 153,
+      "end_date": "2026-10-28",
+      "end_close": 401.42,
+      "change_pct": -8.84,
+      "days_elapsed": 154,
       "verdict": "pending"
     },
     "MRVL": {
       "symbol": "MRVL",
       "start_date": "2026-06-03",
       "start_close": 301.65,
-      "end_date": "2026-10-27",
-      "end_close": 243.16,
-      "change_pct": -19.39,
-      "days_elapsed": 146,
+      "end_date": "2026-10-28",
+      "end_close": 249.28,
+      "change_pct": -17.36,
+      "days_elapsed": 147,
       "verdict": "pending"
     },
     "ON": {
       "symbol": "ON",
       "start_date": "2026-06-03",
       "start_close": 133.93,
-      "end_date": "2026-10-27",
-      "end_close": 77.46,
-      "change_pct": -42.17,
-      "days_elapsed": 146,
+      "end_date": "2026-10-28",
+      "end_close": 74.88,
+      "change_pct": -44.09,
+      "days_elapsed": 147,
       "verdict": "pending"
     },
     "SNOW": {
       "symbol": "SNOW",
       "start_date": "2026-06-03",
       "start_close": 241.28,
-      "end_date": "2026-10-27",
-      "end_close": 338.98,
-      "change_pct": 40.49,
-      "days_elapsed": 146,
+      "end_date": "2026-10-28",
+      "end_close": 340.92,
+      "change_pct": 41.29,
+      "days_elapsed": 147,
       "verdict": "pending"
     }
   },
@@ -407,11 +407,11 @@
         "mkt": "us",
         "stance": "抗 AI",
         "first_ep": 658,
-        "change_pct": 127.26,
+        "change_pct": 128.47,
         "verdict": "hit",
         "start_date": "2026-05-04",
         "end_date": "2026-10-27",
-        "end_close": 266.6
+        "end_close": 268.02
       },
       {
         "code": "2327",
@@ -488,20 +488,7 @@
         "end_close": 642.62
       }
     ],
-    "flat": [
-      {
-        "code": "ADBE",
-        "name": "Adobe",
-        "mkt": "us",
-        "stance": "估值打壓",
-        "first_ep": 658,
-        "change_pct": -0.85,
-        "verdict": "partial",
-        "start_date": "2026-05-04",
-        "end_date": "2026-10-27",
-        "end_close": 251.79
-      }
-    ]
+    "flat": []
   },
   "validation": {
     "total": 36,
@@ -512,7 +499,7 @@
       "pending": 16
     },
     "hit_rate_pct": 55.0,
-    "avg_return_pct": 48.45,
+    "avg_return_pct": 48.34,
     "rows": [
       {
         "code": "2492",
@@ -612,11 +599,26 @@
         "first_ep": 661,
         "ep_count": 1,
         "start_date": "2026-05-13",
-        "end_date": "2026-10-27",
-        "days_elapsed": 167,
+        "end_date": "2026-10-28",
+        "days_elapsed": 168,
         "start_close": 213.17,
-        "end_close": 181.35,
-        "change_pct": -14.93,
+        "end_close": 181.87,
+        "change_pct": -14.69,
+        "verdict": "pending"
+      },
+      {
+        "code": "FORM",
+        "name": "FormFactor",
+        "mkt": "us",
+        "stance": "半導體測試",
+        "first_ep": 661,
+        "ep_count": 1,
+        "start_date": "2026-05-13",
+        "end_date": "2026-10-28",
+        "days_elapsed": 168,
+        "start_close": 129.31,
+        "end_close": 109.4,
+        "change_pct": -15.4,
         "verdict": "pending"
       },
       {
@@ -632,21 +634,6 @@
         "start_close": 270.5,
         "end_close": 228.0,
         "change_pct": -15.71,
-        "verdict": "pending"
-      },
-      {
-        "code": "FORM",
-        "name": "FormFactor",
-        "mkt": "us",
-        "stance": "半導體測試",
-        "first_ep": 661,
-        "ep_count": 1,
-        "start_date": "2026-05-13",
-        "end_date": "2026-10-27",
-        "days_elapsed": 167,
-        "start_close": 129.31,
-        "end_close": 105.73,
-        "change_pct": -18.24,
         "verdict": "pending"
       },
       {
@@ -687,11 +674,11 @@
         "first_ep": 661,
         "ep_count": 1,
         "start_date": "2026-05-13",
-        "end_date": "2026-10-27",
-        "days_elapsed": 167,
+        "end_date": "2026-10-28",
+        "days_elapsed": 168,
         "start_close": 99.6,
-        "end_close": 56.92,
-        "change_pct": -42.85,
+        "end_close": 60.42,
+        "change_pct": -39.34,
         "verdict": "pending"
       },
       {
@@ -705,8 +692,8 @@
         "end_date": "2026-10-27",
         "days_elapsed": 176,
         "start_close": 93.16,
-        "end_close": 219.47,
-        "change_pct": 135.58,
+        "end_close": 219.41,
+        "change_pct": 135.52,
         "verdict": "pending"
       },
       {
@@ -720,8 +707,8 @@
         "end_date": "2026-10-27",
         "days_elapsed": 176,
         "start_close": 117.31,
-        "end_close": 266.6,
-        "change_pct": 127.26,
+        "end_close": 268.02,
+        "change_pct": 128.47,
         "verdict": "hit"
       },
       {
@@ -735,8 +722,8 @@
         "end_date": "2026-10-27",
         "days_elapsed": 176,
         "start_close": 224.17,
-        "end_close": 329.43,
-        "change_pct": 46.96,
+        "end_close": 327.8,
+        "change_pct": 46.23,
         "verdict": "hit"
       },
       {
@@ -750,8 +737,8 @@
         "end_date": "2026-10-27",
         "days_elapsed": 176,
         "start_close": 146.03,
-        "end_close": 199.38,
-        "change_pct": 36.53,
+        "end_close": 198.73,
+        "change_pct": 36.09,
         "verdict": "hit"
       },
       {
@@ -765,8 +752,8 @@
         "end_date": "2026-10-27",
         "days_elapsed": 176,
         "start_close": 185.48,
-        "end_close": 242.72,
-        "change_pct": 30.86,
+        "end_close": 240.89,
+        "change_pct": 29.87,
         "verdict": "hit"
       },
       {
@@ -780,8 +767,8 @@
         "end_date": "2026-10-27",
         "days_elapsed": 176,
         "start_close": 198.48,
-        "end_close": 217.81,
-        "change_pct": 9.74,
+        "end_close": 217.94,
+        "change_pct": 9.8,
         "verdict": "partial"
       },
       {
@@ -795,8 +782,8 @@
         "end_date": "2026-10-27",
         "days_elapsed": 176,
         "start_close": 253.96,
-        "end_close": 251.79,
-        "change_pct": -0.85,
+        "end_close": 248.36,
+        "change_pct": -2.21,
         "verdict": "partial"
       },
       {
@@ -987,11 +974,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-10-27",
-        "days_elapsed": 146,
+        "end_date": "2026-10-28",
+        "days_elapsed": 147,
         "start_close": 241.28,
-        "end_close": 338.98,
-        "change_pct": 40.49,
+        "end_close": 340.92,
+        "change_pct": 41.29,
         "verdict": "pending"
       },
       {
@@ -1002,11 +989,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-05-27",
-        "end_date": "2026-10-27",
-        "days_elapsed": 153,
+        "end_date": "2026-10-28",
+        "days_elapsed": 154,
         "start_close": 440.36,
-        "end_close": 405.0,
-        "change_pct": -8.03,
+        "end_close": 401.42,
+        "change_pct": -8.84,
         "verdict": "pending"
       },
       {
@@ -1017,11 +1004,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-05-26",
-        "end_date": "2026-10-27",
-        "days_elapsed": 154,
+        "end_date": "2026-10-28",
+        "days_elapsed": 155,
         "start_close": 388.88,
-        "end_close": 320.17,
-        "change_pct": -17.67,
+        "end_close": 324.24,
+        "change_pct": -16.62,
         "verdict": "pending"
       },
       {
@@ -1032,11 +1019,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-10-27",
-        "days_elapsed": 146,
+        "end_date": "2026-10-28",
+        "days_elapsed": 147,
         "start_close": 301.65,
-        "end_close": 243.16,
-        "change_pct": -19.39,
+        "end_close": 249.28,
+        "change_pct": -17.36,
         "verdict": "pending"
       },
       {
@@ -1047,54 +1034,54 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-10-27",
-        "days_elapsed": 146,
+        "end_date": "2026-10-28",
+        "days_elapsed": 147,
         "start_close": 133.93,
-        "end_close": 77.46,
-        "change_pct": -42.17,
+        "end_close": 74.88,
+        "change_pct": -44.09,
         "verdict": "pending"
       }
     ]
   },
   "actions": [
     {
-      "title": "AI 設計服務族群續強",
+      "title": "AI 算力雙雄續抱",
       "stance": "逢回加碼",
-      "depends": "依據：EP690+EP691+EP692 多次提及 AI 基建與算力需求延續",
-      "checklist": "□ 盯 GUC(3443) 周 K 是否站穩均線<br>□ 聯發科(2454) 回測月線分批接<br>□ 單檔曝險控制在資產 15% 內",
-      "risk": "失準風險：若 ASIC 訂單遞延或客戶轉單，漲多拉回幅度恐達 20%",
+      "depends": "依據：EP690+EP691 持續看好 AI 算力鏈供需，GUC 與聯發科為 ASIC 核心受惠股",
+      "checklist": "□ 設定 10% 回檔分批加碼點<br>□ 觀察 CoWoS 產能利用率<br>□ 盯緊北美 CSP 資本支出指引",
+      "risk": "失準風險：ASIC 單價若遭殺價或客戶訂單延後，獲利動能恐降速",
       "tier": "opportunity"
     },
     {
-      "title": "AMD 續航力觀察",
-      "stance": "續抱設停利",
-      "depends": "依據：EP691+EP692 持續看好 AI GPU 第二供應鏈題材",
-      "checklist": "□ 設 15% 移動停利<br>□ 關注 MI350 出貨進度<br>□ 財報前減碼一半避震",
-      "risk": "失準風險：若 Nvidia 新品壓制份額，短線恐出現 10-15% 修正",
-      "tier": "opportunity"
-    },
-    {
-      "title": "旺宏跌破支撐警報",
-      "stance": "立即減碼",
-      "depends": "依據：EP690 曾提記憶體循環，實際表現 -40.4% 嚴重失準",
-      "checklist": "□ 跌破季線無條件砍半<br>□ 剩餘部位設 5% 停損<br>□ 轉進 HBM/高速介面族群",
-      "risk": "失準風險：若 NOR Flash 急單回溫，可能錯過短線反彈",
-      "tier": "redline"
-    },
-    {
-      "title": "台達電電源題材失溫",
-      "stance": "減碼觀望",
-      "depends": "依據：EP691 提及電源管理，但實際 -30.2% 偏離預期",
-      "checklist": "□ 月線下彎先出 1/3<br>□ 觀察 Q4 AI 電源訂單能見度<br>□ 等季報再決定是否回補",
-      "risk": "失準風險：若 GB200 散熱電源拉貨回溫，恐錯過反彈段",
+      "title": "AMD 強勢但警戒追高",
+      "stance": "持有不加碼",
+      "depends": "依據：EP691+EP692 提及 AI GPU 第二供應商題材，AMD 已累漲 161%",
+      "checklist": "□ 設 15% 停利保護<br>□ 觀察 MI350 出貨進度<br>□ 比對 NVDA 相對強弱",
+      "risk": "失準風險：高基期下財報若 miss，回檔幅度易放大",
       "tier": "caution"
     },
     {
-      "title": "被動元件國巨補漲",
-      "stance": "分批布局",
-      "depends": "依據：EP692 提及景氣循環底部翻揚，國巨 +113.2% 驗證趨勢",
-      "checklist": "□ 回測 20 日線分三批進<br>□ 設 8% 停損<br>□ 搭配華新科做族群分散",
-      "risk": "失準風險：若中國低價傾銷再起，報價反轉拉回風險升高",
+      "title": "台達電落後補跌處理",
+      "stance": "減碼停損",
+      "depends": "依據：EP690 原列電源散熱首選，但實際跌 30%，產業輪動已轉弱",
+      "checklist": "□ 跌破季線無條件減碼<br>□ 檢視電源供應器報價走勢<br>□ 資金轉進 ASIC 強勢股",
+      "risk": "失準風險：若 AI 伺服器電源需求重啟，可能錯過反彈",
+      "tier": "redline"
+    },
+    {
+      "title": "旺宏記憶體續弱出場",
+      "stance": "避開",
+      "depends": "依據：EP690+EP691 未再點名利基記憶體，股價已失準 -40%",
+      "checklist": "□ 立即認賠出清<br>□ 不接刀不攤平<br>□ 等待季報轉盈再評估",
+      "risk": "失準風險：NOR Flash 若因 AI 邊緣需求反轉，恐錯過底部",
+      "tier": "redline"
+    },
+    {
+      "title": "國巨被動元件抱緊",
+      "stance": "續抱觀察",
+      "depends": "依據：EP692 提及 AI 伺服器被動元件用量放大，國巨已漲 113%",
+      "checklist": "□ 月營收年增率持續 >20% 續抱<br>□ 跌破月線減碼一半<br>□ 留意 MLCC 報價",
+      "risk": "失準風險：高階 MLCC 競爭加劇，毛利率恐承壓",
       "tier": "opportunity"
     }
   ]
