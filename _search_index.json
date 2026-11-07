@@ -137908,18 +137908,6 @@
   },
   {
     "type": "stock",
-    "id": "stock3037",
-    "title": "3037 欣興",
-    "text": "3037 欣興 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
-    "tokens": [
-      "3037",
-      "欣",
-      "興"
-    ]
-  },
-  {
-    "type": "stock",
     "id": "stock8261",
     "title": "8261 富鼎",
     "text": "8261 富鼎 pending",
@@ -137932,26 +137920,14 @@
   },
   {
     "type": "stock",
-    "id": "stock2449",
-    "title": "2449 京元電",
-    "text": "2449 京元電 pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2449.html",
+    "id": "stock3037",
+    "title": "3037 欣興",
+    "text": "3037 欣興 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-3037.html",
     "tokens": [
-      "2449",
-      "京",
-      "元",
-      "電"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockQCOM",
-    "title": "QCOM Qualcomm",
-    "text": "QCOM Qualcomm pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
-    "tokens": [
-      "QCOM",
-      "Qualcomm"
+      "3037",
+      "欣",
+      "興"
     ]
   },
   {
@@ -137969,6 +137945,30 @@
   },
   {
     "type": "stock",
+    "id": "stockQCOM",
+    "title": "QCOM Qualcomm",
+    "text": "QCOM Qualcomm pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-QCOM.html",
+    "tokens": [
+      "QCOM",
+      "Qualcomm"
+    ]
+  },
+  {
+    "type": "stock",
+    "id": "stock2449",
+    "title": "2449 京元電",
+    "text": "2449 京元電 pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/tw-2449.html",
+    "tokens": [
+      "2449",
+      "京",
+      "元",
+      "電"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock3036",
     "title": "3036 文曄",
     "text": "3036 文曄 pending",
@@ -137981,6 +137981,17 @@
   },
   {
     "type": "stock",
+    "id": "stockFORM",
+    "title": "FORM FormFactor",
+    "text": "FORM FormFactor pending",
+    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
+    "tokens": [
+      "FORM",
+      "FormFactor"
+    ]
+  },
+  {
+    "type": "stock",
     "id": "stock6285",
     "title": "6285 啟碁",
     "text": "6285 啟碁 pending",
@@ -137989,17 +138000,6 @@
       "6285",
       "啟",
       "碁"
-    ]
-  },
-  {
-    "type": "stock",
-    "id": "stockFORM",
-    "title": "FORM FormFactor",
-    "text": "FORM FormFactor pending",
-    "url": "https://qwwaawwqq.github.io/gooaye-tracker/stock/us-FORM.html",
-    "tokens": [
-      "FORM",
-      "FormFactor"
     ]
   },
   {
