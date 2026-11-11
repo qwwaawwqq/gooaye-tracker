@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-10T17:14:32+00:00",
-  "data_end_date": "2026-11-10",
+  "updated_at": "2026-11-11T17:23:24+00:00",
+  "data_end_date": "2026-11-11",
   "perf": {
     "2308": {
       "symbol": "2308.TW",
@@ -316,50 +316,50 @@
       "symbol": "GOOGL",
       "start_date": "2026-05-26",
       "start_close": 388.88,
-      "end_date": "2026-11-10",
-      "end_close": 287.22,
-      "change_pct": -26.14,
-      "days_elapsed": 168,
+      "end_date": "2026-11-11",
+      "end_close": 293.54,
+      "change_pct": -24.52,
+      "days_elapsed": 169,
       "verdict": "pending"
     },
     "TSLA": {
       "symbol": "TSLA",
       "start_date": "2026-05-27",
       "start_close": 440.36,
-      "end_date": "2026-11-10",
-      "end_close": 376.18,
-      "change_pct": -14.57,
-      "days_elapsed": 167,
+      "end_date": "2026-11-11",
+      "end_close": 393.07,
+      "change_pct": -10.74,
+      "days_elapsed": 168,
       "verdict": "pending"
     },
     "MRVL": {
       "symbol": "MRVL",
       "start_date": "2026-06-03",
       "start_close": 301.65,
-      "end_date": "2026-11-10",
-      "end_close": 151.84,
-      "change_pct": -49.67,
-      "days_elapsed": 160,
+      "end_date": "2026-11-11",
+      "end_close": 173.91,
+      "change_pct": -42.35,
+      "days_elapsed": 161,
       "verdict": "pending"
     },
     "ON": {
       "symbol": "ON",
       "start_date": "2026-06-03",
       "start_close": 133.93,
-      "end_date": "2026-11-10",
-      "end_close": 68.14,
-      "change_pct": -49.12,
-      "days_elapsed": 160,
+      "end_date": "2026-11-11",
+      "end_close": 74.68,
+      "change_pct": -44.24,
+      "days_elapsed": 161,
       "verdict": "pending"
     },
     "SNOW": {
       "symbol": "SNOW",
       "start_date": "2026-06-03",
       "start_close": 241.28,
-      "end_date": "2026-11-10",
-      "end_close": 291.8,
-      "change_pct": 20.94,
-      "days_elapsed": 160,
+      "end_date": "2026-11-11",
+      "end_close": 308.04,
+      "change_pct": 27.67,
+      "days_elapsed": 161,
       "verdict": "pending"
     }
   },
@@ -974,11 +974,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-11-10",
-        "days_elapsed": 160,
+        "end_date": "2026-11-11",
+        "days_elapsed": 161,
         "start_close": 241.28,
-        "end_close": 291.8,
-        "change_pct": 20.94,
+        "end_close": 308.04,
+        "change_pct": 27.67,
         "verdict": "pending"
       },
       {
@@ -989,11 +989,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-05-27",
-        "end_date": "2026-11-10",
-        "days_elapsed": 167,
+        "end_date": "2026-11-11",
+        "days_elapsed": 168,
         "start_close": 440.36,
-        "end_close": 376.18,
-        "change_pct": -14.57,
+        "end_close": 393.07,
+        "change_pct": -10.74,
         "verdict": "pending"
       },
       {
@@ -1004,26 +1004,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-05-26",
-        "end_date": "2026-11-10",
-        "days_elapsed": 168,
+        "end_date": "2026-11-11",
+        "days_elapsed": 169,
         "start_close": 388.88,
-        "end_close": 287.22,
-        "change_pct": -26.14,
-        "verdict": "pending"
-      },
-      {
-        "code": "ON",
-        "name": "ON",
-        "mkt": "",
-        "stance": "",
-        "first_ep": null,
-        "ep_count": 0,
-        "start_date": "2026-06-03",
-        "end_date": "2026-11-10",
-        "days_elapsed": 160,
-        "start_close": 133.93,
-        "end_close": 68.14,
-        "change_pct": -49.12,
+        "end_close": 293.54,
+        "change_pct": -24.52,
         "verdict": "pending"
       },
       {
@@ -1034,55 +1019,70 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-11-10",
-        "days_elapsed": 160,
+        "end_date": "2026-11-11",
+        "days_elapsed": 161,
         "start_close": 301.65,
-        "end_close": 151.84,
-        "change_pct": -49.67,
+        "end_close": 173.91,
+        "change_pct": -42.35,
+        "verdict": "pending"
+      },
+      {
+        "code": "ON",
+        "name": "ON",
+        "mkt": "",
+        "stance": "",
+        "first_ep": null,
+        "ep_count": 0,
+        "start_date": "2026-06-03",
+        "end_date": "2026-11-11",
+        "days_elapsed": 161,
+        "start_close": 133.93,
+        "end_close": 74.68,
+        "change_pct": -44.24,
         "verdict": "pending"
       }
     ]
   },
   "actions": [
     {
-      "title": "GUC 創意漲幅爆表 獲利了結",
-      "stance": "分批減碼",
-      "depends": "依據：EP690+EP691 多次提及AI ASIC 設計服務熱度延續",
-      "checklist": "□ 設定10-20%停利賣壓位階<br>□ 保留1/3部位參與長線<br>□ 關注博通AVGO財報對族群情緒影響",
-      "risk": "失準風險：AI資本支出若放緩 ASIC 股評價面易快速修正",
+      "title": "GUC 創意 AI 續強",
+      "stance": "分批減碼鎖利",
+      "depends": "依據：EP692+EP691 多次提及 ASIC 族群熱度延續",
+      "checklist": "□ 漲幅已 +172% 分三批出<br>□ 設 10% 移動停利<br>□ 保留 1/3 單參與末升段",
+      "risk": "失準風險：ASIC 訂單若被 NV 自研取代，評價快速下修",
       "tier": "opportunity"
     },
     {
-      "title": "台達電失準 檢視電源族群",
+      "title": "聯發科順勢加碼",
+      "stance": "逢回加碼",
+      "depends": "依據：EP691+EP690 看好邊緣 AI 與手機晶片回溫",
+      "checklist": "□ 月線不破續抱<br>□ 回測 5 日線加碼<br>□ 停損設前低 -8%",
+      "risk": "失準風險：手機終端需求轉弱、匯率升值侵蝕毛利",
+      "tier": "opportunity"
+    },
+    {
+      "title": "台達電跌破須停損",
       "stance": "立即減碼",
-      "depends": "依據：EP690 曾點名電源散熱但實際績效 -51.3%",
-      "checklist": "□ 檢視持股成本是否已虧損超過停損線<br>□ 比較同業光寶、台光電相對強弱<br>□ 若跌破季線果斷出場轉進強勢股",
-      "risk": "失準風險：若AI伺服器電源訂單Q4回補 可能錯過反彈",
+      "depends": "依據：EP692+EP691 未再提及電源題材，熱度退潮",
+      "checklist": "□ 檢視持股比重降至 5% 以下<br>□ 跌破季線全出<br>□ 轉倉至 GUC 或聯發科",
+      "risk": "失準風險：若 GB200 機櫃放量回補，可能錯過反彈",
       "tier": "redline"
     },
     {
-      "title": "旺宏記憶體弱勢 避開不碰",
-      "stance": "避開",
-      "depends": "依據：EP691 題材提及但績效 -40.4% 明顯落後大盤",
-      "checklist": "□ 清空旺宏及相關NOR Flash 部位<br>□ 改追蹤HBM受惠股如南亞科<br>□ 等待月營收連兩月回升再評估",
-      "risk": "失準風險：消費性電子若急單湧現 利基型記憶體可能短彈",
-      "tier": "redline"
-    },
-    {
-      "title": "聯發科+國巨 續抱強勢雙雄",
-      "stance": "加碼",
-      "depends": "依據：EP690+EP692 多次強調IC設計與被動元件循環向上",
-      "checklist": "□ 回測月線分批加碼<br>□ 設定8%移動停利<br>□ 追蹤9月新品發表與法說會指引",
-      "risk": "失準風險：漲多乖離過大 外資調節時回檔幅度可能加深",
-      "tier": "opportunity"
-    },
-    {
-      "title": "CrowdStrike 資安題材觀察",
+      "title": "世芯 KY 觀望不搶反彈",
       "stance": "觀察",
-      "depends": "依據：EP690 NordVPN 贊助段落呼應資安需求 CRWD +128.5%",
-      "checklist": "□ 等待財報後回檔5-10%再進場<br>□ 關注ARR年增率是否維持30%以上<br>□ 分散配置 Palo Alto、Zscaler 避免單押",
-      "risk": "失準風險：美股科技股評價過高 利率反彈時成長股承壓",
+      "depends": "依據：EP690 僅點名未深入，籌碼轉弱",
+      "checklist": "□ 等季報確認 AWS 訂單<br>□ 不破前低才進場<br>□ 單筆部位控制 3% 內",
+      "risk": "失準風險：Google TPU 訂單若落空將再破底",
       "tier": "caution"
+    },
+    {
+      "title": "國巨被動元件轉強",
+      "stance": "分批進場",
+      "depends": "依據：EP692 提及傳產與零組件補漲輪動",
+      "checklist": "□ 第一筆 1/3 試單<br>□ 站穩月線加碼<br>□ 停損設 -7%",
+      "risk": "失準風險：中國低價被動元件殺價競爭、庫存回補不如預期",
+      "tier": "opportunity"
     }
   ]
 }
