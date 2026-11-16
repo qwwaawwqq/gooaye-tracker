@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-15T16:31:16+00:00",
-  "data_end_date": "2026-11-13",
+  "updated_at": "2026-11-16T19:47:09+00:00",
+  "data_end_date": "2026-11-16",
   "perf": {
     "2308": {
       "symbol": "2308.TW",
@@ -316,50 +316,50 @@
       "symbol": "GOOGL",
       "start_date": "2026-05-26",
       "start_close": 388.88,
-      "end_date": "2026-11-13",
-      "end_close": 295.77,
-      "change_pct": -23.94,
-      "days_elapsed": 171,
+      "end_date": "2026-11-16",
+      "end_close": 283.83,
+      "change_pct": -27.01,
+      "days_elapsed": 174,
       "verdict": "pending"
     },
     "TSLA": {
       "symbol": "TSLA",
       "start_date": "2026-05-27",
       "start_close": 440.36,
-      "end_date": "2026-11-13",
-      "end_close": 390.22,
-      "change_pct": -11.39,
-      "days_elapsed": 170,
+      "end_date": "2026-11-16",
+      "end_close": 375.79,
+      "change_pct": -14.66,
+      "days_elapsed": 173,
       "verdict": "pending"
     },
     "MRVL": {
       "symbol": "MRVL",
       "start_date": "2026-06-03",
       "start_close": 301.65,
-      "end_date": "2026-11-13",
-      "end_close": 156.76,
-      "change_pct": -48.03,
-      "days_elapsed": 163,
+      "end_date": "2026-11-16",
+      "end_close": 146.54,
+      "change_pct": -51.42,
+      "days_elapsed": 166,
       "verdict": "pending"
     },
     "ON": {
       "symbol": "ON",
       "start_date": "2026-06-03",
       "start_close": 133.93,
-      "end_date": "2026-11-13",
-      "end_close": 71.06,
-      "change_pct": -46.94,
-      "days_elapsed": 163,
+      "end_date": "2026-11-16",
+      "end_close": 68.32,
+      "change_pct": -48.98,
+      "days_elapsed": 166,
       "verdict": "pending"
     },
     "SNOW": {
       "symbol": "SNOW",
       "start_date": "2026-06-03",
       "start_close": 241.28,
-      "end_date": "2026-11-13",
-      "end_close": 291.0,
-      "change_pct": 20.61,
-      "days_elapsed": 163,
+      "end_date": "2026-11-16",
+      "end_close": 282.26,
+      "change_pct": 16.98,
+      "days_elapsed": 166,
       "verdict": "pending"
     }
   },
@@ -974,11 +974,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-11-13",
-        "days_elapsed": 163,
+        "end_date": "2026-11-16",
+        "days_elapsed": 166,
         "start_close": 241.28,
-        "end_close": 291.0,
-        "change_pct": 20.61,
+        "end_close": 282.26,
+        "change_pct": 16.98,
         "verdict": "pending"
       },
       {
@@ -989,11 +989,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-05-27",
-        "end_date": "2026-11-13",
-        "days_elapsed": 170,
+        "end_date": "2026-11-16",
+        "days_elapsed": 173,
         "start_close": 440.36,
-        "end_close": 390.22,
-        "change_pct": -11.39,
+        "end_close": 375.79,
+        "change_pct": -14.66,
         "verdict": "pending"
       },
       {
@@ -1004,11 +1004,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-05-26",
-        "end_date": "2026-11-13",
-        "days_elapsed": 171,
+        "end_date": "2026-11-16",
+        "days_elapsed": 174,
         "start_close": 388.88,
-        "end_close": 295.77,
-        "change_pct": -23.94,
+        "end_close": 283.83,
+        "change_pct": -27.01,
         "verdict": "pending"
       },
       {
@@ -1019,11 +1019,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-11-13",
-        "days_elapsed": 163,
+        "end_date": "2026-11-16",
+        "days_elapsed": 166,
         "start_close": 133.93,
-        "end_close": 71.06,
-        "change_pct": -46.94,
+        "end_close": 68.32,
+        "change_pct": -48.98,
         "verdict": "pending"
       },
       {
@@ -1034,54 +1034,54 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-11-13",
-        "days_elapsed": 163,
+        "end_date": "2026-11-16",
+        "days_elapsed": 166,
         "start_close": 301.65,
-        "end_close": 156.76,
-        "change_pct": -48.03,
+        "end_close": 146.54,
+        "change_pct": -51.42,
         "verdict": "pending"
       }
     ]
   },
   "actions": [
     {
-      "title": "AI 晶片雙雄續抱不追高",
-      "stance": "分批減碼獲利",
-      "depends": "依據：EP690+EP691 多次提及 AI 算力需求，GUC +172%、聯發科 +162% 已明顯超漲",
-      "checklist": "□ 漲幅超過 150% 部位先減 1/3<br>□ 設 10% 移動停利保護獲利<br>□ 回測季線再評估加碼",
-      "risk": "失準風險：AI 資本支出若延續 2027，恐錯過末升段行情",
-      "tier": "opportunity"
-    },
-    {
-      "title": "台達電失速立即檢討",
-      "stance": "停損或認賠",
-      "depends": "依據：EP690 原先列為電源族群首選，實際 -51.3% 明顯失準",
-      "checklist": "□ 單一部位虧損逾 20% 無條件砍半<br>□ 檢視是否為電源供應競爭格局改變<br>□ 資金轉進命中率高的 GUC、聯發科",
-      "risk": "失準風險：若為短期庫存調整，砍在阿呆谷",
-      "tier": "redline"
-    },
-    {
-      "title": "旺宏記憶體警戒",
-      "stance": "避開觀望",
-      "depends": "依據：EP691 原看好記憶體循環，旺宏 -40% 顯示利基型記憶體落後大盤",
-      "checklist": "□ 持股立即減碼至 2 成以下<br>□ 不接刀、等月線站回再談<br>□ 改追華邦電或南亞科觀察",
-      "risk": "失準風險：NOR Flash 若隨 AI eyewear 需求反彈將錯過",
-      "tier": "redline"
-    },
-    {
-      "title": "國巨被動元件可續抱",
+      "title": "AI 晶片龍頭持續領漲",
       "stance": "逢回加碼",
-      "depends": "依據：EP692 盤勢熱絡提及被動元件補漲，國巨 +113% 命中",
-      "checklist": "□ 拉回 5% 分批進場<br>□ 關注 MLCC 報價月增率<br>□ 設 8% 停損紀律",
-      "risk": "失準風險：中國同業低價搶單恐壓縮毛利",
+      "depends": "依據：EP690+EP691+EP692 近期節目多次提及 AI 算力與資料中心需求強勁，GUC、聯發科、AMD 均為命中標的",
+      "checklist": "□ 回檔 5-8% 分批布局<br>□ 鎖定 ASIC/AI 晶片族群<br>□ 設 15% 移動停利<br>□ 追蹤輝達財報與 CoWoS 產能",
+      "risk": "失準風險：AI 資本支出若放緩或轉單效應消失，估值修正恐超過 20%",
       "tier": "opportunity"
     },
     {
-      "title": "CrowdStrike 資安新機會",
-      "stance": "小量建倉",
-      "depends": "依據：EP690 NordVPN 業配延伸資安主題，CRWD +128% 驗證趨勢",
-      "checklist": "□ 首次部位控制 3% 以內<br>□ 財報公布前不加碼<br>□ 跌破 20 日線減半",
-      "risk": "失準風險：SaaS 估值偏高，升息預期回來恐修正",
+      "title": "台達電跌破支撐須停損",
+      "stance": "立即減碼",
+      "depends": "依據：EP690-EP692 皆未強化電源族群題材，台達電 -51.3% 已明顯失準",
+      "checklist": "□ 本週內出清一半部位<br>□ 跌破月線全數停損<br>□ 轉倉至命中族群(AI 晶片)<br>□ 暫停加碼電源供應相關",
+      "risk": "失準風險：若 AI 電源題材重新發酵可能錯過反彈，但目前基本面訊號偏弱",
+      "tier": "redline"
+    },
+    {
+      "title": "旺宏記憶體警戒訊號",
+      "stance": "避開觀望",
+      "depends": "依據：EP690-EP692 節目未特別點名記憶體補漲，旺宏 -40.4% 持續走弱",
+      "checklist": "□ 現有部位分批出場<br>□ 不接刀不攤平<br>□ 等待季報與產業庫存數據<br>□ 關注 NOR Flash 報價回升訊號",
+      "risk": "失準風險：若消費性電子回溫或車用需求爆發，可能錯失底部反轉",
+      "tier": "redline"
+    },
+    {
+      "title": "國巨被動元件補漲機會",
+      "stance": "分批進場",
+      "depends": "依據：EP691-EP692 提及景氣循環股輪動，國巨 +113.2% 動能延續中",
+      "checklist": "□ 拉回不破月線可進場<br>□ 分 3 批建倉<br>□ 搭配 MLCC 報價追蹤<br>□ 設 10% 停損",
+      "risk": "失準風險：被動元件報價若反轉或中國低價搶單，漲勢恐快速收斂",
+      "tier": "opportunity"
+    },
+    {
+      "title": "CrowdStrike 資安題材續強",
+      "stance": "逢低加碼",
+      "depends": "依據：EP690 節目主打 NordVPN 等數位安全主題，CRWD +128.5% 呼應資安大趨勢",
+      "checklist": "□ 美股回檔 5% 進場<br>□ 關注訂閱數與 ARR 成長<br>□ 搭配 PANW、ZS 分散<br>□ 財報前減碼一半避震",
+      "risk": "失準風險：SaaS 評價過高，若 Fed 轉鷹或財報 guidance 不佳恐回檔 15%+",
       "tier": "caution"
     }
   ]
