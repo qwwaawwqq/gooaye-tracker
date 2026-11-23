@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-22T17:19:20+00:00",
-  "data_end_date": "2026-11-20",
+  "updated_at": "2026-11-23T21:37:50+00:00",
+  "data_end_date": "2026-11-23",
   "perf": {
     "2308": {
       "symbol": "2308.TW",
@@ -336,30 +336,30 @@
       "symbol": "MRVL",
       "start_date": "2026-06-03",
       "start_close": 301.65,
-      "end_date": "2026-11-20",
-      "end_close": 122.28,
-      "change_pct": -59.46,
-      "days_elapsed": 170,
+      "end_date": "2026-11-23",
+      "end_close": 144.74,
+      "change_pct": -52.02,
+      "days_elapsed": 173,
       "verdict": "pending"
     },
     "ON": {
       "symbol": "ON",
       "start_date": "2026-06-03",
       "start_close": 133.93,
-      "end_date": "2026-11-20",
-      "end_close": 60.84,
-      "change_pct": -54.57,
-      "days_elapsed": 170,
+      "end_date": "2026-11-23",
+      "end_close": 66.77,
+      "change_pct": -50.15,
+      "days_elapsed": 173,
       "verdict": "pending"
     },
     "SNOW": {
       "symbol": "SNOW",
       "start_date": "2026-06-03",
       "start_close": 241.28,
-      "end_date": "2026-11-20",
-      "end_close": 254.82,
-      "change_pct": 5.61,
-      "days_elapsed": 170,
+      "end_date": "2026-11-23",
+      "end_close": 271.27,
+      "change_pct": 12.43,
+      "days_elapsed": 173,
       "verdict": "pending"
     }
   },
@@ -974,11 +974,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-11-20",
-        "days_elapsed": 170,
+        "end_date": "2026-11-23",
+        "days_elapsed": 173,
         "start_close": 241.28,
-        "end_close": 254.82,
-        "change_pct": 5.61,
+        "end_close": 271.27,
+        "change_pct": 12.43,
         "verdict": "pending"
       },
       {
@@ -1019,11 +1019,11 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-11-20",
-        "days_elapsed": 170,
+        "end_date": "2026-11-23",
+        "days_elapsed": 173,
         "start_close": 133.93,
-        "end_close": 60.84,
-        "change_pct": -54.57,
+        "end_close": 66.77,
+        "change_pct": -50.15,
         "verdict": "pending"
       },
       {
@@ -1034,54 +1034,54 @@
         "first_ep": null,
         "ep_count": 0,
         "start_date": "2026-06-03",
-        "end_date": "2026-11-20",
-        "days_elapsed": 170,
+        "end_date": "2026-11-23",
+        "days_elapsed": 173,
         "start_close": 301.65,
-        "end_close": 122.28,
-        "change_pct": -59.46,
+        "end_close": 144.74,
+        "change_pct": -52.02,
         "verdict": "pending"
       }
     ]
   },
   "actions": [
     {
-      "title": "GUC 創意 AI ASIC 續抱",
+      "title": "AI 晶片雙雄續抱",
       "stance": "逢回加碼",
-      "depends": "依據：EP690+EP691 AI 基建與客製化晶片題材延續，命中 +172%",
-      "checklist": "□ 檢視 10 日均線支撐<br>□ 關注博通法說與 ASIC 訂單<br>□ 分批加碼不追高",
-      "risk": "失準風險：若 AVGO 持續走弱恐拖累 ASIC 族群評價",
+      "depends": "依據：EP690+EP691+EP692 多次提及 AI 算力需求未停，命中創意與聯發科",
+      "checklist": "□ 回檔至月線分批加碼<br>□ 設 10% 移動停利<br>□ 關注 CSP 資本支出新聞",
+      "risk": "失準風險：若 CSP 砍單或 ASIC 競爭加劇，漲多拉回幅度大",
       "tier": "opportunity"
     },
     {
-      "title": "聯發科補漲題材續航",
-      "stance": "逢低加碼",
-      "depends": "依據：EP690+EP692 AI 手機與邊緣運算題材，命中 +162%",
-      "checklist": "□ 觀察天璣新品進度<br>□ 留意輝達合作 PC 晶片<br>□ 跌破季線減碼一半",
-      "risk": "失準風險：手機終端需求疲弱、匯率干擾獲利",
+      "title": "台達電部位立即檢視",
+      "stance": "減碼停損",
+      "depends": "依據：近三集未強力背書電源族群，台達電 -51.3% 明顯失準",
+      "checklist": "□ 跌破季線先砍一半<br>□ 不要攤平<br>□ 轉倉至命中率高的 GUC/聯發科",
+      "risk": "失準風險：若液冷電源題材重啟，可能錯過反彈",
+      "tier": "redline"
+    },
+    {
+      "title": "世芯 Broadcom ASIC 警訊",
+      "stance": "提高警覺",
+      "depends": "依據：EP690-692 風向偏向 GPU/邊緣運算，ASIC 概念相對弱勢",
+      "checklist": "□ 檢視 ASIC 部位比重<br>□ 跌破前低減半<br>□ 觀察 Google TPU 訂單變化",
+      "risk": "失準風險：Q4 若有新客戶 tape-out 消息，可能瞬間翻多",
+      "tier": "caution"
+    },
+    {
+      "title": "國巨被動元件順風車",
+      "stance": "分批進場",
+      "depends": "依據：節目近期提及零組件補庫存循環，國巨 +113.2% 驗證趨勢",
+      "checklist": "□ 拉回不破 20 日線可進<br>□ 單筆部位不超過 5%<br>□ 搭配觀察日系同業報價",
+      "risk": "失準風險：消費性需求若再轉弱，庫存去化不如預期",
       "tier": "opportunity"
     },
     {
-      "title": "台達電失速須立即檢視",
-      "stance": "停損減碼",
-      "depends": "依據：EP691+EP692 未提及電源供應鏈利多，績效 -51%",
-      "checklist": "□ 立即檢視成本價位<br>□ 跌破年線強制減碼<br>□ 資金轉進 GUC 或聯發科",
-      "risk": "失準風險：若 AI 電源題材回溫可能錯過反彈",
-      "tier": "redline"
-    },
-    {
-      "title": "旺宏記憶體避開勿接刀",
-      "stance": "避開",
-      "depends": "依據：EP690-EP692 皆無記憶體利多，績效 -40%",
-      "checklist": "□ 持股者分批出清<br>□ 不逢低攤平<br>□ 觀察 NOR Flash 報價落底訊號",
-      "risk": "失準風險：任天堂新機拉貨若超預期恐錯過落底",
-      "tier": "redline"
-    },
-    {
-      "title": "國巨被動元件轉機",
-      "stance": "觀察加碼",
-      "depends": "依據：EP691 併購題材與 AI 伺服器拉貨，命中 +113%",
-      "checklist": "□ 追蹤 MLCC 報價<br>□ 觀察併購整合進度<br>□ 月線站穩再加碼",
-      "risk": "失準風險：消費性電子復甦不如預期恐壓抑評價",
+      "title": "資安股 CRWD 續抱",
+      "stance": "抱緊觀察",
+      "depends": "依據：EP690 NordVPN 段落延伸資安主題，CrowdStrike +128.5% 命中",
+      "checklist": "□ 財報前不加碼<br>□ 跌破 50 日線減碼<br>□ 關注 ARR 年增率是否 >30%",
+      "risk": "失準風險：SaaS 評價過高，升息或財報不如預期易殺估值",
       "tier": "caution"
     }
   ]
