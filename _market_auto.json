@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T19:31:51+00:00",
+  "updated_at": "2026-11-26T19:14:57+00:00",
   "data_end_date": "2026-11-25",
   "perf": {
     "2308": {
@@ -337,8 +337,8 @@
       "start_date": "2026-06-03",
       "start_close": 301.65,
       "end_date": "2026-11-25",
-      "end_close": 129.66,
-      "change_pct": -57.02,
+      "end_close": 130.93,
+      "change_pct": -56.6,
       "days_elapsed": 175,
       "verdict": "pending"
     },
@@ -347,8 +347,8 @@
       "start_date": "2026-06-03",
       "start_close": 133.93,
       "end_date": "2026-11-25",
-      "end_close": 62.06,
-      "change_pct": -53.66,
+      "end_close": 62.48,
+      "change_pct": -53.35,
       "days_elapsed": 175,
       "verdict": "pending"
     },
@@ -357,8 +357,8 @@
       "start_date": "2026-06-03",
       "start_close": 241.28,
       "end_date": "2026-11-25",
-      "end_close": 266.83,
-      "change_pct": 10.59,
+      "end_close": 267.72,
+      "change_pct": 10.96,
       "days_elapsed": 175,
       "verdict": "pending"
     }
@@ -977,8 +977,8 @@
         "end_date": "2026-11-25",
         "days_elapsed": 175,
         "start_close": 241.28,
-        "end_close": 266.83,
-        "change_pct": 10.59,
+        "end_close": 267.72,
+        "change_pct": 10.96,
         "verdict": "pending"
       },
       {
@@ -1022,8 +1022,8 @@
         "end_date": "2026-11-25",
         "days_elapsed": 175,
         "start_close": 133.93,
-        "end_close": 62.06,
-        "change_pct": -53.66,
+        "end_close": 62.48,
+        "change_pct": -53.35,
         "verdict": "pending"
       },
       {
@@ -1037,52 +1037,52 @@
         "end_date": "2026-11-25",
         "days_elapsed": 175,
         "start_close": 301.65,
-        "end_close": 129.66,
-        "change_pct": -57.02,
+        "end_close": 130.93,
+        "change_pct": -56.6,
         "verdict": "pending"
       }
     ]
   },
   "actions": [
     {
-      "title": "GUC 創意漲勢續航",
-      "stance": "分批減碼獲利",
-      "depends": "依據：EP692+EP691 節目多次提及 AI ASIC 供應鏈題材，創意累積漲幅已達 +172.3%",
-      "checklist": "□ 設定 20% 移動停利<br>□ 分 3 批出場鎖利<br>□ 觀察 CoWoS 產能新聞<br>□ 留意台積電法說指引",
-      "risk": "失準風險：AI 資本支出若延後或 ASIC 訂單轉單，漲多拉回幅度恐超過 30%",
-      "tier": "opportunity"
-    },
-    {
-      "title": "台達電失速警報",
-      "stance": "立即減碼避險",
-      "depends": "依據：EP690+EP691 原先電源供應題材續強預期，實際卻 -51.3% 嚴重失準",
-      "checklist": "□ 檢視持股成本與部位<br>□ 跌破季線立即停損<br>□ 轉換至 GB200 直接受惠股<br>□ 等待 Q4 法說再評估",
-      "risk": "失準風險：若為短線修正而非趨勢反轉，過早出清將錯失反彈行情",
-      "tier": "redline"
-    },
-    {
-      "title": "聯發科 AI 手機卡位",
-      "stance": "逢回加碼",
-      "depends": "依據：EP691+EP692 節目強調 AI 邊緣運算與天璣旗艦晶片放量，命中 +162%",
-      "checklist": "□ 月線附近分批布局<br>□ 關注 Q4 旗艦晶片出貨<br>□ 追蹤 ASIC 客戶進展<br>□ 設 15% 停損保護",
-      "risk": "失準風險：手機需求轉弱或 ASIC 客戶流失，將壓縮本益比空間",
-      "tier": "opportunity"
-    },
-    {
-      "title": "旺宏記憶體警戒",
-      "stance": "觀察不碰",
-      "depends": "依據：EP690 曾點名記憶體循環題材，旺宏實際 -40.4% 嚴重落後同業",
-      "checklist": "□ 暫不新增部位<br>□ 既有持股減至半碼<br>□ 等待營收連 3 月轉正<br>□ 改追華邦電或南亞科",
-      "risk": "失準風險：NOR Flash 若隨 AI 伺服器需求回升，可能錯過底部反轉",
+      "title": "AI 晶片雙雄續抱不追高",
+      "stance": "持有不加碼",
+      "depends": "依據：EP690+EP691+EP692 多次提及 AI 算力主線未變，GUC +172%、聯發科 +162%、AMD +162% 已大幅領先",
+      "checklist": "□ 設定 10-15% 移動停利防獲利回吐<br>□ 分批減碼鎖利，留底部成本續跑<br>□ 等回測季線再評估加碼點",
+      "risk": "失準風險：漲幅已反映多數利多，Q4 財報若不如預期易引發獲利了結殺盤",
       "tier": "caution"
     },
     {
-      "title": "國巨被動元件回神",
-      "stance": "分批進場",
-      "depends": "依據：EP692 提及被動元件漲價循環，國巨命中 +113.2% 動能強勁",
-      "checklist": "□ 回測月線分批買進<br>□ 追蹤 MLCC 報價<br>□ 觀察車用與 AI 伺服器出貨<br>□ 設 10% 移動停利",
-      "risk": "失準風險：中國同業殺價或終端需求疲弱，恐重演 2018 崩跌劇本",
+      "title": "台達電跌破支撐須停損",
+      "stance": "減碼或停損",
+      "depends": "依據：EP690-EP692 電力基建題材熱度未退，但台達電卻 -51.3% 嚴重落後族群，籌碼面警訊明顯",
+      "checklist": "□ 跌破月線立即減碼一半<br>□ 檢視季報毛利率是否惡化<br>□ 資金轉進強勢電力股如中興電、華城",
+      "risk": "失準風險：若為外資法人季底調節，反彈恐錯殺；須分批處理非一次出清",
+      "tier": "redline"
+    },
+    {
+      "title": "國巨補漲行情續觀察",
+      "stance": "逢回加碼",
+      "depends": "依據：EP691+EP692 被動元件庫存去化接近尾聲，國巨 +113% 動能轉強",
+      "checklist": "□ 回測 20 日均線分批進場<br>□ 關注 MLCC 報價是否連三月回升<br>□ 設 8% 停損紀律執行",
+      "risk": "失準風險：中國低階產能殺價競爭，若消費性需求不如預期恐再探底",
       "tier": "opportunity"
+    },
+    {
+      "title": "CrowdStrike 資安續強",
+      "stance": "分批布局",
+      "depends": "依據：EP690 NordVPN 段落點出資安需求爆發，CRWD +128.5% 驗證主線，AI 資安為 2026 新題材",
+      "checklist": "□ 美股回檔 5-8% 分批進場<br>□ 鎖定 ARR 年增率 >25% 的財報<br>□ 配置不超過美股部位 10%",
+      "risk": "失準風險：SaaS 估值偏高，若 Fed 延後降息高本益比股將承壓",
+      "tier": "opportunity"
+    },
+    {
+      "title": "世芯、旺宏 ASIC 失速",
+      "stance": "避開觀望",
+      "depends": "依據：EP692 ASIC 題材熱度下滑，世芯 -12.5%、旺宏 -40.4%，客戶訂單能見度轉弱",
+      "checklist": "□ 持股者反彈至月線減碼<br>□ 未持有者暫勿接刀<br>□ 等 Q4 新案件公告再評估",
+      "risk": "失準風險：若新客戶（如 Meta、Google）追加 ASIC 委外設計案，股價可能急拉錯失",
+      "tier": "caution"
     }
   ]
 }
